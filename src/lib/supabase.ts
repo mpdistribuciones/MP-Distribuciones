@@ -156,3 +156,35 @@ export const dbToOrder = (row: any): Order => {
     date: row.date || new Date().toISOString(),
   };
 };
+
+// ==========================================
+// Storage: Subida de imágenes a Supabase
+// ==========================================
+export const uploadProductImage = async (fileOrBlob: Blob, filename?: string): Promise<string | null> => {
+  const client = getSupabaseClient();
+  if (!client) return null;
+
+  try {
+    const ext = 'jpg';
+    const cleanName = `${Date.now()}_${(filename || 'prod').replace(/[^a-zA-Z0-9_-]/g, '_')}.${ext}`;
+    const filePath = `products/${cleanName}`;
+
+    const { error: uploadError } = await client.storage
+      .from('product-images')
+      .upload(filePath, fileOrBlob, {
+        contentType: 'image/jpeg',
+        upsert: true,
+      });
+
+    if (uploadError) {
+      console.warn('[Supabase Storage] No se pudo subir imagen a Storage:', uploadError.message);
+      return null;
+    }
+
+    const { data } = client.storage.from('product-images').getPublicUrl(filePath);
+    return data.publicUrl;
+  } catch (err) {
+    console.warn('[Supabase Storage] Error inesperado en upload:', err);
+    return null;
+  }
+};

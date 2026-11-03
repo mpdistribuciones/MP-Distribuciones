@@ -91,3 +91,24 @@ CREATE INDEX IF NOT EXISTS idx_products_category ON public.products (category);
 CREATE INDEX IF NOT EXISTS idx_products_in_stock ON public.products (in_stock);
 CREATE INDEX IF NOT EXISTS idx_orders_user_id ON public.orders (user_id);
 CREATE INDEX IF NOT EXISTS idx_orders_date ON public.orders (date DESC);
+
+-- ==============================================================================
+-- 6. CONFIGURACIÓN DE STORAGE (FOTOS DE PRODUCTOS)
+-- ==============================================================================
+-- Bucket público para almacenar las fotos del catálogo optimizadas
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('product-images', 'product-images', true)
+ON CONFLICT (id) DO UPDATE SET public = true;
+
+-- Políticas de acceso para el bucket de imágenes
+DROP POLICY IF EXISTS "Permitir lectura publica de imagenes" ON storage.objects;
+CREATE POLICY "Permitir lectura publica de imagenes" ON storage.objects
+  FOR SELECT USING (bucket_id = 'product-images');
+
+DROP POLICY IF EXISTS "Permitir subida de imagenes" ON storage.objects;
+CREATE POLICY "Permitir subida de imagenes" ON storage.objects
+  FOR INSERT WITH CHECK (bucket_id = 'product-images');
+
+DROP POLICY IF EXISTS "Permitir actualizacion y borrado de imagenes" ON storage.objects;
+CREATE POLICY "Permitir actualizacion y borrado de imagenes" ON storage.objects
+  FOR ALL USING (bucket_id = 'product-images');

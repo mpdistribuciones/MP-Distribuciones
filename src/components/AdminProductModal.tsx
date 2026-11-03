@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Product, Category } from '../types';
 import { CATEGORIES } from '../data/categories';
 import { useApp } from '../context/AppContext';
+import { isSupabaseConfigured, uploadProductImage } from '../lib/supabase';
 import {
   X,
   Plus,
@@ -14,6 +15,7 @@ import {
   Barcode,
   Camera,
   Trash2,
+  Loader2,
 } from 'lucide-react';
 
 interface AdminProductModalProps {
@@ -42,6 +44,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [minWholesaleQty, setMinWholesaleQty] = useState<number>(1);
   const [badge, setBadge] = useState<'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO' | ''>('');
   const [imageUrl, setImageUrl] = useState('');
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
   const imageFileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -91,7 +94,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     reader.onload = (uploadEvent) => {
       const img = new Image();
       img.onload = () => {
-        // Resize and optimize image to max 800px width/height to save localStorage quota
+        // Resize and optimize image to max 800px width/height to save quota
         const canvas = document.createElement('canvas');
         const maxDim = 800;
         let width = img.width;
@@ -109,6 +112,21 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         ctx?.drawImage(img, 0, 0, width, height);
         const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
         setImageUrl(dataUrl);
+
+        // Si Supabase Storage está configurado, subir en segundo plano para URL pública
+        if (isSupabaseConfigured()) {
+          canvas.toBlob(async (blob) => {
+            if (blob) {
+              setIsUploadingImage(true);
+              const fileNamePrefix = sku.trim() || name.trim() || 'foto_producto';
+              const publicUrl = await uploadProductImage(blob, fileNamePrefix);
+              setIsUploadingImage(false);
+              if (publicUrl) {
+                setImageUrl(publicUrl);
+              }
+            }
+          }, 'image/jpeg', 0.85);
+        }
       };
       img.src = uploadEvent.target?.result as string;
     };
@@ -443,7 +461,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             {/* Live Preview */}
             {imageUrl && (
               <div className="flex items-center gap-3 pt-1">
-                <div className="w-16 h-16 rounded-xl border border-slate-300 bg-white p-1.5 shrink-0 flex items-center justify-center overflow-hidden shadow-xs">
+                <div className="w-16 h-16 rounded-xl border border-slate-300 bg-white p-1.5 shrink-0 flex items-center justify-center overflow-hidden shadow-xs relative">
                   <img
                     src={imageUrl}
                     alt="Preview"
@@ -453,12 +471,28 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                         'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=150&q=80';
                     }}
                   />
+                  {isUploadingImage && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <Loader2 className="w-5 h-5 text-white animate-spin" />
+                    </div>
+                  )}
                 </div>
                 <div className="text-xs text-slate-500">
                   <p className="font-bold text-slate-700">Previsualización de la foto</p>
-                  <p className="text-[11px] text-emerald-600 font-semibold">
-                    {imageUrl.startsWith('data:') ? '✓ Foto cargada localmente y optimizada' : '✓ Imagen vinculada por URL'}
-                  </p>
+                  {isUploadingImage ? (
+                    <p className="text-[11px] text-blue-600 font-semibold flex items-center gap-1">
+                      <Loader2 className="w-3 h-3 animate-spin" />
+                      Subiendo a Supabase Storage...
+                    </p>
+                  ) : (
+                    <p className="text-[11px] text-emerald-600 font-semibold">
+                      {imageUrl.includes('supabase.co')
+                        ? '✓ Alojada en Supabase Storage (Nube)'
+                        : imageUrl.startsWith('data:')
+                        ? '✓ Foto optimizada localmente'
+                        : '✓ Imagen vinculada por URL'}
+                    </p>
+                  )}
                 </div>
               </div>
             )}
