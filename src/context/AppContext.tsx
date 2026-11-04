@@ -206,8 +206,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_PRODUCTS);
       if (saved !== null) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) {
-          if (parsed.length === 0) return [];
+        if (Array.isArray(parsed) && parsed.length > 0) {
           return parsed.map((item: Product, index: number) => {
             const original = PRODUCTS.find((p) => p.id === item.id || p.sku === item.sku);
             const fallbackDate = new Date(Date.now() - index * 86400000 * 2).toISOString();
@@ -823,12 +822,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (prodErr) {
         console.error('[Supabase Sync Products Error]:', prodErr);
       } else if (dbProducts) {
-        const mapped = dbProducts.map(dbToProduct);
-        setProducts(mapped);
-        try {
-          localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(mapped));
-        } catch (e) {
-          // ignore
+        if (dbProducts.length === 0) {
+          console.log('[Supabase Sync] Base vacía, subiendo catálogo oficial...');
+          await uploadAllToSupabase();
+        } else {
+          const mapped = dbProducts.map(dbToProduct);
+          setProducts(mapped);
+          try {
+            localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(mapped));
+          } catch (e) {
+            // ignore
+          }
         }
       }
 
@@ -857,7 +861,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  // Upload full local catalog to Supabase
+  // Upload full local catalog to Supabase in batches
   const uploadAllToSupabase = async () => {
     const client = getSupabaseClient();
     if (!client) {
@@ -866,9 +870,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
     setIsSyncingSupabase(true);
     try {
-      const rows = products.map(productToDb);
-      const { error } = await client.from('products').upsert(rows, { onConflict: 'id' });
-      if (error) throw error;
+      const listToUpload = products.length > 0 ? products : PRODUCTS;
+      const rows = listToUpload.map(productToDb);
+      for (let i = 0; i < rows.length; i += 100) {
+        const batch = rows.slice(i, i + 100);
+        const { error } = await client.from('products').upsert(batch, { onConflict: 'id' });
+        if (error) throw error;
+      }
       setIsSupabaseConnected(true);
       showToast(`¡Se subieron ${rows.length} productos a Supabase Cloud exitosamente!`, 'success');
     } catch (err: any) {
