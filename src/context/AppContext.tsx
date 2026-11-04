@@ -853,7 +853,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
 
       setIsSupabaseConnected(true);
-      showToast('Catálogo sincronizado con Supabase Cloud.', 'success');
+      if (isAdminLoggedIn || isAdminView) {
+        showToast('Catálogo sincronizado con Supabase Cloud.', 'success');
+      }
     } catch (err: any) {
       console.error('[Supabase Sync Error]:', err);
     } finally {
@@ -865,7 +867,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const uploadAllToSupabase = async () => {
     const client = getSupabaseClient();
     if (!client) {
-      showToast('Supabase no está configurado aún.', 'warning');
+      if (isAdminLoggedIn || isAdminView) {
+        showToast('Supabase no está configurado aún.', 'warning');
+      }
       return;
     }
     setIsSyncingSupabase(true);
@@ -878,10 +882,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (error) throw error;
       }
       setIsSupabaseConnected(true);
-      showToast(`¡Se subieron ${rows.length} productos a Supabase Cloud exitosamente!`, 'success');
+      if (isAdminLoggedIn || isAdminView) {
+        showToast(`¡Se subieron ${rows.length} productos a Supabase Cloud exitosamente!`, 'success');
+      }
     } catch (err: any) {
       console.error('[Supabase Upload Error]:', err);
-      showToast('Error al subir catálogo a Supabase: ' + err.message, 'error');
+      if (isAdminLoggedIn || isAdminView) {
+        showToast('Error al subir catálogo a Supabase: ' + err.message, 'error');
+      }
     } finally {
       setIsSyncingSupabase(false);
     }
