@@ -11,24 +11,26 @@ export type SortByOption =
 
 export type Category =
   | 'NOTEBOOKS'
-  | 'HARDWARE'
-  | 'ALMACENAMIENTO'
-  | 'PERIFERICOS'
-  | 'AURICULARES'
   | 'CONSOLAS Y GAMERS'
-  | 'CONECTIVIDAD'
-  | 'SEGURIDAD'
-  | 'INSUMOS'
-  | 'SMARTWATCHES'
+  | 'POLIRUBRO / HOGAR'
+  | 'VARIOS'
+  | 'SMARTWACHES'
   | 'STREAMING'
+  | 'CELULARES / PS5'
+  | 'ALMACENAMIENTO'
+  | 'INSUMOS'
   | 'CARGADORES NB'
+  | 'CARGADOR Y CABLE CELULAR V8'
   | 'CARGADOR Y CABLE CELULAR TIPO C'
   | 'CARGADOR Y CABLE CELULAR IPHONE'
-  | 'CARGADOR Y CABLE CELULAR V8'
   | 'CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO'
   | 'ACCESORIOS, ADAPTADORES Y CABLES'
-  | 'POLIRUBRO'
-  | 'VARIOS';
+  | 'AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)'
+  | 'CONECTIVIDAD'
+  | 'SEGURIDAD'
+  | 'PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)'
+  | 'HARDWARE'
+  | string;
 
 export interface Product {
   id: string;
@@ -44,7 +46,7 @@ export interface Product {
   priceARS?: number; // Price in ARS if set in pesos
   inStock: boolean;
   stockQuantity: number;
-  badge?: 'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO';
+  badge?: 'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO' | null;
   imageUrl: string;
   minWholesaleQty?: number;
   createdAt?: string; // ISO date timestamp for sorting
