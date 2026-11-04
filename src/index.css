@@ -55,6 +55,22 @@
   overflow: hidden;
 }
 
+/* Ocultar badge publicitario inyectado por Netlify */
+#nl-hud-frame,
+iframe#nl-hud-frame,
+iframe[id*="nl-hud"],
+iframe[src*="netlify"],
+[data-netlify-badge] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  z-index: -9999 !important;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

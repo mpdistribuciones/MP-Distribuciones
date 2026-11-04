@@ -14,5 +14,32 @@
   <body class="bg-[#f1f5f9] text-slate-900 min-h-screen selection:bg-blue-600 selection:text-white antialiased font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function () {
+        var removeBadge = function () {
+          var f = document.getElementById('nl-hud-frame');
+          if (f) f.remove();
+          var s = document.querySelector('script[data-nf-variant]');
+          if (s) s.remove();
+        };
+        try {
+          var obs = new MutationObserver(function (mutations) {
+            for (var i = 0; i < mutations.length; i++) {
+              var nodes = mutations[i].addedNodes;
+              for (var j = 0; j < nodes.length; j++) {
+                var node = nodes[j];
+                if (node.id === 'nl-hud-frame' || (node.tagName === 'IFRAME' && (node.id || '').indexOf('hud') !== -1)) {
+                  node.remove();
+                }
+              }
+            }
+          });
+          obs.observe(document.documentElement, { childList: true, subtree: true });
+        } catch (e) {}
+        window.addEventListener('DOMContentLoaded', removeBadge);
+        window.addEventListener('load', removeBadge);
+        setInterval(removeBadge, 500);
+      })();
+    </script>
   </body>
 </html>
