@@ -203,10 +203,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [products, setProducts] = useState<Product[]>(() => {
     const initialRate = Number(localStorage.getItem(LOCAL_STORAGE_KEY_EXCHANGE)) || 1350;
     try {
+      const catalogVersion = localStorage.getItem('mp_catalog_version');
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_PRODUCTS);
-      if (saved !== null) {
+      
+      // Solo mantener productos guardados si ya pertenecen a la versión oficial v2 (767 productos con IDs mp_prod_)
+      if (saved !== null && catalogVersion === 'mp_767_real_v1') {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.id?.startsWith('mp_prod_')) {
           return parsed.map((item: Product, index: number) => {
             const original = PRODUCTS.find((p) => p.id === item.id || p.sku === item.sku);
             const fallbackDate = new Date(Date.now() - index * 86400000 * 2).toISOString();
@@ -231,6 +234,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           });
         }
       }
+      
+      // Si el navegador tenía la demo vieja de 400 items o no tiene datos, migrar automáticamente al catálogo oficial (767)
+      localStorage.setItem('mp_catalog_version', 'mp_767_real_v1');
+      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(PRODUCTS));
       return PRODUCTS;
     } catch {
       return PRODUCTS;
@@ -532,8 +539,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const resetProductsToDefault = () => {
     setProducts(PRODUCTS);
-    localStorage.removeItem(LOCAL_STORAGE_KEY_PRODUCTS);
-    showToast('Catálogo restablecido a valores demo oficiales.', 'info');
+    localStorage.setItem('mp_catalog_version', 'mp_767_real_v1');
+    localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(PRODUCTS));
+    showToast('Catálogo restablecido al catálogo oficial de 767 artículos de MP Distribuciones.', 'info');
 
     const client = getSupabaseClient();
     if (client) {

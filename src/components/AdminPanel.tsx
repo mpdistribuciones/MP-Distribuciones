@@ -571,12 +571,12 @@ export const AdminPanel: React.FC = () => {
               {/* Reset to Factory Demo */}
               <button
                 onClick={() => {
-                  if (window.confirm('¿Desea restablecer el catálogo a los datos demo de fábrica? Se perderán las modificaciones no guardadas.')) {
+                  if (window.confirm('¿Desea restablecer el catálogo a los 767 artículos oficiales de MP Distribuciones? Se actualizarán todos los productos con las fotos de Google Photos.')) {
                     resetProductsToDefault();
                   }
                 }}
                 className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-colors"
-                title="Restablecer catálogo a valores de fábrica"
+                title="Restablecer a los 767 artículos oficiales con fotos"
               >
                 <RefreshCw className="w-4 h-4" />
               </button>
