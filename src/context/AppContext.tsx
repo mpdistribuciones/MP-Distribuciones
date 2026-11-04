@@ -37,6 +37,8 @@ interface AppContextType {
   updatePrice: (id: string, newPrice: number, priceCurrency?: 'USD' | 'ARS') => void;
   applyPercentagePriceAdjustment: (percentage: number) => void;
   bulkUpdateProducts: (updatedList: Product[]) => void;
+  replaceProducts: (updatedList: Product[]) => Promise<void>;
+  clearAllProducts: () => Promise<void>;
   resetProductsToDefault: () => void;
 
   // Admin Session
@@ -202,10 +204,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const initialRate = Number(localStorage.getItem(LOCAL_STORAGE_KEY_EXCHANGE)) || 1350;
     try {
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_PRODUCTS);
-      if (saved) {
+      if (saved !== null) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          // Hydrate createdAt, priceCurrency and priceARS if missing from previous cached state
+        if (Array.isArray(parsed)) {
+          if (parsed.length === 0) return [];
           return parsed.map((item: Product, index: number) => {
             const original = PRODUCTS.find((p) => p.id === item.id || p.sku === item.sku);
             const fallbackDate = new Date(Date.now() - index * 86400000 * 2).toISOString();
@@ -483,6 +485,50 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           if (error) console.error('[Supabase Bulk Upsert Error]:', error);
         });
     }
+  };
+
+  const replaceProducts = async (newList: Product[]) => {
+    setProducts(newList);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(newList));
+    } catch (e) {}
+
+    const client = getSupabaseClient();
+    if (client) {
+      // 1. Borrar todos los productos existentes en Supabase
+      const { error: delErr } = await client.from('products').delete().neq('id', 'keep_none');
+      if (delErr) console.error('[Supabase Clear for Replace Error]:', delErr);
+
+      // 2. Insertar el nuevo catálogo en lotes de 100
+      if (newList.length > 0) {
+        const dbRows = newList.map(productToDb);
+        for (let i = 0; i < dbRows.length; i += 100) {
+          const batch = dbRows.slice(i, i + 100);
+          const { error: insErr } = await client.from('products').insert(batch);
+          if (insErr) console.error('[Supabase Batch Insert Error]:', insErr);
+        }
+      }
+    }
+    showToast(`Catálogo reemplazado exitosamente: ${newList.length} productos cargados.`, 'success');
+  };
+
+  const clearAllProducts = async () => {
+    setProducts([]);
+    setCart([]);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify([]));
+    } catch (e) {}
+
+    const client = getSupabaseClient();
+    if (client) {
+      const { error } = await client.from('products').delete().neq('id', 'keep_none');
+      if (error) {
+        console.error('[Supabase Clear All Error]:', error);
+        showToast('Error al vaciar en Supabase: ' + error.message, 'error');
+        return;
+      }
+    }
+    showToast('Catálogo vaciado completamente. Listo para cargar productos reales.', 'info');
   };
 
   const resetProductsToDefault = () => {
@@ -777,18 +823,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (prodErr) {
         console.error('[Supabase Sync Products Error]:', prodErr);
       } else if (dbProducts) {
-        if (dbProducts.length === 0) {
-          // Si la base en Supabase está vacía, subimos el catálogo local
-          console.log('[Supabase Sync] Base vacía, auto-sembrando catálogo inicial...');
-          await uploadAllToSupabase();
-        } else {
-          const mapped = dbProducts.map(dbToProduct);
-          setProducts(mapped);
-          try {
-            localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(mapped));
-          } catch (e) {
-            // ignore
-          }
+        const mapped = dbProducts.map(dbToProduct);
+        setProducts(mapped);
+        try {
+          localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(mapped));
+        } catch (e) {
+          // ignore
         }
       }
 
@@ -983,6 +1023,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         updatePrice,
         applyPercentagePriceAdjustment,
         bulkUpdateProducts,
+        replaceProducts,
+        clearAllProducts,
         resetProductsToDefault,
         isAdminLoggedIn,
         isAdminModalOpen,

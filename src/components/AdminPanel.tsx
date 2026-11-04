@@ -38,6 +38,8 @@ export const AdminPanel: React.FC = () => {
     deleteProduct,
     applyPercentagePriceAdjustment,
     bulkUpdateProducts,
+    replaceProducts,
+    clearAllProducts,
     resetProductsToDefault,
     exchangeRate,
     openExchangeRateModal,
@@ -126,7 +128,7 @@ export const AdminPanel: React.FC = () => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
       try {
         const data = new Uint8Array(event.target?.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
@@ -168,7 +170,11 @@ export const AdminPanel: React.FC = () => {
         const imageKey = findKey(['imageurl', 'imagen', 'foto', 'url foto']);
         const descKey = findKey(['description', 'descripción', 'descripcion']);
 
-        const updated = [...products];
+        const isConfirmReplace = products.length > 0 && window.confirm(
+          `Se procesará el archivo Excel / CSV.\n\n¿Desea REEMPLAZAR todo el catálogo anterior con este nuevo archivo?\n\n• Aceptar: Borra los productos anteriores y carga ÚNICAMENTE los de este Excel.\n• Cancelar: Mantiene los anteriores y combina/actualiza con los del archivo.`
+        );
+
+        const updated = isConfirmReplace ? [] : [...products];
         let updatedCount = 0;
         let createdCount = 0;
 
@@ -249,11 +255,15 @@ export const AdminPanel: React.FC = () => {
           }
         }
 
-        bulkUpdateProducts(updated);
-        showToast(
-          `Importación completada: ${updatedCount} actualizados, ${createdCount} nuevos agregados.`,
-          'success'
-        );
+        if (isConfirmReplace) {
+          await replaceProducts(updated);
+        } else {
+          bulkUpdateProducts(updated);
+          showToast(
+            `Importación completada: ${updatedCount} actualizados, ${createdCount} nuevos agregados.`,
+            'success'
+          );
+        }
       } catch (err) {
         console.error(err);
         showToast('Hubo un error al leer el archivo Excel / CSV. Verifique el formato.', 'error');
@@ -262,6 +272,19 @@ export const AdminPanel: React.FC = () => {
     reader.readAsArrayBuffer(file);
     // Reset input
     e.target.value = '';
+  };
+
+  const handleClearAll = async () => {
+    if (products.length === 0) {
+      showToast('El catálogo ya se encuentra vacío.', 'info');
+      return;
+    }
+    const confirmed = window.confirm(
+      `⚠️ ATENCIÓN: ¿Seguro que deseás borrar los ${products.length} productos del catálogo?\n\nEsta acción eliminará todos los artículos de la base de datos de Supabase para permitir una carga limpia desde cero.`
+    );
+    if (confirmed) {
+      await clearAllProducts();
+    }
   };
 
   const handleOpenEdit = (p: Product) => {
@@ -508,6 +531,17 @@ export const AdminPanel: React.FC = () => {
               >
                 <Upload className="w-3.5 h-3.5 text-slate-600" />
                 <span>Importar Excel / CSV</span>
+              </button>
+
+              {/* Clear Catalog Button */}
+              <button
+                type="button"
+                onClick={handleClearAll}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-bold text-xs transition-colors cursor-pointer"
+                title="Eliminar todos los productos actuales de la base de datos para cargar catálogo nuevo"
+              >
+                <Trash2 className="w-3.5 h-3.5 text-red-600" />
+                <span>Vaciar Catálogo</span>
               </button>
 
               {/* Supabase Cloud Sync Button */}
