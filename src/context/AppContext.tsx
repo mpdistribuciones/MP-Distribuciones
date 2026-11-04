@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Currency, Product, CartItem, User, SortByOption, ViewMode, Order } from '../types';
-import { PRODUCTS } from '../data/products';
 import {
   getSupabaseClient,
   isSupabaseConfigured,
@@ -200,20 +199,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, []);
 
   // Products State & Persistence
+  // La fuente de verdad es Supabase. localStorage solo actúa como caché para mostrar el catálogo al instante.
   const [products, setProducts] = useState<Product[]>(() => {
     const initialRate = Number(localStorage.getItem(LOCAL_STORAGE_KEY_EXCHANGE)) || 1350;
     try {
-      const catalogVersion = localStorage.getItem('mp_catalog_version');
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_PRODUCTS);
-      
-      // Solo mantener productos guardados si ya pertenecen a la versión oficial v2 (767 productos con IDs mp_prod_)
-      if (saved !== null && catalogVersion === 'mp_767_real_v1') {
+      if (saved !== null) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.id?.startsWith('mp_prod_')) {
+        if (Array.isArray(parsed) && parsed.length > 0) {
           return parsed.map((item: Product, index: number) => {
-            const original = PRODUCTS.find((p) => p.id === item.id || p.sku === item.sku);
             const fallbackDate = new Date(Date.now() - index * 86400000 * 2).toISOString();
-            const createdAt = item.createdAt || original?.createdAt || fallbackDate;
+            const createdAt = item.createdAt || fallbackDate;
             const priceCurrency = item.priceCurrency || (item.priceARS && !item.priceUSD ? 'ARS' : 'USD');
             const priceUSD = typeof item.priceUSD === 'number' && item.priceUSD > 0
               ? item.priceUSD
@@ -234,13 +230,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           });
         }
       }
-      
-      // Si el navegador tenía la demo vieja de 400 items o no tiene datos, migrar automáticamente al catálogo oficial (767)
-      localStorage.setItem('mp_catalog_version', 'mp_767_real_v1');
-      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(PRODUCTS));
-      return PRODUCTS;
+      return [];
     } catch {
-      return PRODUCTS;
+      return [];
     }
   });
 
@@ -537,21 +529,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Catálogo vaciado completamente. Listo para cargar productos reales.', 'info');
   };
 
+  // Vuelve a descargar el catálogo completo desde Supabase (fuente de verdad)
   const resetProductsToDefault = () => {
-    setProducts(PRODUCTS);
-    localStorage.setItem('mp_catalog_version', 'mp_767_real_v1');
-    localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(PRODUCTS));
-    showToast('Catálogo restablecido al catálogo oficial de 767 artículos de MP Distribuciones.', 'info');
-
-    const client = getSupabaseClient();
-    if (client) {
-      client
-        .from('products')
-        .upsert(PRODUCTS.map(productToDb))
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Reset Default Error]:', error);
-        });
-    }
+    syncWithSupabase();
+    showToast('Catálogo recargado desde Supabase Cloud.', 'info');
   };
 
   // Auth State
@@ -822,18 +803,29 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setIsSyncingSupabase(true);
     try {
       // 1. Fetch products
-      const { data: dbProducts, error: prodErr } = await client
-        .from('products')
-        .select('*')
-        .order('created_at', { ascending: false });
+      // Paginación explícita: PostgREST limita a 1000 filas por request
+      const PAGE_SIZE = 1000;
+      const dbProducts: any[] = [];
+      let prodErr: any = null;
+      for (let from = 0; ; from += PAGE_SIZE) {
+        const { data, error } = await client
+          .from('products')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .order('id', { ascending: true })
+          .range(from, from + PAGE_SIZE - 1);
+        if (error) {
+          prodErr = error;
+          break;
+        }
+        dbProducts.push(...(data || []));
+        if (!data || data.length < PAGE_SIZE) break;
+      }
 
       if (prodErr) {
         console.error('[Supabase Sync Products Error]:', prodErr);
-      } else if (dbProducts) {
-        if (dbProducts.length === 0) {
-          console.log('[Supabase Sync] Base vacía, subiendo catálogo oficial...');
-          await uploadAllToSupabase();
-        } else {
+      } else {
+        if (dbProducts.length > 0) {
           const mapped = dbProducts.map(dbToProduct);
           setProducts(mapped);
           try {
@@ -882,7 +874,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
     setIsSyncingSupabase(true);
     try {
-      const listToUpload = products.length > 0 ? products : PRODUCTS;
+      const listToUpload = products;
       const rows = listToUpload.map(productToDb);
       for (let i = 0; i < rows.length; i += 100) {
         const batch = rows.slice(i, i + 100);
