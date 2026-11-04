@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[#f1f5f9] text-slate-900 min-h-screen selection:bg-blue-600 selection:text-white antialiased font-sans">
-    <!-- Dummy elements to trigger early return in Netlify HUD/Badge injector -->
+    <!-- Dummy elements to trigger immediate early return in Netlify HUD/Badge injector -->
     <div id="nl-badge-frame" style="display:none!important;visibility:hidden!important;width:0!important;height:0!important;position:absolute!important;left:-9999px!important"></div>
     <div id="nl-hud-frame" style="display:none!important;visibility:hidden!important;width:0!important;height:0!important;position:absolute!important;left:-9999px!important"></div>
     <div id="root"></div>
@@ -40,10 +40,10 @@
             }
           });
           obs.observe(document.documentElement, { childList: true, subtree: true });
+          setTimeout(function () { obs.disconnect(); }, 4000);
         } catch (e) {}
         window.addEventListener('DOMContentLoaded', removeBadge);
         window.addEventListener('load', removeBadge);
-        setInterval(removeBadge, 300);
       })();
     </script>
   </body>
