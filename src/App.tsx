@@ -27,6 +27,7 @@ import {
 export const AppContent: React.FC = () => {
   const {
     products,
+    isCatalogLoading,
     isAdminView,
     searchQuery,
     setSearchQuery,
@@ -201,7 +202,26 @@ export const AppContent: React.FC = () => {
             </div>
 
             {/* Catalog Content (Grid / List View) */}
-            {filteredProducts.length > 0 ? (
+            {isCatalogLoading && products.length === 0 ? (
+              /* Loading State: skeletons mientras se descarga el catálogo inicial */
+              <div
+                role="status"
+                aria-live="polite"
+                aria-label="Cargando catálogo"
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4"
+              >
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-slate-200 p-3 space-y-3 animate-pulse">
+                    <div className="aspect-square rounded-lg bg-slate-200" />
+                    <div className="h-3 w-3/4 rounded bg-slate-200" />
+                    <div className="h-3 w-1/2 rounded bg-slate-200" />
+                    <div className="h-5 w-1/3 rounded bg-slate-200" />
+                    <div className="h-8 w-full rounded-lg bg-slate-100" />
+                  </div>
+                ))}
+                <span className="sr-only">Cargando catálogo...</span>
+              </div>
+            ) : filteredProducts.length > 0 ? (
               viewMode === 'grid' ? (
                 /* GALERIA DE FOTOS: Grid with responsive columns preventing cards from stretching */
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4">

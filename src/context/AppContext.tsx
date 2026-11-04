@@ -38,6 +38,7 @@ interface AppContextType {
   bulkUpdateProducts: (updatedList: Product[]) => void;
   replaceProducts: (updatedList: Product[]) => Promise<void>;
   clearAllProducts: () => Promise<void>;
+  isCatalogLoading: boolean;
   resetProductsToDefault: () => void;
 
   // Admin Session
@@ -790,15 +791,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // ========================================================
   const [isSupabaseConnected, setIsSupabaseConnected] = useState<boolean>(() => isSupabaseConfigured());
   const [isSyncingSupabase, setIsSyncingSupabase] = useState<boolean>(false);
+  // true mientras se resuelve la primera descarga del catálogo y aún no hay productos en caché
+  const [isCatalogLoading, setIsCatalogLoading] = useState<boolean>(
+    () => products.length === 0 && isSupabaseConfigured()
+  );
 
   // Sync products and orders from Supabase
   const syncWithSupabase = async () => {
     if (!isSupabaseConfigured()) {
       setIsSupabaseConnected(false);
+      setIsCatalogLoading(false);
       return;
     }
     const client = getSupabaseClient();
-    if (!client) return;
+    if (!client) {
+      setIsCatalogLoading(false);
+      return;
+    }
 
     setIsSyncingSupabase(true);
     try {
@@ -860,6 +869,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       console.error('[Supabase Sync Error]:', err);
     } finally {
       setIsSyncingSupabase(false);
+      setIsCatalogLoading(false);
     }
   };
 
@@ -1041,6 +1051,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         bulkUpdateProducts,
         replaceProducts,
         clearAllProducts,
+        isCatalogLoading,
         resetProductsToDefault,
         isAdminLoggedIn,
         isAdminModalOpen,
