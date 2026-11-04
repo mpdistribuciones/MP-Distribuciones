@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   KeyRound,
   ArrowRight,
-  Info,
 } from 'lucide-react';
 
 export const AdminLoginModal: React.FC = () => {
@@ -18,14 +17,18 @@ export const AdminLoginModal: React.FC = () => {
     setIsAdminView,
   } = useApp();
 
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (!isAdminModalOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = loginAdmin(password);
+    setLoading(true);
+    const success = await loginAdmin(email, password);
+    setLoading(false);
     if (!success) {
       setError(true);
     } else {
@@ -85,20 +88,35 @@ export const AdminLoginModal: React.FC = () => {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 pt-1">
             <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-700">Email de Administrador</label>
+              <input
+                type="email"
+                required
+                autoFocus
+                autoComplete="username"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError(false);
+                }}
+                placeholder="mpdistribuciones.web@gmail.com"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-sm text-slate-900 outline-none transition-all"
+              />
+            </div>
+            <div className="space-y-1.5">
               <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                 <KeyRound className="w-3.5 h-3.5 text-blue-600" />
-                <span>Contraseña de Acceso Administrador</span>
+                <span>Contraseña</span>
               </label>
               <input
                 type="password"
                 required
-                autoFocus
+                autoComplete="current-password"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                   setError(false);
                 }}
-                placeholder="Ingresá tu clave (ej: admin123)"
                 className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border text-sm text-slate-900 outline-none transition-all ${
                   error
                     ? 'border-red-500 focus:ring-2 focus:ring-red-200'
@@ -107,16 +125,9 @@ export const AdminLoginModal: React.FC = () => {
               />
               {error && (
                 <p className="text-xs text-red-600 font-medium">
-                  Contraseña incorrecta. Probá con: <strong>admin123</strong>
+                  Credenciales incorrectas o sin permisos de administrador.
                 </p>
               )}
-            </div>
-
-            <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-[11px] text-blue-800 flex items-start gap-2">
-              <Info className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-              <span>
-                Clave predeterminada para demostración: <strong>admin123</strong> o <strong>mp2026</strong>.
-              </span>
             </div>
 
             <div className="flex gap-2 pt-2">
@@ -129,9 +140,10 @@ export const AdminLoginModal: React.FC = () => {
               </button>
               <button
                 type="submit"
-                className="flex-1 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5"
+                disabled={loading}
+                className="flex-1 disabled:opacity-60 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5"
               >
-                <span>Acceder al Panel</span>
+                <span>{loading ? 'Verificando...' : 'Acceder al Panel'}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>

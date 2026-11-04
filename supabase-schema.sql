@@ -63,14 +63,13 @@ ALTER TABLE public.products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.app_settings ENABLE ROW LEVEL SECURITY;
 
--- Políticas de acceso público (Lectura y Escritura permitida para clientes y panel)
+-- Políticas de acceso público (inicial; luego se blinda con supabase-rls-hardening.sql)
 DROP POLICY IF EXISTS "Permitir lectura publica de productos" ON public.products;
 CREATE POLICY "Permitir lectura publica de productos" ON public.products
   FOR SELECT USING (true);
 
-DROP POLICY IF EXISTS "Permitir modificacion de productos" ON public.products;
-CREATE POLICY "Permitir modificacion de productos" ON public.products
-  FOR ALL USING (true);
+-- NOTA: la escritura sobre products y storage se restringe a administradores
+-- ejecutando después supabase-rls-hardening.sql
 
 DROP POLICY IF EXISTS "Permitir lectura y creacion de pedidos" ON public.orders;
 CREATE POLICY "Permitir lectura y creacion de pedidos" ON public.orders

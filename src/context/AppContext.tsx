@@ -47,7 +47,7 @@ interface AppContextType {
   isAdminView: boolean;
   openAdminModal: () => void;
   closeAdminModal: () => void;
-  loginAdmin: (password: string) => boolean;
+  loginAdmin: (email: string, password: string) => Promise<boolean>;
   logoutAdmin: () => void;
   setIsAdminView: (val: boolean) => void;
 
@@ -132,7 +132,6 @@ const LOCAL_STORAGE_KEY_CART = 'mp_distribuciones_cart_v1';
 const LOCAL_STORAGE_KEY_CURRENCY = 'mp_distribuciones_currency_v1';
 const LOCAL_STORAGE_KEY_EXCHANGE = 'mp_distribuciones_exchange_rate_v1';
 const LOCAL_STORAGE_KEY_PRODUCTS = 'mp_distribuciones_products_v2';
-const LOCAL_STORAGE_KEY_ADMIN = 'mp_distribuciones_admin_logged_v1';
 const LOCAL_STORAGE_KEY_ORDERS = 'mp_distribuciones_orders_v1';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -270,35 +269,62 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     });
   }, [products]);
 
-  // Admin Session
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState<boolean>(() => {
-    return localStorage.getItem(LOCAL_STORAGE_KEY_ADMIN) === 'true';
-  });
+  // Admin Session (Supabase Auth). Solo cuenta como administrador un usuario autenticado
+  // cuyo app_metadata.role sea 'admin' (el mismo criterio que usan las políticas RLS).
+  const isAdminUser = (u: { app_metadata?: Record<string, any> } | null | undefined): boolean =>
+    u?.app_metadata?.role === 'admin';
+
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState<boolean>(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [isAdminView, setIsAdminView] = useState(false);
+
+  useEffect(() => {
+    const client = getSupabaseClient();
+    if (!client) return;
+    client.auth.getSession().then(({ data }) => {
+      setIsAdminLoggedIn(isAdminUser(data.session?.user));
+    });
+    const { data: sub } = client.auth.onAuthStateChange((_event, session) => {
+      const isAdmin = isAdminUser(session?.user);
+      setIsAdminLoggedIn(isAdmin);
+      if (!isAdmin) setIsAdminView(false);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
 
   const openAdminModal = () => setIsAdminModalOpen(true);
   const closeAdminModal = () => setIsAdminModalOpen(false);
 
-  const loginAdmin = (password: string): boolean => {
-    const clean = password.trim();
-    if (clean === 'admin123' || clean === 'mp2026' || clean === 'admin') {
-      setIsAdminLoggedIn(true);
-      localStorage.setItem(LOCAL_STORAGE_KEY_ADMIN, 'true');
-      setIsAdminModalOpen(false);
-      setIsAdminView(true);
-      showToast('Acceso de Administrador verificado con éxito.', 'success');
-      return true;
-    } else {
-      showToast('Contraseña de administrador incorrecta.', 'error');
+  const loginAdmin = async (email: string, password: string): Promise<boolean> => {
+    const client = getSupabaseClient();
+    if (!client) {
+      showToast('No hay conexión configurada con Supabase.', 'error');
       return false;
     }
+    const { data, error } = await client.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+    if (error || !data.user) {
+      showToast('Email o contraseña de administrador incorrectos.', 'error');
+      return false;
+    }
+    if (!isAdminUser(data.user)) {
+      await client.auth.signOut();
+      showToast('Esta cuenta no tiene permisos de administrador.', 'error');
+      return false;
+    }
+    setIsAdminLoggedIn(true);
+    setIsAdminModalOpen(false);
+    setIsAdminView(true);
+    showToast('Acceso de Administrador verificado con éxito.', 'success');
+    return true;
   };
 
   const logoutAdmin = () => {
+    getSupabaseClient()?.auth.signOut();
     setIsAdminLoggedIn(false);
     setIsAdminView(false);
-    localStorage.removeItem(LOCAL_STORAGE_KEY_ADMIN);
     showToast('Sesión de Administrador cerrada.', 'info');
   };
 
