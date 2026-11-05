@@ -1,23 +1,36 @@
 // Migra las fotos de Google Photos (lh3.googleusercontent.com) al bucket público
 // `product-images` de Supabase Storage y actualiza products.image_url.
-// Uso: node scripts/migrate_images_to_storage.mjs
+// Uso: node scripts/migrate_images_to_storage.mjs [SUPABASE_URL] [SUPABASE_ANON_KEY]
 // Es idempotente: solo procesa productos cuya image_url todavía apunta a Google.
 import fs from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
 
-const env = Object.fromEntries(
-  fs
-    .readFileSync(new URL('../.env', import.meta.url), 'utf8')
-    .split('\n')
-    .filter((l) => l.includes('=') && !l.trim().startsWith('#'))
-    .map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()])
-);
+let env = {};
+const envPath = new URL('../.env', import.meta.url);
+if (fs.existsSync(envPath)) {
+  try {
+    env = Object.fromEntries(
+      fs
+        .readFileSync(envPath, 'utf8')
+        .split('\n')
+        .filter((l) => l.includes('=') && !l.trim().startsWith('#'))
+        .map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()])
+    );
+  } catch {}
+}
+
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL || env.VITE_SUPABASE_URL || process.argv[2];
+const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY || env.VITE_SUPABASE_ANON_KEY || process.argv[3];
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.error('\n❌ ERROR: Faltan VITE_SUPABASE_URL y/o VITE_SUPABASE_ANON_KEY.');
+  console.error('Uso:');
+  console.error('  VITE_SUPABASE_URL="https://xyz.supabase.co" VITE_SUPABASE_ANON_KEY="eyJ..." node scripts/migrate_images_to_storage.mjs\n');
+  process.exit(1);
+}
 
 const BUCKET = 'product-images';
-const supabase = createClient(
-  process.env.VITE_SUPABASE_URL || env.VITE_SUPABASE_URL || 'https://ntalnljwhogbeaorhnlr.supabase.co',
-  process.env.VITE_SUPABASE_ANON_KEY || env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_VlJkOSK-7Zx1qiv0tr8SWA_JEd7VjP3'
-);
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' };
 

@@ -329,6 +329,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setIsAdminModalOpen(false);
     setIsAdminView(true);
     showToast('Acceso de Administrador verificado con éxito.', 'success');
+    syncWithSupabase();
     return true;
   };
 
@@ -336,6 +337,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     getSupabaseClient()?.auth.signOut();
     setIsAdminLoggedIn(false);
     setIsAdminView(false);
+    setProducts((prev) =>
+      prev.map((p) => ({
+        ...p,
+        costUSD: undefined,
+        costARS: undefined,
+        profitMargin: undefined,
+      }))
+    );
+    setOrders([]);
     showToast('Sesión de Administrador cerrada.', 'info');
   };
 
@@ -356,18 +366,34 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         .from('products')
         .insert([productToDb(newProduct)])
         .then(({ error }) => {
-          if (error) console.error('[Supabase Add Product Error]:', error);
+          if (error) {
+            console.error('[Supabase Add Product Error]:', error);
+          } else if (newProduct.costUSD != null || newProduct.profitMargin != null) {
+            client
+              .from('product_costs')
+              .upsert({
+                product_id: id,
+                cost_usd: newProduct.costUSD || 0,
+                cost_ars: newProduct.costARS || 0,
+                profit_margin: newProduct.profitMargin ?? 15,
+                updated_at: new Date().toISOString(),
+              })
+              .then(({ error: costErr }) => {
+                if (costErr) console.error('[Supabase Add Product Costs Error]:', costErr);
+              });
+          }
         });
     }
   };
 
   const updateProduct = (id: string, updatedData: Partial<Product>) => {
-    let targetUpdated: Product | null = null;
+    const existing = products.find((p) => p.id === id);
+    const targetUpdated: Product | null = existing ? { ...existing, ...updatedData } : null;
+
     setProducts((prev) =>
       prev.map((p) => {
         if (p.id === id) {
-          targetUpdated = { ...p, ...updatedData };
-          return targetUpdated;
+          return targetUpdated || p;
         }
         return p;
       })
@@ -382,6 +408,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         .then(({ error }) => {
           if (error) console.error('[Supabase Update Product Error]:', error);
         });
+
+      if (targetUpdated.costUSD != null || targetUpdated.profitMargin != null) {
+        client
+          .from('product_costs')
+          .upsert({
+            product_id: id,
+            cost_usd: targetUpdated.costUSD || 0,
+            cost_ars: targetUpdated.costARS || 0,
+            profit_margin: targetUpdated.profitMargin ?? 15,
+            updated_at: new Date().toISOString(),
+          })
+          .then(({ error: costErr }) => {
+            if (costErr) console.error('[Supabase Update Product Costs Error]:', costErr);
+          });
+      }
     }
   };
 
@@ -432,6 +473,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const safePrice = Math.max(0.01, newPrice);
     let safeUSD = 0;
     let safeARS = 0;
+    let safeCostUSD = 0;
+    let safeCostARS = 0;
     let actualCurrency: 'USD' | 'ARS' = priceCurrency;
     let newMargin = 15;
 
@@ -445,6 +488,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const costARS = p.costARS != null
           ? p.costARS
           : (p.priceARS ? Math.round(p.priceARS / 1.15) : Math.round(costUSD * exchangeRate));
+
+        safeCostUSD = costUSD;
+        safeCostARS = costARS;
 
         if (priceCurrency === 'ARS') {
           safeARS = Math.round(safePrice);
@@ -485,13 +531,25 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         .update({
           price_usd: safeUSD,
           price_ars: safeARS,
-          profit_margin: newMargin,
           price_currency: actualCurrency,
           updated_at: new Date().toISOString(),
         })
         .eq('id', id)
         .then(({ error }) => {
           if (error) console.error('[Supabase Update Price Error]:', error);
+        });
+
+      client
+        .from('product_costs')
+        .upsert({
+          product_id: id,
+          cost_usd: safeCostUSD,
+          cost_ars: safeCostARS,
+          profit_margin: newMargin,
+          updated_at: new Date().toISOString(),
+        })
+        .then(({ error: cErr }) => {
+          if (cErr) console.error('[Supabase Update Cost Error]:', cErr);
         });
     }
   };
@@ -527,22 +585,34 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const updatePayload: Record<string, any> = {
         price_usd: financials.priceUSD,
         price_ars: financials.priceARS,
-        cost_usd: financials.costUSD,
-        cost_ars: financials.costARS,
-        profit_margin: financials.profitMargin,
         updated_at: new Date().toISOString(),
       };
       if (financials.priceCurrency) {
         updatePayload.price_currency = financials.priceCurrency;
       }
-      const { error } = await client
+      const { error: prodError } = await client
         .from('products')
         .update(updatePayload)
         .eq('id', id);
 
-      if (error) {
-        console.error('[Supabase Update Financials Error]:', error);
-        throw error;
+      if (prodError) {
+        console.error('[Supabase Update Product Error]:', prodError);
+        throw prodError;
+      }
+
+      const { error: costError } = await client
+        .from('product_costs')
+        .upsert({
+          product_id: id,
+          cost_usd: financials.costUSD,
+          cost_ars: financials.costARS,
+          profit_margin: financials.profitMargin,
+          updated_at: new Date().toISOString(),
+        });
+
+      if (costError) {
+        console.error('[Supabase Update Product Costs Error]:', costError);
+        throw costError;
       }
     }
   };
@@ -611,6 +681,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           const batch = dbRows.slice(i, i + 100);
           const { error: insErr } = await client.from('products').insert(batch);
           if (insErr) console.error('[Supabase Batch Insert Error]:', insErr);
+        }
+
+        const costRows = newList
+          .filter((p) => p.costUSD != null || p.profitMargin != null)
+          .map((p) => ({
+            product_id: p.id,
+            cost_usd: p.costUSD || 0,
+            cost_ars: p.costARS || 0,
+            profit_margin: p.profitMargin ?? 15,
+            updated_at: new Date().toISOString(),
+          }));
+        for (let i = 0; i < costRows.length; i += 100) {
+          const batch = costRows.slice(i, i + 100);
+          const { error: costErr } = await client.from('product_costs').upsert(batch);
+          if (costErr) console.error('[Supabase Batch Costs Error]:', costErr);
         }
       }
     }
@@ -937,38 +1022,67 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (!data || data.length < PAGE_SIZE) break;
       }
 
+      // Consulta complementaria a product_costs si el usuario tiene rol admin
+      const sessionUser = (await client.auth.getSession()).data.session?.user;
+      const hasAdminRole = isAdminUser(sessionUser);
+
+      const costMap = new Map<string, any>();
+      if (hasAdminRole) {
+        try {
+          const { data: costRows, error: costErr } = await client
+            .from('product_costs')
+            .select('*');
+          if (!costErr && costRows) {
+            for (const c of costRows) {
+              costMap.set(c.product_id, c);
+            }
+          }
+        } catch (cErr) {
+          console.warn('[Supabase Sync Costs]:', cErr);
+        }
+      }
+
       if (prodErr) {
         console.error('[Supabase Sync Products Error]:', prodErr);
       } else {
         if (dbProducts.length > 0) {
-          const mapped = dbProducts.map(dbToProduct);
+          const mapped = dbProducts.map((p) => dbToProduct(p, costMap.get(p.id)));
           setProducts(mapped);
           try {
-            localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(mapped));
+            // En localStorage NUNCA guardamos datos de costos ni márgenes
+            const publicCached = mapped.map((p) => ({
+              ...p,
+              costUSD: undefined,
+              costARS: undefined,
+              profitMargin: undefined,
+            }));
+            localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(publicCached));
           } catch (e) {
             // ignore
           }
         }
       }
 
-      // 2. Fetch orders
-      const { data: dbOrders, error: ordErr } = await client
-        .from('orders')
-        .select('*')
-        .order('date', { ascending: false });
+      // 2. Fetch orders: SOLO si es administrador
+      if (hasAdminRole) {
+        const { data: dbOrders, error: ordErr } = await client
+          .from('orders')
+          .select('*')
+          .order('date', { ascending: false });
 
-      if (!ordErr && dbOrders && dbOrders.length > 0) {
-        const mappedOrders = dbOrders.map(dbToOrder);
-        setOrders(mappedOrders);
-        try {
-          localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(mappedOrders));
-        } catch (e) {
-          // ignore
+        if (!ordErr && dbOrders && dbOrders.length > 0) {
+          const mappedOrders = dbOrders.map(dbToOrder);
+          setOrders(mappedOrders);
+          try {
+            localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(mappedOrders));
+          } catch (e) {
+            // ignore
+          }
         }
       }
 
       setIsSupabaseConnected(true);
-      if (isAdminLoggedIn || isAdminView) {
+      if (hasAdminRole || isAdminView) {
         showToast('Catálogo sincronizado con Supabase Cloud.', 'success');
       }
     } catch (err: any) {
@@ -997,6 +1111,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const { error } = await client.from('products').upsert(batch, { onConflict: 'id' });
         if (error) throw error;
       }
+
+      const costRows = listToUpload
+        .filter((p) => p.costUSD != null || p.profitMargin != null)
+        .map((p) => ({
+          product_id: p.id,
+          cost_usd: p.costUSD || 0,
+          cost_ars: p.costARS || 0,
+          profit_margin: p.profitMargin ?? 15,
+          updated_at: new Date().toISOString(),
+        }));
+      for (let i = 0; i < costRows.length; i += 100) {
+        const batch = costRows.slice(i, i + 100);
+        const { error: costErr } = await client.from('product_costs').upsert(batch);
+        if (costErr) console.error('[Supabase Batch Upload Costs Error]:', costErr);
+      }
+
       setIsSupabaseConnected(true);
       if (isAdminLoggedIn || isAdminView) {
         showToast(`¡Se subieron ${rows.length} productos a Supabase Cloud exitosamente!`, 'success');
@@ -1054,7 +1184,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     // Primer sync al cargar
     syncWithSupabase();
 
-    // Suscripción Realtime a cambios en products y orders
+    // Suscripción Realtime pública a cambios en products (stock, precios)
     const channel = client
       .channel('mp_catalog_realtime')
       .on(
@@ -1065,13 +1195,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             const newProd = dbToProduct(payload.new);
             setProducts((prev) => {
               if (prev.some((p) => p.id === newProd.id)) {
-                return prev.map((p) => (p.id === newProd.id ? newProd : p));
+                return prev.map((p) => (p.id === newProd.id ? { ...p, ...newProd } : p));
               }
               return [newProd, ...prev];
             });
           } else if (payload.eventType === 'UPDATE') {
             const updated = dbToProduct(payload.new);
-            setProducts((prev) => prev.map((p) => (p.id === updated.id ? updated : p)));
+            setProducts((prev) => prev.map((p) => (p.id === updated.id ? { ...p, ...updated } : p)));
           } else if (payload.eventType === 'DELETE') {
             const deletedId = String(payload.old?.id);
             if (deletedId) {
@@ -1080,6 +1210,30 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           }
         }
       )
+      .subscribe((status) => {
+        if (status === 'SUBSCRIBED') {
+          setIsSupabaseConnected(true);
+        } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR') {
+          setIsSupabaseConnected(false);
+        }
+      });
+
+    return () => {
+      client.removeChannel(channel);
+    };
+  }, []);
+
+  // Suscripción Realtime privada para administradores (pedidos y costos)
+  useEffect(() => {
+    if (!isSupabaseConfigured() || !isAdminLoggedIn) return;
+    const client = getSupabaseClient();
+    if (!client) return;
+
+    // Sincronizar costos y pedidos al detectar sesión de admin
+    syncWithSupabase();
+
+    const adminChannel = client
+      .channel('mp_admin_realtime')
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'orders' },
@@ -1096,18 +1250,35 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           }
         }
       )
-      .subscribe((status) => {
-        if (status === 'SUBSCRIBED') {
-          setIsSupabaseConnected(true);
-        } else if (status === 'CLOSED' || status === 'CHANNEL_ERROR') {
-          setIsSupabaseConnected(false);
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'product_costs' },
+        (payload) => {
+          if (payload.eventType === 'INSERT' || payload.eventType === 'UPDATE') {
+            const costData = payload.new;
+            if (costData?.product_id) {
+              setProducts((prev) =>
+                prev.map((p) =>
+                  p.id === costData.product_id
+                    ? {
+                        ...p,
+                        costUSD: Number(costData.cost_usd),
+                        costARS: Number(costData.cost_ars),
+                        profitMargin: Number(costData.profit_margin),
+                      }
+                    : p
+                )
+              );
+            }
+          }
         }
-      });
+      )
+      .subscribe();
 
     return () => {
-      client.removeChannel(channel);
+      client.removeChannel(adminChannel);
     };
-  }, []);
+  }, [isAdminLoggedIn]);
 
   // Modals
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);

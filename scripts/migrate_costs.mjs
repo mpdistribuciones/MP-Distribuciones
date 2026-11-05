@@ -1,12 +1,29 @@
 // Script para migrar costos y márgenes de ganancia en Supabase
-// Uso: node scripts/migrate_costs.mjs
+// Uso:
+//   ADMIN_EMAIL="email" ADMIN_PASSWORD="pass" VITE_SUPABASE_URL="url" VITE_SUPABASE_ANON_KEY="key" node scripts/migrate_costs.mjs
+// O:
+//   node scripts/migrate_costs.mjs <ADMIN_EMAIL> <ADMIN_PASSWORD> [SUPABASE_URL] [SUPABASE_ANON_KEY]
 
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = process.env.VITE_SUPABASE_URL || 'https://ntalnljwhogbeaorhnlr.supabase.co';
-const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_VlJkOSK-7Zx1qiv0tr8SWA_JEd7VjP3';
-const ADMIN_EMAIL = 'mpdistribuciones.web@gmail.com';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'distribuci@nes123';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || process.argv[2];
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.argv[3];
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.argv[4];
+const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY || process.argv[5];
+
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD || !SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.error('\n❌ ERROR: Faltan credenciales o variables de entorno requeridas.');
+  console.error('Debes proporcionar:');
+  console.error('  - ADMIN_EMAIL (email del usuario con rol admin en Supabase)');
+  console.error('  - ADMIN_PASSWORD (contraseña del usuario admin)');
+  console.error('  - VITE_SUPABASE_URL (URL del proyecto Supabase)');
+  console.error('  - VITE_SUPABASE_ANON_KEY (clave pública anon de Supabase)\n');
+  console.error('Ejemplo de uso con variables de entorno:');
+  console.error('  ADMIN_EMAIL="admin@ejemplo.com" ADMIN_PASSWORD="pass" VITE_SUPABASE_URL="https://xyz.supabase.co" VITE_SUPABASE_ANON_KEY="eyJ..." node scripts/migrate_costs.mjs\n');
+  console.error('O como argumentos:');
+  console.error('  node scripts/migrate_costs.mjs <ADMIN_EMAIL> <ADMIN_PASSWORD> <SUPABASE_URL> <SUPABASE_ANON_KEY>\n');
+  process.exit(1);
+}
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: { persistSession: false },
@@ -25,17 +42,18 @@ async function main() {
   }
   console.log('✅ Sesión iniciada con éxito. Rol:', auth.user?.app_metadata?.role);
 
-  // Verificar si las columnas cost_usd ya existen
-  const { data: probe, error: probeError } = await supabase
-    .from('products')
-    .select('id, price_usd, price_ars, cost_usd, profit_margin')
+  // Verificar si la tabla product_costs o las columnas cost_usd existen
+  const { data: probeCosts, error: probeCostsError } = await supabase
+    .from('product_costs')
+    .select('product_id, cost_usd, profit_margin')
     .limit(1);
 
-  if (probeError && probeError.message?.includes('cost_usd')) {
-    console.error('\n⚠️ Las columnas cost_usd, cost_ars y profit_margin aún no existen en Supabase.');
-    console.error('👉 Por favor ejecutá en el SQL Editor de Supabase el archivo: supabase-add-cost-columns.sql');
-    process.exit(1);
-  }
+  const useSeparateTable = !probeCostsError;
+  console.log(
+    useSeparateTable
+      ? '📊 Destino detectado: Tabla privada `public.product_costs`'
+      : '📊 Destino detectado: Columnas directas en `public.products`'
+  );
 
   console.log('\n📦 Obteniendo todos los productos de Supabase...');
   const allProducts = [];
@@ -43,7 +61,7 @@ async function main() {
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase
       .from('products')
-      .select('id, name, price_usd, price_ars, cost_usd, cost_ars, profit_margin')
+      .select('id, name, price_usd, price_ars')
       .range(from, from + PAGE_SIZE - 1);
 
     if (error) {
@@ -75,21 +93,37 @@ async function main() {
       };
     });
 
-    for (const item of updates) {
-      const { error: updErr } = await supabase
-        .from('products')
-        .update({
-          cost_usd: item.cost_usd,
-          cost_ars: item.cost_ars,
-          profit_margin: item.profit_margin,
-          updated_at: item.updated_at,
-        })
-        .eq('id', item.id);
-
-      if (updErr) {
-        console.error(`❌ Error actualizando producto ${item.id}:`, updErr);
+    if (useSeparateTable) {
+      const rows = updates.map((u) => ({
+        product_id: u.id,
+        cost_usd: u.cost_usd,
+        cost_ars: u.cost_ars,
+        profit_margin: u.profit_margin,
+        updated_at: u.updated_at,
+      }));
+      const { error: upsertErr } = await supabase.from('product_costs').upsert(rows);
+      if (upsertErr) {
+        console.error(`❌ Error en lote ${i}:`, upsertErr);
       } else {
-        updatedCount++;
+        updatedCount += rows.length;
+      }
+    } else {
+      for (const item of updates) {
+        const { error: updErr } = await supabase
+          .from('products')
+          .update({
+            cost_usd: item.cost_usd,
+            cost_ars: item.cost_ars,
+            profit_margin: item.profit_margin,
+            updated_at: item.updated_at,
+          })
+          .eq('id', item.id);
+
+        if (updErr) {
+          console.error(`❌ Error actualizando producto ${item.id}:`, updErr);
+        } else {
+          updatedCount++;
+        }
       }
     }
 
