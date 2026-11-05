@@ -41,6 +41,8 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [specsText, setSpecsText] = useState('');
   const [priceCurrency, setPriceCurrency] = useState<'USD' | 'ARS'>('ARS');
   const [priceInput, setPriceInput] = useState<number>(15000);
+  const [costInput, setCostInput] = useState<number>(13043);
+  const [profitMarginInput, setProfitMarginInput] = useState<number>(15);
   const [stockQuantity, setStockQuantity] = useState<number>(0);
   const [minWholesaleQty, setMinWholesaleQty] = useState<number>(1);
   const [badge, setBadge] = useState<'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO' | ''>('');
@@ -61,12 +63,28 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       setMinWholesaleQty(productToEdit.minWholesaleQty || 1);
       setBadge(productToEdit.badge || '');
       setImageUrl(productToEdit.imageUrl);
+
+      const margin = productToEdit.profitMargin != null ? productToEdit.profitMargin : 15;
+      setProfitMarginInput(margin);
+
       if (productToEdit.priceCurrency === 'ARS') {
         setPriceCurrency('ARS');
-        setPriceInput(productToEdit.priceARS || Math.round(productToEdit.priceUSD * exchangeRate));
+        const priceARS = productToEdit.priceARS || Math.round(productToEdit.priceUSD * exchangeRate);
+        const costARS = productToEdit.costARS != null
+          ? productToEdit.costARS
+          : (productToEdit.costUSD != null
+              ? Math.round(productToEdit.costUSD * exchangeRate)
+              : Math.round(priceARS / (1 + margin / 100)));
+        setPriceInput(priceARS);
+        setCostInput(costARS);
       } else {
         setPriceCurrency('USD');
-        setPriceInput(productToEdit.priceUSD);
+        const priceUSD = productToEdit.priceUSD;
+        const costUSD = productToEdit.costUSD != null
+          ? productToEdit.costUSD
+          : (priceUSD > 0 ? Number((priceUSD / (1 + margin / 100)).toFixed(2)) : 0);
+        setPriceInput(priceUSD);
+        setCostInput(costUSD);
       }
     } else {
       // Defaults for new product
@@ -79,13 +97,62 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       setDescription('');
       setSpecsText('');
       setPriceCurrency('ARS');
+      setProfitMarginInput(15);
+      setCostInput(13043);
       setPriceInput(15000);
       setStockQuantity(0);
       setMinWholesaleQty(1);
       setBadge('');
       setImageUrl('');
     }
-  }, [productToEdit, isOpen]);
+  }, [productToEdit, isOpen, exchangeRate]);
+
+  // Manejo de Costo, Margen y Precio sin bucles de estado
+  const handleCostChange = (newCost: number) => {
+    const safeCost = Math.max(0, newCost);
+    setCostInput(safeCost);
+    const factor = 1 + profitMarginInput / 100;
+    const calculatedPrice = priceCurrency === 'USD'
+      ? Number((safeCost * factor).toFixed(2))
+      : Math.round(safeCost * factor);
+    setPriceInput(calculatedPrice);
+  };
+
+  const handleProfitMarginChange = (newMargin: number) => {
+    setProfitMarginInput(newMargin);
+    const factor = 1 + newMargin / 100;
+    const calculatedPrice = priceCurrency === 'USD'
+      ? Number((costInput * factor).toFixed(2))
+      : Math.round(costInput * factor);
+    setPriceInput(calculatedPrice);
+  };
+
+  const handlePriceChange = (newPrice: number) => {
+    const safePrice = Math.max(0, newPrice);
+    setPriceInput(safePrice);
+    if (costInput > 0) {
+      const calculatedMargin = Number((((safePrice - costInput) / costInput) * 100).toFixed(2));
+      setProfitMarginInput(calculatedMargin);
+    } else {
+      setProfitMarginInput(0);
+    }
+  };
+
+  const handleCurrencyToggle = (newCurrency: 'USD' | 'ARS') => {
+    if (newCurrency === priceCurrency) return;
+    setPriceCurrency(newCurrency);
+    if (newCurrency === 'USD') {
+      const newPriceUSD = Number((priceInput / exchangeRate).toFixed(2));
+      const newCostUSD = Number((costInput / exchangeRate).toFixed(2));
+      setPriceInput(newPriceUSD);
+      setCostInput(newCostUSD);
+    } else {
+      const newPriceARS = Math.round(priceInput * exchangeRate);
+      const newCostARS = Math.round(costInput * exchangeRate);
+      setPriceInput(newPriceARS);
+      setCostInput(newCostARS);
+    }
+  };
 
   const handleImageFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -150,15 +217,24 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       .map((s) => s.trim())
       .filter((s) => s.length > 0);
 
-    const finalPriceUSD =
-      priceCurrency === 'ARS'
-        ? Number((numericPrice / exchangeRate).toFixed(2))
-        : Number(numericPrice.toFixed(2));
+    const numericCost = Number(costInput) || 0;
 
-    const finalPriceARS =
-      priceCurrency === 'ARS'
-        ? Math.round(numericPrice)
-        : Math.round(numericPrice * exchangeRate);
+    let finalPriceUSD = 0;
+    let finalPriceARS: number | undefined = undefined;
+    let finalCostUSD = 0;
+    let finalCostARS: number | undefined = undefined;
+
+    if (priceCurrency === 'USD') {
+      finalPriceUSD = Math.max(0.01, Number(numericPrice.toFixed(2)));
+      finalPriceARS = Math.round(finalPriceUSD * exchangeRate);
+      finalCostUSD = Math.max(0, Number(numericCost.toFixed(2)));
+      finalCostARS = Math.round(finalCostUSD * exchangeRate);
+    } else {
+      finalPriceARS = Math.max(1, Math.round(numericPrice));
+      finalPriceUSD = Number((finalPriceARS / exchangeRate).toFixed(2));
+      finalCostARS = Math.max(0, Math.round(numericCost));
+      finalCostUSD = Number((finalCostARS / exchangeRate).toFixed(2));
+    }
 
     const productPayload = {
       sku: sku.trim(),
@@ -169,7 +245,10 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       description: description.trim() || name.trim(),
       specs: specsArray.length > 0 ? specsArray : ['Garantía oficial MP Distribuciones'],
       priceUSD: finalPriceUSD,
+      costUSD: finalCostUSD,
       priceARS: finalPriceARS,
+      costARS: finalCostARS,
+      profitMargin: Number(profitMarginInput),
       priceCurrency,
       inStock: stockQuantity > 0,
       stockQuantity: Number(stockQuantity),
@@ -311,75 +390,127 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             </div>
           </div>
 
-          {/* Row 4: Pricing & Stock (Wholesale Heart) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3.5 rounded-xl bg-blue-50/70 border border-blue-200">
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label className="font-bold text-blue-900 flex items-center gap-1">
-                  <DollarSign className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Precio ({priceCurrency}) *</span>
-                </label>
-                {/* Selector de moneda USD / ARS */}
-                <div className="flex items-center rounded-lg bg-blue-100 p-0.5 text-[10px] font-bold">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (priceCurrency !== 'USD') {
-                        setPriceCurrency('USD');
-                        setPriceInput(Number((priceInput / exchangeRate).toFixed(2)));
-                      }
-                    }}
-                    className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${
-                      priceCurrency === 'USD'
-                        ? 'bg-blue-600 text-white shadow-xs font-black'
-                        : 'text-blue-700 hover:text-blue-900'
-                    }`}
-                  >
-                    USD
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (priceCurrency !== 'ARS') {
-                        setPriceCurrency('ARS');
-                        setPriceInput(Math.round(priceInput * exchangeRate));
-                      }
-                    }}
-                    className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${
-                      priceCurrency === 'ARS'
-                        ? 'bg-blue-600 text-white shadow-xs font-black'
-                        : 'text-blue-700 hover:text-blue-900'
-                    }`}
-                  >
-                    ARS
-                  </button>
-                </div>
+          {/* Row 4: Pricing, Cost & Profit Margin Structure */}
+          <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-blue-200/60">
+              <div className="flex items-center gap-1.5 text-blue-950 font-bold text-xs">
+                <DollarSign className="w-4 h-4 text-blue-600" />
+                <span>Estructura de Rentabilidad (Costos y Márgenes)</span>
               </div>
 
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 font-mono font-bold text-slate-400">
-                  {priceCurrency === 'USD' ? 'u$s' : '$'}
-                </span>
-                <input
-                  type="number"
-                  step={priceCurrency === 'USD' ? '0.01' : '1'}
-                  min={priceCurrency === 'USD' ? '0.01' : '1'}
-                  required
-                  value={priceInput}
-                  onChange={(e) => setPriceInput(parseFloat(e.target.value) || 0)}
-                  className="w-full pl-9 pr-3 py-2 rounded-lg bg-white border border-slate-300 focus:border-blue-600 text-sm font-mono font-black text-slate-900 outline-none"
-                />
+              {/* Selector de moneda USD / ARS */}
+              <div className="flex items-center rounded-lg bg-blue-100 p-0.5 text-[10px] font-bold">
+                <button
+                  type="button"
+                  onClick={() => handleCurrencyToggle('USD')}
+                  className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                    priceCurrency === 'USD'
+                      ? 'bg-blue-600 text-white shadow-xs font-black'
+                      : 'text-blue-700 hover:text-blue-900'
+                  }`}
+                >
+                  USD (u$s)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleCurrencyToggle('ARS')}
+                  className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                    priceCurrency === 'ARS'
+                      ? 'bg-blue-600 text-white shadow-xs font-black'
+                      : 'text-blue-700 hover:text-blue-900'
+                  }`}
+                >
+                  ARS ($)
+                </button>
               </div>
-              <p className="text-[10px] text-slate-500 font-mono">
-                {priceCurrency === 'USD'
-                  ? `≈ $ ${Math.round(priceInput * exchangeRate).toLocaleString('es-AR')} ARS`
-                  : `≈ u$s ${(priceInput / exchangeRate).toFixed(2)} USD`}
-                <span className="text-slate-400"> (T.C. ${exchangeRate})</span>
-              </p>
             </div>
 
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* 1. Costo */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-slate-700 flex items-center justify-between">
+                  <span>Costo Unitario ({priceCurrency}) *</span>
+                  <span className="text-[10px] text-slate-400 font-normal">Base compra</span>
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 font-mono font-bold text-slate-400">
+                    {priceCurrency === 'USD' ? 'u$s' : '$'}
+                  </span>
+                  <input
+                    type="number"
+                    step={priceCurrency === 'USD' ? '0.01' : '1'}
+                    min="0"
+                    required
+                    value={costInput}
+                    onChange={(e) => handleCostChange(parseFloat(e.target.value) || 0)}
+                    className="w-full pl-9 pr-3 py-2 rounded-lg bg-white border border-slate-300 focus:border-blue-600 text-sm font-mono font-bold text-slate-900 outline-none"
+                  />
+                </div>
+                <p className="text-[10px] text-slate-500 font-mono">
+                  {priceCurrency === 'USD'
+                    ? `≈ $ ${Math.round(costInput * exchangeRate).toLocaleString('es-AR')} ARS`
+                    : `≈ u$s ${(costInput / exchangeRate).toFixed(2)} USD`}
+                </p>
+              </div>
+
+              {/* 2. Margen de Ganancia % */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-emerald-800 flex items-center justify-between">
+                  <span>Margen Ganancia %</span>
+                  <span className="text-[10px] text-emerald-600 font-bold">Rentabilidad</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type="number"
+                    step="0.5"
+                    required
+                    value={profitMarginInput}
+                    onChange={(e) => handleProfitMarginChange(parseFloat(e.target.value) || 0)}
+                    className="w-full pl-3 pr-8 py-2 rounded-lg bg-emerald-50/70 border border-emerald-300 focus:border-emerald-600 text-sm font-mono font-black text-emerald-900 outline-none text-right"
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 font-mono font-bold text-emerald-700">
+                    %
+                  </span>
+                </div>
+                <p className="text-[10px] text-emerald-700 font-medium">
+                  Ganancia: {priceCurrency === 'USD' ? `u$s ${(priceInput - costInput).toFixed(2)}` : `$ ${Math.round(priceInput - costInput).toLocaleString('es-AR')}`} /un.
+                </p>
+              </div>
+
+              {/* 3. Precio de Venta Mayorista */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-blue-900 flex items-center justify-between">
+                  <span>Precio de Venta ({priceCurrency}) *</span>
+                  <span className="text-[10px] text-blue-600 font-bold">Público B2B</span>
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 font-mono font-bold text-blue-600">
+                    {priceCurrency === 'USD' ? 'u$s' : '$'}
+                  </span>
+                  <input
+                    type="number"
+                    step={priceCurrency === 'USD' ? '0.01' : '1'}
+                    min={priceCurrency === 'USD' ? '0.01' : '1'}
+                    required
+                    value={priceInput}
+                    onChange={(e) => handlePriceChange(parseFloat(e.target.value) || 0)}
+                    className="w-full pl-9 pr-3 py-2 rounded-lg bg-white border-2 border-blue-400 focus:border-blue-600 text-sm font-mono font-black text-blue-950 outline-none shadow-xs"
+                  />
+                </div>
+                <p className="text-[10px] text-slate-500 font-mono">
+                  {priceCurrency === 'USD'
+                    ? `≈ $ ${Math.round(priceInput * exchangeRate).toLocaleString('es-AR')} ARS`
+                    : `≈ u$s ${(priceInput / exchangeRate).toFixed(2)} USD`}
+                  <span className="text-slate-400"> (T.C. ${exchangeRate})</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 5: Stock & Mínimo */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
             <div className="space-y-1">
-              <label className="font-bold text-blue-900 flex items-center gap-1">
+              <label className="font-bold text-xs text-slate-700 flex items-center gap-1">
                 <Boxes className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Stock Disponible (Unidades) *</span>
               </label>
@@ -397,7 +528,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             </div>
 
             <div className="space-y-1">
-              <label className="font-bold text-blue-900">Mínimo Mayorista</label>
+              <label className="font-bold text-xs text-slate-700">Mínimo Mayorista por Pedido</label>
               <input
                 type="number"
                 min="1"

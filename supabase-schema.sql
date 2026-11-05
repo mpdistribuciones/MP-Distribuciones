@@ -15,7 +15,10 @@ CREATE TABLE IF NOT EXISTS public.products (
   description TEXT,
   specs JSONB DEFAULT '[]'::jsonb,
   price_usd NUMERIC(10,2) NOT NULL DEFAULT 0.00,
+  cost_usd NUMERIC(10,2) NOT NULL DEFAULT 0.00,
   price_ars NUMERIC(12,0) NOT NULL DEFAULT 0,
+  cost_ars NUMERIC(12,0) NOT NULL DEFAULT 0,
+  profit_margin NUMERIC(5,2) NOT NULL DEFAULT 15.00,
   price_currency TEXT NOT NULL DEFAULT 'ARS', -- 'ARS' o 'USD'
   in_stock BOOLEAN NOT NULL DEFAULT true,
   stock_quantity INTEGER NOT NULL DEFAULT 0,

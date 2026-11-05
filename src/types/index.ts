@@ -42,8 +42,11 @@ export interface Product {
   description: string;
   specs: string[];
   priceUSD: number; // Wholesale price in USD (canonical or converted)
+  costUSD?: number; // Cost in USD (private admin field)
   priceCurrency?: 'USD' | 'ARS'; // Currency in which the price was set
   priceARS?: number; // Price in ARS if set in pesos
+  costARS?: number; // Cost in ARS (private admin field)
+  profitMargin?: number; // Margin % over cost (e.g. 15 for 15%)
   inStock: boolean;
   stockQuantity: number;
   badge?: 'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO' | null;

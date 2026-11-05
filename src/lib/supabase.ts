@@ -77,6 +77,12 @@ export const clearSupabaseConfig = () => {
 // Mappers: Product <-> Supabase DB Row
 // ==========================================
 export const productToDb = (p: Product) => {
+  const priceUSD = Number(p.priceUSD) || 0;
+  const priceARS = Math.round(Number(p.priceARS) || (priceUSD ? priceUSD * 1350 : 0));
+  const profitMargin = typeof p.profitMargin === 'number' ? p.profitMargin : 15;
+  const costUSD = typeof p.costUSD === 'number' ? p.costUSD : (priceUSD > 0 ? Number((priceUSD / (1 + profitMargin / 100)).toFixed(2)) : 0);
+  const costARS = typeof p.costARS === 'number' ? p.costARS : (priceARS > 0 ? Math.round(priceARS / (1 + profitMargin / 100)) : 0);
+
   return {
     id: p.id,
     sku: p.sku,
@@ -86,9 +92,12 @@ export const productToDb = (p: Product) => {
     subcategory: p.subcategory || null,
     description: p.description || '',
     specs: p.specs || [],
-    price_usd: Number(p.priceUSD) || 0,
-    price_ars: Math.round(Number(p.priceARS) || (Number(p.priceUSD) ? Number(p.priceUSD) * 1350 : 0)),
-    price_currency: p.priceCurrency || (p.priceUSD ? 'USD' : 'ARS'),
+    price_usd: priceUSD,
+    cost_usd: costUSD,
+    price_ars: priceARS,
+    cost_ars: costARS,
+    profit_margin: profitMargin,
+    price_currency: p.priceCurrency || (priceUSD ? 'USD' : 'ARS'),
     in_stock: Boolean(p.inStock),
     stock_quantity: Math.max(0, Number(p.stockQuantity) || 0),
     min_wholesale_qty: Number(p.minWholesaleQty) || 1,
@@ -100,6 +109,12 @@ export const productToDb = (p: Product) => {
 };
 
 export const dbToProduct = (row: any): Product => {
+  const priceUSD = Number(row.price_usd) || 0;
+  const priceARS = Number(row.price_ars) || undefined;
+  const profitMargin = row.profit_margin != null ? Number(row.profit_margin) : 15;
+  const costUSD = row.cost_usd != null ? Number(row.cost_usd) : (priceUSD > 0 ? Number((priceUSD / (1 + profitMargin / 100)).toFixed(2)) : 0);
+  const costARS = row.cost_ars != null ? Number(row.cost_ars) : (priceARS ? Math.round(priceARS / (1 + profitMargin / 100)) : 0);
+
   return {
     id: String(row.id),
     sku: String(row.sku),
@@ -109,8 +124,11 @@ export const dbToProduct = (row: any): Product => {
     subcategory: row.subcategory || undefined,
     description: row.description || '',
     specs: Array.isArray(row.specs) ? row.specs : [],
-    priceUSD: Number(row.price_usd) || 0,
-    priceARS: Number(row.price_ars) || undefined,
+    priceUSD,
+    costUSD,
+    priceARS,
+    costARS,
+    profitMargin,
     priceCurrency: row.price_currency === 'USD' ? 'USD' : 'ARS',
     inStock: Boolean(row.in_stock),
     stockQuantity: Number(row.stock_quantity) || 0,

@@ -422,28 +422,45 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     let safeUSD = 0;
     let safeARS = 0;
     let actualCurrency: 'USD' | 'ARS' = priceCurrency;
+    let newMargin = 15;
 
     setProducts((prev) =>
       prev.map((p) => {
         if (p.id !== id) return p;
+
+        const costUSD = p.costUSD != null
+          ? p.costUSD
+          : (p.priceUSD > 0 ? Number((p.priceUSD / 1.15).toFixed(2)) : 0);
+        const costARS = p.costARS != null
+          ? p.costARS
+          : (p.priceARS ? Math.round(p.priceARS / 1.15) : Math.round(costUSD * exchangeRate));
+
         if (priceCurrency === 'ARS') {
           safeARS = Math.round(safePrice);
           safeUSD = Number((safeARS / exchangeRate).toFixed(2));
           actualCurrency = 'ARS';
+          newMargin = costARS > 0 ? Number((((safeARS - costARS) / costARS) * 100).toFixed(2)) : 0;
           return {
             ...p,
             priceARS: safeARS,
             priceUSD: safeUSD,
+            costUSD,
+            costARS,
+            profitMargin: newMargin,
             priceCurrency: 'ARS',
           };
         } else {
           safeUSD = Number(safePrice.toFixed(2));
           safeARS = Math.round(safeUSD * exchangeRate);
           actualCurrency = 'USD';
+          newMargin = costUSD > 0 ? Number((((safeUSD - costUSD) / costUSD) * 100).toFixed(2)) : 0;
           return {
             ...p,
             priceUSD: safeUSD,
             priceARS: safeARS,
+            costUSD,
+            costARS,
+            profitMargin: newMargin,
             priceCurrency: 'USD',
           };
         }
@@ -457,6 +474,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         .update({
           price_usd: safeUSD,
           price_ars: safeARS,
+          profit_margin: newMargin,
           price_currency: actualCurrency,
           updated_at: new Date().toISOString(),
         })

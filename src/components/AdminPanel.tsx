@@ -222,7 +222,10 @@ export const AdminPanel: React.FC = () => {
               ...updated[existingIndex],
               name: rowName,
               priceUSD: rowPriceUSD,
+              costUSD: rowPriceUSD > 0 ? Number((rowPriceUSD / 1.15).toFixed(2)) : 0,
               priceARS: rowPriceARS,
+              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * exchangeRate),
+              profitMargin: 15,
               priceCurrency: rowPriceCurrency,
               stockQuantity: rowStock,
               inStock: rowStock > 0,
@@ -240,7 +243,10 @@ export const AdminPanel: React.FC = () => {
               description: (descKey && String(row[descKey])) || rowName,
               specs: ['Garantía oficial MP Distribuciones'],
               priceUSD: rowPriceUSD,
+              costUSD: rowPriceUSD > 0 ? Number((rowPriceUSD / 1.15).toFixed(2)) : 0,
               priceARS: rowPriceARS,
+              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * exchangeRate),
+              profitMargin: 15,
               priceCurrency: rowPriceCurrency,
               stockQuantity: rowStock,
               inStock: rowStock > 0,
@@ -690,7 +696,9 @@ export const AdminPanel: React.FC = () => {
                 <th className="p-3 text-center w-14">Foto</th>
                 <th className="p-3 w-32">SKU / Marca</th>
                 <th className="p-3">Nombre del Producto & Rubro</th>
-                <th className="p-3 w-40 text-center">Stock Actual</th>
+                <th className="p-3 w-36 text-center">Stock Actual</th>
+                <th className="p-3 w-36 text-right">Costo Base</th>
+                <th className="p-3 w-28 text-center">% Ganancia</th>
                 <th className="p-3 w-56 text-right">
                   <div className="flex items-center justify-end gap-1.5">
                     <span>Precio</span>
@@ -817,6 +825,77 @@ export const AdminPanel: React.FC = () => {
                           0
                         </button>
                       </div>
+                    </td>
+
+                    {/* Costo Base */}
+                    <td className="p-3 text-right">
+                      {(() => {
+                        const isArs =
+                          priceDisplayMode === 'ARS'
+                            ? true
+                            : priceDisplayMode === 'USD'
+                            ? false
+                            : p.priceCurrency === 'ARS';
+                        const margin = p.profitMargin != null ? p.profitMargin : 15;
+                        const costUSD =
+                          p.costUSD != null
+                            ? p.costUSD
+                            : p.priceUSD > 0
+                            ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2))
+                            : 0;
+                        const costARS =
+                          p.costARS != null
+                            ? p.costARS
+                            : p.priceARS
+                            ? Math.round(p.priceARS / (1 + margin / 100))
+                            : Math.round(costUSD * exchangeRate);
+
+                        return isArs ? (
+                          <div className="space-y-0.5">
+                            <span className="font-mono font-bold text-slate-700 text-xs">
+                              $ {costARS.toLocaleString('es-AR')}
+                            </span>
+                            <p className="text-[10px] text-slate-400 font-mono">
+                              ≈ u$s {costUSD.toFixed(2)} USD
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="space-y-0.5">
+                            <span className="font-mono font-bold text-slate-700 text-xs">
+                              u$s {costUSD.toFixed(2)}
+                            </span>
+                            <p className="text-[10px] text-slate-400 font-mono">
+                              ≈ $ {costARS.toLocaleString('es-AR')} ARS
+                            </p>
+                          </div>
+                        );
+                      })()}
+                    </td>
+
+                    {/* % Margen Ganancia */}
+                    <td className="p-3 text-center">
+                      {(() => {
+                        const margin = p.profitMargin != null ? p.profitMargin : 15;
+                        const isPositive = margin > 0;
+                        const isNeutral = margin === 0;
+                        return (
+                          <div className="inline-flex flex-col items-center">
+                            <span
+                              className={`px-2 py-0.5 rounded-full text-[11px] font-mono font-black border ${
+                                isPositive
+                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                  : isNeutral
+                                  ? 'bg-slate-100 text-slate-600 border-slate-200'
+                                  : 'bg-red-50 text-red-700 border-red-200'
+                              }`}
+                              title={`Margen sobre costo: ${margin}%`}
+                            >
+                              {isPositive ? '+' : ''}{margin.toFixed(1)}%
+                            </span>
+                            <span className="text-[9px] text-slate-400 mt-0.5 font-medium">rentab.</span>
+                          </div>
+                        );
+                      })()}
                     </td>
 
                     {/* Price USD or ARS (Inline Editable & Currency Toggle) */}
