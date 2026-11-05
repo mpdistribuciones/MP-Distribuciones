@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../types';
 import { useApp } from '../context/AppContext';
 import { Plus, Minus, Eye, CheckCircle2, Lock } from 'lucide-react';
+import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 
 interface ProductCardProps {
   product: Product;
@@ -59,12 +60,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="relative w-full h-44 flex items-center justify-center p-2 bg-white rounded-lg cursor-pointer overflow-hidden"
       >
         <img
-          src={product.imageUrl}
+          src={product.imageUrl || DEFAULT_PRODUCT_IMAGE}
           alt={product.name}
           loading="lazy"
           className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80';
+            e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
           }}
         />
 

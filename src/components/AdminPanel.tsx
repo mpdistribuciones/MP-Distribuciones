@@ -4,6 +4,7 @@ import { Product, Category } from '../types';
 import { CATEGORIES } from '../data/categories';
 import { AdminProductModal } from './AdminProductModal';
 import { SupabaseModal } from './SupabaseModal';
+import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import * as XLSX from 'xlsx';
 import { exportStockCatalog } from '../utils/exportUtils';
 import {
@@ -246,7 +247,7 @@ export const AdminPanel: React.FC = () => {
               badge: (badgeKey && (row[badgeKey] as any)) || undefined,
               imageUrl:
                 (imageKey && String(row[imageKey])) ||
-                'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80',
+                DEFAULT_PRODUCT_IMAGE,
               minWholesaleQty: 1,
               createdAt: new Date().toISOString(),
             };
@@ -745,13 +746,12 @@ export const AdminPanel: React.FC = () => {
                     <td className="p-3 text-center">
                       <div className="w-11 h-11 rounded-lg border border-slate-200 bg-white p-1 flex items-center justify-center overflow-hidden mx-auto">
                         <img
-                          src={p.imageUrl}
+                          src={p.imageUrl || DEFAULT_PRODUCT_IMAGE}
                           alt={p.name}
                           loading="lazy"
                           className="max-h-full max-w-full object-contain"
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src =
-                              'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=150&q=80';
+                            e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
                           }}
                         />
                       </div>

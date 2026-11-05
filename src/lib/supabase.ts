@@ -1,5 +1,8 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Product, Order } from '../types';
+import { DEFAULT_PRODUCT_IMAGE } from './constants';
+
+export { DEFAULT_PRODUCT_IMAGE };
 
 const STORAGE_KEY_SUPABASE_URL = 'mp_supabase_url';
 const STORAGE_KEY_SUPABASE_KEY = 'mp_supabase_anon_key';
@@ -90,7 +93,7 @@ export const productToDb = (p: Product) => {
     stock_quantity: Math.max(0, Number(p.stockQuantity) || 0),
     min_wholesale_qty: Number(p.minWholesaleQty) || 1,
     badge: p.badge || null,
-    image_url: p.imageUrl || '',
+    image_url: p.imageUrl || DEFAULT_PRODUCT_IMAGE,
     created_at: p.createdAt || new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
@@ -113,7 +116,10 @@ export const dbToProduct = (row: any): Product => {
     stockQuantity: Number(row.stock_quantity) || 0,
     minWholesaleQty: Number(row.min_wholesale_qty) || 1,
     badge: row.badge || undefined,
-    imageUrl: row.image_url || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80',
+    imageUrl:
+      row.image_url && !row.image_url.includes('unsplash.com')
+        ? row.image_url
+        : DEFAULT_PRODUCT_IMAGE,
     createdAt: row.created_at || new Date().toISOString(),
   };
 };

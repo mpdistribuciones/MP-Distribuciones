@@ -707,7 +707,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 28,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -1697,7 +1697,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -1851,7 +1851,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -1873,7 +1873,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -1939,7 +1939,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -2973,7 +2973,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -3237,7 +3237,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -3435,7 +3435,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -3457,7 +3457,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -3479,7 +3479,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -3501,7 +3501,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -3523,7 +3523,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4491,7 +4491,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 20,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4513,7 +4513,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4535,7 +4535,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 13,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4557,7 +4557,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4579,7 +4579,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4601,7 +4601,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4623,7 +4623,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4645,7 +4645,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4755,7 +4755,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4777,7 +4777,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4799,7 +4799,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4821,7 +4821,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4843,7 +4843,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 12,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4865,7 +4865,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4887,7 +4887,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4909,7 +4909,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4931,7 +4931,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4953,7 +4953,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 46,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4975,7 +4975,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 13,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -4997,7 +4997,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5019,7 +5019,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5041,7 +5041,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5063,7 +5063,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5085,7 +5085,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5107,7 +5107,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5129,7 +5129,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5151,7 +5151,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5173,7 +5173,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5195,7 +5195,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5217,7 +5217,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5239,7 +5239,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5261,7 +5261,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5283,7 +5283,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5305,7 +5305,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5327,7 +5327,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5349,7 +5349,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5371,7 +5371,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5393,7 +5393,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5415,7 +5415,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5437,7 +5437,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5459,7 +5459,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5481,7 +5481,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5503,7 +5503,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5525,7 +5525,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5547,7 +5547,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5569,7 +5569,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5591,7 +5591,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5613,7 +5613,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5635,7 +5635,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5679,7 +5679,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5701,7 +5701,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5723,7 +5723,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5767,7 +5767,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5811,7 +5811,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5833,7 +5833,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 110,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5855,7 +5855,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5877,7 +5877,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 200,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5899,7 +5899,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 104,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5921,7 +5921,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 98,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5943,7 +5943,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 14,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5965,7 +5965,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 19,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -5987,7 +5987,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 30,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6009,7 +6009,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6031,7 +6031,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 40,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6053,7 +6053,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 37,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6119,7 +6119,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 19,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6163,7 +6163,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6185,7 +6185,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6295,7 +6295,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6317,7 +6317,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6339,7 +6339,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 63,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6361,7 +6361,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6405,7 +6405,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6427,7 +6427,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 23,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6449,7 +6449,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 24,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6471,7 +6471,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 26,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6515,7 +6515,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6647,7 +6647,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6669,7 +6669,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6691,7 +6691,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 75,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6713,7 +6713,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 20,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6757,7 +6757,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6779,7 +6779,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6801,7 +6801,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6823,7 +6823,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6845,7 +6845,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6867,7 +6867,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 55,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6889,7 +6889,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6933,7 +6933,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 50,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6955,7 +6955,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -6977,7 +6977,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7043,7 +7043,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7087,7 +7087,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 20,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7109,7 +7109,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 18,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7131,7 +7131,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7153,7 +7153,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7263,7 +7263,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7285,7 +7285,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7307,7 +7307,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7329,7 +7329,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7351,7 +7351,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7373,7 +7373,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 22,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7395,7 +7395,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 29,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7417,7 +7417,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7439,7 +7439,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7461,7 +7461,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7505,7 +7505,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7527,7 +7527,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 55,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7549,7 +7549,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 74,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7571,7 +7571,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7593,7 +7593,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7615,7 +7615,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7637,7 +7637,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7659,7 +7659,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7681,7 +7681,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7703,7 +7703,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 195,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7747,7 +7747,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 43,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7769,7 +7769,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7791,7 +7791,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 13,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -7945,7 +7945,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8033,7 +8033,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 492,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8055,7 +8055,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8121,7 +8121,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8165,7 +8165,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8209,7 +8209,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8231,7 +8231,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 139,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8253,7 +8253,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 184,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8275,7 +8275,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 11,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8319,7 +8319,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 52,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8385,7 +8385,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8407,7 +8407,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8451,7 +8451,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8473,7 +8473,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 20,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8495,7 +8495,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8517,7 +8517,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 64,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8539,7 +8539,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 79,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8649,7 +8649,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8671,7 +8671,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8693,7 +8693,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 14,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8715,7 +8715,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 19,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8737,7 +8737,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8759,7 +8759,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8803,7 +8803,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8825,7 +8825,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8847,7 +8847,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8869,7 +8869,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 32,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8891,7 +8891,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8913,7 +8913,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8935,7 +8935,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 77,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8957,7 +8957,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -8979,7 +8979,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9001,7 +9001,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 166,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9023,7 +9023,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 21,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9045,7 +9045,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9067,7 +9067,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9089,7 +9089,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 24,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9111,7 +9111,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 20,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9133,7 +9133,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9155,7 +9155,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9177,7 +9177,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 68,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9199,7 +9199,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9221,7 +9221,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9287,7 +9287,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9309,7 +9309,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9353,7 +9353,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9441,7 +9441,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9463,7 +9463,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9485,7 +9485,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9529,7 +9529,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9617,7 +9617,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9639,7 +9639,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9661,7 +9661,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9683,7 +9683,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9771,7 +9771,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9793,7 +9793,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9815,7 +9815,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -9925,7 +9925,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10101,7 +10101,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10233,7 +10233,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10255,7 +10255,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10277,7 +10277,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10321,7 +10321,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10387,7 +10387,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10409,7 +10409,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10431,7 +10431,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10475,7 +10475,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 16,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10497,7 +10497,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10519,7 +10519,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 24,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10541,7 +10541,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10563,7 +10563,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10585,7 +10585,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -10827,7 +10827,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11047,7 +11047,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11091,7 +11091,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 29,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11113,7 +11113,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 13,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11157,7 +11157,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11179,7 +11179,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11201,7 +11201,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11223,7 +11223,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11267,7 +11267,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11289,7 +11289,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11311,7 +11311,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11333,7 +11333,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11377,7 +11377,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11399,7 +11399,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11443,7 +11443,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 10,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11465,7 +11465,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11553,7 +11553,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11575,7 +11575,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11597,7 +11597,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11619,7 +11619,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11641,7 +11641,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11663,7 +11663,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11685,7 +11685,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11751,7 +11751,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11773,7 +11773,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11839,7 +11839,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11883,7 +11883,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11905,7 +11905,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11927,7 +11927,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11949,7 +11949,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11971,7 +11971,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -11993,7 +11993,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12015,7 +12015,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 629,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12037,7 +12037,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 375,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12059,7 +12059,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12081,7 +12081,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 119,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12103,7 +12103,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 94,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12125,7 +12125,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12147,7 +12147,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 44,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12169,7 +12169,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 18,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12191,7 +12191,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12279,7 +12279,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12301,7 +12301,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12455,7 +12455,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12477,7 +12477,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12499,7 +12499,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12543,7 +12543,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12675,7 +12675,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 12,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12697,7 +12697,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12785,7 +12785,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12807,7 +12807,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12829,7 +12829,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -12873,7 +12873,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13093,7 +13093,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 22,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13115,7 +13115,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 16,
     "minWholesaleQty": 1,
     "badge": "DESTACADO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13203,7 +13203,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13225,7 +13225,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13335,7 +13335,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13379,7 +13379,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 52,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13401,7 +13401,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13423,7 +13423,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13445,7 +13445,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 4,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13467,7 +13467,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13489,7 +13489,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13511,7 +13511,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13555,7 +13555,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13577,7 +13577,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13599,7 +13599,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13621,7 +13621,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13643,7 +13643,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13665,7 +13665,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13687,7 +13687,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13709,7 +13709,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13731,7 +13731,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13753,7 +13753,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13775,7 +13775,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13885,7 +13885,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13907,7 +13907,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13929,7 +13929,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -13973,7 +13973,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14017,7 +14017,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14039,7 +14039,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 13,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14127,7 +14127,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14149,7 +14149,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14215,7 +14215,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14237,7 +14237,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14259,7 +14259,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 8,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14281,7 +14281,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14347,7 +14347,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14369,7 +14369,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14501,7 +14501,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14523,7 +14523,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14545,7 +14545,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14567,7 +14567,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14589,7 +14589,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14633,7 +14633,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14655,7 +14655,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14787,7 +14787,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14897,7 +14897,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14919,7 +14919,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14941,7 +14941,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 6,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14963,7 +14963,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -14985,7 +14985,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15205,7 +15205,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15249,7 +15249,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 30,
     "minWholesaleQty": 1,
     "badge": "MÁS VENDIDO",
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15293,7 +15293,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 15,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15359,7 +15359,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15381,7 +15381,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15403,7 +15403,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15425,7 +15425,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15469,7 +15469,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 11,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15491,7 +15491,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15535,7 +15535,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 7,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15557,7 +15557,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15579,7 +15579,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15601,7 +15601,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15645,7 +15645,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15667,7 +15667,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 9,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15689,7 +15689,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15711,7 +15711,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15733,7 +15733,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15755,7 +15755,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15799,7 +15799,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15821,7 +15821,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 5,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15843,7 +15843,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15865,7 +15865,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15931,7 +15931,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15953,7 +15953,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 1,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -15975,7 +15975,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 3,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -16349,7 +16349,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 2,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -16415,7 +16415,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
@@ -16657,7 +16657,7 @@ export const PRODUCTS: Product[] = [
     "stockQuantity": 0,
     "minWholesaleQty": 1,
     "badge": null,
-    "imageUrl": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {

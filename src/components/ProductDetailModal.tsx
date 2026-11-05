@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
   CheckCircle2,
@@ -73,9 +74,12 @@ export const ProductDetailModal: React.FC = () => {
           <div className="space-y-4">
             <div className="relative w-full pt-[85%] rounded-2xl bg-white overflow-hidden border border-slate-200 flex items-center justify-center p-4">
               <img
-                src={product.imageUrl}
+                src={product.imageUrl || DEFAULT_PRODUCT_IMAGE}
                 alt={product.name}
                 className="absolute inset-0 w-full h-full object-contain p-4"
+                onError={(e) => {
+                  e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
+                }}
               />
               {product.badge && (
                 <div className="absolute top-3 left-3">

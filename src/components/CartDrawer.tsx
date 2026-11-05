@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { InvoiceType, DeliveryMethod } from '../types';
+import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
   Trash2,
@@ -119,9 +120,12 @@ export const CartDrawer: React.FC = () => {
                 return (
                   <div key={item.product.id} className="pt-3 first:pt-0 flex gap-3 items-center">
                     <img
-                      src={item.product.imageUrl}
+                      src={item.product.imageUrl || DEFAULT_PRODUCT_IMAGE}
                       alt={item.product.name}
                       className="w-14 h-14 rounded-lg object-contain bg-white border border-slate-200 p-1 shrink-0"
+                      onError={(e) => {
+                        e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
+                      }}
                     />
 
                     <div className="flex-1 flex flex-col justify-between">

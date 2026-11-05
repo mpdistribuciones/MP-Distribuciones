@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../types';
 import { useApp } from '../context/AppContext';
 import { Plus, Minus, Eye, Lock } from 'lucide-react';
+import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 
 interface ProductListRowProps {
   product: Product;
@@ -64,13 +65,12 @@ export const ProductListRow: React.FC<ProductListRowProps> = ({ product }) => {
           className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg border border-slate-200 p-1 flex items-center justify-center cursor-pointer hover:border-blue-400"
         >
           <img
-            src={product.imageUrl}
+            src={product.imageUrl || DEFAULT_PRODUCT_IMAGE}
             alt={product.name}
             loading="lazy"
             className="max-h-full max-w-full object-contain"
             onError={(e) => {
-              (e.target as HTMLImageElement).src =
-                'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=150&q=80';
+              e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
             }}
           />
         </div>

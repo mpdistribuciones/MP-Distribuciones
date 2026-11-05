@@ -3,6 +3,7 @@ import { Product, Category } from '../types';
 import { CATEGORIES } from '../data/categories';
 import { useApp } from '../context/AppContext';
 import { isSupabaseConfigured, uploadProductImage } from '../lib/supabase';
+import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
   Plus,
@@ -174,9 +175,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       stockQuantity: Number(stockQuantity),
       minWholesaleQty: Number(minWholesaleQty) || 1,
       badge: badge ? (badge as any) : undefined,
-      imageUrl:
-        imageUrl.trim() ||
-        'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80',
+      imageUrl: imageUrl.trim() || DEFAULT_PRODUCT_IMAGE,
     };
 
     if (productToEdit) {
@@ -463,12 +462,11 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
               <div className="flex items-center gap-3 pt-1">
                 <div className="w-16 h-16 rounded-xl border border-slate-300 bg-white p-1.5 shrink-0 flex items-center justify-center overflow-hidden shadow-xs relative">
                   <img
-                    src={imageUrl}
+                    src={imageUrl || DEFAULT_PRODUCT_IMAGE}
                     alt="Preview"
                     className="max-h-full max-w-full object-contain"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=150&q=80';
+                      e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
                     }}
                   />
                   {isUploadingImage && (
