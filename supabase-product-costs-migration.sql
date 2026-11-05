@@ -44,7 +44,16 @@ ALTER TABLE public.products
   DROP COLUMN IF EXISTS cost_ars, 
   DROP COLUMN IF EXISTS profit_margin;
 
--- 4. Habilitar RLS en product_costs permitiendo acceso exclusivo al administrador
+-- 4. Asegurar función helper public.is_admin() y habilitar RLS
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SET search_path = ''
+AS $$
+  SELECT COALESCE(auth.jwt() -> 'app_metadata' ->> 'role', '') = 'admin';
+$$;
+
 ALTER TABLE public.product_costs ENABLE ROW LEVEL SECURITY;
 
 DROP POLICY IF EXISTS "product_costs_admin_select" ON public.product_costs;
