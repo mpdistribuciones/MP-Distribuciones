@@ -24,7 +24,7 @@ interface InventoryTableRowProps {
   showToast: (message: string, type?: 'success' | 'info' | 'warning' | 'error') => void;
 }
 
-export const InventoryTableRow: React.FC<InventoryTableRowProps> = ({
+export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
   product,
   exchangeRate,
   priceDisplayMode,
@@ -474,4 +474,6 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = ({
       </td>
     </tr>
   );
-};
+});
+
+InventoryTableRow.displayName = 'InventoryTableRow';

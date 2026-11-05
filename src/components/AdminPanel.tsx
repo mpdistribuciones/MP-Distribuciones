@@ -24,6 +24,11 @@ import {
   Percent,
   X,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  ArrowUpDown,
   FileSpreadsheet,
   FileText,
   Database,
@@ -53,6 +58,14 @@ export const AdminPanel: React.FC = () => {
   const [categoryFilter, setCategoryFilter] = useState('ALL');
   const [statusFilter, setStatusFilter] = useState<'all' | 'in_stock' | 'out_of_stock' | 'outlet' | 'currency_ars' | 'currency_usd'>('all');
 
+  // Pagination & Sorting state
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number | 'all'>(50);
+  const [sortBy, setSortBy] = useState<
+    'default' | 'name_asc' | 'name_desc' | 'price_asc' | 'price_desc' | 'stock_asc' | 'stock_desc' | 'sku_asc'
+  >('default');
+  const tableTopRef = useRef<HTMLDivElement>(null);
+
   // Modals state
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
   const [productToEdit, setProductToEdit] = useState<Product | null>(null);
@@ -76,6 +89,11 @@ export const AdminPanel: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Reset pagination to first page whenever search, filter, sort or page size changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, categoryFilter, statusFilter, sortBy, pageSize]);
+
   // Stats calculation
   const totalProducts = products.length;
   const inStockCount = products.filter((p) => p.stockQuantity > 0).length;
@@ -83,9 +101,9 @@ export const AdminPanel: React.FC = () => {
   const totalInventoryUSD = products.reduce((acc, p) => acc + p.priceUSD * p.stockQuantity, 0);
   const totalInventoryARS = totalInventoryUSD * exchangeRate;
 
-  // Filtered products list
+  // Filtered and sorted products list (evaluated over full catalog)
   const filteredProducts = useMemo(() => {
-    return products.filter((p) => {
+    const list = products.filter((p) => {
       // Category filter
       if (categoryFilter !== 'ALL' && p.category !== categoryFilter) {
         return false;
@@ -109,7 +127,85 @@ export const AdminPanel: React.FC = () => {
       }
       return true;
     });
-  }, [products, categoryFilter, statusFilter, searchTerm]);
+
+    if (sortBy !== 'default') {
+      const sorted = [...list];
+      switch (sortBy) {
+        case 'name_asc':
+          sorted.sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }));
+          break;
+        case 'name_desc':
+          sorted.sort((a, b) => b.name.localeCompare(a.name, 'es', { sensitivity: 'base' }));
+          break;
+        case 'price_asc':
+          sorted.sort((a, b) => a.priceUSD - b.priceUSD);
+          break;
+        case 'price_desc':
+          sorted.sort((a, b) => b.priceUSD - a.priceUSD);
+          break;
+        case 'stock_asc':
+          sorted.sort((a, b) => a.stockQuantity - b.stockQuantity);
+          break;
+        case 'stock_desc':
+          sorted.sort((a, b) => b.stockQuantity - a.stockQuantity);
+          break;
+        case 'sku_asc':
+          sorted.sort((a, b) => a.sku.localeCompare(b.sku, 'es', { numeric: true }));
+          break;
+      }
+      return sorted;
+    }
+
+    return list;
+  }, [products, categoryFilter, statusFilter, searchTerm, sortBy]);
+
+  // Pagination calculations
+  const totalItems = filteredProducts.length;
+  const totalPages = pageSize === 'all' ? 1 : Math.max(1, Math.ceil(totalItems / pageSize));
+  const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
+
+  const paginatedProducts = useMemo(() => {
+    if (pageSize === 'all') return filteredProducts;
+    const start = (safeCurrentPage - 1) * pageSize;
+    return filteredProducts.slice(start, start + pageSize);
+  }, [filteredProducts, safeCurrentPage, pageSize]);
+
+  const startIndex = totalItems === 0 ? 0 : (pageSize === 'all' ? 1 : (safeCurrentPage - 1) * (pageSize as number) + 1);
+  const endIndex = pageSize === 'all' ? totalItems : Math.min(safeCurrentPage * (pageSize as number), totalItems);
+
+  const handlePageChange = (newPage: number) => {
+    const target = Math.min(Math.max(1, newPage), totalPages);
+    setCurrentPage(target);
+    if (tableTopRef.current) {
+      tableTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Smart page numbers array with ellipses
+  const pageNumbers = useMemo(() => {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+    const pages: (number | string)[] = [];
+    if (safeCurrentPage <= 4) {
+      for (let i = 1; i <= 5; i++) pages.push(i);
+      pages.push('...');
+      pages.push(totalPages);
+    } else if (safeCurrentPage >= totalPages - 3) {
+      pages.push(1);
+      pages.push('...');
+      for (let i = totalPages - 4; i <= totalPages; i++) pages.push(i);
+    } else {
+      pages.push(1);
+      pages.push('...');
+      pages.push(safeCurrentPage - 1);
+      pages.push(safeCurrentPage);
+      pages.push(safeCurrentPage + 1);
+      pages.push('...');
+      pages.push(totalPages);
+    }
+    return pages;
+  }, [safeCurrentPage, totalPages]);
 
   // Handle Export (XLSX or CSV)
   const handleExport = (format: 'xlsx' | 'csv') => {
@@ -675,19 +771,69 @@ export const AdminPanel: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-xs text-slate-500 flex items-center justify-between pt-1 border-t border-slate-100">
-            <span>
-              Mostrando <strong className="text-slate-800 font-bold">{filteredProducts.length}</strong> artículos
-              coincidentes
-            </span>
-            <span className="text-[11px] text-slate-400">
-              💡 Tip: Podés editar el stock y el precio directamente en los casilleros de la tabla.
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 text-xs">
+            <div className="flex items-center gap-2 text-slate-500">
+              <span>
+                Mostrando <strong className="text-slate-800 font-bold">{startIndex} - {endIndex}</strong> de{' '}
+                <strong className="text-slate-800 font-bold">{totalItems}</strong> artículos
+                {totalItems !== totalProducts && (
+                  <span className="text-slate-400"> ({totalProducts} en catálogo)</span>
+                )}
+              </span>
+              {pageSize !== 'all' && totalPages > 1 && (
+                <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold">
+                  Pág {safeCurrentPage} / {totalPages}
+                </span>
+              )}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Order / Sort Selector */}
+              <div className="flex items-center gap-1.5">
+                <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
+                <span className="text-[11px] text-slate-500 font-medium">Ordenar:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="px-2.5 py-1 rounded-xl bg-slate-50 border border-slate-300 text-xs font-semibold text-slate-700 outline-none focus:border-blue-600 cursor-pointer"
+                >
+                  <option value="default">Por Defecto</option>
+                  <option value="name_asc">Nombre (A → Z)</option>
+                  <option value="name_desc">Nombre (Z → A)</option>
+                  <option value="price_asc">Precio: Menor a Mayor</option>
+                  <option value="price_desc">Precio: Mayor a Menor</option>
+                  <option value="stock_asc">Stock: Menor a Mayor</option>
+                  <option value="stock_desc">Stock: Mayor a Menor</option>
+                  <option value="sku_asc">Código SKU</option>
+                </select>
+              </div>
+
+              {/* Items Per Page Selector */}
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] text-slate-500 font-medium">Por pág:</span>
+                <div className="inline-flex rounded-xl bg-slate-100 p-0.5 border border-slate-200 text-[11px] font-bold">
+                  {([25, 50, 100, 'all'] as const).map((size) => (
+                    <button
+                      key={size}
+                      type="button"
+                      onClick={() => setPageSize(size)}
+                      className={`px-2.5 py-0.5 rounded-lg transition-all cursor-pointer ${
+                        pageSize === size
+                          ? 'bg-blue-600 text-white shadow-xs font-black'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      {size === 'all' ? 'Todos' : size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Live Editable Inventory Table */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden overflow-x-auto">
+        <div ref={tableTopRef} className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden overflow-x-auto scroll-mt-6">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
               <tr className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase font-black text-[10px] tracking-wider">
@@ -745,8 +891,8 @@ export const AdminPanel: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {filteredProducts.length > 0 ? (
-                filteredProducts.map((p) => (
+              {paginatedProducts.length > 0 ? (
+                paginatedProducts.map((p) => (
                   <InventoryTableRow
                     key={p.id}
                     product={p}
@@ -769,6 +915,105 @@ export const AdminPanel: React.FC = () => {
             </tbody>
           </table>
         </div>
+
+        {/* Bottom Pagination Controls Bar */}
+        {totalItems > 0 && pageSize !== 'all' && totalPages > 1 && (
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm text-xs">
+            <div className="flex items-center gap-2 text-slate-500">
+              <span>
+                Mostrando <strong className="text-slate-800 font-bold">{startIndex} - {endIndex}</strong> de{' '}
+                <strong className="text-slate-800 font-bold">{totalItems}</strong> productos
+              </span>
+              <span className="text-slate-400">• Página {safeCurrentPage} de {totalPages}</span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              {/* Primera página */}
+              <button
+                type="button"
+                onClick={() => handlePageChange(1)}
+                disabled={safeCurrentPage === 1}
+                className="p-1.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                title="Primera página"
+              >
+                <ChevronsLeft className="w-4 h-4" />
+              </button>
+
+              {/* Anterior */}
+              <button
+                type="button"
+                onClick={() => handlePageChange(safeCurrentPage - 1)}
+                disabled={safeCurrentPage === 1}
+                className="p-1.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                title="Página anterior"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              {/* Números de página */}
+              <div className="flex items-center gap-1 mx-1">
+                {pageNumbers.map((p, idx) =>
+                  p === '...' ? (
+                    <span key={`ellipsis-${idx}`} className="px-2 py-1 text-slate-400 font-bold select-none">
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={`page-${p}`}
+                      type="button"
+                      onClick={() => handlePageChange(p as number)}
+                      className={`min-w-[32px] h-8 px-2 rounded-xl font-bold transition-all cursor-pointer ${
+                        safeCurrentPage === p
+                          ? 'bg-blue-600 text-white shadow-xs'
+                          : 'border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300'
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  )
+                )}
+              </div>
+
+              {/* Siguiente */}
+              <button
+                type="button"
+                onClick={() => handlePageChange(safeCurrentPage + 1)}
+                disabled={safeCurrentPage === totalPages}
+                className="p-1.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                title="Página siguiente"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+
+              {/* Última página */}
+              <button
+                type="button"
+                onClick={() => handlePageChange(totalPages)}
+                disabled={safeCurrentPage === totalPages}
+                className="p-1.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+                title="Última página"
+              >
+                <ChevronsRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Selector rápido de página */}
+            <div className="flex items-center gap-1.5 text-slate-600">
+              <span className="text-[11px] text-slate-400">Ir a pág:</span>
+              <select
+                value={safeCurrentPage}
+                onChange={(e) => handlePageChange(Number(e.target.value))}
+                className="px-2 py-1 rounded-xl bg-slate-50 border border-slate-300 text-xs font-semibold text-slate-700 outline-none focus:border-blue-600 cursor-pointer"
+              >
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
+                  <option key={num} value={num}>
+                    Pág {num}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        )}
 
         {/* Developer Credit */}
         <div className="pt-6 pb-2 text-center text-xs text-slate-400 flex items-center justify-center gap-1.5">
