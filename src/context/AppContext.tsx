@@ -34,6 +34,17 @@ interface AppContextType {
   deleteProduct: (id: string) => void;
   updateStock: (id: string, newStock: number) => void;
   updatePrice: (id: string, newPrice: number, priceCurrency?: 'USD' | 'ARS') => void;
+  updateProductFinancials: (
+    id: string,
+    financials: {
+      priceUSD: number;
+      priceARS: number;
+      costUSD: number;
+      costARS: number;
+      profitMargin: number;
+      priceCurrency?: 'USD' | 'ARS';
+    }
+  ) => Promise<void>;
   applyPercentagePriceAdjustment: (percentage: number) => void;
   bulkUpdateProducts: (updatedList: Product[]) => void;
   replaceProducts: (updatedList: Product[]) => Promise<void>;
@@ -482,6 +493,57 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         .then(({ error }) => {
           if (error) console.error('[Supabase Update Price Error]:', error);
         });
+    }
+  };
+
+  const updateProductFinancials = async (
+    id: string,
+    financials: {
+      priceUSD: number;
+      priceARS: number;
+      costUSD: number;
+      costARS: number;
+      profitMargin: number;
+      priceCurrency?: 'USD' | 'ARS';
+    }
+  ) => {
+    setProducts((prev) =>
+      prev.map((p) => {
+        if (p.id !== id) return p;
+        return {
+          ...p,
+          priceUSD: financials.priceUSD,
+          priceARS: financials.priceARS,
+          costUSD: financials.costUSD,
+          costARS: financials.costARS,
+          profitMargin: financials.profitMargin,
+          priceCurrency: financials.priceCurrency || p.priceCurrency,
+        };
+      })
+    );
+
+    const client = getSupabaseClient();
+    if (client) {
+      const updatePayload: Record<string, any> = {
+        price_usd: financials.priceUSD,
+        price_ars: financials.priceARS,
+        cost_usd: financials.costUSD,
+        cost_ars: financials.costARS,
+        profit_margin: financials.profitMargin,
+        updated_at: new Date().toISOString(),
+      };
+      if (financials.priceCurrency) {
+        updatePayload.price_currency = financials.priceCurrency;
+      }
+      const { error } = await client
+        .from('products')
+        .update(updatePayload)
+        .eq('id', id);
+
+      if (error) {
+        console.error('[Supabase Update Financials Error]:', error);
+        throw error;
+      }
     }
   };
 
@@ -1091,6 +1153,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         deleteProduct,
         updateStock,
         updatePrice,
+        updateProductFinancials,
         applyPercentagePriceAdjustment,
         bulkUpdateProducts,
         replaceProducts,

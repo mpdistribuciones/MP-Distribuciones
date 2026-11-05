@@ -4,6 +4,7 @@ import { Product, Category } from '../types';
 import { CATEGORIES } from '../data/categories';
 import { AdminProductModal } from './AdminProductModal';
 import { SupabaseModal } from './SupabaseModal';
+import { InventoryTableRow } from './InventoryTableRow';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import * as XLSX from 'xlsx';
 import { exportStockCatalog } from '../utils/exportUtils';
@@ -18,13 +19,10 @@ import {
   DollarSign,
   Boxes,
   CheckCircle2,
-  AlertCircle,
-  Edit,
   Trash2,
   TrendingUp,
   Percent,
   X,
-  Check,
   ChevronDown,
   FileSpreadsheet,
   FileText,
@@ -35,7 +33,7 @@ export const AdminPanel: React.FC = () => {
   const {
     products,
     updateStock,
-    updatePrice,
+    updateProductFinancials,
     deleteProduct,
     applyPercentagePriceAdjustment,
     bulkUpdateProducts,
@@ -697,7 +695,7 @@ export const AdminPanel: React.FC = () => {
                 <th className="p-3 w-32">SKU / Marca</th>
                 <th className="p-3">Nombre del Producto & Rubro</th>
                 <th className="p-3 w-36 text-center">Stock Actual</th>
-                <th className="p-3 w-36 text-right">Costo Base</th>
+                <th className="p-3 w-36 text-right">Costo</th>
                 <th className="p-3 w-28 text-center">% Ganancia</th>
                 <th className="p-3 w-56 text-right">
                   <div className="flex items-center justify-end gap-1.5">
@@ -749,300 +747,21 @@ export const AdminPanel: React.FC = () => {
             <tbody className="divide-y divide-slate-100">
               {filteredProducts.length > 0 ? (
                 filteredProducts.map((p) => (
-                  <tr key={p.id} className="hover:bg-slate-50/80 transition-colors">
-                    {/* Thumbnail */}
-                    <td className="p-3 text-center">
-                      <div className="w-11 h-11 rounded-lg border border-slate-200 bg-white p-1 flex items-center justify-center overflow-hidden mx-auto">
-                        <img
-                          src={p.imageUrl || DEFAULT_PRODUCT_IMAGE}
-                          alt={p.name}
-                          loading="lazy"
-                          className="max-h-full max-w-full object-contain"
-                          onError={(e) => {
-                            e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
-                          }}
-                        />
-                      </div>
-                    </td>
-
-                    {/* SKU & Brand */}
-                    <td className="p-3">
-                      <span className="font-mono font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded text-[11px] border border-slate-200">
-                        {p.sku}
-                      </span>
-                      <p className="text-[11px] text-slate-500 font-semibold mt-1">{p.brand}</p>
-                    </td>
-
-                    {/* Name & Category */}
-                    <td className="p-3">
-                      <p className="font-bold text-slate-900 line-clamp-1 leading-snug">{p.name}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
-                          {p.category}
-                        </span>
-                        {p.badge && (
-                          <span className="text-[9px] font-black uppercase text-red-700 bg-red-100 px-1.5 py-0.2 rounded">
-                            {p.badge}
-                          </span>
-                        )}
-                      </div>
-                    </td>
-
-                    {/* Stock (Inline Editable) */}
-                    <td className="p-3 text-center">
-                      <div className="flex items-center justify-center gap-1">
-                        <input
-                          type="number"
-                          min="0"
-                          value={p.stockQuantity}
-                          onChange={(e) => updateStock(p.id, parseInt(e.target.value) || 0)}
-                          className={`w-16 px-2 py-1 text-center font-mono font-bold rounded-lg border text-xs outline-none transition-all ${
-                            p.stockQuantity > 0
-                              ? 'bg-slate-50 border-slate-300 focus:border-emerald-500 focus:bg-white text-slate-900'
-                              : 'bg-red-50 border-red-300 text-red-600 font-black'
-                          }`}
-                        />
-                        <span className="text-[11px] text-slate-400">un.</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-1 mt-1 text-[10px]">
-                        <button
-                          onClick={() => updateStock(p.id, p.stockQuantity + 5)}
-                          className="px-1.5 py-0.2 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
-                        >
-                          +5
-                        </button>
-                        <button
-                          onClick={() => updateStock(p.id, p.stockQuantity + 20)}
-                          className="px-1.5 py-0.2 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
-                        >
-                          +20
-                        </button>
-                        <button
-                          onClick={() => updateStock(p.id, 0)}
-                          className="px-1.5 py-0.2 rounded bg-red-50 hover:bg-red-100 text-red-600 font-bold"
-                          title="Pausar stock a 0"
-                        >
-                          0
-                        </button>
-                      </div>
-                    </td>
-
-                    {/* Costo Base */}
-                    <td className="p-3 text-right">
-                      {(() => {
-                        const isArs =
-                          priceDisplayMode === 'ARS'
-                            ? true
-                            : priceDisplayMode === 'USD'
-                            ? false
-                            : p.priceCurrency === 'ARS';
-                        const margin = p.profitMargin != null ? p.profitMargin : 15;
-                        const costUSD =
-                          p.costUSD != null
-                            ? p.costUSD
-                            : p.priceUSD > 0
-                            ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2))
-                            : 0;
-                        const costARS =
-                          p.costARS != null
-                            ? p.costARS
-                            : p.priceARS
-                            ? Math.round(p.priceARS / (1 + margin / 100))
-                            : Math.round(costUSD * exchangeRate);
-
-                        return isArs ? (
-                          <div className="space-y-0.5">
-                            <span className="font-mono font-bold text-slate-700 text-xs">
-                              $ {costARS.toLocaleString('es-AR')}
-                            </span>
-                            <p className="text-[10px] text-slate-400 font-mono">
-                              ≈ u$s {costUSD.toFixed(2)} USD
-                            </p>
-                          </div>
-                        ) : (
-                          <div className="space-y-0.5">
-                            <span className="font-mono font-bold text-slate-700 text-xs">
-                              u$s {costUSD.toFixed(2)}
-                            </span>
-                            <p className="text-[10px] text-slate-400 font-mono">
-                              ≈ $ {costARS.toLocaleString('es-AR')} ARS
-                            </p>
-                          </div>
-                        );
-                      })()}
-                    </td>
-
-                    {/* % Margen Ganancia */}
-                    <td className="p-3 text-center">
-                      {(() => {
-                        const margin = p.profitMargin != null ? p.profitMargin : 15;
-                        const isPositive = margin > 0;
-                        const isNeutral = margin === 0;
-                        return (
-                          <div className="inline-flex flex-col items-center">
-                            <span
-                              className={`px-2 py-0.5 rounded-full text-[11px] font-mono font-black border ${
-                                isPositive
-                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                  : isNeutral
-                                  ? 'bg-slate-100 text-slate-600 border-slate-200'
-                                  : 'bg-red-50 text-red-700 border-red-200'
-                              }`}
-                              title={`Margen sobre costo: ${margin}%`}
-                            >
-                              {isPositive ? '+' : ''}{margin.toFixed(1)}%
-                            </span>
-                            <span className="text-[9px] text-slate-400 mt-0.5 font-medium">rentab.</span>
-                          </div>
-                        );
-                      })()}
-                    </td>
-
-                    {/* Price USD or ARS (Inline Editable & Currency Toggle) */}
-                    <td className="p-3 text-right">
-                      {(() => {
-                        const isArs =
-                          priceDisplayMode === 'ARS'
-                            ? true
-                            : priceDisplayMode === 'USD'
-                            ? false
-                            : p.priceCurrency === 'ARS';
-
-                        const currentCurrency = p.priceCurrency || 'USD';
-
-                        return (
-                          <div className="space-y-1">
-                            {/* Base currency selector for this product */}
-                            <div className="flex items-center justify-end gap-1">
-                              <span className="text-[10px] text-slate-400 font-semibold">Base:</span>
-                              <div className="inline-flex rounded-md bg-slate-100 border border-slate-200 p-0.5 text-[9px] font-bold">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    updatePrice(
-                                      p.id,
-                                      p.priceARS || Math.round(p.priceUSD * exchangeRate),
-                                      'ARS'
-                                    )
-                                  }
-                                  className={`px-1.5 py-0.2 rounded transition-all cursor-pointer ${
-                                    currentCurrency === 'ARS'
-                                      ? 'bg-emerald-600 text-white font-black shadow-xs'
-                                      : 'text-slate-500 hover:text-slate-800'
-                                  }`}
-                                  title="Fijar moneda de este producto en Pesos ($)"
-                                >
-                                  $ ARS
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => updatePrice(p.id, p.priceUSD, 'USD')}
-                                  className={`px-1.5 py-0.2 rounded transition-all cursor-pointer ${
-                                    currentCurrency === 'USD'
-                                      ? 'bg-blue-600 text-white font-black shadow-xs'
-                                      : 'text-slate-500 hover:text-slate-800'
-                                  }`}
-                                  title="Fijar moneda de este producto en Dólares (USD)"
-                                >
-                                  u$s USD
-                                </button>
-                              </div>
-                            </div>
-
-                            {/* Editable price input */}
-                            {isArs ? (
-                              <div>
-                                <div className="flex items-center justify-end gap-1">
-                                  <span className="text-emerald-700 font-mono text-xs font-bold">$</span>
-                                  <input
-                                    type="number"
-                                    step="10"
-                                    min="1"
-                                    value={p.priceARS || Math.round(p.priceUSD * exchangeRate)}
-                                    onChange={(e) =>
-                                      updatePrice(p.id, parseInt(e.target.value, 10) || 1, 'ARS')
-                                    }
-                                    className="w-24 px-2 py-1 text-right font-mono font-black text-xs text-slate-900 rounded-lg bg-emerald-50/50 border border-emerald-300 focus:border-emerald-600 focus:bg-white outline-none"
-                                  />
-                                </div>
-                                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                                  ≈ u$s {p.priceUSD.toFixed(2)} USD
-                                </p>
-                              </div>
-                            ) : (
-                              <div>
-                                <div className="flex items-center justify-end gap-1">
-                                  <span className="text-blue-700 font-mono text-xs font-bold">u$s</span>
-                                  <input
-                                    type="number"
-                                    step="0.01"
-                                    min="0.01"
-                                    value={p.priceUSD}
-                                    onChange={(e) =>
-                                      updatePrice(p.id, parseFloat(e.target.value) || 0.01, 'USD')
-                                    }
-                                    className="w-20 px-2 py-1 text-right font-mono font-black text-xs text-slate-900 rounded-lg bg-blue-50/50 border border-blue-300 focus:border-blue-600 focus:bg-white outline-none"
-                                  />
-                                </div>
-                                <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                                  ≈ $ {(p.priceARS || Math.round(p.priceUSD * exchangeRate)).toLocaleString('es-AR')} ARS
-                                </p>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })()}
-                    </td>
-
-                    {/* Status Badge */}
-                    <td className="p-3 text-center">
-                      <button
-                        onClick={() => updateStock(p.id, p.stockQuantity > 0 ? 0 : 10)}
-                        className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
-                          p.stockQuantity > 0
-                            ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
-                            : 'bg-red-100 text-red-700 hover:bg-red-200'
-                        }`}
-                        title="Click para alternar estado de stock"
-                      >
-                        {p.stockQuantity > 0 ? (
-                          <>
-                            <Check className="w-3 h-3 text-emerald-600" />
-                            <span>En Venta</span>
-                          </>
-                        ) : (
-                          <>
-                            <AlertCircle className="w-3 h-3 text-red-600" />
-                            <span>Agotado</span>
-                          </>
-                        )}
-                      </button>
-                    </td>
-
-                    {/* Actions */}
-                    <td className="p-3 text-center">
-                      <div className="flex items-center justify-center gap-1.5">
-                        <button
-                          onClick={() => handleOpenEdit(p)}
-                          className="p-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
-                          title="Editar detalles completos"
-                        >
-                          <Edit className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(p.id, p.name)}
-                          className="p-1.5 rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-colors"
-                          title="Eliminar producto"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                  <InventoryTableRow
+                    key={p.id}
+                    product={p}
+                    exchangeRate={exchangeRate}
+                    priceDisplayMode={priceDisplayMode}
+                    onUpdateStock={updateStock}
+                    onUpdateFinancials={updateProductFinancials}
+                    onEdit={handleOpenEdit}
+                    onDelete={(id) => handleDelete(id, p.name)}
+                    showToast={showToast}
+                  />
                 ))
               ) : (
                 <tr>
-                  <td colSpan={7} className="p-8 text-center text-slate-500">
+                  <td colSpan={9} className="p-8 text-center text-slate-500">
                     No se encontraron productos coincidentes con los filtros seleccionados.
                   </td>
                 </tr>
