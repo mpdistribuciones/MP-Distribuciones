@@ -2,6 +2,25 @@ import * as XLSX from 'xlsx';
 import { Product } from '../types';
 
 /**
+ * Neutralizes formula injection vulnerabilities (CSV/Excel injection)
+ * Prepending a single quote (') if the string begins with =, +, -, or @
+ */
+const sanitizeForExport = (val: unknown): string => {
+  if (val === null || val === undefined) return '';
+  const str = String(val);
+  const trimmed = str.trim();
+  if (
+    trimmed.startsWith('=') ||
+    trimmed.startsWith('+') ||
+    trimmed.startsWith('-') ||
+    trimmed.startsWith('@')
+  ) {
+    return `'${str}`;
+  }
+  return str;
+};
+
+/**
  * Export wholesale price list in either XLSX or CSV format
  */
 export const exportPriceList = (
@@ -16,14 +35,14 @@ export const exportPriceList = (
         : Math.round(p.priceUSD * exchangeRate);
 
     return {
-      'Código SKU': p.sku,
-      'Producto': p.name,
-      'Marca': p.brand,
-      'Rubro': p.category,
-      'Subcategoría': p.subcategory || '',
+      'Código SKU': sanitizeForExport(p.sku),
+      'Producto': sanitizeForExport(p.name),
+      'Marca': sanitizeForExport(p.brand),
+      'Rubro': sanitizeForExport(p.category),
+      'Subcategoría': sanitizeForExport(p.subcategory || ''),
       'Precio USD': Number(p.priceUSD.toFixed(2)),
       [`Precio ARS (T.C. $${exchangeRate})`]: priceARS,
-      'Moneda Base': p.priceCurrency || 'USD',
+      'Moneda Base': sanitizeForExport(p.priceCurrency || 'USD'),
       'Stock Mayorista': p.stockQuantity,
       'Estado': p.inStock ? 'En Stock' : 'Agotado',
     };
@@ -83,23 +102,23 @@ export const exportStockCatalog = (
     const costARS = p.costARS != null ? p.costARS : (p.priceARS ? Math.round(p.priceARS / (1 + margin / 100)) : Math.round(costUSD * exchangeRate));
 
     return {
-      id: p.id,
-      sku: p.sku,
-      name: p.name,
-      brand: p.brand,
-      category: p.category,
-      subcategory: p.subcategory || '',
+      id: sanitizeForExport(p.id),
+      sku: sanitizeForExport(p.sku),
+      name: sanitizeForExport(p.name),
+      brand: sanitizeForExport(p.brand),
+      category: sanitizeForExport(p.category),
+      subcategory: sanitizeForExport(p.subcategory || ''),
       costUSD,
       costARS,
       profitMargin: margin,
       priceUSD: p.priceUSD,
       priceARS: priceARS,
-      priceCurrency: p.priceCurrency || 'USD',
+      priceCurrency: sanitizeForExport(p.priceCurrency || 'USD'),
       stockQuantity: p.stockQuantity,
       inStock: p.inStock ? 'true' : 'false',
-      badge: p.badge || '',
-      imageUrl: p.imageUrl,
-      description: p.description || '',
+      badge: sanitizeForExport(p.badge || ''),
+      imageUrl: sanitizeForExport(p.imageUrl),
+      description: sanitizeForExport(p.description || ''),
     };
   });
 

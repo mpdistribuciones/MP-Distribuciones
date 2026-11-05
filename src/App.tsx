@@ -22,6 +22,7 @@ import {
   ChevronRight,
   RefreshCw,
   Flame,
+  Lock,
 } from 'lucide-react';
 
 export const AppContent: React.FC = () => {
@@ -29,6 +30,9 @@ export const AppContent: React.FC = () => {
     products,
     isCatalogLoading,
     isAdminView,
+    isAdminLoggedIn,
+    setIsAdminView,
+    openAdminModal,
     searchQuery,
     setSearchQuery,
     selectedCategory,
@@ -125,8 +129,43 @@ export const AppContent: React.FC = () => {
 
   const selectedCategoryMeta = CATEGORIES.find((c) => c.id === selectedCategory);
 
-  // If Owner is viewing Admin Panel, render Admin View
+  // If Owner is viewing Admin Panel, strictly require both isAdminView AND isAdminLoggedIn
   if (isAdminView) {
+    if (!isAdminLoggedIn) {
+      return (
+        <div className="min-h-screen flex flex-col bg-[#f4f6fa] text-slate-800 font-sans selection:bg-blue-600 selection:text-white">
+          <Header />
+          <div className="flex-1 flex items-center justify-center p-6">
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-xl p-8 max-w-md w-full text-center space-y-4">
+              <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mx-auto">
+                <Lock className="w-6 h-6" />
+              </div>
+              <h2 className="text-lg font-bold text-slate-900">Acceso Administrativo Requerido</h2>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Debes iniciar sesión con credenciales de administrador para acceder al Panel de Control de MP Distribuciones.
+              </p>
+              <div className="flex gap-3 justify-center pt-2">
+                <button
+                  onClick={() => setIsAdminView(false)}
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+                >
+                  Volver al Catálogo
+                </button>
+                <button
+                  onClick={openAdminModal}
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition-colors cursor-pointer"
+                >
+                  Iniciar Sesión Admin
+                </button>
+              </div>
+            </div>
+          </div>
+          <AdminLoginModal />
+          <ToastContainer />
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-[#f4f6fa] text-slate-800 font-sans selection:bg-blue-600 selection:text-white">
         <AdminPanel />

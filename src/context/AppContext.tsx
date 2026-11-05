@@ -29,11 +29,11 @@ interface AppContextType {
 
   // Products Management
   products: Product[];
-  addProduct: (newProduct: Omit<Product, 'id'>) => void;
-  updateProduct: (id: string, updatedData: Partial<Product>) => void;
-  deleteProduct: (id: string) => void;
-  updateStock: (id: string, newStock: number) => void;
-  updatePrice: (id: string, newPrice: number, priceCurrency?: 'USD' | 'ARS') => void;
+  addProduct: (newProduct: Omit<Product, 'id'>) => Promise<boolean>;
+  updateProduct: (id: string, updatedData: Partial<Product>) => Promise<boolean>;
+  deleteProduct: (id: string) => Promise<boolean>;
+  updateStock: (id: string, newStock: number) => Promise<boolean>;
+  updatePrice: (id: string, newPrice: number, priceCurrency?: 'USD' | 'ARS') => Promise<boolean>;
   updateProductFinancials: (
     id: string,
     financials: {
@@ -45,8 +45,8 @@ interface AppContextType {
       priceCurrency?: 'USD' | 'ARS';
     }
   ) => Promise<void>;
-  applyPercentagePriceAdjustment: (percentage: number) => void;
-  bulkUpdateProducts: (updatedList: Product[]) => void;
+  applyPercentagePriceAdjustment: (percentage: number) => Promise<boolean>;
+  bulkUpdateProducts: (updatedList: Product[]) => Promise<boolean>;
   replaceProducts: (updatedList: Product[]) => Promise<void>;
   clearAllProducts: () => Promise<void>;
   isCatalogLoading: boolean;
@@ -349,46 +349,104 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Sesión de Administrador cerrada.', 'info');
   };
 
-  const addProduct = (newProductData: Omit<Product, 'id'>) => {
+  const addProduct = async (newProductData: Omit<Product, 'id'>): Promise<boolean> => {
     const id = 'prod_' + Date.now() + Math.random().toString(36).substring(2, 6);
     const newProduct: Product = {
       ...newProductData,
       id,
       createdAt: newProductData.createdAt || new Date().toISOString(),
     };
-    setProducts((prev) => [newProduct, ...prev]);
-    showToast(`Artículo "${newProduct.name.slice(0, 28)}..." creado exitosamente.`, 'success');
 
     // Supabase Cloud Persist
     const client = getSupabaseClient();
     if (client) {
-      client
-        .from('products')
-        .insert([productToDb(newProduct)])
-        .then(({ error }) => {
-          if (error) {
-            console.error('[Supabase Add Product Error]:', error);
-          } else if (newProduct.costUSD != null || newProduct.profitMargin != null) {
-            client
-              .from('product_costs')
-              .upsert({
-                product_id: id,
-                cost_usd: newProduct.costUSD || 0,
-                cost_ars: newProduct.costARS || 0,
-                profit_margin: newProduct.profitMargin ?? 15,
-                updated_at: new Date().toISOString(),
-              })
-              .then(({ error: costErr }) => {
-                if (costErr) console.error('[Supabase Add Product Costs Error]:', costErr);
-              });
+      try {
+        const { error: prodErr } = await client
+          .from('products')
+          .insert([productToDb(newProduct)]);
+
+        if (prodErr) {
+          console.error('[Supabase Add Product Error]:', prodErr);
+          showToast(`Error al guardar en Supabase: ${prodErr.message}`, 'error');
+          await syncWithSupabase();
+          return false;
+        }
+
+        if (newProduct.costUSD != null || newProduct.profitMargin != null) {
+          const { error: costErr } = await client
+            .from('product_costs')
+            .upsert({
+              product_id: id,
+              cost_usd: newProduct.costUSD || 0,
+              cost_ars: newProduct.costARS || 0,
+              profit_margin: newProduct.profitMargin ?? 15,
+              updated_at: new Date().toISOString(),
+            });
+
+          if (costErr) {
+            console.error('[Supabase Add Product Costs Error]:', costErr);
+            showToast(`Producto creado, pero falló el registro de costos: ${costErr.message}`, 'warning');
           }
-        });
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Add Product]:', err);
+        showToast(`Fallo de conexión al guardar producto: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
     }
+
+    setProducts((prev) => [newProduct, ...prev]);
+    showToast(`Artículo "${newProduct.name.slice(0, 28)}..." creado exitosamente.`, 'success');
+    return true;
   };
 
-  const updateProduct = (id: string, updatedData: Partial<Product>) => {
+  const updateProduct = async (id: string, updatedData: Partial<Product>): Promise<boolean> => {
     const existing = products.find((p) => p.id === id);
     const targetUpdated: Product | null = existing ? { ...existing, ...updatedData } : null;
+
+    if (!targetUpdated) {
+      showToast('Producto no encontrado en inventario.', 'error');
+      return false;
+    }
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error: prodErr } = await client
+          .from('products')
+          .upsert(productToDb(targetUpdated));
+
+        if (prodErr) {
+          console.error('[Supabase Update Product Error]:', prodErr);
+          showToast(`Error al actualizar en Supabase: ${prodErr.message}`, 'error');
+          await syncWithSupabase();
+          return false;
+        }
+
+        if (targetUpdated.costUSD != null || targetUpdated.profitMargin != null) {
+          const { error: costErr } = await client
+            .from('product_costs')
+            .upsert({
+              product_id: id,
+              cost_usd: targetUpdated.costUSD || 0,
+              cost_ars: targetUpdated.costARS || 0,
+              profit_margin: targetUpdated.profitMargin ?? 15,
+              updated_at: new Date().toISOString(),
+            });
+
+          if (costErr) {
+            console.error('[Supabase Update Product Costs Error]:', costErr);
+            showToast(`Producto actualizado, pero falló el guardado de costos: ${costErr.message}`, 'warning');
+          }
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Update Product]:', err);
+        showToast(`Fallo de conexión al actualizar producto: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
+    }
 
     setProducts((prev) =>
       prev.map((p) => {
@@ -399,52 +457,66 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       })
     );
     showToast('Producto actualizado en catálogo.', 'success');
-
-    const client = getSupabaseClient();
-    if (client && targetUpdated) {
-      client
-        .from('products')
-        .upsert(productToDb(targetUpdated))
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Update Product Error]:', error);
-        });
-
-      if (targetUpdated.costUSD != null || targetUpdated.profitMargin != null) {
-        client
-          .from('product_costs')
-          .upsert({
-            product_id: id,
-            cost_usd: targetUpdated.costUSD || 0,
-            cost_ars: targetUpdated.costARS || 0,
-            profit_margin: targetUpdated.profitMargin ?? 15,
-            updated_at: new Date().toISOString(),
-          })
-          .then(({ error: costErr }) => {
-            if (costErr) console.error('[Supabase Update Product Costs Error]:', costErr);
-          });
-      }
-    }
+    return true;
   };
 
-  const deleteProduct = (id: string) => {
+  const deleteProduct = async (id: string): Promise<boolean> => {
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('products')
+          .delete()
+          .eq('id', id);
+
+        if (error) {
+          console.error('[Supabase Delete Product Error]:', error);
+          showToast(`Error al eliminar en Supabase: ${error.message}`, 'error');
+          await syncWithSupabase();
+          return false;
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Delete Product]:', err);
+        showToast(`Fallo de conexión al eliminar: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
+    }
+
     setProducts((prev) => prev.filter((p) => p.id !== id));
     setCart((prev) => prev.filter((item) => item.product.id !== id));
     showToast('Producto eliminado del inventario.', 'info');
-
-    const client = getSupabaseClient();
-    if (client) {
-      client
-        .from('products')
-        .delete()
-        .eq('id', id)
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Delete Product Error]:', error);
-        });
-    }
+    return true;
   };
 
-  const updateStock = (id: string, newStock: number) => {
+  const updateStock = async (id: string, newStock: number): Promise<boolean> => {
     const safeStock = Math.max(0, newStock);
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('products')
+          .update({
+            stock_quantity: safeStock,
+            in_stock: safeStock > 0,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', id);
+
+        if (error) {
+          console.error('[Supabase Update Stock Error]:', error);
+          showToast(`Error al actualizar stock en Supabase: ${error.message}`, 'error');
+          await syncWithSupabase();
+          return false;
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Update Stock]:', err);
+        showToast(`Fallo de conexión al actualizar stock: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
+    }
+
     setProducts((prev) =>
       prev.map((p) =>
         p.id === id
@@ -452,106 +524,102 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           : p
       )
     );
-
-    const client = getSupabaseClient();
-    if (client) {
-      client
-        .from('products')
-        .update({
-          stock_quantity: safeStock,
-          in_stock: safeStock > 0,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', id)
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Update Stock Error]:', error);
-        });
-    }
+    return true;
   };
 
-  const updatePrice = (id: string, newPrice: number, priceCurrency: 'USD' | 'ARS' = 'USD') => {
+  const updatePrice = async (
+    id: string,
+    newPrice: number,
+    priceCurrency: 'USD' | 'ARS' = 'USD'
+  ): Promise<boolean> => {
     const safePrice = Math.max(0.01, newPrice);
+    const existing = products.find((p) => p.id === id);
+    if (!existing) {
+      showToast('Producto no encontrado.', 'error');
+      return false;
+    }
+
     let safeUSD = 0;
     let safeARS = 0;
-    let safeCostUSD = 0;
-    let safeCostARS = 0;
     let actualCurrency: 'USD' | 'ARS' = priceCurrency;
     let newMargin = 15;
 
-    setProducts((prev) =>
-      prev.map((p) => {
-        if (p.id !== id) return p;
+    const costUSD = existing.costUSD != null
+      ? existing.costUSD
+      : (existing.priceUSD > 0 ? Number((existing.priceUSD / 1.15).toFixed(2)) : 0);
+    const costARS = existing.costARS != null
+      ? existing.costARS
+      : (existing.priceARS ? Math.round(existing.priceARS / 1.15) : Math.round(costUSD * exchangeRate));
 
-        const costUSD = p.costUSD != null
-          ? p.costUSD
-          : (p.priceUSD > 0 ? Number((p.priceUSD / 1.15).toFixed(2)) : 0);
-        const costARS = p.costARS != null
-          ? p.costARS
-          : (p.priceARS ? Math.round(p.priceARS / 1.15) : Math.round(costUSD * exchangeRate));
-
-        safeCostUSD = costUSD;
-        safeCostARS = costARS;
-
-        if (priceCurrency === 'ARS') {
-          safeARS = Math.round(safePrice);
-          safeUSD = Number((safeARS / exchangeRate).toFixed(2));
-          actualCurrency = 'ARS';
-          newMargin = costARS > 0 ? Number((((safeARS - costARS) / costARS) * 100).toFixed(2)) : 0;
-          return {
-            ...p,
-            priceARS: safeARS,
-            priceUSD: safeUSD,
-            costUSD,
-            costARS,
-            profitMargin: newMargin,
-            priceCurrency: 'ARS',
-          };
-        } else {
-          safeUSD = Number(safePrice.toFixed(2));
-          safeARS = Math.round(safeUSD * exchangeRate);
-          actualCurrency = 'USD';
-          newMargin = costUSD > 0 ? Number((((safeUSD - costUSD) / costUSD) * 100).toFixed(2)) : 0;
-          return {
-            ...p,
-            priceUSD: safeUSD,
-            priceARS: safeARS,
-            costUSD,
-            costARS,
-            profitMargin: newMargin,
-            priceCurrency: 'USD',
-          };
-        }
-      })
-    );
+    if (priceCurrency === 'ARS') {
+      safeARS = Math.round(safePrice);
+      safeUSD = Number((safeARS / exchangeRate).toFixed(2));
+      actualCurrency = 'ARS';
+      newMargin = costARS > 0 ? Number((((safeARS - costARS) / costARS) * 100).toFixed(2)) : 0;
+    } else {
+      safeUSD = Number(safePrice.toFixed(2));
+      safeARS = Math.round(safeUSD * exchangeRate);
+      actualCurrency = 'USD';
+      newMargin = costUSD > 0 ? Number((((safeUSD - costUSD) / costUSD) * 100).toFixed(2)) : 0;
+    }
 
     const client = getSupabaseClient();
     if (client) {
-      client
-        .from('products')
-        .update({
-          price_usd: safeUSD,
-          price_ars: safeARS,
-          price_currency: actualCurrency,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', id)
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Update Price Error]:', error);
-        });
+      try {
+        const { error: pErr } = await client
+          .from('products')
+          .update({
+            price_usd: safeUSD,
+            price_ars: safeARS,
+            price_currency: actualCurrency,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', id);
 
-      client
-        .from('product_costs')
-        .upsert({
-          product_id: id,
-          cost_usd: safeCostUSD,
-          cost_ars: safeCostARS,
-          profit_margin: newMargin,
-          updated_at: new Date().toISOString(),
-        })
-        .then(({ error: cErr }) => {
-          if (cErr) console.error('[Supabase Update Cost Error]:', cErr);
-        });
+        if (pErr) {
+          console.error('[Supabase Update Price Error]:', pErr);
+          showToast(`Error al actualizar precio en Supabase: ${pErr.message}`, 'error');
+          await syncWithSupabase();
+          return false;
+        }
+
+        const { error: cErr } = await client
+          .from('product_costs')
+          .upsert({
+            product_id: id,
+            cost_usd: costUSD,
+            cost_ars: costARS,
+            profit_margin: newMargin,
+            updated_at: new Date().toISOString(),
+          });
+
+        if (cErr) {
+          console.error('[Supabase Update Cost Error]:', cErr);
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Update Price]:', err);
+        showToast(`Fallo de conexión al actualizar precio: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
     }
+
+    setProducts((prev) =>
+      prev.map((p) =>
+        p.id === id
+          ? {
+              ...p,
+              priceUSD: safeUSD,
+              priceARS: safeARS,
+              costUSD,
+              costARS,
+              profitMargin: newMargin,
+              priceCurrency: actualCurrency,
+            }
+          : p
+      )
+    );
+    return true;
   };
 
   const updateProductFinancials = async (
@@ -617,7 +685,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  const applyPercentagePriceAdjustment = (percentage: number) => {
+  const applyPercentagePriceAdjustment = async (percentage: number): Promise<boolean> => {
     const factor = 1 + percentage / 100;
     const updatedList = products.map((p) => {
       const newUSD = Number((p.priceUSD * factor).toFixed(2));
@@ -630,59 +698,99 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         priceARS: newARS,
       };
     });
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const dbRows = updatedList.map(productToDb);
+        for (let i = 0; i < dbRows.length; i += 100) {
+          const batch = dbRows.slice(i, i + 100);
+          const { error } = await client.from('products').upsert(batch);
+          if (error) {
+            console.error('[Supabase Mass Price Adjustment Error]:', error);
+            showToast(`Error al aplicar ajuste masivo en Supabase: ${error.message}`, 'error');
+            await syncWithSupabase();
+            return false;
+          }
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Mass Price Adjustment]:', err);
+        showToast(`Fallo de conexión en ajuste de precios: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
+    }
+
     setProducts(updatedList);
     showToast(
       `Precios actualizados un ${percentage > 0 ? '+' : ''}${percentage}% en todo el catálogo.`,
       'success'
     );
-
-    const client = getSupabaseClient();
-    if (client) {
-      client
-        .from('products')
-        .upsert(updatedList.map(productToDb))
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Mass Price Adjustment Error]:', error);
-        });
-    }
+    return true;
   };
 
-  const bulkUpdateProducts = (updatedList: Product[]) => {
+  const bulkUpdateProducts = async (updatedList: Product[]): Promise<boolean> => {
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const dbRows = updatedList.map(productToDb);
+        for (let i = 0; i < dbRows.length; i += 100) {
+          const batch = dbRows.slice(i, i + 100);
+          const { error } = await client.from('products').upsert(batch);
+          if (error) {
+            console.error('[Supabase Bulk Upsert Error]:', error);
+            showToast(`Error al actualizar lote masivo en Supabase: ${error.message}`, 'error');
+            await syncWithSupabase();
+            return false;
+          }
+        }
+
+        const costRows = updatedList
+          .filter((p) => p.costUSD != null || p.profitMargin != null)
+          .map((p) => ({
+            product_id: p.id,
+            cost_usd: p.costUSD || 0,
+            cost_ars: p.costARS || 0,
+            profit_margin: p.profitMargin ?? 15,
+            updated_at: new Date().toISOString(),
+          }));
+
+        for (let i = 0; i < costRows.length; i += 100) {
+          const batch = costRows.slice(i, i + 100);
+          const { error: costErr } = await client.from('product_costs').upsert(batch);
+          if (costErr) console.error('[Supabase Bulk Cost Upsert Error]:', costErr);
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Bulk Update]:', err);
+        showToast(`Fallo de conexión en actualización masiva: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return false;
+      }
+    }
+
     setProducts(updatedList);
     showToast(`Catálogo actualizado masivamente (${updatedList.length} productos).`, 'success');
-
-    const client = getSupabaseClient();
-    if (client) {
-      client
-        .from('products')
-        .upsert(updatedList.map(productToDb))
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Bulk Upsert Error]:', error);
-        });
-    }
+    return true;
   };
 
-  const replaceProducts = async (newList: Product[]) => {
-    setProducts(newList);
-    try {
-      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(newList));
-    } catch (e) {}
-
+  const replaceProducts = async (newList: Product[]): Promise<void> => {
     const client = getSupabaseClient();
     if (client) {
-      // 1. Borrar todos los productos existentes en Supabase
-      const { error: delErr } = await client.from('products').delete().neq('id', 'keep_none');
-      if (delErr) console.error('[Supabase Clear for Replace Error]:', delErr);
-
-      // 2. Insertar el nuevo catálogo en lotes de 100
-      if (newList.length > 0) {
+      try {
+        // 1. Insertar / Actualizar en lotes de 100 los nuevos productos
         const dbRows = newList.map(productToDb);
         for (let i = 0; i < dbRows.length; i += 100) {
           const batch = dbRows.slice(i, i + 100);
-          const { error: insErr } = await client.from('products').insert(batch);
-          if (insErr) console.error('[Supabase Batch Insert Error]:', insErr);
+          const { error: insErr } = await client.from('products').upsert(batch);
+          if (insErr) {
+            console.error('[Supabase Batch Upsert Error on Replace]:', insErr);
+            showToast(`Error al subir productos (lote ${Math.floor(i / 100) + 1}): ${insErr.message}`, 'error');
+            await syncWithSupabase();
+            return;
+          }
         }
 
+        // 2. Guardar costos en lotes de 100
         const costRows = newList
           .filter((p) => p.costUSD != null || p.profitMargin != null)
           .map((p) => ({
@@ -692,13 +800,60 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             profit_margin: p.profitMargin ?? 15,
             updated_at: new Date().toISOString(),
           }));
+
         for (let i = 0; i < costRows.length; i += 100) {
           const batch = costRows.slice(i, i + 100);
           const { error: costErr } = await client.from('product_costs').upsert(batch);
-          if (costErr) console.error('[Supabase Batch Costs Error]:', costErr);
+          if (costErr) {
+            console.error('[Supabase Batch Costs Error on Replace]:', costErr);
+          }
         }
+
+        // 3. Únicamente tras completar todos los lotes con éxito: depurar IDs obsoletos
+        const { data: currentRows, error: fetchErr } = await client
+          .from('products')
+          .select('id');
+
+        if (fetchErr) {
+          console.error('[Supabase Fetch Existing IDs Error]:', fetchErr);
+        } else if (currentRows && currentRows.length > 0) {
+          const newIdSet = new Set(newList.map((p) => p.id));
+          const obsoleteIds = currentRows
+            .map((r: { id: string }) => r.id)
+            .filter((id: string) => !newIdSet.has(id));
+
+          if (obsoleteIds.length > 0) {
+            for (let i = 0; i < obsoleteIds.length; i += 100) {
+              const chunk = obsoleteIds.slice(i, i + 100);
+              const { error: delErr } = await client
+                .from('products')
+                .delete()
+                .in('id', chunk);
+
+              if (delErr) {
+                console.error('[Supabase Prune Obsolete IDs Error]:', delErr);
+              }
+            }
+          }
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Replace Products]:', err);
+        showToast(`Fallo de conexión al reemplazar catálogo: ${err.message || 'Error desconocido'}`, 'error');
+        await syncWithSupabase();
+        return;
       }
     }
+
+    // 4. Actualizar estado local y localStorage sanitizado (sin costos privados)
+    setProducts(newList);
+    try {
+      const sanitized = newList.map((p) => {
+        const { costUSD, costARS, profitMargin, ...rest } = p;
+        return rest;
+      });
+      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(sanitized));
+    } catch (e) {}
+
     showToast(`Catálogo reemplazado exitosamente: ${newList.length} productos cargados.`, 'success');
   };
 
@@ -715,6 +870,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (error) {
         console.error('[Supabase Clear All Error]:', error);
         showToast('Error al vaciar en Supabase: ' + error.message, 'error');
+        await syncWithSupabase();
         return;
       }
     }
@@ -732,18 +888,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_USER);
       if (saved) return JSON.parse(saved);
-      // Default session for wholesale portal as shown in user reference
-      const defaultUser: User = {
-        id: 'usr_matias',
-        businessName: 'priottimatias',
-        cuit: '20-38491204-8',
-        city: 'Rosario, Santa Fe',
-        phone: '+54 341 340-8439',
-        email: 'ventas@mpdistribuciones.com',
-        isAuthenticated: true,
-        registeredAt: new Date().toISOString(),
-      };
-      return defaultUser;
+      return null;
     } catch {
       return null;
     }
@@ -760,20 +905,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const closeAuthModal = () => setIsAuthModalOpen(false);
 
   const login = (userData: Partial<User>) => {
-    const defaultUser: User = {
+    const newUser: User = {
       id: 'usr_' + Date.now(),
-      businessName: userData.businessName || 'Comercio Registrado B2B',
-      cuit: userData.cuit || '30-71458920-4',
-      city: userData.city || 'Rosario, Santa Fe',
-      phone: userData.phone || '+54 341 555-1234',
-      email: userData.email || 'cliente@mpdistribuciones.com',
+      businessName: userData.businessName || 'Cliente Mayorista',
+      cuit: userData.cuit || '',
+      city: userData.city || '',
+      phone: userData.phone || '',
+      email: userData.email || '',
       isAuthenticated: true,
       registeredAt: new Date().toISOString(),
     };
-    setUser(defaultUser);
-    localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(defaultUser));
+    setUser(newUser);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(newUser));
+    } catch (e) {}
     setIsAuthModalOpen(false);
-    showToast(`¡Bienvenido de nuevo, ${defaultUser.businessName}!`, 'success');
+    showToast(`¡Bienvenido de nuevo, ${newUser.businessName}!`, 'success');
   };
 
   const register = (userData: Omit<User, 'id' | 'isAuthenticated'>) => {

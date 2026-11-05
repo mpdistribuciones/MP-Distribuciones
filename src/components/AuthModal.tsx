@@ -8,7 +8,6 @@ import {
   KeyRound,
   FileText,
   ShieldCheck,
-  Sparkles,
 } from 'lucide-react';
 
 export const AuthModal: React.FC = () => {
@@ -42,37 +41,34 @@ export const AuthModal: React.FC = () => {
 
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanIdentifier = loginEmail.trim();
+    if (!cleanIdentifier) {
+      alert('Por favor ingrese su usuario, email o razón social.');
+      return;
+    }
     login({
-      email: loginEmail || 'priottimatias@gmail.com',
-      businessName: loginEmail ? loginEmail.split('@')[0] : 'priottimatias',
-      cuit: '20-38491204-8',
-      city: 'Rosario, Santa Fe',
-      phone: '+54 9 341 340-8439',
+      email: cleanIdentifier.includes('@')
+        ? cleanIdentifier
+        : `${cleanIdentifier.toLowerCase().replace(/[^a-z0-9]/g, '')}@mayorista.com`,
+      businessName: cleanIdentifier.includes('@') ? cleanIdentifier.split('@')[0] : cleanIdentifier,
+      cuit: '',
+      city: '',
+      phone: '',
     });
   };
 
   const handleRegisterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!regBusinessName || !regCuit || !regPhone || !regEmail) {
+    if (!regBusinessName.trim() || !regCuit.trim() || !regPhone.trim() || !regEmail.trim()) {
       alert('Por favor complete los campos obligatorios del registro.');
       return;
     }
     register({
-      businessName: regBusinessName,
-      cuit: regCuit,
-      city: regCity || 'Rosario, Santa Fe',
-      phone: regPhone,
-      email: regEmail,
-    });
-  };
-
-  const handleDemoLogin = (business: string, cuit: string, city: string, phone: string) => {
-    login({
-      businessName: business,
-      cuit: cuit,
-      city: city,
-      phone: phone,
-      email: `${business.toLowerCase().replace(/[^a-z0-9]/g, '')}@ejemplo.com`,
+      businessName: regBusinessName.trim(),
+      cuit: regCuit.trim(),
+      city: regCity.trim() || 'Rosario, Santa Fe',
+      phone: regPhone.trim(),
+      email: regEmail.trim(),
     });
   };
 
@@ -147,7 +143,7 @@ export const AuthModal: React.FC = () => {
                   type="text"
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
-                  placeholder="priottimatias"
+                  placeholder="ej: micomercio@ejemplo.com"
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-sm text-slate-900 placeholder-slate-400 outline-none"
                 />
               </div>
@@ -173,48 +169,6 @@ export const AuthModal: React.FC = () => {
                 <Lock className="w-4 h-4" />
                 <span>Ingresar al Catálogo Mayorista</span>
               </button>
-
-              {/* Demo Fast Login Helpers */}
-              <div className="pt-3 border-t border-slate-200 space-y-2">
-                <p className="text-[11px] text-slate-500 font-medium flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-amber-500" />
-                  <span>Cuentas de prueba rápidas:</span>
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      handleDemoLogin(
-                        'priottimatias',
-                        '20-38491204-8',
-                        'Rosario, Santa Fe',
-                        '+54 9 341 340-8439'
-                      )
-                    }
-                    className="p-2 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-left transition-colors"
-                  >
-                    <p className="text-xs font-bold text-slate-900">priottimatias (Gremio)</p>
-                    <p className="text-[10px] text-slate-500">CUIT: 20-38491204-8 • Rosario</p>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      handleDemoLogin(
-                        'TecnoRosario SRL',
-                        '30-71894520-2',
-                        'Rosario, Santa Fe',
-                        '+54 9 341 422-9090'
-                      )
-                    }
-                    className="p-2 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-left transition-colors"
-                  >
-                    <p className="text-xs font-bold text-slate-900">TecnoRosario SRL</p>
-                    <p className="text-[10px] text-slate-500">CUIT: 30-71894520-2</p>
-                  </button>
-                </div>
-              </div>
             </form>
           ) : (
             /* REGISTER FORM */
