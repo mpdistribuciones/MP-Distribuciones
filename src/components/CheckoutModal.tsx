@@ -112,7 +112,7 @@ export const CheckoutModal: React.FC = () => {
       `💬 *Solicito confirmación de stock y datos de cuenta para transferencia.*`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/5493413408439?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/5493413422310?text=${encodedMessage}`;
 
     // Confetti effect
     try {
@@ -344,7 +344,7 @@ export const CheckoutModal: React.FC = () => {
           className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow-lg transition-all flex items-center justify-center gap-3 cursor-pointer"
         >
           <Send className="w-5 h-5" />
-          <span>Enviar pedido por WhatsApp (+54 9 341 340-8439)</span>
+          <span>Enviar pedido por WhatsApp (+54 9 341 342-2310)</span>
         </button>
 
         <p className="text-[11px] text-center text-slate-500">

@@ -135,12 +135,12 @@ export const HeroBanner: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-between py-1">
                   <span className="text-slate-400">Horario de retiro:</span>
-                  <span className="text-slate-200 font-medium">Lun a Vie 9:00 a 18:00 hs</span>
+                  <span className="text-slate-200 font-medium">Lun a Vie 9:00 a 16:00 hs</span>
                 </div>
               </div>
 
               <a
-                href="https://wa.me/5493413408439?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista"
+                href="https://wa.me/5493413422310?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg transition-all"

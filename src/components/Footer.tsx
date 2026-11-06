@@ -61,15 +61,25 @@ export const Footer: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-slate-200">WhatsApp Comercial:</p>
-                  <a
-                    href="https://wa.me/5493413408439"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:underline"
-                  >
-                    +54 9 341 340-8439
-                  </a>
+                  <p className="font-semibold text-slate-200">Teléfono / WhatsApp:</p>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://wa.me/5493413422310"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 hover:underline font-bold"
+                    >
+                      341 342-2310
+                    </a>
+                    <span className="text-slate-500">•</span>
+                    <a
+                      href="tel:+543413422310"
+                      className="text-slate-300 hover:text-white transition-colors"
+                      title="Llamar"
+                    >
+                      Llamar
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -77,7 +87,7 @@ export const Footer: React.FC = () => {
                 <Clock className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-slate-200">Horarios de Atención:</p>
-                  <p className="text-slate-400">Lunes a Viernes: 9:00 a 18:00 hs</p>
+                  <p className="text-slate-400">Lunes a Viernes: 9:00 a 16:00 hs</p>
                 </div>
               </div>
             </div>
