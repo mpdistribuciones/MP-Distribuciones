@@ -23,12 +23,14 @@ interface AdminProductModalProps {
   isOpen: boolean;
   onClose: () => void;
   productToEdit?: Product | null;
+  initialValues?: Partial<Product> | null;
 }
 
 export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   isOpen,
   onClose,
   productToEdit,
+  initialValues,
 }) => {
   const { addProduct, updateProduct, exchangeRate } = useApp();
 
@@ -87,25 +89,28 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         setCostInput(costUSD);
       }
     } else {
-      // Defaults for new product
+      // Defaults for new product (support prefilled values from quick stock entry search)
       const randomCode = Math.floor(1000 + Math.random() * 9000);
-      setSku(`MP-${randomCode}`);
-      setName('');
-      setBrand('');
-      setCategory('ACCESORIOS, ADAPTADORES Y CABLES');
-      setSubcategory('');
-      setDescription('');
+      const prefillQuery = (initialValues?.name || initialValues?.sku || '').trim();
+      const isSkuPattern = prefillQuery && /^[A-Z0-9\-_]{3,15}$/i.test(prefillQuery);
+
+      setSku(initialValues?.sku || (isSkuPattern ? prefillQuery.toUpperCase() : `MP-${randomCode}`));
+      setName(initialValues?.name && !isSkuPattern ? prefillQuery : (initialValues?.name || ''));
+      setBrand(initialValues?.brand || '');
+      setCategory((initialValues?.category as Category) || 'ACCESORIOS, ADAPTADORES Y CABLES');
+      setSubcategory(initialValues?.subcategory || '');
+      setDescription(initialValues?.description || '');
       setSpecsText('');
-      setPriceCurrency('ARS');
-      setProfitMarginInput(15);
-      setCostInput(13043);
-      setPriceInput(15000);
-      setStockQuantity(0);
-      setMinWholesaleQty(1);
-      setBadge('');
-      setImageUrl('');
+      setPriceCurrency(initialValues?.priceCurrency || 'ARS');
+      setProfitMarginInput(initialValues?.profitMargin ?? 15);
+      setCostInput(initialValues?.costARS || (initialValues?.costUSD ? Math.round(initialValues.costUSD * exchangeRate) : 13043));
+      setPriceInput(initialValues?.priceARS || 15000);
+      setStockQuantity(initialValues?.stockQuantity ?? 0);
+      setMinWholesaleQty(initialValues?.minWholesaleQty || 1);
+      setBadge(initialValues?.badge || '');
+      setImageUrl(initialValues?.imageUrl || '');
     }
-  }, [productToEdit, isOpen, exchangeRate]);
+  }, [productToEdit, initialValues, isOpen, exchangeRate]);
 
   // Manejo de Costo, Margen y Precio sin bucles de estado
   const handleCostChange = (newCost: number) => {

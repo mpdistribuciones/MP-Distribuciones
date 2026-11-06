@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { Product, Category } from '../types';
 import { CATEGORIES } from '../data/categories';
 import { AdminProductModal } from './AdminProductModal';
+import { StockEntryModal } from './StockEntryModal';
 import { SupabaseModal } from './SupabaseModal';
 import { InventoryTableRow } from './InventoryTableRow';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
@@ -10,7 +11,6 @@ import * as XLSX from 'xlsx';
 import { exportStockCatalog } from '../utils/exportUtils';
 import {
   Search,
-  Plus,
   Download,
   Upload,
   RefreshCw,
@@ -32,6 +32,8 @@ import {
   FileSpreadsheet,
   FileText,
   Database,
+  PackagePlus,
+  Sparkles,
 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
@@ -69,6 +71,8 @@ export const AdminPanel: React.FC = () => {
   // Modals state
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
   const [productToEdit, setProductToEdit] = useState<Product | null>(null);
+  const [prefillProductData, setPrefillProductData] = useState<Partial<Product> | null>(null);
+  const [isStockEntryModalOpen, setIsStockEntryModalOpen] = useState(false);
   const [isAdjustmentModalOpen, setIsAdjustmentModalOpen] = useState(false);
   const [adjustmentPercentage, setAdjustmentPercentage] = useState<number>(5);
   const [priceDisplayMode, setPriceDisplayMode] = useState<'AUTO' | 'ARS' | 'USD'>('AUTO');
@@ -390,11 +394,24 @@ export const AdminPanel: React.FC = () => {
 
   const handleOpenEdit = (p: Product) => {
     setProductToEdit(p);
+    setPrefillProductData(null);
     setIsProductModalOpen(true);
   };
 
   const handleOpenCreate = () => {
     setProductToEdit(null);
+    setPrefillProductData(null);
+    setIsProductModalOpen(true);
+  };
+
+  const handleOpenStockEntry = () => {
+    setIsStockEntryModalOpen(true);
+  };
+
+  const handleOpenCreateFromRescue = (prefillQuery?: string) => {
+    setIsStockEntryModalOpen(false);
+    setProductToEdit(null);
+    setPrefillProductData(prefillQuery ? { name: prefillQuery } : null);
     setIsProductModalOpen(true);
   };
 
@@ -443,7 +460,26 @@ export const AdminPanel: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            {/* Quick Restock & New Product Topbar Buttons */}
+            <button
+              onClick={handleOpenStockEntry}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all cursor-pointer active:scale-95"
+              title="Cargar y reabastecer stock de artículos existentes de forma rápida"
+            >
+              <PackagePlus className="w-3.5 h-3.5" />
+              <span>📦 Ingreso de Stock</span>
+            </button>
+
+            <button
+              onClick={handleOpenCreate}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-900/40 hover:bg-blue-900/60 border border-blue-400/50 text-white font-bold text-xs shadow-xs transition-all cursor-pointer active:scale-95"
+              title="Dar de alta un producto nuevo desde cero"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-blue-300" />
+              <span>✨ Nuevo Producto</span>
+            </button>
+
             {/* Dólar de Referencia Badge & Quick Action Button */}
             <button
               onClick={openExchangeRateModal}
@@ -584,13 +620,24 @@ export const AdminPanel: React.FC = () => {
                 <span>Dólar Ref: ${exchangeRate.toLocaleString('es-AR')}</span>
               </button>
 
-              {/* Add New Product Button */}
+              {/* Primary: Quick Restock (Green / Emphasis) */}
+              <button
+                onClick={handleOpenStockEntry}
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all cursor-pointer active:scale-95"
+                title="Cargar y reabastecer stock de artículos existentes de forma rápida"
+              >
+                <PackagePlus className="w-4 h-4" />
+                <span>📦 Ingreso de Stock</span>
+              </button>
+
+              {/* Secondary: New Product (Border / Blue-Slate) */}
               <button
                 onClick={handleOpenCreate}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 border border-blue-600/30 text-blue-900 font-bold text-xs shadow-xs transition-all cursor-pointer active:scale-95"
+                title="Dar de alta un producto nuevo desde cero"
               >
-                <Plus className="w-4 h-4" />
-                <span>+ Nuevo Producto</span>
+                <Sparkles className="w-4 h-4 text-blue-600" />
+                <span>✨ Nuevo Producto</span>
               </button>
 
               {/* Mass Price Percentage Adjustment */}
@@ -1057,8 +1104,19 @@ export const AdminPanel: React.FC = () => {
       {/* Product Creation / Edit Modal */}
       <AdminProductModal
         isOpen={isProductModalOpen}
-        onClose={() => setIsProductModalOpen(false)}
+        onClose={() => {
+          setIsProductModalOpen(false);
+          setPrefillProductData(null);
+        }}
         productToEdit={productToEdit}
+        initialValues={prefillProductData}
+      />
+
+      {/* Quick Stock Entry Restocking Modal */}
+      <StockEntryModal
+        isOpen={isStockEntryModalOpen}
+        onClose={() => setIsStockEntryModalOpen(false)}
+        onOpenCreateProduct={handleOpenCreateFromRescue}
       />
 
       {/* Percentage Price Adjustment Modal */}
