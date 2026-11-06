@@ -25,7 +25,6 @@ export const CartDrawer: React.FC = () => {
     cartTotalUSD,
     cartTotalARS,
     currency,
-    exchangeRate,
     formatPrice,
     openCheckoutModal,
     user,
@@ -239,10 +238,6 @@ export const CartDrawer: React.FC = () => {
                 <div className="flex items-center justify-between text-xs text-slate-500">
                   <span>Subtotal ({cart.reduce((s, i) => s + i.quantity, 0)} u.):</span>
                   <span className="font-mono font-semibold text-slate-700">{currentTotalFormatted}</span>
-                </div>
-                <div className="flex items-center justify-between text-xs text-slate-500">
-                  <span>T.C. de Referencia:</span>
-                  <span className="font-mono font-semibold text-slate-700">${exchangeRate} ARS/USD</span>
                 </div>
                 <div className="pt-2 border-t border-slate-100 flex items-baseline justify-between">
                   <span className="text-sm font-black text-slate-900">TOTAL ESTIMADO:</span>

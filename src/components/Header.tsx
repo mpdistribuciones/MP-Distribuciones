@@ -201,7 +201,7 @@ export const Header: React.FC = () => {
                 <div className="absolute left-0 top-full mt-1.5 w-52 bg-white text-slate-800 rounded-xl shadow-2xl border border-slate-200 py-1.5 z-50 animate-fadeIn">
                   <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
                     <span>Exportar Precios</span>
-                    <span className="text-[9px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded">T.C. ${exchangeRate}</span>
+                    <span className="text-[9px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded">Catálogo B2B</span>
                   </div>
                   <button
                     onClick={() => {
@@ -273,14 +273,9 @@ export const Header: React.FC = () => {
 
             <span className="text-blue-400/60">|</span>
 
-            {/* Automatic Banco Nación Exchange Rate Indicator */}
-            <div
-              className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-900/60 text-blue-100 text-[11px] border border-blue-700/50"
-              title="Cotización oficial Banco Nación sincronizada automáticamente"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Dólar BNA: <strong>${exchangeRate.toLocaleString('es-AR')} ARS</strong></span>
-            </div>
+            <span className="flex items-center gap-1 text-blue-200">
+              <span>Lun a Vie: 9:00 a 16:00 hs</span>
+            </span>
           </div>
         </div>
       </div>

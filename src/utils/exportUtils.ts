@@ -41,7 +41,7 @@ export const exportPriceList = (
       'Rubro': sanitizeForExport(p.category),
       'Subcategoría': sanitizeForExport(p.subcategory || ''),
       'Precio USD': Number(p.priceUSD.toFixed(2)),
-      [`Precio ARS (T.C. $${exchangeRate})`]: priceARS,
+      'Precio ARS': priceARS,
       'Moneda Base': sanitizeForExport(p.priceCurrency || 'USD'),
       'Stock Mayorista': p.stockQuantity,
       'Estado': p.inStock ? 'En Stock' : 'Agotado',

@@ -108,7 +108,6 @@ export const CheckoutModal: React.FC = () => {
       `${itemsLines}\n` +
       `------------------------------------\n` +
       `💰 *TOTAL ESTIMADO:* ${currentTotal}\n` +
-      (currency === 'USD' ? `*(Cotización de ref: $${exchangeRate} ARS/USD)*\n` : '') +
       `💬 *Solicito confirmación de stock y datos de cuenta para transferencia.*`;
 
     const encodedMessage = encodeURIComponent(message);

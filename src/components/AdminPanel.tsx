@@ -444,6 +444,21 @@ export const AdminPanel: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Dólar de Referencia Badge & Quick Action Button */}
+            <button
+              onClick={openExchangeRateModal}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/40 text-blue-100 font-bold text-xs shadow-xs transition-all cursor-pointer group"
+              title="Click para consultar o ajustar la cotización del dólar de referencia"
+            >
+              <DollarSign className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+              <span>
+                Dólar Ref: <strong className="text-white font-mono">${exchangeRate.toLocaleString('es-AR')} ARS</strong>
+              </span>
+              <span className="hidden md:inline text-[10px] text-blue-300 font-normal underline ml-1">
+                Ajustar
+              </span>
+            </button>
+
             {/* Supabase Cloud Connection Status Button */}
             <button
               onClick={() => setIsSupabaseModalOpen(true)}
@@ -533,13 +548,13 @@ export const AdminPanel: React.FC = () => {
           {/* Card 4: Exchange Rate Reference */}
           <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold text-slate-500">Dólar Mayorista Ref.</p>
-              <h4 className="text-2xl font-black text-blue-700 mt-0.5">${exchangeRate} ARS</h4>
+              <p className="text-xs font-semibold text-slate-500">Dólar de Referencia</p>
+              <h4 className="text-2xl font-black text-blue-700 mt-0.5">${exchangeRate.toLocaleString('es-AR')} ARS</h4>
               <button
                 onClick={openExchangeRateModal}
                 className="text-[11px] text-blue-600 hover:text-blue-800 font-bold underline cursor-pointer"
               >
-                Cambiar cotización global
+                Ajustar cotización global
               </button>
             </div>
             <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
@@ -559,6 +574,16 @@ export const AdminPanel: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
+              {/* Exchange Rate Adjustment Quick Button */}
+              <button
+                onClick={openExchangeRateModal}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 font-bold text-xs transition-colors cursor-pointer"
+                title="Consultar o editar la cotización del dólar de referencia"
+              >
+                <DollarSign className="w-3.5 h-3.5 text-blue-600" />
+                <span>Dólar Ref: ${exchangeRate.toLocaleString('es-AR')}</span>
+              </button>
+
               {/* Add New Product Button */}
               <button
                 onClick={handleOpenCreate}
