@@ -1,0 +1,28 @@
+# netlify.toml
+# Configuración preventiva para MP Distribuciones
+
+# 1. Cancelar compilación nativa en Netlify para consumir 0 créditos/minutos
+# Toda la compilación se ejecuta de manera gratuita en GitHub Actions.
+[build]
+  publish = "dist"
+  ignore = "exit 0"
+
+# 2. Soporte SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 3. Cabeceras de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# 4. Caché inmutable para assets versionados de Vite
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
