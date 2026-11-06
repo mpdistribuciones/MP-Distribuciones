@@ -35,4 +35,8 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          npx --yes netlify-cli deploy --prod --dir=dist
+          if [ -z "$NETLIFY_SITE_ID" ] || [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "❌ Error: Falta configurar NETLIFY_SITE_ID o NETLIFY_AUTH_TOKEN en GitHub Repository Secrets."
+            exit 1
+          fi
+          npx --yes netlify-cli deploy --prod --dir=dist --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
