@@ -64,16 +64,16 @@ export const Footer: React.FC = () => {
                   <p className="font-semibold text-slate-200">Teléfono / WhatsApp:</p>
                   <div className="flex items-center gap-2">
                     <a
-                      href="https://wa.me/5493413422310"
+                      href="https://wa.me/5493413408439"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-emerald-400 hover:underline font-bold"
                     >
-                      341 342-2310
+                      341 340-8439
                     </a>
                     <span className="text-slate-500">•</span>
                     <a
-                      href="tel:+543413422310"
+                      href="tel:+543413408439"
                       className="text-slate-300 hover:text-white transition-colors"
                       title="Llamar"
                     >

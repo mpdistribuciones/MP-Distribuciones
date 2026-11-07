@@ -329,7 +329,7 @@ export const AppContent: React.FC = () => {
 
       {/* Floating WhatsApp Sales Button */}
       <a
-        href="https://wa.me/5493413422310?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista."
+        href="https://wa.me/5493413408439?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 left-5 z-30 flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all font-bold text-xs group cursor-pointer"

@@ -262,13 +262,13 @@ export const Header: React.FC = () => {
             <span className="text-blue-400/60">|</span>
 
             <a
-              href="https://wa.me/5493413422310"
+              href="https://wa.me/5493413408439"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>WhatsApp: <strong>+54 9 341 342-2310</strong></span>
+              <span>WhatsApp: <strong>+54 9 341 340-8439</strong></span>
             </a>
 
             <span className="text-blue-400/60">|</span>

@@ -13,10 +13,10 @@ import {
 export const ContactSection: React.FC = () => {
   const address = 'San Nicolás 2277, Rosario, Santa Fe, Argentina';
   const hours = 'Lunes a Viernes de 9:00 a 16:00 hs';
-  const phoneDisplay = '341 342-2310';
-  const phoneTel = '+543413422310';
+  const phoneDisplay = '341 340-8439';
+  const phoneTel = '+543413408439';
   const whatsappUrl =
-    'https://wa.me/5493413422310?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista.';
+    'https://wa.me/5493413408439?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista.';
   const mapsDirectionsUrl =
     'https://www.google.com/maps/dir/?api=1&destination=San+Nicol%C3%A1s+2277,+Rosario,+Santa+Fe';
   const mapsEmbedUrl =
