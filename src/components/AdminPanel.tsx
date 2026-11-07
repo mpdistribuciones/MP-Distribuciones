@@ -19,7 +19,6 @@ import {
   DollarSign,
   Boxes,
   CheckCircle2,
-  Trash2,
   TrendingUp,
   Percent,
   X,
@@ -45,7 +44,6 @@ export const AdminPanel: React.FC = () => {
     applyPercentagePriceAdjustment,
     bulkUpdateProducts,
     replaceProducts,
-    clearAllProducts,
     resetProductsToDefault,
     exchangeRate,
     openExchangeRateModal,
@@ -379,19 +377,6 @@ export const AdminPanel: React.FC = () => {
     e.target.value = '';
   };
 
-  const handleClearAll = async () => {
-    if (products.length === 0) {
-      showToast('El catálogo ya se encuentra vacío.', 'info');
-      return;
-    }
-    const confirmed = window.confirm(
-      `⚠️ ATENCIÓN: ¿Seguro que deseás borrar los ${products.length} productos del catálogo?\n\nEsta acción eliminará todos los artículos de la base de datos de Supabase para permitir una carga limpia desde cero.`
-    );
-    if (confirmed) {
-      await clearAllProducts();
-    }
-  };
-
   const handleOpenEdit = (p: Product) => {
     setProductToEdit(p);
     setPrefillProductData(null);
@@ -461,61 +446,27 @@ export const AdminPanel: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {/* Quick Restock & New Product Topbar Buttons */}
-            <button
-              onClick={handleOpenStockEntry}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition-all cursor-pointer active:scale-95"
-              title="Cargar y reabastecer stock de artículos existentes de forma rápida"
-            >
-              <PackagePlus className="w-3.5 h-3.5" />
-              <span>📦 Ingreso de Stock</span>
-            </button>
-
-            <button
-              onClick={handleOpenCreate}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-900/40 hover:bg-blue-900/60 border border-blue-400/50 text-white font-bold text-xs shadow-xs transition-all cursor-pointer active:scale-95"
-              title="Dar de alta un producto nuevo desde cero"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-blue-300" />
-              <span>✨ Nuevo Producto</span>
-            </button>
-
-            {/* Dólar de Referencia Badge & Quick Action Button */}
-            <button
-              onClick={openExchangeRateModal}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/40 text-blue-100 font-bold text-xs shadow-xs transition-all cursor-pointer group"
-              title="Click para consultar o ajustar la cotización del dólar de referencia"
-            >
-              <DollarSign className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-              <span>
-                Dólar Ref: <strong className="text-white font-mono">${exchangeRate.toLocaleString('es-AR')} ARS</strong>
-              </span>
-              <span className="hidden md:inline text-[10px] text-blue-300 font-normal underline ml-1">
-                Ajustar
-              </span>
-            </button>
-
             {/* Supabase Cloud Connection Status Button */}
             <button
               onClick={() => setIsSupabaseModalOpen(true)}
-              className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer border ${
                 isSupabaseConnected
-                  ? 'bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-200 border-emerald-400/40 shadow-sm'
-                  : 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border-amber-400/40'
+                  ? 'bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-200 border-emerald-400/30 shadow-xs'
+                  : 'bg-amber-500/15 hover:bg-amber-500/25 text-amber-200 border-amber-400/30'
               }`}
               title="Configuración de base de datos Supabase Cloud (sincronización en tiempo real)"
             >
               <Database className="w-3.5 h-3.5 text-emerald-300" />
               <span className="flex items-center gap-1.5">
                 <span className={`w-2 h-2 rounded-full ${isSupabaseConnected ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
-                <span className="hidden sm:inline">{isSupabaseConnected ? 'Supabase Cloud Activo' : 'Conectar Supabase'}</span>
-                <span className="sm:hidden">{isSupabaseConnected ? 'Cloud' : 'Conectar'}</span>
+                <span className="hidden sm:inline">{isSupabaseConnected ? 'Supabase Conectado' : 'Conectar Supabase'}</span>
+                <span className="sm:hidden">{isSupabaseConnected ? 'Conectado' : 'Conectar'}</span>
               </span>
             </button>
 
             <button
               onClick={() => setIsAdminView(false)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow transition-all cursor-pointer"
             >
               <Store className="w-4 h-4" />
               <span>Ver Catálogo Público</span>
@@ -523,7 +474,7 @@ export const AdminPanel: React.FC = () => {
 
             <button
               onClick={logoutAdmin}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-950/70 hover:bg-red-950 hover:text-red-300 border border-blue-800 text-blue-200 font-semibold text-xs transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-950/70 hover:bg-red-950 hover:text-red-300 border border-blue-800 text-blue-200 font-semibold text-xs transition-colors cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Cerrar Sesión</span>
@@ -605,49 +556,46 @@ export const AdminPanel: React.FC = () => {
             <div>
               <h3 className="text-sm font-black text-slate-800">Herramientas de Gestión de Catálogo</h3>
               <p className="text-xs text-slate-500">
-                Alta de productos, actualización masiva y sincronización por Excel / CSV
+                Alta de productos, reabastecimiento rápido y sincronización por Excel / CSV
               </p>
             </div>
+          </div>
 
-            <div className="flex flex-wrap items-center gap-2">
-              {/* Exchange Rate Adjustment Quick Button */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+            {/* Grupo Izquierdo: Acciones principales de inventario */}
+            <div className="flex flex-wrap items-center gap-2.5">
               <button
-                onClick={openExchangeRateModal}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 font-bold text-xs transition-colors cursor-pointer"
-                title="Consultar o editar la cotización del dólar de referencia"
-              >
-                <DollarSign className="w-3.5 h-3.5 text-blue-600" />
-                <span>Dólar Ref: ${exchangeRate.toLocaleString('es-AR')}</span>
-              </button>
-
-              {/* Primary: Quick Restock (Green / Emphasis) */}
-              <button
+                type="button"
                 onClick={handleOpenStockEntry}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all cursor-pointer active:scale-95"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs shadow-sm transition-all active:scale-95 cursor-pointer"
                 title="Cargar y reabastecer stock de artículos existentes de forma rápida"
               >
                 <PackagePlus className="w-4 h-4" />
                 <span>📦 Ingreso de Stock</span>
               </button>
 
-              {/* Secondary: New Product (Border / Blue-Slate) */}
               <button
+                type="button"
                 onClick={handleOpenCreate}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 border border-blue-600/30 text-blue-900 font-bold text-xs shadow-xs transition-all cursor-pointer active:scale-95"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs shadow-sm transition-all active:scale-95 cursor-pointer"
                 title="Dar de alta un producto nuevo desde cero"
               >
-                <Sparkles className="w-4 h-4 text-blue-600" />
+                <Sparkles className="w-4 h-4 text-indigo-200" />
                 <span>✨ Nuevo Producto</span>
               </button>
+            </div>
 
+            {/* Grupo Derecho: Operaciones masivas y sincronización */}
+            <div className="flex flex-wrap items-center gap-2">
               {/* Mass Price Percentage Adjustment */}
               <button
+                type="button"
                 onClick={() => setIsAdjustmentModalOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-800 font-bold text-xs transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium text-xs shadow-xs transition-colors cursor-pointer"
                 title="Aumentar o rebajar todos los precios en un porcentaje"
               >
                 <Percent className="w-3.5 h-3.5 text-amber-600" />
-                <span>Ajuste Masivo %</span>
+                <span>% Ajuste Masivo %</span>
               </button>
 
               {/* Export Stock Dropdown (XLSX / CSV) */}
@@ -655,12 +603,12 @@ export const AdminPanel: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsExportMenuOpen((prev) => !prev)}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 font-bold text-xs transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium text-xs shadow-xs transition-colors cursor-pointer"
                   title="Descargar catálogo completo en formato Excel (.xlsx) o CSV"
                 >
                   <Download className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Exportar Stock</span>
-                  <ChevronDown className="w-3 h-3 text-emerald-700" />
+                  <ChevronDown className="w-3 h-3 text-slate-400" />
                 </button>
 
                 {isExportMenuOpen && (
@@ -699,37 +647,11 @@ export const AdminPanel: React.FC = () => {
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium text-xs shadow-xs transition-colors cursor-pointer"
                 title="Subir archivo Excel (.xlsx, .xls) o CSV para actualizar masivamente"
               >
                 <Upload className="w-3.5 h-3.5 text-slate-600" />
                 <span>Importar Excel / CSV</span>
-              </button>
-
-              {/* Clear Catalog Button */}
-              <button
-                type="button"
-                onClick={handleClearAll}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-bold text-xs transition-colors cursor-pointer"
-                title="Eliminar todos los productos actuales de la base de datos para cargar catálogo nuevo"
-              >
-                <Trash2 className="w-3.5 h-3.5 text-red-600" />
-                <span>Vaciar Catálogo</span>
-              </button>
-
-              {/* Supabase Cloud Sync Button */}
-              <button
-                type="button"
-                onClick={() => setIsSupabaseModalOpen(true)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border font-bold text-xs transition-colors cursor-pointer ${
-                  isSupabaseConnected
-                    ? 'bg-emerald-50 hover:bg-emerald-100 border-emerald-300 text-emerald-800'
-                    : 'bg-amber-50 hover:bg-amber-100 border-amber-300 text-amber-800'
-                }`}
-                title="Configuración de base de datos Supabase y sincronización en tiempo real"
-              >
-                <Database className="w-3.5 h-3.5 text-emerald-600" />
-                <span>{isSupabaseConnected ? 'Supabase Cloud' : 'Conectar Supabase'}</span>
               </button>
 
               {/* Hidden file input */}
@@ -741,14 +663,15 @@ export const AdminPanel: React.FC = () => {
                 className="hidden"
               />
 
-              {/* Reset to Factory Demo */}
+              {/* Refresh / Reset Button */}
               <button
+                type="button"
                 onClick={() => {
                   if (window.confirm('¿Desea restablecer el catálogo a los 767 artículos oficiales de MP Distribuciones? Se actualizarán todos los productos con las fotos de Google Photos.')) {
                     resetProductsToDefault();
                   }
                 }}
-                className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-colors"
+                className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer"
                 title="Restablecer a los 767 artículos oficiales con fotos"
               >
                 <RefreshCw className="w-4 h-4" />
