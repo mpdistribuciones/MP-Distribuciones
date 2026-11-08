@@ -128,6 +128,9 @@ export const CheckoutModal: React.FC = () => {
     createOrder({
       userId: user?.id,
       userBusinessName: buyerName,
+      buyerName,
+      cuit,
+      phone,
       items: [...cart],
       totalUSD: cartTotalUSD,
       totalARS: cartTotalARS,

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Currency, Product, CartItem, User, SortByOption, ViewMode, Order } from '../types';
+import { Currency, Product, CartItem, User, SortByOption, ViewMode, Order, OrderStatus } from '../types';
 import {
   getSupabaseClient,
   isSupabaseConfigured,
@@ -72,10 +72,23 @@ interface AppContextType {
   openAuthModal: (tab?: 'login' | 'register') => void;
   closeAuthModal: () => void;
 
-  // Order History
+  // Order History & Management
   orders: Order[];
   createOrder: (orderData: Omit<Order, 'id' | 'orderNumber' | 'date' | 'status'>) => Order;
   repeatOrder: (order: Order) => void;
+  confirmOrder: (
+    orderId: string,
+    options?: {
+      allowNegativeStock?: boolean;
+      adjustedItems?: { productId: string; quantity: number }[];
+    }
+  ) => Promise<{
+    success: boolean;
+    error?: string;
+    shortages?: { item: CartItem; available: number; requested: number }[];
+  }>;
+  cancelOrder: (orderId: string) => Promise<{ success: boolean; error?: string }>;
+  updateOrderStatus: (orderId: string, status: OrderStatus) => Promise<boolean>;
   isOrderHistoryModalOpen: boolean;
   openOrderHistoryModal: () => void;
   closeOrderHistoryModal: () => void;
@@ -1092,7 +1105,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       id: 'ord_' + Date.now() + Math.random().toString(36).substring(2, 6),
       orderNumber,
       date: new Date().toISOString(),
-      status: 'enviado',
+      status: 'pendiente',
     };
     setOrders((prev) => [newOrder, ...prev]);
 
@@ -1108,6 +1121,202 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
 
     return newOrder;
+  };
+
+  const confirmOrder = async (
+    orderId: string,
+    options?: {
+      allowNegativeStock?: boolean;
+      adjustedItems?: { productId: string; quantity: number }[];
+    }
+  ): Promise<{
+    success: boolean;
+    error?: string;
+    shortages?: { item: CartItem; available: number; requested: number }[];
+  }> => {
+    const order = orders.find((o) => o.id === orderId);
+    if (!order) return { success: false, error: 'Pedido no encontrado' };
+    if (order.status === 'confirmado') return { success: false, error: 'El pedido ya fue confirmado previamente.' };
+
+    // Determine the items to process (with adjustments if requested)
+    let itemsToProcess = order.items;
+    if (options?.adjustedItems) {
+      itemsToProcess = order.items
+        .map((it) => {
+          const adj = options.adjustedItems!.find((a) => a.productId === it.product.id);
+          if (adj !== undefined) {
+            return { ...it, quantity: adj.quantity };
+          }
+          return it;
+        })
+        .filter((it) => it.quantity > 0);
+    }
+
+    // Check shortages if not allowing negative stock and not using already adjusted items
+    if (!options?.allowNegativeStock && !options?.adjustedItems) {
+      const shortages: { item: CartItem; available: number; requested: number }[] = [];
+      for (const item of itemsToProcess) {
+        const prod = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
+        const available = prod?.stockQuantity ?? 0;
+        if (available < item.quantity) {
+          shortages.push({
+            item,
+            available,
+            requested: item.quantity,
+          });
+        }
+      }
+
+      if (shortages.length > 0) {
+        return {
+          success: false,
+          error: 'stock_shortage',
+          shortages,
+        };
+      }
+    }
+
+    // Stock deduction
+    const client = getSupabaseClient();
+    const stockUpdates: { id: string; newStock: number }[] = [];
+
+    for (const item of itemsToProcess) {
+      const prod = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
+      if (prod) {
+        const currentStock = prod.stockQuantity ?? 0;
+        const newStock = options?.allowNegativeStock
+          ? currentStock - item.quantity
+          : Math.max(0, currentStock - item.quantity);
+        stockUpdates.push({ id: prod.id, newStock });
+
+        if (client) {
+          try {
+            await client
+              .from('products')
+              .update({
+                stock_quantity: newStock,
+                in_stock: newStock > 0,
+                updated_at: new Date().toISOString(),
+              })
+              .eq('id', prod.id);
+          } catch (e) {
+            console.error('[Supabase Stock Update on Confirm Order Error]:', e);
+          }
+        }
+      }
+    }
+
+    // Update local products state
+    if (stockUpdates.length > 0) {
+      setProducts((prev) =>
+        prev.map((p) => {
+          const update = stockUpdates.find((u) => u.id === p.id);
+          if (update) {
+            return {
+              ...p,
+              stockQuantity: update.newStock,
+              inStock: update.newStock > 0,
+            };
+          }
+          return p;
+        })
+      );
+    }
+
+    // Recalculate totals if adjusted
+    let finalTotalUSD = order.totalUSD;
+    let finalTotalARS = order.totalARS;
+    if (options?.adjustedItems) {
+      finalTotalUSD = itemsToProcess.reduce((acc, it) => acc + it.product.priceUSD * it.quantity, 0);
+      finalTotalARS = itemsToProcess.reduce(
+        (acc, it) => acc + (it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity,
+        0
+      );
+    }
+
+    const confirmedAt = new Date().toISOString();
+    const updatedOrder: Order = {
+      ...order,
+      items: itemsToProcess,
+      totalUSD: finalTotalUSD,
+      totalARS: finalTotalARS,
+      status: 'confirmado',
+      confirmedAt,
+    };
+
+    if (client) {
+      try {
+        await client
+          .from('orders')
+          .update({
+            status: 'confirmado',
+            items: itemsToProcess,
+            total_usd: Number(finalTotalUSD.toFixed(2)),
+            total_ars: Math.round(finalTotalARS),
+          })
+          .eq('id', orderId);
+      } catch (e) {
+        console.error('[Supabase Order Status Update Error]:', e);
+      }
+    }
+
+    setOrders((prev) => prev.map((o) => (o.id === orderId ? updatedOrder : o)));
+    showToast(`Pedido #${order.orderNumber} confirmado. Stock descontado correctamente.`, 'success');
+    return { success: true };
+  };
+
+  const cancelOrder = async (orderId: string): Promise<{ success: boolean; error?: string }> => {
+    const order = orders.find((o) => o.id === orderId);
+    if (!order) return { success: false, error: 'Pedido no encontrado' };
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('orders')
+          .update({ status: 'cancelado' })
+          .eq('id', orderId);
+
+        if (error) {
+          console.error('[Supabase Cancel Order Error]:', error);
+          showToast(`Error al cancelar en Supabase: ${error.message}`, 'error');
+          return { success: false, error: error.message };
+        }
+      } catch (err: any) {
+        console.error('[Network Error Cancel Order]:', err);
+        showToast('Error de conexión al cancelar pedido', 'error');
+        return { success: false, error: err.message };
+      }
+    }
+
+    setOrders((prev) => prev.map((o) => (o.id === orderId ? { ...o, status: 'cancelado' } : o)));
+    showToast(`Pedido #${order.orderNumber} cancelado.`, 'info');
+    return { success: true };
+  };
+
+  const updateOrderStatus = async (orderId: string, status: OrderStatus): Promise<boolean> => {
+    const order = orders.find((o) => o.id === orderId);
+    if (!order) return false;
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('orders')
+          .update({ status })
+          .eq('id', orderId);
+        if (error) {
+          console.error('[Supabase Update Order Status Error]:', error);
+          return false;
+        }
+      } catch (err) {
+        console.error('[Network Error Update Order Status]:', err);
+        return false;
+      }
+    }
+
+    setOrders((prev) => prev.map((o) => (o.id === orderId ? { ...o, status } : o)));
+    return true;
   };
 
   const repeatOrder = (order: Order) => {
@@ -1462,6 +1671,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         orders,
         createOrder,
         repeatOrder,
+        confirmOrder,
+        cancelOrder,
+        updateOrderStatus,
         isOrderHistoryModalOpen,
         openOrderHistoryModal,
         closeOrderHistoryModal,

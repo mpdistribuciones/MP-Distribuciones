@@ -88,11 +88,22 @@ export interface OrderCheckoutData {
   notes?: string;
 }
 
+export type OrderStatus =
+  | 'pendiente'
+  | 'confirmado'
+  | 'cancelado'
+  | 'enviado'
+  | 'en_preparacion'
+  | 'completado';
+
 export interface Order {
   id: string;
   orderNumber: string;
   userId?: string;
   userBusinessName: string;
+  buyerName?: string;
+  cuit?: string;
+  phone?: string;
   date: string; // ISO string
   items: CartItem[];
   totalUSD: number;
@@ -101,6 +112,7 @@ export interface Order {
   invoiceType: InvoiceType;
   shippingAddress?: string;
   notes?: string;
-  status: 'enviado' | 'en_preparacion' | 'completado';
+  status: OrderStatus;
+  confirmedAt?: string;
 }
 
