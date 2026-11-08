@@ -10,6 +10,7 @@ import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import * as XLSX from 'xlsx';
 import { exportStockCatalog } from '../utils/exportUtils';
 import { AdminOrdersView } from './AdminOrdersView';
+import { AdminUsersView } from './AdminUsersView';
 import {
   Search,
   Download,
@@ -37,6 +38,7 @@ import {
   ClipboardList,
   Package,
   Bell,
+  Users,
 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
@@ -56,13 +58,18 @@ export const AdminPanel: React.FC = () => {
     showToast,
     isSupabaseConnected,
     orders,
+    b2bUsers,
   } = useApp();
 
-  // Active view tab: 'inventory' | 'orders'
-  const [activeTab, setActiveTab] = useState<'inventory' | 'orders'>('inventory');
+  // Active view tab: 'inventory' | 'orders' | 'users'
+  const [activeTab, setActiveTab] = useState<'inventory' | 'orders' | 'users'>('inventory');
   const pendingOrdersCount = useMemo(
     () => orders.filter((o) => o.status === 'pendiente' || o.status === 'enviado').length,
     [orders]
+  );
+  const pendingUsersCount = useMemo(
+    () => b2bUsers.filter((u) => u.status === 'pendiente').length,
+    [b2bUsers]
   );
 
   // Search & Filter state for the table
@@ -472,6 +479,20 @@ export const AdminPanel: React.FC = () => {
               </button>
             )}
 
+            {/* Pending Clients Notification Badge */}
+            {pendingUsersCount > 0 && (
+              <button
+                onClick={() => setActiveTab('users')}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs shadow-md transition-all cursor-pointer animate-pulse"
+                title="Hay solicitudes de cuentas B2B por validar"
+              >
+                <Users className="w-3.5 h-3.5" />
+                <span>
+                  {pendingUsersCount} {pendingUsersCount === 1 ? 'Cliente por Validar' : 'Clientes por Validar'}
+                </span>
+              </button>
+            )}
+
             {/* Supabase Cloud Connection Status Button */}
             <button
               onClick={() => setIsSupabaseModalOpen(true)}
@@ -557,11 +578,38 @@ export const AdminPanel: React.FC = () => {
                 </span>
               )}
             </button>
+
+            <button
+              onClick={() => setActiveTab('users')}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer relative ${
+                activeTab === 'users'
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              <Users className="w-4 h-4" />
+              <span>Clientes B2B</span>
+              {pendingUsersCount > 0 ? (
+                <span className="px-2 py-0.5 rounded-full text-[11px] font-black bg-amber-500 text-white animate-pulse">
+                  {pendingUsersCount} por validar
+                </span>
+              ) : (
+                <span
+                  className={`px-2 py-0.5 rounded-full text-[11px] font-semibold ${
+                    activeTab === 'users' ? 'bg-blue-700 text-blue-100' : 'bg-slate-100 text-slate-600'
+                  }`}
+                >
+                  {b2bUsers.length}
+                </span>
+              )}
+            </button>
           </div>
         </div>
 
         {activeTab === 'orders' ? (
           <AdminOrdersView />
+        ) : activeTab === 'users' ? (
+          <AdminUsersView />
         ) : (
           <>
             {/* KPI Stats Cards */}

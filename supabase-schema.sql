@@ -67,7 +67,21 @@ INSERT INTO public.app_settings (key, value)
 VALUES ('exchange_rate', '1350')
 ON CONFLICT (key) DO NOTHING;
 
--- 5. FUNCIÓN DE SEGURIDAD ADMIN
+-- 5. TABLA DE USUARIOS / CLIENTES B2B MAYORISTAS
+CREATE TABLE IF NOT EXISTS public.b2b_users (
+  id TEXT PRIMARY KEY,
+  business_name TEXT NOT NULL,
+  cuit TEXT NOT NULL,
+  city TEXT,
+  phone TEXT NOT NULL,
+  email TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pendiente', -- 'pendiente' | 'aprobado' | 'rechazado' | 'suspendido'
+  notes TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  approved_at TIMESTAMPTZ
+);
+
+-- 6. FUNCIÓN DE SEGURIDAD ADMIN
 CREATE OR REPLACE FUNCTION public.is_admin()
 RETURNS boolean
 LANGUAGE sql
@@ -82,6 +96,7 @@ ALTER TABLE public.products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.product_costs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.app_settings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.b2b_users ENABLE ROW LEVEL SECURITY;
 
 -- Políticas de products
 DROP POLICY IF EXISTS "products_select_public" ON public.products;
@@ -149,6 +164,31 @@ CREATE POLICY "orders_update_admin" ON public.orders
 CREATE POLICY "orders_delete_admin" ON public.orders
   FOR DELETE TO authenticated USING (public.is_admin());
 
+-- Políticas de b2b_users
+DROP POLICY IF EXISTS "b2b_users_select_all" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_insert_public" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_update_admin" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_delete_admin" ON public.b2b_users;
+
+-- Consulta pública para verificación de estado en login
+CREATE POLICY "b2b_users_select_all" ON public.b2b_users
+  FOR SELECT TO anon, authenticated USING (true);
+
+-- Registro público de nuevos comercios
+CREATE POLICY "b2b_users_insert_public" ON public.b2b_users
+  FOR INSERT TO anon, authenticated
+  WITH CHECK (
+    char_length(business_name) > 0
+    AND char_length(cuit) > 0
+    AND char_length(email) > 0
+  );
+
+-- Modificación y eliminación restringida a administradores
+CREATE POLICY "b2b_users_update_admin" ON public.b2b_users
+  FOR UPDATE TO authenticated USING (public.is_admin()) WITH CHECK (public.is_admin());
+CREATE POLICY "b2b_users_delete_admin" ON public.b2b_users
+  FOR DELETE TO authenticated USING (public.is_admin());
+
 -- 7. HABILITAR REALTIME
 DO $$
 BEGIN
@@ -164,6 +204,9 @@ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_publication_tables WHERE pubname = 'supabase_realtime' AND schemaname = 'public' AND tablename = 'app_settings') THEN
     ALTER PUBLICATION supabase_realtime ADD TABLE public.app_settings;
   END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_publication_tables WHERE pubname = 'supabase_realtime' AND schemaname = 'public' AND tablename = 'b2b_users') THEN
+    ALTER PUBLICATION supabase_realtime ADD TABLE public.b2b_users;
+  END IF;
 END $$;
 
 -- Índices para búsqueda rápida en catálogo
@@ -172,6 +215,9 @@ CREATE INDEX IF NOT EXISTS idx_products_category ON public.products (category);
 CREATE INDEX IF NOT EXISTS idx_products_in_stock ON public.products (in_stock);
 CREATE INDEX IF NOT EXISTS idx_orders_user_id ON public.orders (user_id);
 CREATE INDEX IF NOT EXISTS idx_orders_date ON public.orders (date DESC);
+CREATE INDEX IF NOT EXISTS idx_b2b_users_email ON public.b2b_users (email);
+CREATE INDEX IF NOT EXISTS idx_b2b_users_cuit ON public.b2b_users (cuit);
+CREATE INDEX IF NOT EXISTS idx_b2b_users_status ON public.b2b_users (status);
 
 -- ==============================================================================
 -- 8. CONFIGURACIÓN DE STORAGE (FOTOS DE PRODUCTOS)

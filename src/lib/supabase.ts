@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { Product, Order } from '../types';
+import { Product, Order, User, UserStatus } from '../types';
 import { DEFAULT_PRODUCT_IMAGE } from './constants';
 
 export { DEFAULT_PRODUCT_IMAGE };
@@ -219,6 +219,40 @@ export const dbToOrder = (row: any): Order => {
     invoiceType: row.invoice_type || 'B',
     status: (row.status as any) || 'pendiente',
     date: row.date || new Date().toISOString(),
+  };
+};
+
+// ==========================================
+// Mappers: B2B User / Customer <-> Supabase DB Row
+// ==========================================
+export const b2bUserToDb = (u: User) => {
+  return {
+    id: u.id,
+    business_name: u.businessName,
+    cuit: u.cuit,
+    city: u.city || '',
+    phone: u.phone,
+    email: u.email,
+    status: u.status || 'pendiente',
+    notes: u.notes || '',
+    created_at: u.registeredAt || new Date().toISOString(),
+    approved_at: u.approvedAt || null,
+  };
+};
+
+export const dbToB2bUser = (row: any): User => {
+  return {
+    id: String(row.id),
+    businessName: row.business_name || 'Comercio B2B',
+    cuit: row.cuit || '',
+    city: row.city || '',
+    phone: row.phone || '',
+    email: row.email || '',
+    status: (row.status as UserStatus) || 'pendiente',
+    notes: row.notes || undefined,
+    isAuthenticated: row.status === 'aprobado',
+    registeredAt: row.created_at || new Date().toISOString(),
+    approvedAt: row.approved_at || undefined,
   };
 };
 

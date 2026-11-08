@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Currency, Product, CartItem, User, SortByOption, ViewMode, Order, OrderStatus } from '../types';
+import { Currency, Product, CartItem, User, UserStatus, SortByOption, ViewMode, Order, OrderStatus } from '../types';
 import {
   getSupabaseClient,
   isSupabaseConfigured,
@@ -7,6 +7,8 @@ import {
   dbToProduct,
   orderToDb,
   dbToOrder,
+  b2bUserToDb,
+  dbToB2bUser,
   saveSupabaseConfig,
 } from '../lib/supabase';
 
@@ -62,11 +64,25 @@ interface AppContextType {
   logoutAdmin: () => void;
   setIsAdminView: (val: boolean) => void;
 
-  // Auth / B2B User
+  // Auth / B2B User & Customer Accounts Management
   user: User | null;
-  login: (userData: Partial<User>) => void;
-  register: (userData: Omit<User, 'id' | 'isAuthenticated'>) => void;
+  b2bUsers: User[];
+  login: (identifierOrData: string | Partial<User>) => Promise<{
+    success: boolean;
+    user?: User;
+    message?: string;
+    status?: UserStatus | 'not_found';
+  }>;
+  register: (userData: Omit<User, 'id' | 'isAuthenticated' | 'status'>) => Promise<{
+    success: boolean;
+    user?: User;
+    message?: string;
+  }>;
   logout: () => void;
+  approveUser: (userId: string) => Promise<boolean>;
+  rejectUser: (userId: string) => Promise<boolean>;
+  suspendUser: (userId: string) => Promise<boolean>;
+  deleteB2bUser: (userId: string) => Promise<boolean>;
   isAuthModalOpen: boolean;
   authModalTab: 'login' | 'register';
   openAuthModal: (tab?: 'login' | 'register') => void;
@@ -157,6 +173,7 @@ const LOCAL_STORAGE_KEY_CURRENCY = 'mp_distribuciones_currency_v1';
 const LOCAL_STORAGE_KEY_EXCHANGE = 'mp_distribuciones_exchange_rate_v1';
 const LOCAL_STORAGE_KEY_PRODUCTS = 'mp_distribuciones_products_v2';
 const LOCAL_STORAGE_KEY_ORDERS = 'mp_distribuciones_orders_v1';
+const LOCAL_STORAGE_KEY_B2B_USERS = 'mp_distribuciones_b2b_users_v1';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Toasts
@@ -896,7 +913,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Catálogo recargado desde Supabase Cloud.', 'info');
   };
 
-  // Auth State
+  // Auth State (Current logged in user session)
   const [user, setUser] = useState<User | null>(() => {
     try {
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_USER);
@@ -906,6 +923,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return null;
     }
   });
+
+  // B2B Registered Customers / Accounts directory
+  const [b2bUsers, setB2bUsers] = useState<User[]>(() => {
+    try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY_B2B_USERS);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_B2B_USERS, JSON.stringify(b2bUsers));
+    } catch (e) {
+      console.warn('Error guardando clientes B2B en localStorage:', e);
+    }
+  }, [b2bUsers]);
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState<'login' | 'register'>('login');
@@ -917,36 +952,234 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const closeAuthModal = () => setIsAuthModalOpen(false);
 
-  const login = (userData: Partial<User>) => {
-    const newUser: User = {
-      id: 'usr_' + Date.now(),
-      businessName: userData.businessName || 'Cliente Mayorista',
-      cuit: userData.cuit || '',
-      city: userData.city || '',
-      phone: userData.phone || '',
-      email: userData.email || '',
+  const login = async (
+    identifierOrData: string | Partial<User>
+  ): Promise<{
+    success: boolean;
+    user?: User;
+    message?: string;
+    status?: UserStatus | 'not_found';
+  }> => {
+    const rawIdentifier =
+      typeof identifierOrData === 'string'
+        ? identifierOrData.trim().toLowerCase()
+        : (identifierOrData.email || identifierOrData.cuit || identifierOrData.businessName || '').trim().toLowerCase();
+
+    if (!rawIdentifier) {
+      return { success: false, status: 'not_found', message: 'Por favor ingrese su email o CUIT.' };
+    }
+
+    // 1. Check in local b2bUsers state
+    let target = b2bUsers.find(
+      (u) =>
+        u.email.toLowerCase() === rawIdentifier ||
+        u.cuit.toLowerCase() === rawIdentifier ||
+        u.businessName.toLowerCase() === rawIdentifier
+    );
+
+    // 2. Query Supabase if not found locally
+    const client = getSupabaseClient();
+    if (!target && client) {
+      try {
+        const { data, error } = await client
+          .from('b2b_users')
+          .select('*')
+          .or(`email.ilike.${rawIdentifier},cuit.eq.${rawIdentifier}`)
+          .limit(1)
+          .maybeSingle();
+
+        if (!error && data) {
+          target = dbToB2bUser(data);
+          setB2bUsers((prev) => [target!, ...prev.filter((u) => u.id !== target!.id)]);
+        }
+      } catch (err) {
+        console.warn('[Supabase Check User Status Error]:', err);
+      }
+    }
+
+    // 3. Not found anywhere
+    if (!target) {
+      return {
+        success: false,
+        status: 'not_found',
+        message: 'No encontramos ninguna cuenta con ese email o CUIT. Por favor registrate como cliente mayorista.',
+      };
+    }
+
+    // 4. Check approval status
+    if (target.status === 'pendiente') {
+      return {
+        success: false,
+        status: 'pendiente',
+        user: target,
+        message: `Tu solicitud para "${target.businessName}" se encuentra en proceso de revisión por administración. Te notificaremos por WhatsApp en cuanto esté aprobada.`,
+      };
+    }
+
+    if (target.status === 'rechazado' || target.status === 'suspendido') {
+      return {
+        success: false,
+        status: target.status,
+        user: target,
+        message: `Tu cuenta se encuentra en estado "${target.status}". Por favor contactate con administración de MP Distribuciones para reactivarla.`,
+      };
+    }
+
+    // 5. Approved
+    const activeUser: User = {
+      ...target,
       isAuthenticated: true,
-      registeredAt: new Date().toISOString(),
     };
-    setUser(newUser);
+    setUser(activeUser);
     try {
-      localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(newUser));
-    } catch (e) {}
+      localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(activeUser));
+    } catch {}
     setIsAuthModalOpen(false);
-    showToast(`¡Bienvenido de nuevo, ${newUser.businessName}!`, 'success');
+    showToast(`¡Bienvenido de nuevo, ${activeUser.businessName}!`, 'success');
+    return { success: true, user: activeUser };
   };
 
-  const register = (userData: Omit<User, 'id' | 'isAuthenticated'>) => {
+  const register = async (
+    userData: Omit<User, 'id' | 'isAuthenticated' | 'status'>
+  ): Promise<{ success: boolean; user?: User; message?: string }> => {
     const newUser: User = {
       ...userData,
-      id: 'usr_' + Date.now(),
-      isAuthenticated: true,
+      id: 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6),
+      status: 'pendiente',
+      isAuthenticated: false,
       registeredAt: new Date().toISOString(),
     };
-    setUser(newUser);
-    localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(newUser));
-    setIsAuthModalOpen(false);
-    showToast(`Cuenta B2B creada con éxito. Precios mayoristas habilitados.`, 'success');
+
+    setB2bUsers((prev) => [newUser, ...prev]);
+
+    // Supabase persist
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client.from('b2b_users').insert([b2bUserToDb(newUser)]);
+        if (error) {
+          console.warn('[Supabase Insert b2b_user Error]:', error.message);
+        }
+      } catch (err) {
+        console.warn('[Network Error on Register b2b_user]:', err);
+      }
+    }
+
+    return {
+      success: true,
+      user: newUser,
+      message: 'Solicitud de cuenta recibida con éxito.',
+    };
+  };
+
+  const approveUser = async (userId: string): Promise<boolean> => {
+    const target = b2bUsers.find((u) => u.id === userId);
+    if (!target) return false;
+
+    const approvedAt = new Date().toISOString();
+    const updatedUser: User = {
+      ...target,
+      status: 'aprobado',
+      approvedAt,
+    };
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        await client
+          .from('b2b_users')
+          .update({
+            status: 'aprobado',
+            approved_at: approvedAt,
+          })
+          .eq('id', userId);
+      } catch (e) {
+        console.error('[Supabase Approve User Error]:', e);
+      }
+    }
+
+    setB2bUsers((prev) => prev.map((u) => (u.id === userId ? updatedUser : u)));
+    if (user && user.id === userId) {
+      setUser({ ...updatedUser, isAuthenticated: true });
+    }
+    showToast(`Cliente "${target.businessName}" aprobado con éxito.`, 'success');
+    return true;
+  };
+
+  const rejectUser = async (userId: string): Promise<boolean> => {
+    const target = b2bUsers.find((u) => u.id === userId);
+    if (!target) return false;
+
+    const updatedUser: User = {
+      ...target,
+      status: 'rechazado',
+    };
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        await client
+          .from('b2b_users')
+          .update({ status: 'rechazado' })
+          .eq('id', userId);
+      } catch (e) {
+        console.error('[Supabase Reject User Error]:', e);
+      }
+    }
+
+    setB2bUsers((prev) => prev.map((u) => (u.id === userId ? updatedUser : u)));
+    if (user && user.id === userId) {
+      setUser({ ...updatedUser, isAuthenticated: false });
+    }
+    showToast(`Cliente "${target.businessName}" rechazado.`, 'info');
+    return true;
+  };
+
+  const suspendUser = async (userId: string): Promise<boolean> => {
+    const target = b2bUsers.find((u) => u.id === userId);
+    if (!target) return false;
+
+    const updatedUser: User = {
+      ...target,
+      status: 'suspendido',
+    };
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        await client
+          .from('b2b_users')
+          .update({ status: 'suspendido' })
+          .eq('id', userId);
+      } catch (e) {
+        console.error('[Supabase Suspend User Error]:', e);
+      }
+    }
+
+    setB2bUsers((prev) => prev.map((u) => (u.id === userId ? updatedUser : u)));
+    if (user && user.id === userId) {
+      setUser({ ...updatedUser, isAuthenticated: false });
+    }
+    showToast(`Cuenta de "${target.businessName}" suspendida.`, 'warning');
+    return true;
+  };
+
+  const deleteB2bUser = async (userId: string): Promise<boolean> => {
+    const target = b2bUsers.find((u) => u.id === userId);
+    if (!target) return false;
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        await client.from('b2b_users').delete().eq('id', userId);
+      } catch (e) {
+        console.error('[Supabase Delete User Error]:', e);
+      }
+    }
+
+    setB2bUsers((prev) => prev.filter((u) => u.id !== userId));
+    showToast(`Cliente "${target.businessName}" eliminado.`, 'info');
+    return true;
   };
 
   const logout = () => {
@@ -1435,6 +1668,26 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             // ignore
           }
         }
+
+        // 3. Fetch b2b_users (Clientes mayoristas)
+        try {
+          const { data: dbUsers, error: usersErr } = await client
+            .from('b2b_users')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+          if (!usersErr && dbUsers && dbUsers.length > 0) {
+            const mappedUsers = dbUsers.map(dbToB2bUser);
+            setB2bUsers(mappedUsers);
+            try {
+              localStorage.setItem(LOCAL_STORAGE_KEY_B2B_USERS, JSON.stringify(mappedUsers));
+            } catch (e) {
+              // ignore
+            }
+          }
+        } catch (uErr) {
+          console.warn('[Supabase Sync B2B Users]:', uErr);
+        }
       }
 
       setIsSupabaseConnected(true);
@@ -1629,6 +1882,27 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           }
         }
       )
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'b2b_users' },
+        (payload) => {
+          if (payload.eventType === 'INSERT') {
+            const newUser = dbToB2bUser(payload.new);
+            setB2bUsers((prev) => {
+              if (prev.some((u) => u.id === newUser.id)) return prev;
+              return [newUser, ...prev];
+            });
+          } else if (payload.eventType === 'UPDATE') {
+            const updated = dbToB2bUser(payload.new);
+            setB2bUsers((prev) => prev.map((u) => (u.id === updated.id ? updated : u)));
+          } else if (payload.eventType === 'DELETE') {
+            const delId = payload.old?.id;
+            if (delId) {
+              setB2bUsers((prev) => prev.filter((u) => u.id !== delId));
+            }
+          }
+        }
+      )
       .subscribe();
 
     return () => {
@@ -1699,9 +1973,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         logoutAdmin,
         setIsAdminView,
         user,
+        b2bUsers,
         login,
         register,
         logout,
+        approveUser,
+        rejectUser,
+        suspendUser,
+        deleteB2bUser,
         isAuthModalOpen,
         authModalTab,
         openAuthModal,

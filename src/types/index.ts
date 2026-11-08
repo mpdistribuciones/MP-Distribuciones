@@ -60,6 +60,8 @@ export interface CartItem {
   quantity: number;
 }
 
+export type UserStatus = 'pendiente' | 'aprobado' | 'rechazado' | 'suspendido';
+
 export interface User {
   id: string;
   businessName: string; // Nombre / Razón Social
@@ -68,7 +70,10 @@ export interface User {
   phone: string; // Teléfono / WhatsApp
   email: string;
   isAuthenticated: boolean;
+  status: UserStatus;
   registeredAt?: string;
+  approvedAt?: string;
+  notes?: string;
 }
 
 export type InvoiceType = 'Factura A' | 'Factura B' | 'Consumidor Final';
