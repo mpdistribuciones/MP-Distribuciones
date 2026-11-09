@@ -34,7 +34,6 @@ export const Header: React.FC = () => {
     setIsAdminView,
   } = useApp();
 
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isPriceListMenuOpen, setIsPriceListMenuOpen] = useState(false);
   const priceListMenuRef = useRef<HTMLDivElement>(null);
 
@@ -137,16 +136,15 @@ export const Header: React.FC = () => {
       </div>
 
       {/* LINE 2: Secondary Utility & Navigation Bar */}
-      <div className="w-full bg-[#07245b] text-white px-3 sm:px-4 py-1 sm:py-1.5 border-b border-blue-950/50">
+      <div className="w-full bg-[#07245b] text-white px-3 sm:px-4 py-1 sm:py-1.5 border-b border-blue-950/50 relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 text-[11px] sm:text-xs">
           {/* Left: User status, Historial, Lista Precios (and Mobile Panel Dueño) */}
-          <div className="flex items-center gap-2 sm:gap-3 text-blue-100 overflow-x-auto no-scrollbar whitespace-nowrap">
+          <div className="flex items-center gap-2 sm:gap-3 text-blue-100 whitespace-nowrap">
             <span className="flex items-center gap-1 font-medium">
               <span>Hola,</span>
               {user ? (
                 <strong
-                  className="text-white underline cursor-pointer max-w-[90px] sm:max-w-none truncate inline-block"
-                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  className="text-white font-bold max-w-[120px] sm:max-w-none truncate inline-block"
                 >
                   {user.businessName.split(' ')[0]}
                 </strong>
@@ -155,11 +153,11 @@ export const Header: React.FC = () => {
               )}
               <span className="text-blue-300">
                 ({user ? (
-                  <button onClick={logout} className="hover:underline text-blue-200 ml-0.5">
+                  <button onClick={logout} className="hover:underline text-blue-200 ml-0.5 cursor-pointer">
                     Salir
                   </button>
                 ) : (
-                  <button onClick={() => openAuthModal('login')} className="hover:underline text-white font-bold ml-0.5">
+                  <button onClick={() => openAuthModal('login')} className="hover:underline text-white font-bold ml-0.5 cursor-pointer">
                     Ingresar
                   </button>
                 )})
@@ -194,43 +192,61 @@ export const Header: React.FC = () => {
                 title="Descargar lista de precios mayorista en formato Excel (.xlsx) o CSV"
               >
                 <span>Lista Precios</span>
-                <ChevronDown className="w-3 h-3 text-blue-300" />
+                <ChevronDown className={`w-3 h-3 text-blue-300 transition-transform ${isPriceListMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isPriceListMenuOpen && (
-                <div className="absolute left-0 top-full mt-1.5 w-52 bg-white text-slate-800 rounded-xl shadow-2xl border border-slate-200 py-1.5 z-50 animate-fadeIn">
-                  <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
-                    <span>Exportar Precios</span>
-                    <span className="text-[9px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded">Catálogo B2B</span>
+                <div className="absolute left-0 top-full mt-2 w-60 bg-white text-slate-800 rounded-2xl shadow-2xl border border-slate-200 p-1.5 z-50 animate-fadeIn ring-1 ring-black/10">
+                  <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
+                    <span>Descargar Precios</span>
+                    <span className="text-[9px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded">
+                      {products.length} Arts.
+                    </span>
                   </div>
-                  <button
-                    onClick={() => {
-                      exportPriceList(products, exchangeRate, 'xlsx');
-                      setIsPriceListMenuOpen(false);
-                      showToast('Lista de precios exportada exitosamente en Excel (.xlsx)', 'success');
-                    }}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors text-left cursor-pointer"
-                  >
-                    <FileSpreadsheet className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <div>
-                      <div className="font-bold">Excel (.xlsx)</div>
-                      <span className="text-[10px] text-slate-400 font-normal">Recomendado para Office</span>
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => {
-                      exportPriceList(products, exchangeRate, 'csv');
-                      setIsPriceListMenuOpen(false);
-                      showToast('Lista de precios exportada exitosamente en CSV (.csv)', 'success');
-                    }}
-                    className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors text-left cursor-pointer"
-                  >
-                    <FileText className="w-4 h-4 text-blue-600 shrink-0" />
-                    <div>
-                      <div className="font-bold">CSV (.csv)</div>
-                      <span className="text-[10px] text-slate-400 font-normal">Para sistemas y ERP</span>
-                    </div>
-                  </button>
+
+                  <div className="p-1 space-y-1">
+                    <button
+                      onClick={() => {
+                        exportPriceList(products, exchangeRate, 'xlsx');
+                        setIsPriceListMenuOpen(false);
+                        showToast('Lista de precios descargada en Excel (.xlsx)', 'success');
+                      }}
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition-all text-left cursor-pointer group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <FileSpreadsheet className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900 group-hover:text-emerald-800">
+                          Excel (.xlsx)
+                        </div>
+                        <span className="text-[10px] text-slate-500 font-normal">
+                          Con fórmulas y formato
+                        </span>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        exportPriceList(products, exchangeRate, 'csv');
+                        setIsPriceListMenuOpen(false);
+                        showToast('Lista de precios descargada en CSV (.csv)', 'success');
+                      }}
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition-all text-left cursor-pointer group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <FileText className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="font-bold text-slate-900 group-hover:text-blue-800">
+                          CSV (.csv)
+                        </div>
+                        <span className="text-[10px] text-slate-500 font-normal">
+                          Para importación en ERP
+                        </span>
+                      </div>
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
