@@ -123,7 +123,74 @@ CREATE POLICY "orders_update_admin" ON public.orders
 CREATE POLICY "orders_delete_admin" ON public.orders
   FOR DELETE TO authenticated USING (public.is_admin());
 
--- 6. BUCKET product-images (Storage)
+-- 6. TABLA b2b_users (Clientes mayoristas - Blindaje RLS sin acceso anónimo de lectura)
+ALTER TABLE public.b2b_users ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "b2b_users_select_all" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_select_own_or_admin" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_insert_public" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_update_admin" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_update_own_or_admin" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_delete_admin" ON public.b2b_users;
+
+-- a) Cada cliente autenticado únicamente puede leer su propio registro; el administrador puede leer todos
+CREATE POLICY "b2b_users_select_own_or_admin" ON public.b2b_users
+  FOR SELECT TO authenticated
+  USING (
+    public.is_admin()
+    OR auth.uid()::text = id
+    OR lower(email) = lower(COALESCE(auth.jwt() ->> 'email', ''))
+  );
+
+-- b) Solicitud de alta B2B: solo permite insertar registros con estado 'pendiente' / 'pending'
+CREATE POLICY "b2b_users_insert_public" ON public.b2b_users
+  FOR INSERT TO anon, authenticated
+  WITH CHECK (
+    status IN ('pendiente', 'pending')
+    AND char_length(business_name) > 0
+    AND char_length(cuit) > 0
+    AND char_length(email) > 0
+  );
+
+-- c) Actualización: El administrador puede modificar todo y aprobar/rechazar/suspender;
+--    el cliente autenticado solo puede editar su propio perfil sin cambiar su status
+CREATE POLICY "b2b_users_update_own_or_admin" ON public.b2b_users
+  FOR UPDATE TO authenticated
+  USING (
+    public.is_admin()
+    OR auth.uid()::text = id
+    OR lower(email) = lower(COALESCE(auth.jwt() ->> 'email', ''))
+  )
+  WITH CHECK (
+    public.is_admin()
+    OR (
+      (auth.uid()::text = id OR lower(email) = lower(COALESCE(auth.jwt() ->> 'email', '')))
+      AND status = (SELECT b.status FROM public.b2b_users b WHERE b.id = b2b_users.id)
+    )
+  );
+
+-- d) Eliminación exclusiva para el administrador
+CREATE POLICY "b2b_users_delete_admin" ON public.b2b_users
+  FOR DELETE TO authenticated
+  USING (public.is_admin());
+
+-- Función RPC segura para resolver email por CUIT en el login sin abrir SELECT público sobre b2b_users
+CREATE OR REPLACE FUNCTION public.resolve_b2b_email_by_cuit(p_cuit text)
+RETURNS text
+LANGUAGE sql
+SECURITY DEFINER
+STABLE
+SET search_path = ''
+AS $$
+  SELECT email
+  FROM public.b2b_users
+  WHERE regexp_replace(lower(cuit), '[^0-9a-z]', '', 'g') = regexp_replace(lower(trim(p_cuit)), '[^0-9a-z]', '', 'g')
+  LIMIT 1;
+$$;
+
+GRANT EXECUTE ON FUNCTION public.resolve_b2b_email_by_cuit(text) TO anon, authenticated;
+
+-- 7. BUCKET product-images (Storage)
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES (
   'product-images',
@@ -159,9 +226,9 @@ CREATE POLICY "product_images_update_admin" ON storage.objects
 CREATE POLICY "product_images_delete_admin" ON storage.objects
   FOR DELETE TO authenticated USING (bucket_id = 'product-images' AND public.is_admin());
 
--- 7. Verificación rápida de políticas aplicadas
+-- 8. Verificación rápida de políticas aplicadas
 SELECT schemaname, tablename, policyname, cmd, roles
 FROM pg_policies
-WHERE (schemaname = 'public' AND tablename IN ('products', 'product_costs', 'app_settings', 'orders'))
+WHERE (schemaname = 'public' AND tablename IN ('products', 'product_costs', 'app_settings', 'orders', 'b2b_users'))
    OR (schemaname = 'storage' AND tablename = 'objects')
 ORDER BY tablename, cmd;

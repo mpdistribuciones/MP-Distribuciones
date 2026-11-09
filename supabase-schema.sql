@@ -164,30 +164,70 @@ CREATE POLICY "orders_update_admin" ON public.orders
 CREATE POLICY "orders_delete_admin" ON public.orders
   FOR DELETE TO authenticated USING (public.is_admin());
 
--- Políticas de b2b_users
+-- Políticas de b2b_users (Blindaje RLS estricto: sin lectura anónima pública)
 DROP POLICY IF EXISTS "b2b_users_select_all" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_select_own_or_admin" ON public.b2b_users;
 DROP POLICY IF EXISTS "b2b_users_insert_public" ON public.b2b_users;
 DROP POLICY IF EXISTS "b2b_users_update_admin" ON public.b2b_users;
+DROP POLICY IF EXISTS "b2b_users_update_own_or_admin" ON public.b2b_users;
 DROP POLICY IF EXISTS "b2b_users_delete_admin" ON public.b2b_users;
 
--- Consulta pública para verificación de estado en login
-CREATE POLICY "b2b_users_select_all" ON public.b2b_users
-  FOR SELECT TO anon, authenticated USING (true);
+-- a) Lectura: Cada cliente autenticado solo puede leer su propio registro; el administrador puede leer todos
+CREATE POLICY "b2b_users_select_own_or_admin" ON public.b2b_users
+  FOR SELECT TO authenticated
+  USING (
+    public.is_admin()
+    OR auth.uid()::text = id
+    OR lower(email) = lower(COALESCE(auth.jwt() ->> 'email', ''))
+  );
 
--- Registro público de nuevos comercios
+-- b) Registro de nuevos comercios: únicamente con estado inicial 'pendiente' / 'pending'
 CREATE POLICY "b2b_users_insert_public" ON public.b2b_users
   FOR INSERT TO anon, authenticated
   WITH CHECK (
-    char_length(business_name) > 0
+    status IN ('pendiente', 'pending')
+    AND char_length(business_name) > 0
     AND char_length(cuit) > 0
     AND char_length(email) > 0
   );
 
--- Modificación y eliminación restringida a administradores
-CREATE POLICY "b2b_users_update_admin" ON public.b2b_users
-  FOR UPDATE TO authenticated USING (public.is_admin()) WITH CHECK (public.is_admin());
+-- c) Actualización: El administrador puede actualizar todo (incluyendo estados aprobado/rechazado/pendiente);
+--    el propio usuario autenticado solo puede editar sus datos sin alterar su status
+CREATE POLICY "b2b_users_update_own_or_admin" ON public.b2b_users
+  FOR UPDATE TO authenticated
+  USING (
+    public.is_admin()
+    OR auth.uid()::text = id
+    OR lower(email) = lower(COALESCE(auth.jwt() ->> 'email', ''))
+  )
+  WITH CHECK (
+    public.is_admin()
+    OR (
+      (auth.uid()::text = id OR lower(email) = lower(COALESCE(auth.jwt() ->> 'email', '')))
+      AND status = (SELECT b.status FROM public.b2b_users b WHERE b.id = b2b_users.id)
+    )
+  );
+
+-- d) Eliminación restringida exclusivamente a administradores
 CREATE POLICY "b2b_users_delete_admin" ON public.b2b_users
-  FOR DELETE TO authenticated USING (public.is_admin());
+  FOR DELETE TO authenticated
+  USING (public.is_admin());
+
+-- Función RPC segura para resolver email a partir de CUIT durante el login sin exponer la tabla
+CREATE OR REPLACE FUNCTION public.resolve_b2b_email_by_cuit(p_cuit text)
+RETURNS text
+LANGUAGE sql
+SECURITY DEFINER
+STABLE
+SET search_path = ''
+AS $$
+  SELECT email
+  FROM public.b2b_users
+  WHERE regexp_replace(lower(cuit), '[^0-9a-z]', '', 'g') = regexp_replace(lower(trim(p_cuit)), '[^0-9a-z]', '', 'g')
+  LIMIT 1;
+$$;
+
+GRANT EXECUTE ON FUNCTION public.resolve_b2b_email_by_cuit(text) TO anon, authenticated;
 
 -- 7. HABILITAR REALTIME
 DO $$

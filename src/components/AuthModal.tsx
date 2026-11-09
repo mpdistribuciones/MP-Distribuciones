@@ -42,6 +42,9 @@ export const AuthModal: React.FC = () => {
   const [regCity, setRegCity] = useState('');
   const [regPhone, setRegPhone] = useState('');
   const [regEmail, setRegEmail] = useState('');
+  const [regPassword, setRegPassword] = useState('');
+  const [regConfirmPassword, setRegConfirmPassword] = useState('');
+  const [regError, setRegError] = useState<string | null>(null);
   const [isRegistering, setIsRegistering] = useState(false);
 
   // Registration Submitted Success Screen State
@@ -55,6 +58,7 @@ export const AuthModal: React.FC = () => {
   React.useEffect(() => {
     setActiveTab(authModalTab);
     setLoginError(null);
+    setRegError(null);
     setRegisteredSuccessData(null);
   }, [authModalTab, isAuthModalOpen]);
 
@@ -67,14 +71,21 @@ export const AuthModal: React.FC = () => {
     if (!clean) {
       setLoginError({
         status: 'error',
-        message: 'Por favor ingrese su usuario, email o CUIT.',
+        message: 'Por favor ingrese su email o CUIT.',
+      });
+      return;
+    }
+    if (!loginPassword.trim()) {
+      setLoginError({
+        status: 'error',
+        message: 'Por favor ingrese su contraseña.',
       });
       return;
     }
 
     setIsLoggingIn(true);
     try {
-      const res = await login(clean);
+      const res = await login(clean, loginPassword);
       if (!res.success) {
         setLoginError({
           status: (res.status as any) || 'error',
@@ -89,20 +100,35 @@ export const AuthModal: React.FC = () => {
 
   const handleRegisterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!regBusinessName.trim() || !regCuit.trim() || !regPhone.trim() || !regEmail.trim()) {
-      alert('Por favor complete los campos obligatorios del registro.');
+    setRegError(null);
+
+    if (!regBusinessName.trim() || !regCuit.trim() || !regPhone.trim() || !regEmail.trim() || !regPassword.trim()) {
+      setRegError('Por favor complete todos los campos obligatorios del registro.');
+      return;
+    }
+
+    if (regPassword.trim().length < 6) {
+      setRegError('La contraseña debe tener al menos 6 caracteres.');
+      return;
+    }
+
+    if (regPassword !== regConfirmPassword) {
+      setRegError('Las contraseñas ingresadas no coinciden.');
       return;
     }
 
     setIsRegistering(true);
     try {
-      const res = await register({
-        businessName: regBusinessName.trim(),
-        cuit: regCuit.trim(),
-        city: regCity.trim() || 'Rosario, Santa Fe',
-        phone: regPhone.trim(),
-        email: regEmail.trim(),
-      });
+      const res = await register(
+        {
+          businessName: regBusinessName.trim(),
+          cuit: regCuit.trim(),
+          city: regCity.trim() || 'Rosario, Santa Fe',
+          phone: regPhone.trim(),
+          email: regEmail.trim(),
+        },
+        regPassword
+      );
 
       if (res.success) {
         setRegisteredSuccessData({
@@ -110,6 +136,10 @@ export const AuthModal: React.FC = () => {
           cuit: regCuit.trim(),
           phone: regPhone.trim(),
         });
+        setRegPassword('');
+        setRegConfirmPassword('');
+      } else {
+        setRegError(res.message || 'No se pudo completar el registro. Intente nuevamente.');
       }
     } finally {
       setIsRegistering(false);
@@ -118,6 +148,7 @@ export const AuthModal: React.FC = () => {
 
   const handleClose = () => {
     setLoginError(null);
+    setRegError(null);
     setRegisteredSuccessData(null);
     closeAuthModal();
   };
@@ -265,13 +296,13 @@ export const AuthModal: React.FC = () => {
                   {loginError.status === 'pendiente' && (
                     <div className="pt-1 pl-6">
                       <a
-                        href="https://wa.me/5493413408439?text=Hola!%20Consulto%20por%20la%20validación%20de%20mi%20cuenta%20mayorista%20en%20MP%20Distribuciones."
+                        href="https://wa.me/5493413422310?text=Hola!%20Consulto%20por%20la%20validación%20de%20mi%20cuenta%20mayorista%20en%20MP%20Distribuciones."
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] transition-colors"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
-                        <span>Consultar estado por WhatsApp (3413408439)</span>
+                        <span>Consultar estado por WhatsApp (341 342-2310)</span>
                       </a>
                     </div>
                   )}
@@ -315,6 +346,7 @@ export const AuthModal: React.FC = () => {
                 </label>
                 <input
                   type="password"
+                  required
                   value={loginPassword}
                   onChange={(e) => setLoginPassword(e.target.value)}
                   placeholder="••••••••"
@@ -354,9 +386,16 @@ export const AuthModal: React.FC = () => {
                   Registro de Clientes B2B & Comercios
                 </p>
                 <p className="text-[11px] text-blue-700 mt-0.5">
-                  Completá tus datos comerciales. Una vez validados por administración, se habilitará tu cuenta con precios de lista.
+                  Completá tus datos comerciales y creá tu contraseña. Una vez validados por administración, se habilitará tu cuenta con precios de lista.
                 </p>
               </div>
+
+              {regError && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start gap-2 animate-fadeIn">
+                  <AlertTriangle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                  <span>{regError}</span>
+                </div>
+              )}
 
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
@@ -430,6 +469,40 @@ export const AuthModal: React.FC = () => {
                     value={regPhone}
                     onChange={(e) => setRegPhone(e.target.value)}
                     placeholder="+54 9 341..."
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-sm text-slate-900 placeholder-slate-400 outline-none transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
+                    <KeyRound className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Crear Contraseña *</span>
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    minLength={6}
+                    value={regPassword}
+                    onChange={(e) => setRegPassword(e.target.value)}
+                    placeholder="Mínimo 6 caracteres"
+                    className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-sm text-slate-900 placeholder-slate-400 outline-none transition-colors"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
+                    <Lock className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Confirmar Contraseña *</span>
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    minLength={6}
+                    value={regConfirmPassword}
+                    onChange={(e) => setRegConfirmPassword(e.target.value)}
+                    placeholder="Repetí tu contraseña"
                     className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-sm text-slate-900 placeholder-slate-400 outline-none transition-colors"
                   />
                 </div>

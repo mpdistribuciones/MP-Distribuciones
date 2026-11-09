@@ -26,3 +26,8 @@ dist-ssr/
 .vscode/
 *.swp
 *.swo
+
+# Spreadsheets & sensitive supplier/cost files
+*.xlsx
+*.xls
+*.csv

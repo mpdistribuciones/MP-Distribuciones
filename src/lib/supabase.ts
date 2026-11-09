@@ -240,7 +240,16 @@ export const b2bUserToDb = (u: User) => {
   };
 };
 
+export const normalizeB2bStatus = (rawStatus: any): UserStatus => {
+  const s = String(rawStatus || '').trim().toLowerCase();
+  if (s === 'aprobado' || s === 'approved') return 'aprobado';
+  if (s === 'rechazado' || s === 'rejected') return 'rechazado';
+  if (s === 'suspendido' || s === 'suspended') return 'suspendido';
+  return 'pendiente';
+};
+
 export const dbToB2bUser = (row: any): User => {
+  const normalizedStatus = normalizeB2bStatus(row.status);
   return {
     id: String(row.id),
     businessName: row.business_name || 'Comercio B2B',
@@ -248,9 +257,9 @@ export const dbToB2bUser = (row: any): User => {
     city: row.city || '',
     phone: row.phone || '',
     email: row.email || '',
-    status: (row.status as UserStatus) || 'pendiente',
+    status: normalizedStatus,
     notes: row.notes || undefined,
-    isAuthenticated: row.status === 'aprobado',
+    isAuthenticated: normalizedStatus === 'aprobado',
     registeredAt: row.created_at || new Date().toISOString(),
     approvedAt: row.approved_at || undefined,
   };

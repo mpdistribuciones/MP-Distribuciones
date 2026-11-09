@@ -9,6 +9,7 @@ import {
   dbToOrder,
   b2bUserToDb,
   dbToB2bUser,
+  normalizeB2bStatus,
   saveSupabaseConfig,
 } from '../lib/supabase';
 
@@ -67,13 +68,19 @@ interface AppContextType {
   // Auth / B2B User & Customer Accounts Management
   user: User | null;
   b2bUsers: User[];
-  login: (identifierOrData: string | Partial<User>) => Promise<{
+  login: (
+    identifierOrData: string | Partial<User>,
+    password?: string
+  ) => Promise<{
     success: boolean;
     user?: User;
     message?: string;
-    status?: UserStatus | 'not_found';
+    status?: UserStatus | 'not_found' | 'error';
   }>;
-  register: (userData: Omit<User, 'id' | 'isAuthenticated' | 'status'>) => Promise<{
+  register: (
+    userData: Omit<User, 'id' | 'isAuthenticated' | 'status'>,
+    password: string
+  ) => Promise<{
     success: boolean;
     user?: User;
     message?: string;
@@ -918,16 +925,62 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Catálogo recargado desde Supabase Cloud.', 'info');
   };
 
-  // Auth State (Current logged in user session)
+  // Auth State (Current logged in user session - ONLY approved B2B accounts)
   const [user, setUser] = useState<User | null>(() => {
     try {
       const saved = localStorage.getItem(LOCAL_STORAGE_KEY_USER);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.isAuthenticated && normalizeB2bStatus(parsed.status) === 'aprobado') {
+          return { ...parsed, status: 'aprobado', isAuthenticated: true };
+        }
+      }
       return null;
     } catch {
       return null;
     }
   });
+
+  // Verify active B2B session & approval status against Supabase Auth on load
+  useEffect(() => {
+    const client = getSupabaseClient();
+    if (!client) return;
+
+    client.auth.getSession().then(async ({ data }) => {
+      const sessionUser = data.session?.user;
+      if (!sessionUser) {
+        // No active Supabase Auth session: clear any cached B2B user session
+        setUser(null);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
+        return;
+      }
+      if (isAdminUser(sessionUser)) return;
+
+      try {
+        const { data: dbRow, error } = await client
+          .from('b2b_users')
+          .select('*')
+          .or(`id.eq.${sessionUser.id},email.ilike.${sessionUser.email || ''}`)
+          .limit(1)
+          .maybeSingle();
+
+        if (!error && dbRow) {
+          const mapped = dbToB2bUser(dbRow);
+          if (mapped.status === 'aprobado') {
+            const activeUser: User = { ...mapped, isAuthenticated: true };
+            setUser(activeUser);
+            localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(activeUser));
+          } else {
+            await client.auth.signOut();
+            setUser(null);
+            localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
+          }
+        }
+      } catch (err) {
+        console.warn('[Supabase B2B Session Verification]:', err);
+      }
+    });
+  }, []);
 
   // B2B Registered Customers / Accounts directory
   const [b2bUsers, setB2bUsers] = useState<User[]>(() => {
@@ -957,13 +1010,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const closeAuthModal = () => setIsAuthModalOpen(false);
 
+  const normalizeCuit = (val: string) => val.replace(/[^0-9a-zA-Z]/g, '').toLowerCase();
+
   const login = async (
-    identifierOrData: string | Partial<User>
+    identifierOrData: string | Partial<User>,
+    password?: string
   ): Promise<{
     success: boolean;
     user?: User;
     message?: string;
-    status?: UserStatus | 'not_found';
+    status?: UserStatus | 'not_found' | 'error';
   }> => {
     const rawIdentifier =
       typeof identifierOrData === 'string'
@@ -974,65 +1030,170 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return { success: false, status: 'not_found', message: 'Por favor ingrese su email o CUIT.' };
     }
 
-    // 1. Check in local b2bUsers state
-    let target = b2bUsers.find(
+    const cleanPassword = (password || '').trim();
+    if (!cleanPassword) {
+      return {
+        success: false,
+        status: 'error',
+        message: 'Por favor ingrese su contraseña.',
+      };
+    }
+
+    const client = getSupabaseClient();
+    let resolvedEmail = rawIdentifier.includes('@') ? rawIdentifier : '';
+    let localCandidate = b2bUsers.find(
       (u) =>
         u.email.toLowerCase() === rawIdentifier ||
-        u.cuit.toLowerCase() === rawIdentifier ||
-        u.businessName.toLowerCase() === rawIdentifier
+        normalizeCuit(u.cuit) === normalizeCuit(rawIdentifier)
     );
 
-    // 2. Query Supabase if not found locally
-    const client = getSupabaseClient();
-    if (!target && client) {
-      try {
-        const { data, error } = await client
-          .from('b2b_users')
-          .select('*')
-          .or(`email.ilike.${rawIdentifier},cuit.eq.${rawIdentifier}`)
-          .limit(1)
-          .maybeSingle();
-
-        if (!error && data) {
-          target = dbToB2bUser(data);
-          setB2bUsers((prev) => [target!, ...prev.filter((u) => u.id !== target!.id)]);
+    // 1. If user entered CUIT instead of Email, resolve the email via RPC or local cache
+    if (!resolvedEmail) {
+      if (client) {
+        try {
+          const { data: rpcEmail, error: rpcErr } = await client.rpc('resolve_b2b_email_by_cuit', {
+            p_cuit: rawIdentifier,
+          });
+          if (!rpcErr && rpcEmail && typeof rpcEmail === 'string') {
+            resolvedEmail = rpcEmail.trim().toLowerCase();
+          }
+        } catch (err) {
+          console.warn('[Supabase RPC resolve_b2b_email_by_cuit]:', err);
         }
-      } catch (err) {
-        console.warn('[Supabase Check User Status Error]:', err);
+      }
+
+      if (!resolvedEmail && localCandidate?.email) {
+        resolvedEmail = localCandidate.email.trim().toLowerCase();
+      }
+
+      if (!resolvedEmail) {
+        return {
+          success: false,
+          status: 'not_found',
+          message:
+            'No encontramos ninguna cuenta asociada a ese CUIT. Iniciá sesión con tu Email registrado o solicitá tu cuenta mayorista.',
+        };
       }
     }
 
-    // 3. Not found anywhere
-    if (!target) {
-      return {
-        success: false,
-        status: 'not_found',
-        message: 'No encontramos ninguna cuenta con ese email o CUIT. Por favor registrate como cliente mayorista.',
-      };
+    // 2. Authenticate formally with Supabase Auth (email + password)
+    let target: User | undefined = localCandidate;
+
+    if (client) {
+      const { data: authData, error: authErr } = await client.auth.signInWithPassword({
+        email: resolvedEmail,
+        password: cleanPassword,
+      });
+
+      if (authErr || !authData.user) {
+        const errMsg = (authErr?.message || '').toLowerCase();
+        if (errMsg.includes('email not confirmed')) {
+          return {
+            success: false,
+            status: 'pendiente',
+            message:
+              'Tu cuenta está pendiente de confirmación y validación por administración. Te notificaremos por WhatsApp en cuanto sea habilitada.',
+          };
+        }
+        return {
+          success: false,
+          status: 'error',
+          message: 'Email/CUIT o contraseña incorrectos. Verificá tus credenciales.',
+        };
+      }
+
+      // 3. Fetch the authenticated user's profile from b2b_users
+      try {
+        const { data: dbRow, error: dbErr } = await client
+          .from('b2b_users')
+          .select('*')
+          .or(`id.eq.${authData.user.id},email.ilike.${resolvedEmail}`)
+          .limit(1)
+          .maybeSingle();
+
+        if (!dbErr && dbRow) {
+          target = dbToB2bUser(dbRow);
+          setB2bUsers((prev) => [target!, ...prev.filter((u) => u.id !== target!.id)]);
+        } else if (authData.user.user_metadata?.business_name) {
+          // Fallback to user_metadata if b2b_users row wasn't readable yet
+          target = {
+            id: authData.user.id,
+            businessName: authData.user.user_metadata.business_name,
+            cuit: authData.user.user_metadata.cuit || '',
+            city: authData.user.user_metadata.city || 'Rosario, Santa Fe',
+            phone: authData.user.user_metadata.phone || '',
+            email: resolvedEmail,
+            status: normalizeB2bStatus(target?.status || 'pendiente'),
+            isAuthenticated: false,
+          };
+        }
+      } catch (err) {
+        console.warn('[Supabase Fetch B2B Profile Error]:', err);
+      }
+
+      if (!target) {
+        if (!isAdminUser(authData.user)) {
+          await client.auth.signOut();
+        }
+        return {
+          success: false,
+          status: 'not_found',
+          message: 'No encontramos un perfil comercial B2B asociado a este usuario. Por favor registrate como cliente mayorista.',
+        };
+      }
+
+      // 4. Validate B2B approval status ('aprobado' / 'approved')
+      const normalizedStatus = normalizeB2bStatus(target.status);
+      if (normalizedStatus === 'pendiente') {
+        if (!isAdminUser(authData.user)) {
+          await client.auth.signOut();
+        }
+        return {
+          success: false,
+          status: 'pendiente',
+          user: target,
+          message: `Tu solicitud para "${target.businessName}" se encuentra en proceso de revisión por administración. Te notificaremos por WhatsApp en cuanto esté aprobada.`,
+        };
+      }
+
+      if (normalizedStatus === 'rechazado' || normalizedStatus === 'suspendido') {
+        if (!isAdminUser(authData.user)) {
+          await client.auth.signOut();
+        }
+        return {
+          success: false,
+          status: normalizedStatus,
+          user: target,
+          message: `Tu cuenta se encuentra en estado "${normalizedStatus}". Por favor contactate con administración de MP Distribuciones para reactivarla.`,
+        };
+      }
+    } else {
+      // Offline / local fallback only if Supabase is not configured
+      if (!target) {
+        return {
+          success: false,
+          status: 'not_found',
+          message: 'No encontramos ninguna cuenta con ese email o CUIT. Por favor registrate como cliente mayorista.',
+        };
+      }
+      const normalizedStatus = normalizeB2bStatus(target.status);
+      if (normalizedStatus !== 'aprobado') {
+        return {
+          success: false,
+          status: normalizedStatus,
+          user: target,
+          message:
+            normalizedStatus === 'pendiente'
+              ? `Tu solicitud para "${target.businessName}" se encuentra en proceso de revisión por administración.`
+              : `Tu cuenta se encuentra en estado "${normalizedStatus}".`,
+        };
+      }
     }
 
-    // 4. Check approval status
-    if (target.status === 'pendiente') {
-      return {
-        success: false,
-        status: 'pendiente',
-        user: target,
-        message: `Tu solicitud para "${target.businessName}" se encuentra en proceso de revisión por administración. Te notificaremos por WhatsApp en cuanto esté aprobada.`,
-      };
-    }
-
-    if (target.status === 'rechazado' || target.status === 'suspendido') {
-      return {
-        success: false,
-        status: target.status,
-        user: target,
-        message: `Tu cuenta se encuentra en estado "${target.status}". Por favor contactate con administración de MP Distribuciones para reactivarla.`,
-      };
-    }
-
-    // 5. Approved
+    // 5. Approved B2B User -> Unlock wholesale prices and features
     const activeUser: User = {
       ...target,
+      status: 'aprobado',
       isAuthenticated: true,
     };
     setUser(activeUser);
@@ -1045,34 +1206,112 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const register = async (
-    userData: Omit<User, 'id' | 'isAuthenticated' | 'status'>
+    userData: Omit<User, 'id' | 'isAuthenticated' | 'status'>,
+    password: string
   ): Promise<{ success: boolean; user?: User; message?: string }> => {
-    const newUser: User = {
+    const cleanEmail = userData.email.trim().toLowerCase();
+    const cleanPassword = (password || '').trim();
+
+    if (cleanPassword.length < 6) {
+      return {
+        success: false,
+        message: 'La contraseña debe tener al menos 6 caracteres.',
+      };
+    }
+
+    const client = getSupabaseClient();
+    let userId = 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6);
+
+    if (client) {
+      try {
+        // 1. Create credentials in Supabase Auth
+        const { data: signUpData, error: signUpError } = await client.auth.signUp({
+          email: cleanEmail,
+          password: cleanPassword,
+          options: {
+            data: {
+              business_name: userData.businessName.trim(),
+              cuit: userData.cuit.trim(),
+              city: userData.city.trim(),
+              phone: userData.phone.trim(),
+            },
+          },
+        });
+
+        if (signUpError) {
+          const msg = signUpError.message.toLowerCase();
+          if (msg.includes('already registered') || msg.includes('already been registered')) {
+            return {
+              success: false,
+              message:
+                'Ya existe una cuenta registrada con este correo electrónico. Intentá iniciar sesión o consultá el estado de tu solicitud.',
+            };
+          }
+          return {
+            success: false,
+            message: `Error al registrar usuario: ${signUpError.message}`,
+          };
+        }
+
+        if (signUpData.user?.id) {
+          userId = signUpData.user.id;
+        }
+
+        const newUser: User = {
+          ...userData,
+          email: cleanEmail,
+          id: userId,
+          status: 'pendiente',
+          isAuthenticated: false,
+          registeredAt: new Date().toISOString(),
+        };
+
+        // 2. Insert pending B2B record in public.b2b_users linked to the Auth user ID
+        const { error: insertError } = await client.from('b2b_users').insert([b2bUserToDb(newUser)]);
+        if (insertError) {
+          console.error('[Supabase Insert b2b_user Error]:', insertError.message);
+          if (signUpData.session && !isAdminUser(signUpData.user)) {
+            await client.auth.signOut();
+          }
+          return {
+            success: false,
+            message: 'No se pudo registrar la solicitud comercial. Por favor, verificá tus datos y reintentá.',
+          };
+        }
+
+        // 3. Sign out any auto-created session so unapproved users remain unauthenticated until admin approval
+        if (signUpData.session && !isAdminUser(signUpData.user)) {
+          await client.auth.signOut();
+        }
+
+        setB2bUsers((prev) => [newUser, ...prev.filter((u) => u.id !== newUser.id)]);
+        return {
+          success: true,
+          user: newUser,
+          message: 'Solicitud de cuenta recibida con éxito.',
+        };
+      } catch (err) {
+        console.error('[Network Error on Register b2b_user]:', err);
+        return {
+          success: false,
+          message: 'Error de red al procesar el registro. Por favor, reintente.',
+        };
+      }
+    }
+
+    const fallbackUser: User = {
       ...userData,
-      id: 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6),
+      email: cleanEmail,
+      id: userId,
       status: 'pendiente',
       isAuthenticated: false,
       registeredAt: new Date().toISOString(),
     };
-
-    setB2bUsers((prev) => [newUser, ...prev]);
-
-    // Supabase persist
-    const client = getSupabaseClient();
-    if (client) {
-      try {
-        const { error } = await client.from('b2b_users').insert([b2bUserToDb(newUser)]);
-        if (error) {
-          console.warn('[Supabase Insert b2b_user Error]:', error.message);
-        }
-      } catch (err) {
-        console.warn('[Network Error on Register b2b_user]:', err);
-      }
-    }
+    setB2bUsers((prev) => [fallbackUser, ...prev]);
 
     return {
       success: true,
-      user: newUser,
+      user: fallbackUser,
       message: 'Solicitud de cuenta recibida con éxito.',
     };
   };
@@ -1134,7 +1373,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     setB2bUsers((prev) => prev.map((u) => (u.id === userId ? updatedUser : u)));
     if (user && user.id === userId) {
-      setUser({ ...updatedUser, isAuthenticated: false });
+      setUser(null);
+      localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
     }
     showToast(`Cliente "${target.businessName}" rechazado.`, 'info');
     return true;
@@ -1163,7 +1403,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     setB2bUsers((prev) => prev.map((u) => (u.id === userId ? updatedUser : u)));
     if (user && user.id === userId) {
-      setUser({ ...updatedUser, isAuthenticated: false });
+      setUser(null);
+      localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
     }
     showToast(`Cuenta de "${target.businessName}" suspendida.`, 'warning');
     return true;
@@ -1183,6 +1424,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
 
     setB2bUsers((prev) => prev.filter((u) => u.id !== userId));
+    if (user && user.id === userId) {
+      setUser(null);
+      localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
+    }
     showToast(`Cliente "${target.businessName}" eliminado.`, 'info');
     return true;
   };
@@ -1190,6 +1435,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const logout = () => {
     setUser(null);
     localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
+    if (!isAdminLoggedIn) {
+      getSupabaseClient()?.auth.signOut();
+    }
     showToast('Sesión cerrada.', 'info');
   };
 
@@ -1336,13 +1584,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const closeOrderHistoryModal = () => setIsOrderHistoryModalOpen(false);
 
   const createOrder = (orderData: Omit<Order, 'id' | 'orderNumber' | 'date' | 'status'>): Order => {
-    const orderCount = orders.length + 1;
-    const orderNumber = `MP-${new Date().getFullYear()}-${orderCount.toString().padStart(4, '0')}`;
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const orderNumber = `MP-${now.getFullYear()}${month}-${Date.now().toString().slice(-6)}`;
     const newOrder: Order = {
       ...orderData,
       id: 'ord_' + Date.now() + Math.random().toString(36).substring(2, 6),
       orderNumber,
-      date: new Date().toISOString(),
+      date: now.toISOString(),
       status: 'pendiente',
     };
     setOrders((prev) => [newOrder, ...prev]);
@@ -1350,12 +1599,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     // Supabase Cloud Persist
     const client = getSupabaseClient();
     if (client) {
-      client
-        .from('orders')
-        .insert([orderToDb(newOrder)])
-        .then(({ error }) => {
-          if (error) console.error('[Supabase Create Order Error]:', error);
-        });
+      (async () => {
+        try {
+          const { error } = await client.from('orders').insert([orderToDb(newOrder)]);
+          if (error) {
+            console.error('[Supabase Create Order Error]:', error);
+            showToast('No se pudo procesar el pedido. Por favor, reintente', 'error');
+          }
+        } catch (err: any) {
+          console.error('[Supabase Create Order Network Error]:', err);
+          showToast('No se pudo procesar el pedido. Por favor, reintente', 'error');
+        }
+      })();
     }
 
     return newOrder;
@@ -1414,53 +1669,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
     }
 
-    // Stock deduction
-    const client = getSupabaseClient();
-    const stockUpdates: { id: string; newStock: number }[] = [];
-
-    for (const item of itemsToProcess) {
-      const prod = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
-      if (prod) {
-        const currentStock = prod.stockQuantity ?? 0;
-        const newStock = options?.allowNegativeStock
-          ? currentStock - item.quantity
-          : Math.max(0, currentStock - item.quantity);
-        stockUpdates.push({ id: prod.id, newStock });
-
-        if (client) {
-          try {
-            await client
-              .from('products')
-              .update({
-                stock_quantity: newStock,
-                in_stock: newStock > 0,
-                updated_at: new Date().toISOString(),
-              })
-              .eq('id', prod.id);
-          } catch (e) {
-            console.error('[Supabase Stock Update on Confirm Order Error]:', e);
-          }
-        }
-      }
-    }
-
-    // Update local products state
-    if (stockUpdates.length > 0) {
-      setProducts((prev) =>
-        prev.map((p) => {
-          const update = stockUpdates.find((u) => u.id === p.id);
-          if (update) {
-            return {
-              ...p,
-              stockQuantity: update.newStock,
-              inStock: update.newStock > 0,
-            };
-          }
-          return p;
-        })
-      );
-    }
-
     // Recalculate totals if adjusted
     let finalTotalUSD = order.totalUSD;
     let finalTotalARS = order.totalARS;
@@ -1472,19 +1680,39 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       );
     }
 
-    const confirmedAt = new Date().toISOString();
-    const updatedOrder: Order = {
-      ...order,
-      items: itemsToProcess,
-      totalUSD: finalTotalUSD,
-      totalARS: finalTotalARS,
-      status: 'confirmado',
-      confirmedAt,
-    };
+    // Stock deduction & order confirmation wrapped in a rigorous try/catch
+    const client = getSupabaseClient();
+    const stockUpdates: { id: string; newStock: number }[] = [];
 
-    if (client) {
-      try {
-        await client
+    try {
+      for (const item of itemsToProcess) {
+        const prod = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
+        if (prod) {
+          const currentStock = prod.stockQuantity ?? 0;
+          const newStock = options?.allowNegativeStock
+            ? currentStock - item.quantity
+            : Math.max(0, currentStock - item.quantity);
+          stockUpdates.push({ id: prod.id, newStock });
+
+          if (client) {
+            const { error: stockError } = await client
+              .from('products')
+              .update({
+                stock_quantity: newStock,
+                in_stock: newStock > 0,
+                updated_at: new Date().toISOString(),
+              })
+              .eq('id', prod.id);
+
+            if (stockError) {
+              throw new Error(`Error al descontar stock (${prod.sku}): ${stockError.message}`);
+            }
+          }
+        }
+      }
+
+      if (client) {
+        const { error: orderError } = await client
           .from('orders')
           .update({
             status: 'confirmado',
@@ -1493,14 +1721,51 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             total_ars: Math.round(finalTotalARS),
           })
           .eq('id', orderId);
-      } catch (e) {
-        console.error('[Supabase Order Status Update Error]:', e);
-      }
-    }
 
-    setOrders((prev) => prev.map((o) => (o.id === orderId ? updatedOrder : o)));
-    showToast(`Pedido #${order.orderNumber} confirmado. Stock descontado correctamente.`, 'success');
-    return { success: true };
+        if (orderError) {
+          throw new Error(`Error al confirmar el pedido en la base de datos: ${orderError.message}`);
+        }
+      }
+
+      // Update local products state only after DB operations succeeded
+      if (stockUpdates.length > 0) {
+        setProducts((prev) =>
+          prev.map((p) => {
+            const update = stockUpdates.find((u) => u.id === p.id);
+            if (update) {
+              return {
+                ...p,
+                stockQuantity: update.newStock,
+                inStock: update.newStock > 0,
+              };
+            }
+            return p;
+          })
+        );
+      }
+
+      const confirmedAt = new Date().toISOString();
+      const updatedOrder: Order = {
+        ...order,
+        items: itemsToProcess,
+        totalUSD: finalTotalUSD,
+        totalARS: finalTotalARS,
+        status: 'confirmado',
+        confirmedAt,
+      };
+
+      setOrders((prev) => prev.map((o) => (o.id === orderId ? updatedOrder : o)));
+      showToast(`Pedido #${order.orderNumber} confirmado. Stock descontado correctamente.`, 'success');
+      return { success: true };
+    } catch (err: any) {
+      console.error('[Confirm Order Error]:', err);
+      showToast('No se pudo procesar el pedido. Por favor, reintente', 'error');
+      await syncWithSupabase();
+      return {
+        success: false,
+        error: 'No se pudo procesar el pedido. Por favor, reintente',
+      };
+    }
   };
 
   const cancelOrder = async (orderId: string): Promise<{ success: boolean; error?: string }> => {
