@@ -190,6 +190,45 @@ $$;
 
 GRANT EXECUTE ON FUNCTION public.resolve_b2b_email_by_cuit(text) TO anon, authenticated;
 
+-- Función RPC para eliminación completa de usuarios (b2b_users + auth.users) exclusiva para Administradores
+CREATE OR REPLACE FUNCTION public.delete_b2b_user_complete(target_user_id text, target_email text DEFAULT NULL)
+RETURNS boolean
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, auth, pg_temp
+AS $$
+DECLARE
+  v_auth_uid uuid;
+BEGIN
+  -- 1. Verificar estrictamente que quien llama a la función sea el Administrador
+  IF NOT public.is_admin() THEN
+    RAISE EXCEPTION 'Acceso denegado: solo el administrador puede eliminar cuentas.';
+  END IF;
+
+  -- 2. Eliminar de la tabla comercial b2b_users
+  DELETE FROM public.b2b_users 
+  WHERE id = target_user_id 
+     OR (target_email IS NOT NULL AND target_email <> '' AND lower(email) = lower(target_email));
+
+  -- 3. Si target_user_id es un UUID válido, eliminar de auth.users
+  BEGIN
+    v_auth_uid := target_user_id::uuid;
+    DELETE FROM auth.users WHERE id = v_auth_uid;
+  EXCEPTION WHEN invalid_text_representation THEN
+    NULL;
+  END;
+
+  -- 4. Si se especificó email, eliminar también de auth.users por email
+  IF target_email IS NOT NULL AND target_email <> '' THEN
+    DELETE FROM auth.users WHERE lower(email) = lower(target_email);
+  END IF;
+
+  RETURN true;
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION public.delete_b2b_user_complete(text, text) TO authenticated;
+
 -- 7. BUCKET product-images (Storage)
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES (

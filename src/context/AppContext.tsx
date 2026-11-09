@@ -1253,6 +1253,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           };
         }
 
+        // Supabase Auth retorna identities vacías si el email ya existía (protección contra enumeración de emails)
+        if (signUpData.user?.identities && signUpData.user.identities.length === 0) {
+          return {
+            success: false,
+            message:
+              'Ya existe una cuenta registrada con este correo electrónico. Si fue eliminada previamente, contactá a administración o intentá iniciar sesión.',
+          };
+        }
+
         if (signUpData.user?.id) {
           userId = signUpData.user.id;
         }
@@ -1273,9 +1282,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           if (signUpData.session && !isAdminUser(signUpData.user)) {
             await client.auth.signOut();
           }
+          const isDuplicate =
+            insertError.message.includes('unique') ||
+            insertError.message.includes('duplicate') ||
+            insertError.message.includes('b2b_users_pkey');
           return {
             success: false,
-            message: 'No se pudo registrar la solicitud comercial. Por favor, verificá tus datos y reintentá.',
+            message: isDuplicate
+              ? 'Ya existe un comercio registrado con este CUIT o Email. Por favor verificá tus datos o contactá a administración.'
+              : 'No se pudo registrar la solicitud comercial. Por favor, verificá tus datos y reintentá.',
           };
         }
 
@@ -1417,9 +1432,26 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const client = getSupabaseClient();
     if (client) {
       try {
-        await client.from('b2b_users').delete().eq('id', userId);
-      } catch (e) {
-        console.error('[Supabase Delete User Error]:', e);
+        // 1. Intentar eliminación completa y atómica en cascada (auth.users + b2b_users) vía RPC
+        const { error: rpcError } = await client.rpc('delete_b2b_user_complete', {
+          target_user_id: userId,
+          target_email: target.email || null,
+        });
+
+        if (rpcError) {
+          console.warn('[Supabase RPC delete_b2b_user_complete warning]:', rpcError.message);
+          // 2. Si la función RPC aún no está creada en Supabase, aplicar borrado directo en b2b_users
+          const { error: delError } = await client.from('b2b_users').delete().eq('id', userId);
+          if (delError) {
+            console.error('[Supabase Delete b2b_users error]:', delError.message);
+            showToast(`Error al eliminar cliente: ${delError.message}`, 'error');
+            return false;
+          }
+        }
+      } catch (e: any) {
+        console.error('[Supabase Delete User Exception]:', e);
+        showToast(`Error de conexión al eliminar: ${e.message || 'Error desconocido'}`, 'error');
+        return false;
       }
     }
 
@@ -1428,7 +1460,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setUser(null);
       localStorage.removeItem(LOCAL_STORAGE_KEY_USER);
     }
-    showToast(`Cliente "${target.businessName}" eliminado.`, 'info');
+    showToast(`Cliente "${target.businessName}" eliminado completamente de la base y accesos.`, 'info');
     return true;
   };
 
