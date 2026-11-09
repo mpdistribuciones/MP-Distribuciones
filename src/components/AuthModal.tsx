@@ -160,7 +160,7 @@ export const AuthModal: React.FC = () => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header decoration */}
-        <div className="bg-[#0052cc] text-white p-6 pb-4 relative">
+        <div className="bg-[#0052cc] text-white p-6 pb-5 relative">
           <button
             onClick={handleClose}
             className="absolute top-4 right-4 p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
@@ -176,7 +176,7 @@ export const AuthModal: React.FC = () => {
             />
             <div>
               <h3 className="text-lg font-black text-white flex items-center gap-2">
-                <span>Acceso B2B Mayorista</span>
+                <span>{activeTab === 'register' ? 'Solicitar Cuenta B2B' : 'Acceso B2B Mayorista'}</span>
                 <ShieldCheck className="w-4 h-4 text-emerald-300" />
               </h3>
               <p className="text-xs text-blue-100">
@@ -184,38 +184,6 @@ export const AuthModal: React.FC = () => {
               </p>
             </div>
           </div>
-
-          {/* Tabs Switcher (hide if showing register success) */}
-          {!registeredSuccessData && (
-            <div className="flex mt-5 p-1 rounded-xl bg-blue-900/40 border border-blue-400/30">
-              <button
-                onClick={() => {
-                  setActiveTab('login');
-                  setLoginError(null);
-                }}
-                className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  activeTab === 'login'
-                    ? 'bg-white text-blue-800 shadow-sm'
-                    : 'text-blue-100 hover:text-white'
-                }`}
-              >
-                Iniciar Sesión
-              </button>
-              <button
-                onClick={() => {
-                  setActiveTab('register');
-                  setLoginError(null);
-                }}
-                className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  activeTab === 'register'
-                    ? 'bg-white text-blue-800 shadow-sm'
-                    : 'text-blue-100 hover:text-white'
-                }`}
-              >
-                Solicitar Cuenta B2B
-              </button>
-            </div>
-          )}
         </div>
 
         {/* Modal Body */}
@@ -516,6 +484,20 @@ export const AuthModal: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4" />
                 <span>{isRegistering ? 'Enviando solicitud...' : 'Enviar Solicitud de Registro B2B'}</span>
               </button>
+
+              <div className="pt-2 text-center text-xs text-slate-500">
+                ¿Ya tenés una cuenta registrada?{' '}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActiveTab('login');
+                    setRegError(null);
+                  }}
+                  className="text-blue-600 hover:underline font-bold"
+                >
+                  Iniciá sesión aquí
+                </button>
+              </div>
             </form>
           )}
         </div>
