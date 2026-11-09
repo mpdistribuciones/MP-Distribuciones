@@ -12,39 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[#f1f5f9] text-slate-900 min-h-screen selection:bg-blue-600 selection:text-white antialiased font-sans">
-    <!-- Dummy elements to trigger immediate early return in Netlify HUD/Badge injector -->
-    <div id="nl-badge-frame" style="display:none!important;visibility:hidden!important;width:0!important;height:0!important;position:absolute!important;left:-9999px!important"></div>
-    <div id="nl-hud-frame" style="display:none!important;visibility:hidden!important;width:0!important;height:0!important;position:absolute!important;left:-9999px!important"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      (function () {
-        var removeBadge = function () {
-          var b = document.getElementById('nl-badge-frame');
-          if (b && b.tagName === 'IFRAME') b.remove();
-          var f = document.getElementById('nl-hud-frame');
-          if (f && f.tagName === 'IFRAME') f.remove();
-          var s = document.querySelector('script[data-nf-variant]');
-          if (s) s.remove();
-        };
-        try {
-          var obs = new MutationObserver(function (mutations) {
-            for (var i = 0; i < mutations.length; i++) {
-              var nodes = mutations[i].addedNodes;
-              for (var j = 0; j < nodes.length; j++) {
-                var node = nodes[j];
-                if (node.id === 'nl-badge-frame' || node.id === 'nl-hud-frame' || (node.tagName === 'IFRAME' && (node.id || '').indexOf('nl-') !== -1)) {
-                  if (node.tagName === 'IFRAME') node.remove();
-                }
-              }
-            }
-          });
-          obs.observe(document.documentElement, { childList: true, subtree: true });
-          setTimeout(function () { obs.disconnect(); }, 4000);
-        } catch (e) {}
-        window.addEventListener('DOMContentLoaded', removeBadge);
-        window.addEventListener('load', removeBadge);
-      })();
-    </script>
   </body>
 </html>
