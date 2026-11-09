@@ -14,6 +14,7 @@ import { ExchangeRateModal } from './components/ExchangeRateModal';
 import { AdminLoginModal } from './components/AdminLoginModal';
 import { AdminPanel } from './components/AdminPanel';
 import { OrderHistoryModal } from './components/OrderHistoryModal';
+import { ContactModal } from './components/ContactModal';
 import { ToastContainer } from './components/ToastContainer';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -349,6 +350,7 @@ export const AppContent: React.FC = () => {
       <ExchangeRateModal />
       <AuthModal />
       <OrderHistoryModal />
+      <ContactModal />
       <AdminLoginModal />
       <ToastContainer />
     </div>

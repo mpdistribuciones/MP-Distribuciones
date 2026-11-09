@@ -134,6 +134,11 @@ interface AppContextType {
   openExchangeRateModal: () => void;
   closeExchangeRateModal: () => void;
 
+  // Contact & Location modal
+  isContactModalOpen: boolean;
+  openContactModal: () => void;
+  closeContactModal: () => void;
+
   // Product detail modal
   selectedProduct: Product | null;
   openProductDetail: (p: Product) => void;
@@ -1916,6 +1921,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const openExchangeRateModal = () => setIsExchangeRateModalOpen(true);
   const closeExchangeRateModal = () => setIsExchangeRateModalOpen(false);
 
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const openContactModal = () => setIsContactModalOpen(true);
+  const closeContactModal = () => setIsContactModalOpen(false);
+
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const openProductDetail = (p: Product) => setSelectedProduct(p);
   const closeProductDetail = () => setSelectedProduct(null);
@@ -2001,6 +2010,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         isExchangeRateModalOpen,
         openExchangeRateModal,
         closeExchangeRateModal,
+        isContactModalOpen,
+        openContactModal,
+        closeContactModal,
         selectedProduct,
         openProductDetail,
         closeProductDetail,

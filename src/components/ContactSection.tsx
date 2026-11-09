@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   MapPin,
   Clock,
@@ -20,6 +20,40 @@ export const ContactSection: React.FC = () => {
     'https://www.google.com/maps/dir/?api=1&destination=San+Nicol%C3%A1s+2277,+Rosario,+Santa+Fe';
   const mapsEmbedUrl =
     'https://maps.google.com/maps?q=San+Nicol%C3%A1s+2277,+Rosario,+Santa+Fe&t=&z=16&ie=UTF8&iwloc=&output=embed';
+
+  const statusInfo = useMemo(() => {
+    try {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Argentina/Buenos_Aires',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+        weekday: 'short',
+      });
+      const parts = formatter.formatToParts(now);
+      const weekday = parts.find((p) => p.type === 'weekday')?.value || '';
+      const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '0', 10);
+      const isWeekday = !['Sat', 'Sun'].includes(weekday);
+      const isOpen = isWeekday && hour >= 9 && hour < 16;
+
+      return {
+        isOpen,
+        badgeText: isOpen ? 'Abierto Ahora (cierra 16:00 hs)' : 'Cerrado Ahora (abre Lun a Vie 9:00 hs)',
+        badgeColor: isOpen
+          ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+          : 'bg-amber-50 text-amber-800 border-amber-300',
+        dotColor: isOpen ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500',
+      };
+    } catch {
+      return {
+        isOpen: true,
+        badgeText: 'Horario: Lun a Vie 9:00 a 16:00 hs',
+        badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
+        dotColor: 'bg-blue-500',
+      };
+    }
+  }, []);
 
   return (
     <section
@@ -52,9 +86,11 @@ export const ContactSection: React.FC = () => {
                   <h3 className="text-lg font-black text-slate-900">MP Distribuciones</h3>
                   <p className="text-xs text-slate-500">Distribuidor Mayorista de Tecnología</p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Abierto de Lun a Vie</span>
+                <span
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-bold ${statusInfo.badgeColor}`}
+                >
+                  <span className={`w-2 h-2 rounded-full ${statusInfo.dotColor}`} />
+                  <span>{statusInfo.badgeText}</span>
                 </span>
               </div>
 

@@ -11,6 +11,7 @@ import {
   FileSpreadsheet,
   FileText,
   History,
+  Clock,
 } from 'lucide-react';
 import { exportPriceList } from '../utils/exportUtils';
 
@@ -32,6 +33,7 @@ export const Header: React.FC = () => {
     isAdminLoggedIn,
     openAdminModal,
     setIsAdminView,
+    openContactModal,
   } = useApp();
 
   const [isPriceListMenuOpen, setIsPriceListMenuOpen] = useState(false);
@@ -251,6 +253,18 @@ export const Header: React.FC = () => {
               )}
             </div>
 
+            <span className="text-blue-400/60">|</span>
+
+            {/* Dónde Estamos / Retiro Button */}
+            <button
+              onClick={openContactModal}
+              className="hover:text-white transition-colors inline-flex items-center gap-1 cursor-pointer font-medium text-amber-300 hover:text-amber-200"
+              title="Ver ubicación, mapa y horarios de atención"
+            >
+              <MapPin className="w-3.5 h-3.5 text-amber-400" />
+              <span>Dónde Estamos</span>
+            </button>
+
             {/* Mobile-only Panel Dueño button */}
             <span className="sm:hidden text-blue-400/60">|</span>
             <button
@@ -270,10 +284,14 @@ export const Header: React.FC = () => {
 
           {/* Right: Contact & BNA Dollar info (Visible on Desktop / PC) */}
           <div className="hidden md:flex items-center gap-3 shrink-0 text-blue-200 text-[11px]">
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-blue-400" />
-              <span>San Nicolás 2277, Rosario</span>
-            </span>
+            <button
+              onClick={openContactModal}
+              className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer group"
+              title="Ver mapa interactivo y punto de retiro en Rosario"
+            >
+              <MapPin className="w-3.5 h-3.5 text-blue-400 group-hover:text-blue-300" />
+              <span className="group-hover:underline">San Nicolás 2277, Rosario</span>
+            </button>
 
             <span className="text-blue-400/60">|</span>
 
@@ -289,9 +307,14 @@ export const Header: React.FC = () => {
 
             <span className="text-blue-400/60">|</span>
 
-            <span className="flex items-center gap-1 text-blue-200">
-              <span>Lun a Vie: 9:00 a 16:00 hs</span>
-            </span>
+            <button
+              onClick={openContactModal}
+              className="flex items-center gap-1 text-blue-200 hover:text-white transition-colors cursor-pointer group"
+              title="Ver horarios de atención comercial"
+            >
+              <Clock className="w-3.5 h-3.5 text-amber-400/80 group-hover:text-amber-300" />
+              <span className="group-hover:underline">Lun a Vie: 9:00 a 16:00 hs</span>
+            </button>
           </div>
         </div>
       </div>
