@@ -1691,9 +1691,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
 
       setIsSupabaseConnected(true);
-      if (hasAdminRole || isAdminView) {
-        showToast('Catálogo sincronizado con Supabase Cloud.', 'success');
-      }
     } catch (err: any) {
       console.error('[Supabase Sync Error]:', err);
     } finally {
