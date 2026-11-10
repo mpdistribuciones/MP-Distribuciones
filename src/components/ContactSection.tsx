@@ -12,6 +12,7 @@ import {
 export const ContactSection: React.FC = () => {
   const address = 'San Nicolás 2277, Rosario, Santa Fe, Argentina';
   const hours = 'Lunes a Viernes de 9:00 a 16:00 hs';
+  const phoneDisplay = '+54 9 341 340-8439';
   const whatsappUrl =
     'https://wa.me/5493413408439?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista.';
   const mapsDirectionsUrl =
@@ -167,7 +168,7 @@ export const ContactSection: React.FC = () => {
                 className="sm:w-[60%] flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm hover:shadow transition-all group cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-white group-hover:scale-110 transition-transform shrink-0" />
-                <span>Iniciar Consulta por WhatsApp</span>
+                <span>Consultar por WhatsApp ({phoneDisplay})</span>
               </a>
 
               <a
