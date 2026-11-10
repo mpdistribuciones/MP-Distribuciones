@@ -42,8 +42,8 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [description, setDescription] = useState('');
   const [specsText, setSpecsText] = useState('');
   const [priceCurrency, setPriceCurrency] = useState<'USD' | 'ARS'>('ARS');
-  const [priceInput, setPriceInput] = useState<number>(15000);
-  const [costInput, setCostInput] = useState<number>(13043);
+  const [priceInput, setPriceInput] = useState<number>(0);
+  const [costInput, setCostInput] = useState<number>(0);
   const [profitMarginInput, setProfitMarginInput] = useState<number>(15);
   const [stockQuantity, setStockQuantity] = useState<number>(0);
   const [minWholesaleQty, setMinWholesaleQty] = useState<number>(1);
@@ -103,8 +103,16 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       setSpecsText('');
       setPriceCurrency(initialValues?.priceCurrency || 'ARS');
       setProfitMarginInput(initialValues?.profitMargin ?? 15);
-      setCostInput(initialValues?.costARS || (initialValues?.costUSD ? Math.round(initialValues.costUSD * exchangeRate) : 13043));
-      setPriceInput(initialValues?.priceARS || 15000);
+      const defaultCost = initialValues?.costARS != null
+        ? initialValues.costARS
+        : (initialValues?.costUSD != null ? Math.round(initialValues.costUSD * exchangeRate) : 0);
+      setCostInput(defaultCost);
+      const defaultPrice = initialValues?.priceARS != null
+        ? initialValues.priceARS
+        : (initialValues?.priceUSD != null
+            ? Math.round(initialValues.priceUSD * exchangeRate)
+            : (defaultCost > 0 ? Math.round(defaultCost * 1.15) : 0));
+      setPriceInput(defaultPrice);
       setStockQuantity(initialValues?.stockQuantity ?? 0);
       setMinWholesaleQty(initialValues?.minWholesaleQty || 1);
       setBadge(initialValues?.badge || '');
@@ -495,7 +503,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                   <input
                     type="number"
                     step={priceCurrency === 'USD' ? '0.01' : '1'}
-                    min={priceCurrency === 'USD' ? '0.01' : '1'}
+                    min="0"
                     required
                     value={priceInput}
                     onChange={(e) => handlePriceChange(parseFloat(e.target.value) || 0)}
