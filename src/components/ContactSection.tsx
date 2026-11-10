@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import {
   MapPin,
   Clock,
-  Phone,
   MessageCircle,
   Navigation,
   ExternalLink,
@@ -13,8 +12,6 @@ import {
 export const ContactSection: React.FC = () => {
   const address = 'San Nicolás 2277, Rosario, Santa Fe, Argentina';
   const hours = 'Lunes a Viernes de 9:00 a 16:00 hs';
-  const phoneDisplay = '341 340-8439';
-  const phoneTel = '+543413408439';
   const whatsappUrl =
     'https://wa.me/5493413408439?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20mayorista.';
   const mapsDirectionsUrl =
@@ -158,64 +155,30 @@ export const ContactSection: React.FC = () => {
                     </p>
                   </div>
                 </div>
-
-                {/* Phone & WhatsApp */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100 shadow-xs">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                      Teléfono y WhatsApp
-                    </p>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <a
-                        href={`tel:${phoneTel}`}
-                        className="text-base font-black text-slate-900 hover:text-blue-600 transition-colors"
-                        title="Llamar por teléfono"
-                      >
-                        {phoneDisplay}
-                      </a>
-                    </div>
-                    <p className="text-xs text-slate-500">
-                      Línea directa para consultas, cotizaciones y altas comerciales
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Quick Action Buttons */}
-            <div className="space-y-2.5 pt-4 border-t border-slate-100">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-sm shadow-sm hover:shadow transition-all group cursor-pointer"
+                className="sm:w-[60%] flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm hover:shadow transition-all group cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 fill-white group-hover:scale-110 transition-transform" />
-                <span>Chatear por WhatsApp ({phoneDisplay})</span>
+                <MessageCircle className="w-4 h-4 fill-white group-hover:scale-110 transition-transform shrink-0" />
+                <span>Iniciar Consulta por WhatsApp</span>
               </a>
 
-              <div className="grid grid-cols-2 gap-2.5">
-                <a
-                  href={`tel:${phoneTel}`}
-                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors cursor-pointer"
-                >
-                  <Phone className="w-3.5 h-3.5 text-slate-600" />
-                  <span>Llamar Ahora</span>
-                </a>
-
-                <a
-                  href={mapsDirectionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs border border-blue-200/60 transition-colors cursor-pointer"
-                >
-                  <Navigation className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Cómo llegar</span>
-                </a>
-              </div>
+              <a
+                href={mapsDirectionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sm:w-[40%] flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold text-xs sm:text-sm border border-sky-200/80 transition-colors cursor-pointer"
+              >
+                <Navigation className="w-4 h-4 text-sky-600 shrink-0" />
+                <span>Cómo Llegar (Google Maps)</span>
+              </a>
             </div>
           </div>
 

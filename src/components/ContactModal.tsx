@@ -3,10 +3,8 @@ import {
   X,
   MapPin,
   Clock,
-  Phone,
   MessageCircle,
   Navigation,
-  ExternalLink,
   ShieldCheck,
   CheckCircle2,
   Truck,
@@ -18,8 +16,6 @@ export const ContactModal: React.FC = () => {
 
   const address = 'San Nicolás 2277, Rosario, Santa Fe, Argentina';
   const hours = 'Lunes a Viernes de 9:00 a 16:00 hs';
-  const phoneDisplay = '+54 9 341 340-8439';
-  const phoneTel = '+543413408439';
   const whatsappUrl =
     'https://wa.me/5493413408439?text=Hola%20MP%20Distribuciones,%20quisiera%20hacer%20una%20consulta%20sobre%20retiro%20en%20local.';
   const mapsDirectionsUrl =
@@ -150,35 +146,18 @@ export const ContactModal: React.FC = () => {
                 </div>
               </div>
 
-              {/* 2-Column Mini Cards: Horarios & Teléfono */}
-              <div className="grid grid-cols-2 gap-2">
-                {/* Hours card */}
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-0.5">
-                  <div className="flex items-center gap-1 font-bold text-[10px] text-slate-500 uppercase tracking-wider">
-                    <Clock className="w-3 h-3 text-amber-600" />
-                    <span>Horarios</span>
-                  </div>
-                  <div className="font-bold text-slate-900 text-xs">
-                    {hours}
-                  </div>
-                  <p className="text-[10px] text-slate-500">
-                    Sáb, Dom y Fer. cerrado
-                  </p>
+              {/* Horarios de Atención Card */}
+              <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-0.5">
+                <div className="flex items-center gap-1.5 font-bold text-[10px] text-slate-500 uppercase tracking-wider">
+                  <Clock className="w-3 h-3 text-amber-600" />
+                  <span>Horarios de Atención</span>
                 </div>
-
-                {/* Contact Phone & WhatsApp */}
-                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-0.5">
-                  <div className="flex items-center gap-1 font-bold text-[10px] text-slate-500 uppercase tracking-wider">
-                    <Phone className="w-3 h-3 text-emerald-600" />
-                    <span>Contacto</span>
-                  </div>
-                  <div className="font-bold text-slate-900 text-xs">
-                    {phoneDisplay}
-                  </div>
-                  <p className="text-[10px] text-slate-500">
-                    Línea directa comercial
-                  </p>
+                <div className="font-bold text-slate-900 text-xs sm:text-sm">
+                  {hours}
                 </div>
+                <p className="text-[11px] text-slate-500">
+                  Sábados, Domingos y Feriados cerrado
+                </p>
               </div>
             </div>
 
@@ -187,55 +166,34 @@ export const ContactModal: React.FC = () => {
               <a
                 href={whatsappUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-2xs hover:shadow-xs transition-all cursor-pointer"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
-                <span>Chatear por WhatsApp ({phoneDisplay})</span>
+                <span>Iniciar Consulta por WhatsApp</span>
               </a>
 
-              <div className="grid grid-cols-2 gap-1.5">
-                <a
-                  href={mapsDirectionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] shadow-2xs transition-colors cursor-pointer"
-                >
-                  <Navigation className="w-3 h-3" />
-                  <span>Cómo Llegar</span>
-                </a>
-
-                <a
-                  href={`tel:${phoneTel}`}
-                  className="flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px] transition-colors cursor-pointer"
-                >
-                  <Phone className="w-3 h-3" />
-                  <span>Llamar al Local</span>
-                </a>
-              </div>
+              <a
+                href={mapsDirectionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 font-bold text-[11px] border border-sky-200/80 transition-colors cursor-pointer"
+              >
+                <Navigation className="w-3 h-3 text-sky-600" />
+                <span>Cómo Llegar (Google Maps)</span>
+              </a>
             </div>
           </div>
 
           {/* Right Column: Google Maps Interactive Embed */}
-          <div className="lg:col-span-7 flex flex-col min-h-[250px] lg:min-h-[300px] rounded-2xl overflow-hidden border border-slate-200 shadow-sm relative group bg-slate-100">
+          <div className="lg:col-span-7 flex flex-col min-h-[220px] lg:min-h-[260px] h-full rounded-2xl overflow-hidden border border-slate-200 shadow-2xs relative bg-slate-100">
             <iframe
               title="Ubicación MP Distribuciones"
               src={mapsEmbedUrl}
-              className="w-full h-full min-h-[250px] lg:min-h-[300px] border-0"
+              className="w-full h-full min-h-[220px] lg:min-h-[260px] border-0"
               loading="lazy"
               allowFullScreen
             />
-
-            {/* Floating button on top of map */}
-            <a
-              href={mapsDirectionsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="absolute top-2.5 right-2.5 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/95 hover:bg-white text-slate-800 text-[11px] font-bold shadow-sm hover:shadow transition-all border border-slate-200/80 cursor-pointer backdrop-blur-xs"
-            >
-              <span>Abrir en Google Maps</span>
-              <ExternalLink className="w-3 h-3 text-blue-600" />
-            </a>
           </div>
         </div>
 
