@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2 text-[11px] text-emerald-400">
               <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>Garantía oficial y servicio posventa directo</span>
+              <span>Solo servicio post venta</span>
             </div>
           </div>
 
