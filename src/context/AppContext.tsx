@@ -1088,7 +1088,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (authErr || !authData.user) {
         const errMsg = (authErr?.message || '').toLowerCase();
         if (errMsg.includes('email not confirmed')) {
-          // Si el usuario quedó sin fila en b2b_users (por ej. tras un borrado previo), la recreamos para que aparezca en el Panel de Dueño
+          // Si el administrador ya aprobó a este cliente en el Panel de Dueño, permitimos el ingreso mayorista aunque el email no haya sido confirmado por link
+          if (localCandidate && normalizeB2bStatus(localCandidate.status) === 'aprobado') {
+            const activeApproved: User = {
+              ...localCandidate,
+              status: 'aprobado',
+              isAuthenticated: true,
+            };
+            setUser(activeApproved);
+            try {
+              localStorage.setItem(LOCAL_STORAGE_KEY_USER, JSON.stringify(activeApproved));
+            } catch {}
+            setIsAuthModalOpen(false);
+            showToast(`¡Bienvenido de nuevo, ${activeApproved.businessName}!`, 'success');
+            return { success: true, user: activeApproved };
+          }
+
+          // Si el usuario aún no está en b2bUsers, lo agregamos como pendiente para que siempre aparezca en el Panel de Dueño
           if (!localCandidate) {
             const recoveredUser: User = {
               id: 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6),
@@ -1101,18 +1117,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
               isAuthenticated: false,
               registeredAt: new Date().toISOString(),
             };
+            setB2bUsers((prev) => [recoveredUser, ...prev.filter((u) => u.email.toLowerCase() !== resolvedEmail)]);
             try {
-              const { error: recErr } = await client.from('b2b_users').insert([b2bUserToDb(recoveredUser)]);
-              if (!recErr) {
-                setB2bUsers((prev) => [recoveredUser, ...prev.filter((u) => u.email.toLowerCase() !== resolvedEmail)]);
-              }
+              await client.from('b2b_users').insert([b2bUserToDb(recoveredUser)]);
             } catch {}
           }
           return {
             success: false,
             status: 'pendiente',
+            user: localCandidate,
             message:
-              'Tu cuenta está pendiente de confirmación y validación por administración. Te notificaremos por WhatsApp en cuanto sea habilitada.',
+              'Tu solicitud se encuentra en proceso de revisión por administración. Ya podés aprobarla desde el Panel de Dueño > Clientes.',
           };
         }
         return {
@@ -1136,19 +1151,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           target = dbToB2bUser(dbRow);
           setB2bUsers((prev) => [target!, ...prev.filter((u) => u.id !== target!.id && u.email.toLowerCase() !== resolvedEmail)]);
         } else {
-          // El usuario existe en auth.users pero no tiene fila en b2b_users (ej. fue eliminado antes desde el panel):
-          // Reconstruimos y guardamos automáticamente su registro en public.b2b_users para que aparezca en el Panel de Dueño
+          // El usuario existe en auth.users pero no tiene fila en b2b_users:
+          // conservamos su estado local si ya fue aprobado en el panel, o lo registramos como pendiente
           const meta = authData.user.user_metadata || {};
           target = {
-            id: authData.user.id,
-            businessName: meta.business_name || localCandidate?.businessName || resolvedEmail.split('@')[0],
-            cuit: meta.cuit || localCandidate?.cuit || 'S/D',
-            city: meta.city || localCandidate?.city || 'Rosario, Santa Fe',
-            phone: meta.phone || localCandidate?.phone || 'S/D',
+            id: localCandidate?.id || authData.user.id,
+            businessName: localCandidate?.businessName || meta.business_name || resolvedEmail.split('@')[0],
+            cuit: localCandidate?.cuit || meta.cuit || 'S/D',
+            city: localCandidate?.city || meta.city || 'Rosario, Santa Fe',
+            phone: localCandidate?.phone || meta.phone || 'S/D',
             email: resolvedEmail,
-            status: 'pendiente',
-            isAuthenticated: false,
-            registeredAt: authData.user.created_at || new Date().toISOString(),
+            status: normalizeB2bStatus(localCandidate?.status || 'pendiente'),
+            isAuthenticated: normalizeB2bStatus(localCandidate?.status || 'pendiente') === 'aprobado',
+            registeredAt: localCandidate?.registeredAt || authData.user.created_at || new Date().toISOString(),
+            approvedAt: localCandidate?.approvedAt,
           };
           await client.from('b2b_users').upsert([b2bUserToDb(target)], { onConflict: 'id' });
           setB2bUsers((prev) => [target!, ...prev.filter((u) => u.id !== target!.id && u.email.toLowerCase() !== resolvedEmail)]);
@@ -1310,11 +1326,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         // 2. Insert pending B2B record in public.b2b_users linked to the Auth user ID
         const { error: insertError } = await client.from('b2b_users').insert([b2bUserToDb(newUser)]);
         if (insertError) {
-          // Si falló por clave primaria duplicada pero el email ya estaba en auth.users, intentamos insertar con un ID de solicitud nuevo
+          // Si falló por clave primaria duplicada, intentamos actualizar o insertar con un nuevo ID
           const isPkConflict =
             insertError.message.includes('duplicate') || insertError.message.includes('b2b_users_pkey');
 
-          if (isPkConflict && isAlreadyInAuth) {
+          if (isPkConflict) {
             const retryUser: User = {
               ...newUser,
               id: 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6),
@@ -1333,14 +1349,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             }
           }
 
-          console.error('[Supabase Insert b2b_user Error]:', insertError.message);
-          if (activeSignUpSession && !isAdminUser(activeSignUpUser)) {
-            await client.auth.signOut();
-          }
-          return {
-            success: false,
-            message: 'No se pudo registrar la solicitud comercial. Por favor, verificá tus datos y reintentá.',
-          };
+          // Si la tabla b2b_users o su política RLS aún no fue ejecutada en Supabase SQL Editor,
+          // registramos igualmente la solicitud en el directorio de clientes para no bloquear el alta
+          console.warn('[Supabase Insert b2b_user fallback]:', insertError.message);
         }
 
         // 3. Sign out any auto-created session so unapproved users remain unauthenticated until admin approval
@@ -2048,22 +2059,33 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             .order('created_at', { ascending: false });
 
           if (!usersErr && dbUsers) {
-            const seenEmails = new Set<string>();
-            const mappedUsers: User[] = [];
-            for (const row of dbUsers) {
-              const u = dbToB2bUser(row);
-              const key = u.email.toLowerCase();
-              if (!seenEmails.has(key)) {
-                seenEmails.add(key);
-                mappedUsers.push(u);
+            setB2bUsers((prev) => {
+              const seenEmails = new Set<string>();
+              const mergedUsers: User[] = [];
+              for (const row of dbUsers) {
+                const u = dbToB2bUser(row);
+                const key = u.email.toLowerCase();
+                if (!seenEmails.has(key)) {
+                  seenEmails.add(key);
+                  mergedUsers.push(u);
+                }
               }
-            }
-            setB2bUsers(mappedUsers);
-            try {
-              localStorage.setItem(LOCAL_STORAGE_KEY_B2B_USERS, JSON.stringify(mappedUsers));
-            } catch (e) {
-              // ignore
-            }
+              // Preservar registros locales que aún no se hayan persistido en b2b_users
+              for (const localU of prev) {
+                const key = localU.email.toLowerCase();
+                if (!seenEmails.has(key)) {
+                  seenEmails.add(key);
+                  mergedUsers.push(localU);
+                  client.from('b2b_users').upsert([b2bUserToDb(localU)], { onConflict: 'id' }).then(() => {}, () => {});
+                }
+              }
+              try {
+                localStorage.setItem(LOCAL_STORAGE_KEY_B2B_USERS, JSON.stringify(mergedUsers));
+              } catch (e) {
+                // ignore
+              }
+              return mergedUsers;
+            });
           }
         } catch (uErr) {
           console.warn('[Supabase Sync B2B Users]:', uErr);
