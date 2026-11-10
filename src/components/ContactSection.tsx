@@ -109,9 +109,9 @@ export const ContactSection: React.FC = () => {
                     <p className="text-xs text-slate-600">
                       {address}
                     </p>
-                    <p className="text-[11px] text-slate-400 pt-0.5 flex items-center gap-1">
+                    <p className="text-[11px] text-slate-500 pt-0.5 flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
-                      <span>Estacionamiento para carga de pedidos</span>
+                      <span>Retiro inmediato de pedidos confirmados</span>
                     </p>
                   </div>
                 </div>

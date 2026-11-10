@@ -127,7 +127,7 @@ export const ContactModal: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-1 text-[11px] text-emerald-700 font-medium">
                   <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                  <span>Estacionamiento disponible para carga de pedidos</span>
+                  <span>Retiro inmediato de pedidos confirmados</span>
                 </div>
               </div>
 
