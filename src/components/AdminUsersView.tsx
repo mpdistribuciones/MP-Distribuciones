@@ -33,6 +33,10 @@ export const AdminUsersView: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [actionProcessingId, setActionProcessingId] = useState<string | null>(null);
 
+  React.useEffect(() => {
+    syncWithSupabase();
+  }, []);
+
   // Helper to sanitize phone for WhatsApp wa.me link
   const getWhatsAppLink = (u: User, isApprovalMessage = false) => {
     let rawPhone = u.phone || '';

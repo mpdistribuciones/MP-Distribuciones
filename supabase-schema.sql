@@ -268,6 +268,46 @@ $$;
 
 GRANT EXECUTE ON FUNCTION public.delete_b2b_user_complete(text, text) TO authenticated;
 
+-- Función RPC para recuperar usuarios registrados en auth.users que hayan quedado sin fila en b2b_users
+CREATE OR REPLACE FUNCTION public.sync_orphan_b2b_users()
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, auth, pg_temp
+AS $$
+BEGIN
+  IF NOT public.is_admin() THEN
+    RETURN;
+  END IF;
+
+  -- Confirmar automáticamente emails pendientes de usuarios B2B
+  UPDATE auth.users
+  SET email_confirmed_at = COALESCE(email_confirmed_at, NOW())
+  WHERE email_confirmed_at IS NULL;
+
+  -- Insertar en public.b2b_users cualquier usuario de auth.users (no admin) que no tenga fila en b2b_users
+  INSERT INTO public.b2b_users (id, business_name, cuit, city, phone, email, status, created_at)
+  SELECT
+    u.id::text,
+    COALESCE(NULLIF(u.raw_user_meta_data ->> 'business_name', ''), split_part(u.email, '@', 1)),
+    COALESCE(NULLIF(u.raw_user_meta_data ->> 'cuit', ''), 'S/D'),
+    COALESCE(NULLIF(u.raw_user_meta_data ->> 'city', ''), 'Rosario, Santa Fe'),
+    COALESCE(NULLIF(u.raw_user_meta_data ->> 'phone', ''), 'S/D'),
+    u.email,
+    'pendiente',
+    COALESCE(u.created_at, NOW())
+  FROM auth.users u
+  WHERE COALESCE(u.raw_app_meta_data ->> 'role', '') <> 'admin'
+    AND u.email IS NOT NULL
+    AND NOT EXISTS (
+      SELECT 1 FROM public.b2b_users b
+      WHERE b.id = u.id::text OR lower(b.email) = lower(u.email)
+    );
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION public.sync_orphan_b2b_users() TO authenticated;
+
 -- 7. HABILITAR REALTIME
 DO $$
 BEGIN
