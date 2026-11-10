@@ -7,6 +7,7 @@ import {
   Navigation,
   ExternalLink,
   CheckCircle2,
+  Truck,
 } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
@@ -68,10 +69,10 @@ export const ContactSection: React.FC = () => {
             id="contact-heading"
             className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight"
           >
-            Venta Mayorista y Retiro en Rosario
+            Venta Mayorista, Retiro en Rosario y Envíos a Todo el País
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Visitanos en nuestro local para retirar tus pedidos o comunicate directamente con nuestro equipo de ventas para asesoramiento y cotizaciones inmediatas.
+            Visitanos en nuestro local para retirar tus compras o coordiná envíos a cualquier punto del país por el expreso o transporte que prefieras.
           </p>
         </div>
 
@@ -114,6 +115,28 @@ export const ContactSection: React.FC = () => {
                     <p className="text-[11px] text-slate-400 pt-0.5 flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
                       <span>Estacionamiento para carga de pedidos</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Shipping Nationwide */}
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 border border-indigo-100 shadow-xs">
+                    <Truck className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-0.5">
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      Envíos a Todo el País
+                    </p>
+                    <p className="text-sm font-bold text-slate-900">
+                      Por el transporte que prefiera el cliente
+                    </p>
+                    <p className="text-xs text-slate-600">
+                      Despachamos por el expreso, encomienda o comisionista de tu elección a cualquier punto de Argentina.
+                    </p>
+                    <p className="text-[11px] text-slate-400 pt-0.5 flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>Embalaje seguro y despacho ágil</span>
                     </p>
                   </div>
                 </div>

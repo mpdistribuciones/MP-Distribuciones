@@ -9,6 +9,7 @@ import {
   ExternalLink,
   ShieldCheck,
   CheckCircle2,
+  Truck,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -134,6 +135,24 @@ export const ContactModal: React.FC = () => {
                 <div className="pt-1 flex items-center gap-1.5 text-[11px] text-emerald-700 font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>Estacionamiento disponible para carga de pedidos</span>
+                </div>
+              </div>
+
+              {/* Shipping card */}
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
+                <div className="flex items-center gap-2 font-bold text-xs text-slate-500 uppercase tracking-wider">
+                  <Truck className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>Envíos a Todo el País</span>
+                </div>
+                <div className="font-black text-slate-900 text-xs sm:text-sm">
+                  Por el transporte que prefiera el cliente
+                </div>
+                <p className="text-xs text-slate-600">
+                  Despachamos por el expreso, encomienda o comisionista de tu elección a cualquier punto de Argentina.
+                </p>
+                <div className="pt-0.5 flex items-center gap-1.5 text-[11px] text-emerald-700 font-medium">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Embalaje seguro y despacho ágil</span>
                 </div>
               </div>
 
