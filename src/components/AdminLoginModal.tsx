@@ -99,7 +99,6 @@ export const AdminLoginModal: React.FC = () => {
                   setEmail(e.target.value);
                   setError(false);
                 }}
-                placeholder="mpdistribuciones.web@gmail.com"
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-sm text-slate-900 outline-none transition-all"
               />
             </div>
