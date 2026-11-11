@@ -42,11 +42,9 @@ export const cleanWaPhone = (rawPhone?: string): string => {
   return cleaned;
 };
 
-export const getConfirmationWaLink = (order: Order, exchangeRate: number): string => {
+export const getConfirmationWaLink = (order: Order, _exchangeRate?: number): string => {
   const phone = cleanWaPhone(order.phone);
   const customerName = order.buyerName || order.userBusinessName || 'Cliente';
-  const totalArs = Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR');
-  const totalUsd = order.totalUSD.toFixed(2).replace('.', ',');
 
   const itemsSummary = order.items
     .map((it) => `• ${it.quantity}x ${it.product.name} (SKU: ${it.product.sku})`)
@@ -56,10 +54,6 @@ export const getConfirmationWaLink = (order: Order, exchangeRate: number): strin
     `Hola *${customerName}*! 👋 Te escribimos de *MP Distribuciones* respecto a tu pedido *#${order.orderNumber}*.\n\n` +
     `✅ ¡Tu pedido ha sido *CONFIRMADO* con éxito!\n\n` +
     `📦 *Resumen de productos:*\n${itemsSummary}\n\n` +
-    `💰 *Total a abonar:* $ ${totalArs} ARS (u$s ${totalUsd} USD)\n\n` +
-    `💳 *Datos para transferencia:*\n` +
-    `• Titular: MP Distribuciones\n` +
-    `• Por favor envianos tu comprobante por este medio para coordinar la entrega o retiro en San Nicolás 2277.\n\n` +
     `¡Muchas gracias por elegirnos!`;
 
   const encoded = encodeURIComponent(message);
