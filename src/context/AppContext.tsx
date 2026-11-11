@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useRef } from 'react';
 import { Currency, Product, CartItem, User, UserStatus, SortByOption, ViewMode, Order, OrderStatus } from '../types';
 import { CATEGORIES, CategoryInfo } from '../data/categories';
 import {
@@ -345,6 +345,28 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState<boolean>(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [isAdminView, setIsAdminViewState] = useState<boolean>(checkIsAdminPath);
+  const realtimeChannelRef = useRef<any>(null);
+
+  const playOrderSound = () => {
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+      osc.frequency.setValueAtTime(880, ctx.currentTime + 0.12); // A5
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.4);
+    } catch {
+      // AudioContext may be locked until first interaction
+    }
+  };
 
   const setIsAdminView = (val: boolean) => {
     setIsAdminViewState(val);
@@ -1756,7 +1778,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
     setOrders((prev) => [newOrder, ...prev]);
 
-    // Supabase Cloud Persist & Realtime Broadcast
+    // Supabase Cloud Persist & Realtime Instant Broadcast
     const client = getSupabaseClient();
     if (client) {
       (async () => {
@@ -1766,13 +1788,26 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             console.error('[Supabase Create Order Error]:', error);
             showToast('No se pudo procesar el pedido. Por favor, reintente', 'error');
           } else {
-            // Emit broadcast event across any active clients / admin tabs
+            // Emit instant broadcast event through the active channel
             try {
-              client.channel('mp_orders_realtime').send({
-                type: 'broadcast',
-                event: 'new_order',
-                payload: { order: newOrder },
-              });
+              if (realtimeChannelRef.current) {
+                realtimeChannelRef.current.send({
+                  type: 'broadcast',
+                  event: 'new_order',
+                  payload: { order: newOrder },
+                });
+              } else {
+                const tempCh = client.channel('mp_realtime_hub');
+                tempCh.subscribe((status) => {
+                  if (status === 'SUBSCRIBED') {
+                    tempCh.send({
+                      type: 'broadcast',
+                      event: 'new_order',
+                      payload: { order: newOrder },
+                    });
+                  }
+                });
+              }
             } catch (bErr) {
               console.warn('[Broadcast Order Warning]:', bErr);
             }
@@ -2087,26 +2122,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         .order('date', { ascending: false })
         .limit(100);
 
-      if (!ordErr && dbOrders) {
+      if (ordErr) {
+        console.warn('[Sync Orders Error]:', ordErr);
+        return;
+      }
+
+      if (dbOrders) {
         const mappedOrders = dbOrders.map(dbToOrder);
         setOrders((prev) => {
           const prevMap = new Map(prev.map((o) => [o.id, o]));
           const hasNew = mappedOrders.some((o) => !prevMap.has(o.id));
           if (hasNew && prev.length > 0) {
-            try {
-              const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-              const osc = audioCtx.createOscillator();
-              const gain = audioCtx.createGain();
-              osc.type = 'sine';
-              osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
-              osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.1); // A5
-              gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-              gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-              osc.connect(gain);
-              gain.connect(audioCtx.destination);
-              osc.start();
-              osc.stop(audioCtx.currentTime + 0.3);
-            } catch {}
+            playOrderSound();
             showToast('🔔 ¡Nuevo pedido recibido en tiempo real!', 'info');
           }
           return mappedOrders;
@@ -2117,7 +2144,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         } catch {}
       }
     } catch (err) {
-      console.warn('[Sync Orders Error]:', err);
+      console.warn('[Sync Orders Network Error]:', err);
     }
   };
 
@@ -2358,9 +2385,54 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     // Primer sync al cargar
     syncWithSupabase();
 
-    // Suscripción Realtime pública a cambios en products (stock, precios)
+    // Suscripción Realtime pública unificada (Broadcast instantáneo + Postgres Changes)
     const channel = client
-      .channel('mp_catalog_realtime')
+      .channel('mp_realtime_hub', {
+        config: {
+          broadcast: { ack: true, self: true },
+        },
+      })
+      .on('broadcast', { event: 'new_order' }, (payload) => {
+        console.log('⚡ [Realtime Broadcast] Nuevo pedido recibido:', payload);
+        const incomingOrder = payload.payload?.order;
+        if (incomingOrder && incomingOrder.id) {
+          setOrders((prev) => {
+            if (prev.some((o) => o.id === incomingOrder.id || o.orderNumber === incomingOrder.orderNumber)) {
+              return prev;
+            }
+            return [incomingOrder, ...prev];
+          });
+          playOrderSound();
+          showToast(`🔔 ¡Nuevo pedido recibido: #${incomingOrder.orderNumber}!`, 'info');
+        }
+        syncOrders();
+      })
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'orders' },
+        (payload) => {
+          console.log('⚡ [Realtime Postgres Changes] orders:', payload);
+          if (payload.eventType === 'INSERT') {
+            const newOrder = dbToOrder(payload.new);
+            setOrders((prev) => {
+              if (prev.some((o) => o.id === newOrder.id || o.orderNumber === newOrder.orderNumber)) {
+                return prev;
+              }
+              return [newOrder, ...prev];
+            });
+            playOrderSound();
+            showToast(`🔔 ¡Nuevo pedido recibido: #${newOrder.orderNumber}!`, 'info');
+          } else if (payload.eventType === 'UPDATE') {
+            const updated = dbToOrder(payload.new);
+            setOrders((prev) => prev.map((o) => (o.id === updated.id ? updated : o)));
+          } else if (payload.eventType === 'DELETE') {
+            const deletedId = String(payload.old?.id);
+            if (deletedId) {
+              setOrders((prev) => prev.filter((o) => o.id !== deletedId));
+            }
+          }
+        }
+      )
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'products' },
@@ -2392,12 +2464,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         }
       });
 
+    realtimeChannelRef.current = channel;
+
     return () => {
       client.removeChannel(channel);
+      realtimeChannelRef.current = null;
     };
   }, []);
 
-  // Suscripción Realtime privada para administradores (pedidos y costos)
+  // Suscripción Realtime privada para administradores (costos y clientes mayoristas)
   useEffect(() => {
     if (!isSupabaseConfigured() || !isAdminLoggedIn) return;
     const client = getSupabaseClient();
@@ -2408,35 +2483,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     const adminChannel = client
       .channel('mp_admin_realtime')
-      .on('broadcast', { event: 'new_order' }, (payload) => {
-        const incomingOrder = payload.payload?.order;
-        if (incomingOrder && incomingOrder.id) {
-          setOrders((prev) => {
-            if (prev.some((o) => o.id === incomingOrder.id || o.orderNumber === incomingOrder.orderNumber)) {
-              return prev;
-            }
-            return [incomingOrder, ...prev];
-          });
-          showToast(`🔔 ¡Nuevo pedido recibido: #${incomingOrder.orderNumber}!`, 'info');
-        }
-      })
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'orders' },
-        (payload) => {
-          if (payload.eventType === 'INSERT') {
-            const newOrder = dbToOrder(payload.new);
-            setOrders((prev) => {
-              if (prev.some((o) => o.id === newOrder.id)) return prev;
-              return [newOrder, ...prev];
-            });
-            showToast(`🔔 ¡Nuevo pedido recibido: #${newOrder.orderNumber}!`, 'info');
-          } else if (payload.eventType === 'UPDATE') {
-            const updated = dbToOrder(payload.new);
-            setOrders((prev) => prev.map((o) => (o.id === updated.id ? updated : o)));
-          }
-        }
-      )
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'product_costs' },
@@ -2487,6 +2533,30 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       client.removeChannel(adminChannel);
     };
   }, [isAdminLoggedIn]);
+
+  // Polling automático permanente en segundo plano para administradores (cada 3 segundos)
+  useEffect(() => {
+    if (!isAdminLoggedIn && !isAdminView) return;
+
+    let isMounted = true;
+    let timerId: any = null;
+
+    const poll = async () => {
+      if (!isMounted) return;
+      await syncOrders();
+      if (isMounted) {
+        timerId = setTimeout(poll, 3000);
+      }
+    };
+
+    // Primera ejecución a los 3 segundos
+    timerId = setTimeout(poll, 3000);
+
+    return () => {
+      isMounted = false;
+      if (timerId) clearTimeout(timerId);
+    };
+  }, [isAdminLoggedIn, isAdminView]);
 
   // Modals
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
