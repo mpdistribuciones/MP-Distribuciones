@@ -40,17 +40,24 @@ export const CheckoutModal: React.FC = () => {
   const [invoiceType, setInvoiceType] = useState<InvoiceType>('Factura A');
   const [notes, setNotes] = useState('');
 
-  // Sync state if user changes
+  // Reset order-specific fields whenever the checkout modal opens
   useEffect(() => {
-    if (user) {
-      setBuyerName(user.businessName);
-      setCuit(user.cuit);
-      setPhone(user.phone);
-      if (deliveryMethod === 'pickup') {
-        setShippingAddress('Retiro en local: San Nicolás 2277, Rosario');
+    if (isCheckoutModalOpen) {
+      setNotes('');
+      setPreferredCarrier('');
+      setDeliveryMethod('pickup');
+      setShippingAddress('Retiro en local: San Nicolás 2277, Rosario');
+      if (user) {
+        setBuyerName(user.businessName || '');
+        setCuit(user.cuit || '');
+        setPhone(user.phone || '');
+      } else {
+        setBuyerName('');
+        setCuit('');
+        setPhone('');
       }
     }
-  }, [user, deliveryMethod]);
+  }, [isCheckoutModalOpen, user]);
 
   if (!isCheckoutModalOpen) return null;
 
@@ -161,7 +168,15 @@ export const CheckoutModal: React.FC = () => {
 
     window.open(whatsappUrl, '_blank');
     clearCart();
+    setNotes('');
+    setPreferredCarrier('');
     showToast('Pedido preparado y enviado a WhatsApp de MP Distribuciones', 'success');
+    closeCheckoutModal();
+  };
+
+  const handleCloseModal = () => {
+    setNotes('');
+    setPreferredCarrier('');
     closeCheckoutModal();
   };
 
@@ -172,7 +187,7 @@ export const CheckoutModal: React.FC = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          onClick={closeCheckoutModal}
+          onClick={handleCloseModal}
           className="absolute top-4 right-4 p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors"
         >
           <X className="w-5 h-5" />
