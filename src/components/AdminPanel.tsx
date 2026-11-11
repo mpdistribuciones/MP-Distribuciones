@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import { Product, Category } from '../types';
-import { CATEGORIES } from '../data/categories';
 import { AdminProductModal } from './AdminProductModal';
 import { StockEntryModal } from './StockEntryModal';
 import { SupabaseModal } from './SupabaseModal';
@@ -39,6 +38,7 @@ import {
   Package,
   Bell,
   Users,
+  Plus,
 } from 'lucide-react';
 
 export const AdminPanel: React.FC = () => {
@@ -59,6 +59,8 @@ export const AdminPanel: React.FC = () => {
     isSupabaseConnected,
     orders,
     b2bUsers,
+    categories,
+    addCategory,
   } = useApp();
 
   // Active view tab: 'inventory' | 'orders' | 'users'
@@ -619,7 +621,7 @@ export const AdminPanel: React.FC = () => {
             <div>
               <p className="text-xs font-semibold text-slate-500">Total Artículos</p>
               <h4 className="text-2xl font-black text-slate-900 mt-0.5">{totalProducts}</h4>
-              <p className="text-[11px] text-blue-600 font-medium">{CATEGORIES.length} rubros activos</p>
+              <p className="text-[11px] text-blue-600 font-medium">{categories.length} rubros activos</p>
             </div>
             <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
               <Boxes className="w-6 h-6" />
@@ -834,16 +836,45 @@ export const AdminPanel: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2">
               <select
                 value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-                className="px-3 py-2 rounded-xl bg-slate-50 border border-slate-300 text-xs font-semibold text-slate-700 outline-none focus:border-blue-600"
+                onChange={(e) => {
+                  if (e.target.value === '__NEW__') {
+                    const name = window.prompt('Ingresá el nombre del nuevo rubro mayorista:');
+                    if (name && name.trim()) {
+                      const created = addCategory(name.trim());
+                      setCategoryFilter(created.id);
+                    }
+                  } else {
+                    setCategoryFilter(e.target.value);
+                  }
+                }}
+                className="px-3 py-2 rounded-xl bg-slate-50 border border-slate-300 text-xs font-semibold text-slate-700 outline-none focus:border-blue-600 cursor-pointer"
               >
                 <option value="ALL">Todos los Rubros ({totalProducts})</option>
-                {CATEGORIES.map((cat) => (
+                <option value="__NEW__" className="font-bold text-blue-600 bg-blue-50">
+                  ➕ + Crear Nuevo Rubro...
+                </option>
+                {categories.map((cat) => (
                   <option key={cat.id} value={cat.id}>
                     {cat.shortName}
                   </option>
                 ))}
               </select>
+
+              <button
+                type="button"
+                onClick={() => {
+                  const name = window.prompt('Ingresá el nombre del nuevo rubro mayorista:');
+                  if (name && name.trim()) {
+                    const created = addCategory(name.trim());
+                    setCategoryFilter(created.id);
+                  }
+                }}
+                className="px-2.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-bold transition-all flex items-center gap-1 cursor-pointer shadow-2xs"
+                title="Crear un nuevo rubro oficial"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Nuevo Rubro</span>
+              </button>
 
               {/* Status pills */}
               <div className="flex flex-wrap items-center p-0.5 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold gap-0.5">

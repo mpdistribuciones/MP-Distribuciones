@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Product, Category } from '../types';
-import { CATEGORIES } from '../data/categories';
 import { useApp } from '../context/AppContext';
 import { isSupabaseConfigured, uploadProductImage } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
@@ -32,12 +31,14 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   productToEdit,
   initialValues,
 }) => {
-  const { addProduct, updateProduct, exchangeRate } = useApp();
+  const { addProduct, updateProduct, exchangeRate, categories, addCategory } = useApp();
 
   const [sku, setSku] = useState('');
   const [name, setName] = useState('');
   const [brand, setBrand] = useState('');
   const [category, setCategory] = useState<Category>('NOTEBOOKS');
+  const [isCreatingCategory, setIsCreatingCategory] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState('');
   const [subcategory, setSubcategory] = useState('');
   const [description, setDescription] = useState('');
   const [specsText, setSpecsText] = useState('');
@@ -149,6 +150,16 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     } else {
       setProfitMarginInput(0);
     }
+  };
+
+  const handleCreateCategory = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const trimmed = newCategoryName.trim();
+    if (!trimmed) return;
+    const created = addCategory(trimmed);
+    setCategory(created.id as Category);
+    setNewCategoryName('');
+    setIsCreatingCategory(false);
   };
 
   const handleCurrencyToggle = (newCurrency: 'USD' | 'ARS') => {
@@ -374,21 +385,87 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
           {/* Row 3: Category and Subcategory */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1">
-              <label className="font-bold text-slate-700 flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-blue-600" />
-                <span>Rubro Oficial ({CATEGORIES.length} rubros) *</span>
-              </label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value as Category)}
-                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 outline-none font-medium"
-              >
-                {CATEGORIES.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.shortName} ({c.name})
+              <div className="flex items-center justify-between">
+                <label className="font-bold text-slate-700 flex items-center gap-1.5">
+                  <Layers className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Rubro Oficial ({categories.length} rubros) *</span>
+                </label>
+                {!isCreatingCategory && (
+                  <button
+                    type="button"
+                    onClick={() => setIsCreatingCategory(true)}
+                    className="text-[11px] font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 hover:underline cursor-pointer"
+                  >
+                    <Plus className="w-3 h-3" />
+                    <span>+ Crear Nuevo Rubro</span>
+                  </button>
+                )}
+              </div>
+
+              {isCreatingCategory ? (
+                <div className="p-2.5 rounded-lg bg-blue-50 border border-blue-200 space-y-2 animate-fadeIn shadow-2xs">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-blue-950">
+                    <span>Escribí el nombre del nuevo rubro:</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsCreatingCategory(false);
+                        setNewCategoryName('');
+                      }}
+                      className="text-slate-400 hover:text-slate-600 p-0.5 rounded cursor-pointer"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                  <div className="flex gap-1.5">
+                    <input
+                      type="text"
+                      value={newCategoryName}
+                      onChange={(e) => setNewCategoryName(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          handleCreateCategory();
+                        } else if (e.key === 'Escape') {
+                          setIsCreatingCategory(false);
+                        }
+                      }}
+                      placeholder="Ej: HERRAMIENTAS, ILUMINACIÓN, IMPRESIÓN 3D..."
+                      className="flex-1 px-2.5 py-1.5 rounded-md bg-white border border-blue-300 text-xs font-bold text-slate-800 outline-none uppercase placeholder:normal-case focus:border-blue-600"
+                      autoFocus
+                    />
+                    <button
+                      type="button"
+                      onClick={() => handleCreateCategory()}
+                      disabled={!newCategoryName.trim()}
+                      className="px-3 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-xs transition-colors cursor-pointer shrink-0 shadow-xs"
+                    >
+                      Confirmar
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <select
+                  value={category}
+                  onChange={(e) => {
+                    if (e.target.value === '__NEW__') {
+                      setIsCreatingCategory(true);
+                    } else {
+                      setCategory(e.target.value as Category);
+                    }
+                  }}
+                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 outline-none font-medium cursor-pointer"
+                >
+                  <option value="__NEW__" className="font-bold text-blue-600 bg-blue-50">
+                    ➕ + Crear Nuevo Rubro...
                   </option>
-                ))}
-              </select>
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.shortName} ({c.name})
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
 
             <div className="space-y-1">

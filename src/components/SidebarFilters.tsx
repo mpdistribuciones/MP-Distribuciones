@@ -1,6 +1,5 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { CATEGORIES } from '../data/categories';
 import {
   Layers,
   CheckCircle2,
@@ -63,6 +62,7 @@ export const SidebarFilters: React.FC<SidebarFiltersProps> = ({
     products,
     selectedCategory,
     setSelectedCategory,
+    categories,
     stockFilter,
     setStockFilter,
     isOutletOnly,
@@ -75,11 +75,11 @@ export const SidebarFilters: React.FC<SidebarFiltersProps> = ({
   const categoryCounts = React.useMemo(() => {
     const counts: Record<string, number> = {};
     counts['ALL'] = products.length;
-    CATEGORIES.forEach((cat) => {
+    categories.forEach((cat) => {
       counts[cat.id] = products.filter((p) => p.category === cat.id).length;
     });
     return counts;
-  }, [products]);
+  }, [products, categories]);
 
   // Count in-stock products
   const inStockCount = React.useMemo(() => {
@@ -214,7 +214,7 @@ export const SidebarFilters: React.FC<SidebarFiltersProps> = ({
       <div className="space-y-2">
         <div className="flex items-center justify-between px-1">
           <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
-            Rubros ({CATEGORIES.length})
+            Rubros ({categories.length})
           </span>
           <span className="text-[10px] text-slate-400">Seleccionar</span>
         </div>
@@ -247,8 +247,8 @@ export const SidebarFilters: React.FC<SidebarFiltersProps> = ({
             </span>
           </button>
 
-          {/* Listado de las 19 categorías */}
-          {CATEGORIES.map((cat) => {
+          {/* Listado de categorías */}
+          {categories.map((cat) => {
             const Icon = iconMap[cat.iconName] || Boxes;
             const isSelected = selectedCategory === cat.id;
             const count = categoryCounts[cat.id] || 0;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { CATEGORIES } from '../data/categories';
 import {
   MapPin,
   Phone,
@@ -10,7 +9,7 @@ import {
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { setSelectedCategory, user, openAuthModal } = useApp();
+  const { setSelectedCategory, user, openAuthModal, categories } = useApp();
 
   return (
     <footer className="w-full bg-[#07245b] border-t border-blue-900 pt-10 pb-8 px-4 text-blue-100 text-xs">
@@ -99,7 +98,7 @@ export const Footer: React.FC = () => {
               Rubros Destacados
             </h4>
             <ul className="grid grid-cols-2 gap-1.5 text-[11px]">
-              {CATEGORIES.slice(0, 10).map((cat) => (
+              {categories.slice(0, 10).map((cat) => (
                 <li key={cat.id}>
                   <button
                     onClick={() => {

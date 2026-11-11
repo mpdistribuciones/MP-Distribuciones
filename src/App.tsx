@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { useApp } from './context/AppContext';
-import { CATEGORIES } from './data/categories';
 import { Header } from './components/Header';
 import { CategoryNav } from './components/CategoryNav';
 import { SidebarFilters } from './components/SidebarFilters';
@@ -45,6 +44,7 @@ export const AppContent: React.FC = () => {
     viewMode,
     isOutletOnly,
     setIsOutletOnly,
+    categories,
   } = useApp();
 
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
@@ -129,7 +129,7 @@ export const AppContent: React.FC = () => {
     return list;
   }, [products, selectedCategory, stockFilter, searchQuery, sortBy, isOutletOnly]);
 
-  const selectedCategoryMeta = CATEGORIES.find((c) => c.id === selectedCategory);
+  const selectedCategoryMeta = categories.find((c) => c.id === selectedCategory);
 
   // If Owner is viewing Admin Panel, strictly require both isAdminView AND isAdminLoggedIn
   if (isAdminView) {

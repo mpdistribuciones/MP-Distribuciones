@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { Currency, Product, CartItem, User, UserStatus, SortByOption, ViewMode, Order, OrderStatus } from '../types';
+import { CATEGORIES, CategoryInfo } from '../data/categories';
 import {
   getSupabaseClient,
   isSupabaseConfigured,
@@ -160,6 +161,8 @@ interface AppContextType {
   setSearchQuery: (q: string) => void;
   selectedCategory: string; // 'ALL' or Category
   setSelectedCategory: (c: string) => void;
+  categories: CategoryInfo[];
+  addCategory: (name: string) => CategoryInfo;
   stockFilter: 'all' | 'in_stock';
   setStockFilter: (f: 'all' | 'in_stock') => void;
   sortBy: SortByOption;
@@ -2377,6 +2380,84 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [stockFilter, setStockFilter] = useState<'all' | 'in_stock'>('all');
   const [sortBy, setSortBy] = useState<SortByOption>('featured');
 
+  // Dynamic Categories Management
+  const STORAGE_KEY_CUSTOM_CATEGORIES = 'mp_custom_categories';
+
+  const [customCategories, setCustomCategories] = useState<CategoryInfo[]>(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY_CUSTOM_CATEGORIES);
+      if (raw) return JSON.parse(raw);
+    } catch {}
+    return [];
+  });
+
+  const categories = useMemo<CategoryInfo[]>(() => {
+    const map = new Map<string, CategoryInfo>();
+
+    // 1. Static base categories
+    CATEGORIES.forEach((c) => map.set(c.id.toUpperCase(), c));
+
+    // 2. Custom categories created by admin
+    customCategories.forEach((c) => {
+      const key = (c.id || c.name).toUpperCase().trim();
+      if (!map.has(key)) {
+        map.set(key, c);
+      }
+    });
+
+    // 3. Dynamic categories discovered in products
+    products.forEach((p) => {
+      if (p.category) {
+        const raw = String(p.category).trim();
+        const key = raw.toUpperCase();
+        if (!map.has(key)) {
+          map.set(key, {
+            id: raw,
+            name: raw,
+            shortName: raw.length > 25 ? raw.slice(0, 25) + '...' : raw,
+            description: `Rubro ${raw} en MP Distribuciones`,
+            iconName: 'Boxes',
+          });
+        }
+      }
+    });
+
+    return Array.from(map.values());
+  }, [customCategories, products]);
+
+  const addCategory = (name: string): CategoryInfo => {
+    const trimmed = name.trim();
+    const id = trimmed.toUpperCase();
+
+    const existing = categories.find(
+      (c) => c.id.toUpperCase() === id || c.name.toUpperCase() === id || c.shortName.toUpperCase() === id
+    );
+    if (existing) {
+      showToast(`El rubro "${existing.shortName}" ya existe en el sistema.`, 'info');
+      return existing;
+    }
+
+    const newCat: CategoryInfo = {
+      id: id,
+      name: id,
+      shortName: trimmed,
+      description: `Rubro ${trimmed} en MP Distribuciones`,
+      iconName: 'Boxes',
+    };
+
+    setCustomCategories((prev) => {
+      const updated = [...prev, newCat];
+      try {
+        localStorage.setItem(STORAGE_KEY_CUSTOM_CATEGORIES, JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    showToast(`Nuevo rubro "${trimmed}" creado con éxito.`, 'success');
+    return newCat;
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -2464,6 +2545,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setSearchQuery,
         selectedCategory,
         setSelectedCategory,
+        categories,
+        addCategory,
         stockFilter,
         setStockFilter,
         sortBy,
