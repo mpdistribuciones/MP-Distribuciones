@@ -42,7 +42,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [subcategory, setSubcategory] = useState('');
   const [description, setDescription] = useState('');
   const [specsText, setSpecsText] = useState('');
-  const [priceCurrency, setPriceCurrency] = useState<'USD' | 'ARS'>('ARS');
+  const [priceCurrency, setPriceCurrency] = useState<'USD' | 'ARS'>('USD');
   const [priceInput, setPriceInput] = useState<number>(0);
   const [costInput, setCostInput] = useState<number>(0);
   const [profitMarginInput, setProfitMarginInput] = useState<number>(15);
@@ -102,18 +102,33 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       setSubcategory(initialValues?.subcategory || '');
       setDescription(initialValues?.description || '');
       setSpecsText('');
-      setPriceCurrency(initialValues?.priceCurrency || 'ARS');
+      const defaultCurrency = initialValues?.priceCurrency || 'USD';
+      setPriceCurrency(defaultCurrency);
       setProfitMarginInput(initialValues?.profitMargin ?? 15);
-      const defaultCost = initialValues?.costARS != null
-        ? initialValues.costARS
-        : (initialValues?.costUSD != null ? Math.round(initialValues.costUSD * exchangeRate) : 0);
-      setCostInput(defaultCost);
-      const defaultPrice = initialValues?.priceARS != null
-        ? initialValues.priceARS
-        : (initialValues?.priceUSD != null
-            ? Math.round(initialValues.priceUSD * exchangeRate)
-            : (defaultCost > 0 ? Math.round(defaultCost * 1.15) : 0));
-      setPriceInput(defaultPrice);
+
+      if (defaultCurrency === 'USD') {
+        const defaultCost = initialValues?.costUSD != null
+          ? initialValues.costUSD
+          : (initialValues?.costARS != null ? Number((initialValues.costARS / exchangeRate).toFixed(2)) : 0);
+        setCostInput(defaultCost);
+        const defaultPrice = initialValues?.priceUSD != null
+          ? initialValues.priceUSD
+          : (initialValues?.priceARS != null
+              ? Number((initialValues.priceARS / exchangeRate).toFixed(2))
+              : (defaultCost > 0 ? Number((defaultCost * 1.15).toFixed(2)) : 0));
+        setPriceInput(defaultPrice);
+      } else {
+        const defaultCost = initialValues?.costARS != null
+          ? initialValues.costARS
+          : (initialValues?.costUSD != null ? Math.round(initialValues.costUSD * exchangeRate) : 0);
+        setCostInput(defaultCost);
+        const defaultPrice = initialValues?.priceARS != null
+          ? initialValues.priceARS
+          : (initialValues?.priceUSD != null
+              ? Math.round(initialValues.priceUSD * exchangeRate)
+              : (defaultCost > 0 ? Math.round(defaultCost * 1.15) : 0));
+        setPriceInput(defaultPrice);
+      }
       setStockQuantity(initialValues?.stockQuantity ?? 0);
       setMinWholesaleQty(initialValues?.minWholesaleQty || 1);
       setBadge(initialValues?.badge || '');
