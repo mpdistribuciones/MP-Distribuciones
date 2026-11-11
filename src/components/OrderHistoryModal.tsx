@@ -171,7 +171,7 @@ export const OrderHistoryModal: React.FC = () => {
                               ? 'Retiro en Rosario'
                               : order.deliveryMethod === 'rosario_delivery'
                               ? 'Cadetería Rosario'
-                              : 'Expreso al Interior'}
+                              : 'Envíos a Todo el País'}
                           </span>
                           <span className="text-slate-300">•</span>
                           <FileText className="w-3.5 h-3.5 text-slate-400" />

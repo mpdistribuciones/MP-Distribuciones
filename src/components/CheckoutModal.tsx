@@ -36,6 +36,7 @@ export const CheckoutModal: React.FC = () => {
   const [shippingAddress, setShippingAddress] = useState(
     deliveryMethod === 'pickup' ? 'Retiro en local: San Nicolás 2277, Rosario' : (user?.city || '')
   );
+  const [preferredCarrier, setPreferredCarrier] = useState('');
   const [invoiceType, setInvoiceType] = useState<InvoiceType>('Factura A');
   const [notes, setNotes] = useState('');
 
@@ -89,10 +90,15 @@ export const CheckoutModal: React.FC = () => {
       })
       .join('\n');
 
-    const deliveryText =
-      deliveryMethod === 'pickup'
-        ? 'Retiro en local (San Nicolás 2277, Rosario)'
-        : shippingAddress;
+    let deliveryText = '';
+    if (deliveryMethod === 'pickup') {
+      deliveryText = 'Retiro en local (San Nicolás 2277, Rosario)';
+    } else if (deliveryMethod === 'rosario_delivery') {
+      deliveryText = `Cadetería Rosario: ${shippingAddress || 'A coordinar'}`;
+    } else {
+      const carrierInfo = preferredCarrier.trim() ? `[Transporte/Expreso: ${preferredCarrier.trim()}]` : '';
+      deliveryText = `Envío Todo el País: ${shippingAddress || 'A coordinar'} ${carrierInfo}`.trim();
+    }
 
     // Strict template formatting
     const message =
@@ -101,8 +107,11 @@ export const CheckoutModal: React.FC = () => {
       `🆔 *CUIT/DNI:* ${cuit}\n` +
       `📞 *Teléfono:* ${phone}\n` +
       `🧾 *Facturación:* ${invoiceType}\n` +
-      `📍 *Localidad / Entrega:* ${deliveryText}\n` +
-      (notes ? `📝 *Observaciones:* ${notes}\n` : '') +
+      `📍 *Modalidad / Entrega:* ${deliveryText}\n` +
+      (preferredCarrier.trim() && deliveryMethod === 'interior_shipping'
+        ? `🚚 *Expreso Elegido:* ${preferredCarrier.trim()}\n`
+        : '') +
+      (notes.trim() ? `📝 *Observaciones:* ${notes.trim()}\n` : '') +
       `------------------------------------\n` +
       `*DETALLE DEL PEDIDO:*\n` +
       `${itemsLines}\n` +
@@ -124,6 +133,16 @@ export const CheckoutModal: React.FC = () => {
       // ignore
     }
 
+    // Combine notes with carrier info
+    const combinedNotes = [
+      preferredCarrier.trim() && deliveryMethod === 'interior_shipping'
+        ? `Expreso/Transporte: ${preferredCarrier.trim()}`
+        : '',
+      notes.trim(),
+    ]
+      .filter(Boolean)
+      .join(' | ');
+
     // Save order in history
     createOrder({
       userId: user?.id,
@@ -137,7 +156,7 @@ export const CheckoutModal: React.FC = () => {
       deliveryMethod,
       invoiceType,
       shippingAddress: deliveryText,
-      notes,
+      notes: combinedNotes,
     });
 
     window.open(whatsappUrl, '_blank');
@@ -246,7 +265,7 @@ export const CheckoutModal: React.FC = () => {
                 onClick={() => handleDeliveryChange('pickup')}
                 className={`p-2.5 rounded-xl border text-left transition-all ${
                   deliveryMethod === 'pickup'
-                    ? 'bg-blue-50 border-blue-600 text-blue-900 font-bold'
+                    ? 'bg-blue-50 border-blue-600 text-blue-900 font-bold shadow-2xs'
                     : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >
@@ -259,7 +278,7 @@ export const CheckoutModal: React.FC = () => {
                 onClick={() => handleDeliveryChange('rosario_delivery')}
                 className={`p-2.5 rounded-xl border text-left transition-all ${
                   deliveryMethod === 'rosario_delivery'
-                    ? 'bg-blue-50 border-blue-600 text-blue-900 font-bold'
+                    ? 'bg-blue-50 border-blue-600 text-blue-900 font-bold shadow-2xs'
                     : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >
@@ -272,30 +291,82 @@ export const CheckoutModal: React.FC = () => {
                 onClick={() => handleDeliveryChange('interior_shipping')}
                 className={`p-2.5 rounded-xl border text-left transition-all ${
                   deliveryMethod === 'interior_shipping'
-                    ? 'bg-blue-50 border-blue-600 text-blue-900 font-bold'
+                    ? 'bg-blue-50 border-blue-600 text-blue-900 font-bold shadow-2xs ring-2 ring-blue-500/20'
                     : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >
-                <p className="font-bold text-xs">Expreso Interior</p>
-                <p className="text-[10px] text-slate-500">Despacho a terminal</p>
+                <p className="font-bold text-xs">Envíos a Todo el País</p>
+                <p className="text-[10px] text-slate-500">Por el expreso que elijas</p>
               </button>
             </div>
           </div>
 
-          {/* Delivery Address */}
-          <div className="space-y-1">
-            <label className="font-semibold text-slate-700 flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-blue-600" />
-              <span>Dirección de Entrega / Transporte</span>
-            </label>
-            <input
-              type="text"
-              value={shippingAddress}
-              onChange={(e) => setShippingAddress(e.target.value)}
-              placeholder="Dirección, piso, expreso o transporte de preferencia"
-              className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-slate-900 outline-none"
-            />
-          </div>
+          {/* Conditional Delivery Inputs */}
+          {deliveryMethod === 'pickup' && (
+            <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-200 text-xs text-blue-900 flex items-start gap-2">
+              <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+              <div>
+                <span className="font-bold">Punto de Retiro:</span> San Nicolás 2277, Rosario, Santa Fe.
+                <p className="text-[11px] text-blue-700 mt-0.5">
+                  Lunes a Viernes de 9:00 a 16:00 hs. Retiro inmediato tras confirmar tu pedido.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {deliveryMethod === 'rosario_delivery' && (
+            <div className="space-y-1">
+              <label className="font-semibold text-slate-700 flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                <span>Dirección de Entrega en Rosario</span>
+              </label>
+              <input
+                type="text"
+                value={shippingAddress}
+                onChange={(e) => setShippingAddress(e.target.value)}
+                placeholder="Calle, número, piso/depto, barrio o zona de entrega"
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-slate-900 outline-none text-xs"
+              />
+            </div>
+          )}
+
+          {deliveryMethod === 'interior_shipping' && (
+            <div className="space-y-3">
+              {/* Campo para el transporte/expreso */}
+              <div className="p-3.5 rounded-xl bg-blue-50/80 border border-blue-300 space-y-1.5">
+                <label className="font-bold text-blue-950 flex items-center gap-1.5">
+                  <Truck className="w-4 h-4 text-blue-700" />
+                  <span>¿Por qué expreso o transporte querés enviarlo? *</span>
+                </label>
+                <input
+                  type="text"
+                  value={preferredCarrier}
+                  onChange={(e) => setPreferredCarrier(e.target.value)}
+                  placeholder="Ej: Vía Cargo, Andreani, Integral Pack, Buspack, expreso a convenir..."
+                  className="w-full px-3 py-2 rounded-lg bg-white border border-blue-400 focus:border-blue-700 text-slate-900 outline-none font-medium shadow-2xs text-xs"
+                  autoFocus
+                />
+                <p className="text-[11px] text-blue-800">
+                  Despachamos por el transporte, expreso o comisionista que vos elijas a cualquier punto del país.
+                </p>
+              </div>
+
+              {/* Localidad y dirección de destino */}
+              <div className="space-y-1">
+                <label className="font-semibold text-slate-700 flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Localidad y Dirección de Destino (o retiro en sucursal del expreso)</span>
+                </label>
+                <input
+                  type="text"
+                  value={shippingAddress}
+                  onChange={(e) => setShippingAddress(e.target.value)}
+                  placeholder="Ej: Córdoba Capital - Retiro en sucursal central / Entrega a domicilio"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-slate-900 outline-none text-xs"
+                />
+              </div>
+            </div>
+          )}
 
           {/* Notes */}
           <div className="space-y-1">
