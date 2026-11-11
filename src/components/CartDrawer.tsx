@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useApp } from '../context/AppContext';
-import { InvoiceType, DeliveryMethod } from '../types';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
@@ -8,8 +7,6 @@ import {
   Plus,
   Minus,
   ShoppingCart,
-  Receipt,
-  Truck,
   ArrowRight,
   ShieldCheck,
 } from 'lucide-react';
@@ -30,9 +27,6 @@ export const CartDrawer: React.FC = () => {
     user,
     openAuthModal,
   } = useApp();
-
-  const [invoiceType, setInvoiceType] = useState<InvoiceType>('Factura A');
-  const [deliveryMethod, setDeliveryMethod] = useState<DeliveryMethod>('pickup');
 
   if (!isCartDrawerOpen) return null;
 
@@ -196,43 +190,6 @@ export const CartDrawer: React.FC = () => {
           {/* Footer Controls & Checkout */}
           {cart.length > 0 && (
             <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
-              {/* Facturación y Despacho Selector */}
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                {/* Factura */}
-                <div className="space-y-1">
-                  <label className="text-[11px] text-slate-600 flex items-center gap-1 font-semibold">
-                    <Receipt className="w-3 h-3 text-blue-600" />
-                    <span>Facturación</span>
-                  </label>
-                  <select
-                    value={invoiceType}
-                    onChange={(e) => setInvoiceType(e.target.value as InvoiceType)}
-                    className="w-full bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs text-slate-800 outline-none focus:border-blue-600"
-                  >
-                    <option value="Factura A">Factura A (Resp. Inscripto)</option>
-                    <option value="Factura B">Factura B (Monotributo/Final)</option>
-                    <option value="Consumidor Final">Consumidor Final</option>
-                  </select>
-                </div>
-
-                {/* Despacho */}
-                <div className="space-y-1">
-                  <label className="text-[11px] text-slate-600 flex items-center gap-1 font-semibold">
-                    <Truck className="w-3 h-3 text-emerald-600" />
-                    <span>Despacho / Entrega</span>
-                  </label>
-                  <select
-                    value={deliveryMethod}
-                    onChange={(e) => setDeliveryMethod(e.target.value as DeliveryMethod)}
-                    className="w-full bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs text-slate-800 outline-none focus:border-blue-600"
-                  >
-                    <option value="pickup">Retiro en Local (San Nicolás 2277)</option>
-                    <option value="rosario_delivery">Reparto en Rosario</option>
-                    <option value="interior_shipping">Expreso al Interior</option>
-                  </select>
-                </div>
-              </div>
-
               {/* Totals Box */}
               <div className="p-3 rounded-xl bg-white border border-slate-200 space-y-1">
                 <div className="flex items-center justify-between text-xs text-slate-500">
