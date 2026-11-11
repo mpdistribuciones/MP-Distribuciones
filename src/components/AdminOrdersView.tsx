@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Search,
   CheckCircle2,
@@ -29,6 +29,7 @@ export const AdminOrdersView: React.FC = () => {
     confirmOrder,
     cancelOrder,
     updateOrder,
+    syncOrders,
     formatPrice,
     exchangeRate,
     syncWithSupabase,
@@ -38,6 +39,42 @@ export const AdminOrdersView: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<'all' | OrderStatus>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [processingOrderId, setProcessingOrderId] = useState<string | null>(null);
+
+  // Auto-sync inmediata en tiempo real: polling cada 4 segundos + evento focus + BroadcastChannel
+  useEffect(() => {
+    // Sincronización inmediata al abrir la vista
+    syncOrders();
+
+    const interval = setInterval(() => {
+      syncOrders();
+    }, 4000);
+
+    const handleFocus = () => {
+      if (document.visibilityState === 'visible') {
+        syncOrders();
+      }
+    };
+
+    window.addEventListener('focus', handleFocus);
+    document.addEventListener('visibilitychange', handleFocus);
+
+    let bc: BroadcastChannel | null = null;
+    if (typeof window !== 'undefined' && 'BroadcastChannel' in window) {
+      try {
+        bc = new BroadcastChannel('mp_orders_sync');
+        bc.onmessage = () => {
+          syncOrders();
+        };
+      } catch {}
+    }
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('focus', handleFocus);
+      document.removeEventListener('visibilitychange', handleFocus);
+      if (bc) bc.close();
+    };
+  }, []);
 
   // Modals state
   const [selectedDetailOrder, setSelectedDetailOrder] = useState<Order | null>(null);
@@ -325,10 +362,21 @@ export const AdminOrdersView: React.FC = () => {
             />
           </div>
 
+          <div
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[11px] font-bold text-emerald-700 shadow-2xs shrink-0 select-none"
+            title="Sincronización en vivo activa (actualiza automáticamente sin refrescar)"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="hidden sm:inline">En Vivo</span>
+          </div>
+
           <button
-            onClick={syncWithSupabase}
+            onClick={() => {
+              syncOrders();
+              syncWithSupabase();
+            }}
             disabled={isSyncingSupabase}
-            title="Sincronizar pedidos con Supabase Cloud"
+            title="Sincronizar pedidos con Supabase Cloud ahora"
             className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer disabled:opacity-50"
           >
             <RotateCw className={`w-4 h-4 ${isSyncingSupabase ? 'animate-spin' : ''}`} />

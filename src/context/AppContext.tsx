@@ -117,6 +117,7 @@ interface AppContextType {
     orderId: string,
     updatedData: { items: CartItem[]; totalUSD: number; totalARS: number; notes?: string }
   ) => Promise<boolean>;
+  syncOrders: () => Promise<void>;
   isOrderHistoryModalOpen: boolean;
   openOrderHistoryModal: () => void;
   closeOrderHistoryModal: () => void;
@@ -1755,7 +1756,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
     setOrders((prev) => [newOrder, ...prev]);
 
-    // Supabase Cloud Persist
+    // Supabase Cloud Persist & Realtime Broadcast
     const client = getSupabaseClient();
     if (client) {
       (async () => {
@@ -1764,12 +1765,32 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           if (error) {
             console.error('[Supabase Create Order Error]:', error);
             showToast('No se pudo procesar el pedido. Por favor, reintente', 'error');
+          } else {
+            // Emit broadcast event across any active clients / admin tabs
+            try {
+              client.channel('mp_orders_realtime').send({
+                type: 'broadcast',
+                event: 'new_order',
+                payload: { order: newOrder },
+              });
+            } catch (bErr) {
+              console.warn('[Broadcast Order Warning]:', bErr);
+            }
           }
         } catch (err: any) {
           console.error('[Supabase Create Order Network Error]:', err);
           showToast('No se pudo procesar el pedido. Por favor, reintente', 'error');
         }
       })();
+    }
+
+    // Local cross-tab broadcast
+    if (typeof window !== 'undefined' && 'BroadcastChannel' in window) {
+      try {
+        const bc = new BroadcastChannel('mp_orders_sync');
+        bc.postMessage({ type: 'NEW_ORDER', order: newOrder });
+        bc.close();
+      } catch {}
     }
 
     return newOrder;
@@ -2053,6 +2074,52 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isCatalogLoading, setIsCatalogLoading] = useState<boolean>(
     () => products.length === 0 && isSupabaseConfigured()
   );
+
+  // Sincronización ligera exclusiva de pedidos (ultrarrápida para actualización inmediata)
+  const syncOrders = async (): Promise<void> => {
+    const client = getSupabaseClient();
+    if (!client) return;
+
+    try {
+      const { data: dbOrders, error: ordErr } = await client
+        .from('orders')
+        .select('*')
+        .order('date', { ascending: false })
+        .limit(100);
+
+      if (!ordErr && dbOrders) {
+        const mappedOrders = dbOrders.map(dbToOrder);
+        setOrders((prev) => {
+          const prevMap = new Map(prev.map((o) => [o.id, o]));
+          const hasNew = mappedOrders.some((o) => !prevMap.has(o.id));
+          if (hasNew && prev.length > 0) {
+            try {
+              const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+              osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.1); // A5
+              gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+              gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
+              osc.start();
+              osc.stop(audioCtx.currentTime + 0.3);
+            } catch {}
+            showToast('🔔 ¡Nuevo pedido recibido en tiempo real!', 'info');
+          }
+          return mappedOrders;
+        });
+
+        try {
+          localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(mappedOrders));
+        } catch {}
+      }
+    } catch (err) {
+      console.warn('[Sync Orders Error]:', err);
+    }
+  };
 
   // Sync products and orders from Supabase
   const syncWithSupabase = async () => {
@@ -2341,6 +2408,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     const adminChannel = client
       .channel('mp_admin_realtime')
+      .on('broadcast', { event: 'new_order' }, (payload) => {
+        const incomingOrder = payload.payload?.order;
+        if (incomingOrder && incomingOrder.id) {
+          setOrders((prev) => {
+            if (prev.some((o) => o.id === incomingOrder.id || o.orderNumber === incomingOrder.orderNumber)) {
+              return prev;
+            }
+            return [incomingOrder, ...prev];
+          });
+          showToast(`🔔 ¡Nuevo pedido recibido: #${incomingOrder.orderNumber}!`, 'info');
+        }
+      })
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'orders' },
@@ -2351,6 +2430,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
               if (prev.some((o) => o.id === newOrder.id)) return prev;
               return [newOrder, ...prev];
             });
+            showToast(`🔔 ¡Nuevo pedido recibido: #${newOrder.orderNumber}!`, 'info');
           } else if (payload.eventType === 'UPDATE') {
             const updated = dbToOrder(payload.new);
             setOrders((prev) => prev.map((o) => (o.id === updated.id ? updated : o)));
@@ -2529,6 +2609,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         cancelOrder,
         updateOrderStatus,
         updateOrder,
+        syncOrders,
         isOrderHistoryModalOpen,
         openOrderHistoryModal,
         closeOrderHistoryModal,
