@@ -159,7 +159,7 @@ export const ProductListRow: React.FC<ProductListRowProps> = ({ product }) => {
                 setItemQuantity(product, isNaN(val) ? 0 : val);
               }}
               onClick={(e) => e.stopPropagation()}
-              className="w-10 text-center text-xs font-black text-slate-800 font-mono bg-transparent outline-none focus:bg-emerald-50 rounded"
+              className="w-10 text-center text-base sm:text-xs font-black text-slate-800 font-mono bg-transparent outline-none focus:bg-emerald-50 rounded"
               title="Cantidad a pedir"
             />
             <button

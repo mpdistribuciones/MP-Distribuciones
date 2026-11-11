@@ -4,21 +4,16 @@ import {
   CheckCircle2,
   XCircle,
   Clock,
-  MessageCircle,
-  Phone,
-  AlertTriangle,
   RotateCw,
-  User as UserIcon,
-  MapPin,
-  ChevronDown,
-  ChevronUp,
-  PackageCheck,
   PackageX,
-  CreditCard,
-  Building,
+  Eye,
+  Edit3,
+  MapPin,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Order, CartItem, OrderStatus } from '../types';
+import { AdminOrderDetailModal, getConfirmationWaLink } from './AdminOrderDetailModal';
+import { AdminOrderEditModal } from './AdminOrderEditModal';
 import { StockShortageModal } from './StockShortageModal';
 
 interface ShortageItem {
@@ -33,6 +28,7 @@ export const AdminOrdersView: React.FC = () => {
     products,
     confirmOrder,
     cancelOrder,
+    updateOrder,
     formatPrice,
     exchangeRate,
     syncWithSupabase,
@@ -41,8 +37,12 @@ export const AdminOrdersView: React.FC = () => {
 
   const [statusFilter, setStatusFilter] = useState<'all' | OrderStatus>('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [expandedOrders, setExpandedOrders] = useState<Record<string, boolean>>({});
   const [processingOrderId, setProcessingOrderId] = useState<string | null>(null);
+
+  // Modals state
+  const [selectedDetailOrder, setSelectedDetailOrder] = useState<Order | null>(null);
+  const [selectedEditOrder, setSelectedEditOrder] = useState<Order | null>(null);
+  const [isSavingEdit, setIsSavingEdit] = useState(false);
 
   // Shortage modal state
   const [shortageModalState, setShortageModalState] = useState<{
@@ -54,43 +54,6 @@ export const AdminOrdersView: React.FC = () => {
     order: null,
     shortages: [],
   });
-
-  // Toggle order items expansion
-  const toggleExpand = (orderId: string) => {
-    setExpandedOrders((prev) => ({
-      ...prev,
-      [orderId]: !prev[orderId],
-    }));
-  };
-
-  // Helper to sanitize phone for WhatsApp wa.me link
-  const getWhatsAppLink = (order: Order) => {
-    let rawPhone = order.phone || '';
-    let cleaned = rawPhone.replace(/\D/g, '');
-    if (cleaned.startsWith('0')) cleaned = cleaned.substring(1);
-    if (!cleaned.startsWith('549') && !cleaned.startsWith('54')) {
-      cleaned = `549${cleaned}`;
-    } else if (cleaned.startsWith('54') && !cleaned.startsWith('549')) {
-      cleaned = `549${cleaned.substring(2)}`;
-    }
-
-    const customerName = order.buyerName || order.userBusinessName || 'Cliente';
-    const totalFormatted =
-      order.totalARS > 0
-        ? `$ ${Math.round(order.totalARS).toLocaleString('es-AR')} ARS (u$s ${order.totalUSD.toFixed(2)})`
-        : `u$s ${order.totalUSD.toFixed(2)}`;
-
-    const message =
-      `Hola *${customerName}*! 👋 Te escribimos de *MP Distribuciones* respecto a tu pedido *#${order.orderNumber}*.\n\n` +
-      `✅ Tu pedido ha sido confirmado por un total de *${totalFormatted}*.\n\n` +
-      `💳 *Datos para realizar la transferencia bancaria:*\n` +
-      `• Titular: MP Distribuciones\n` +
-      `• Por favor indicanos tu comprobante por este medio para coordinar la entrega o retiro.\n\n` +
-      `¡Muchas gracias por elegirnos!`;
-
-    const encoded = encodeURIComponent(message);
-    return cleaned ? `https://wa.me/${cleaned}?text=${encoded}` : `https://wa.me/5493413422310?text=${encoded}`;
-  };
 
   // Filter orders
   const filteredOrders = useMemo(() => {
@@ -125,6 +88,12 @@ export const AdminOrdersView: React.FC = () => {
     });
   }, [orders, statusFilter, searchTerm]);
 
+  // Keep selectedDetailOrder in sync with latest orders state
+  const activeDetailOrder = useMemo(() => {
+    if (!selectedDetailOrder) return null;
+    return orders.find((o) => o.id === selectedDetailOrder.id) || selectedDetailOrder;
+  }, [orders, selectedDetailOrder]);
+
   // Counts
   const counts = useMemo(() => {
     const total = orders.length;
@@ -134,7 +103,7 @@ export const AdminOrdersView: React.FC = () => {
     return { total, pending, confirmed, cancelled };
   }, [orders]);
 
-  // Actions
+  // Action: Confirm Order
   const handleConfirmClick = async (order: Order) => {
     setProcessingOrderId(order.id);
     try {
@@ -145,6 +114,15 @@ export const AdminOrdersView: React.FC = () => {
           order,
           shortages: result.shortages,
         });
+        return;
+      }
+
+      if (result.success) {
+        // Automatically send confirmation message via WhatsApp to the customer
+        const waLink = getConfirmationWaLink(order, exchangeRate);
+        if (waLink) {
+          window.open(waLink, '_blank');
+        }
       }
     } finally {
       setProcessingOrderId(null);
@@ -153,10 +131,17 @@ export const AdminOrdersView: React.FC = () => {
 
   const handleConfirmAdjusted = async (adjustedItems: { productId: string; quantity: number }[]) => {
     if (!shortageModalState.order) return;
-    setProcessingOrderId(shortageModalState.order.id);
+    const targetOrder = shortageModalState.order;
+    setProcessingOrderId(targetOrder.id);
     try {
-      await confirmOrder(shortageModalState.order.id, { adjustedItems });
-      setShortageModalState({ isOpen: false, order: null, shortages: [] });
+      const result = await confirmOrder(targetOrder.id, { adjustedItems });
+      if (result.success) {
+        setShortageModalState({ isOpen: false, order: null, shortages: [] });
+        const waLink = getConfirmationWaLink(targetOrder, exchangeRate);
+        if (waLink) {
+          window.open(waLink, '_blank');
+        }
+      }
     } finally {
       setProcessingOrderId(null);
     }
@@ -164,15 +149,23 @@ export const AdminOrdersView: React.FC = () => {
 
   const handleConfirmNegative = async () => {
     if (!shortageModalState.order) return;
-    setProcessingOrderId(shortageModalState.order.id);
+    const targetOrder = shortageModalState.order;
+    setProcessingOrderId(targetOrder.id);
     try {
-      await confirmOrder(shortageModalState.order.id, { allowNegativeStock: true });
-      setShortageModalState({ isOpen: false, order: null, shortages: [] });
+      const result = await confirmOrder(targetOrder.id, { allowNegativeStock: true });
+      if (result.success) {
+        setShortageModalState({ isOpen: false, order: null, shortages: [] });
+        const waLink = getConfirmationWaLink(targetOrder, exchangeRate);
+        if (waLink) {
+          window.open(waLink, '_blank');
+        }
+      }
     } finally {
       setProcessingOrderId(null);
     }
   };
 
+  // Action: Cancel Order
   const handleCancelClick = async (order: Order) => {
     if (
       window.confirm(
@@ -188,76 +181,92 @@ export const AdminOrdersView: React.FC = () => {
     }
   };
 
+  // Action: Save Edited Order
+  const handleSaveEditedOrder = async (
+    orderId: string,
+    updatedData: { items: CartItem[]; totalUSD: number; totalARS: number; notes?: string }
+  ) => {
+    setIsSavingEdit(true);
+    try {
+      const success = await updateOrder(orderId, updatedData);
+      if (success) {
+        setSelectedEditOrder(null);
+      }
+    } finally {
+      setIsSavingEdit(false);
+    }
+  };
+
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-4 sm:space-y-5 animate-fadeIn">
       {/* Top Banner / Summary Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
         {/* Total */}
         <div
           onClick={() => setStatusFilter('all')}
-          className={`p-4 rounded-2xl bg-white border cursor-pointer transition-all ${
+          className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border cursor-pointer transition-all ${
             statusFilter === 'all'
               ? 'border-blue-500 shadow-md ring-2 ring-blue-500/10'
               : 'border-slate-200 hover:border-slate-300'
           }`}
         >
-          <p className="text-xs font-semibold text-slate-500">Total Pedidos</p>
-          <h4 className="text-2xl font-black text-slate-900 mt-0.5">{counts.total}</h4>
-          <p className="text-[11px] text-slate-500 font-medium">Registrados en el sistema</p>
+          <p className="text-[11px] sm:text-xs font-semibold text-slate-500">Total Pedidos</p>
+          <h4 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">{counts.total}</h4>
+          <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium">Registrados en el sistema</p>
         </div>
 
         {/* Pendientes */}
         <div
           onClick={() => setStatusFilter('pendiente')}
-          className={`p-4 rounded-2xl bg-white border cursor-pointer transition-all ${
+          className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border cursor-pointer transition-all ${
             statusFilter === 'pendiente'
               ? 'border-amber-500 shadow-md ring-2 ring-amber-500/10'
               : 'border-slate-200 hover:border-slate-300'
           }`}
         >
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold text-amber-700">Pendientes</p>
+            <p className="text-[11px] sm:text-xs font-semibold text-amber-700">Pendientes</p>
             {counts.pending > 0 && (
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping" />
             )}
           </div>
-          <h4 className="text-2xl font-black text-amber-600 mt-0.5">{counts.pending}</h4>
-          <p className="text-[11px] text-amber-700 font-medium">Requieren confirmación</p>
+          <h4 className="text-xl sm:text-2xl font-black text-amber-600 mt-0.5">{counts.pending}</h4>
+          <p className="text-[10px] sm:text-[11px] text-amber-700 font-medium">Requieren confirmación</p>
         </div>
 
         {/* Confirmados */}
         <div
           onClick={() => setStatusFilter('confirmado')}
-          className={`p-4 rounded-2xl bg-white border cursor-pointer transition-all ${
+          className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border cursor-pointer transition-all ${
             statusFilter === 'confirmado'
               ? 'border-emerald-500 shadow-md ring-2 ring-emerald-500/10'
               : 'border-slate-200 hover:border-slate-300'
           }`}
         >
-          <p className="text-xs font-semibold text-emerald-700">Confirmados</p>
-          <h4 className="text-2xl font-black text-emerald-700 mt-0.5">{counts.confirmed}</h4>
-          <p className="text-[11px] text-emerald-600 font-medium">Stock descontado</p>
+          <p className="text-[11px] sm:text-xs font-semibold text-emerald-700">Confirmados</p>
+          <h4 className="text-xl sm:text-2xl font-black text-emerald-700 mt-0.5">{counts.confirmed}</h4>
+          <p className="text-[10px] sm:text-[11px] text-emerald-600 font-medium">Stock descontado</p>
         </div>
 
         {/* Cancelados */}
         <div
           onClick={() => setStatusFilter('cancelado')}
-          className={`p-4 rounded-2xl bg-white border cursor-pointer transition-all ${
+          className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border cursor-pointer transition-all ${
             statusFilter === 'cancelado'
               ? 'border-slate-500 shadow-md ring-2 ring-slate-500/10'
               : 'border-slate-200 hover:border-slate-300'
           }`}
         >
-          <p className="text-xs font-semibold text-slate-500">Cancelados</p>
-          <h4 className="text-2xl font-black text-slate-500 mt-0.5">{counts.cancelled}</h4>
-          <p className="text-[11px] text-slate-400 font-medium">Sin impacto en stock</p>
+          <p className="text-[11px] sm:text-xs font-semibold text-slate-500">Cancelados</p>
+          <h4 className="text-xl sm:text-2xl font-black text-slate-500 mt-0.5">{counts.cancelled}</h4>
+          <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium">Sin impacto en stock</p>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
+      <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3">
         {/* Status Pill Tabs */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto text-xs">
+        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto text-xs w-full sm:w-auto">
           <button
             onClick={() => setStatusFilter('all')}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer whitespace-nowrap ${
@@ -311,7 +320,7 @@ export const AdminOrdersView: React.FC = () => {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Buscar por Nº, cliente, CUIT, teléfono..."
+              placeholder="Buscar Nº, cliente, CUIT, SKU..."
               className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
             />
           </div>
@@ -327,9 +336,9 @@ export const AdminOrdersView: React.FC = () => {
         </div>
       </div>
 
-      {/* Orders List */}
+      {/* Orders List Area */}
       {filteredOrders.length === 0 ? (
-        <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-3">
           <div className="w-12 h-12 mx-auto rounded-full bg-slate-100 text-slate-400 flex items-center justify-center">
             <PackageX className="w-6 h-6" />
           </div>
@@ -343,324 +352,283 @@ export const AdminOrdersView: React.FC = () => {
           </p>
         </div>
       ) : (
-        <div className="space-y-4">
-          {filteredOrders.map((order) => {
-            const isExpanded = !!expandedOrders[order.id];
-            const isPending = order.status === 'pendiente' || order.status === 'enviado';
-            const isConfirmed = order.status === 'confirmado' || order.status === 'completado';
-            const isCancelled = order.status === 'cancelado';
-            const isProcessing = processingOrderId === order.id;
+        <>
+          {/* DESKTOP TABLE VIEW: Compact, dense, high visibility */}
+          <div className="hidden md:block bg-white rounded-2xl border border-slate-200 shadow-2xs overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="bg-slate-100/80 text-slate-600 border-b border-slate-200 font-black uppercase text-[10px] tracking-wider">
+                    <th className="py-3 px-3.5">Nº Pedido</th>
+                    <th className="py-3 px-3">Fecha y Hora</th>
+                    <th className="py-3 px-3">Cliente / Razón Social</th>
+                    <th className="py-3 px-3">Entrega</th>
+                    <th className="py-3 px-3 text-center">Artículos</th>
+                    <th className="py-3 px-3 text-right">Total</th>
+                    <th className="py-3 px-3 text-center">Estado</th>
+                    <th className="py-3 px-3.5 text-right">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {filteredOrders.map((order) => {
+                    const isPending = order.status === 'pendiente' || order.status === 'enviado';
+                    const isConfirmed = order.status === 'confirmado' || order.status === 'completado';
+                    const isCancelled = order.status === 'cancelado';
 
-            // Date format
-            const orderDate = new Date(order.date);
-            const dateStr = orderDate.toLocaleDateString('es-AR', {
-              day: '2-digit',
-              month: 'short',
-              year: 'numeric',
-            });
-            const timeStr = orderDate.toLocaleTimeString('es-AR', {
-              hour: '2-digit',
-              minute: '2-digit',
-            });
+                    const orderDate = new Date(order.date);
+                    const dateStr = orderDate.toLocaleDateString('es-AR', {
+                      day: '2-digit',
+                      month: 'short',
+                    });
+                    const timeStr = orderDate.toLocaleTimeString('es-AR', {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    });
 
-            // Calculate stock status for each item in this order
-            const itemStockAnalysis = order.items.map((it) => {
-              const liveProd = products.find(
-                (p) => p.id === it.product.id || p.sku === it.product.sku
-              );
-              const available = liveProd?.stockQuantity ?? 0;
-              const hasEnough = available >= it.quantity;
-              const isPartial = available > 0 && available < it.quantity;
-              const isOut = available <= 0;
-              return {
-                ...it,
-                available,
-                hasEnough,
-                isPartial,
-                isOut,
-              };
-            });
+                    const totalUnits = order.items.reduce((s, it) => s + it.quantity, 0);
 
-            const hasAnyShortage = itemStockAnalysis.some((s) => !s.hasEnough);
+                    return (
+                      <tr
+                        key={order.id}
+                        className={`hover:bg-slate-50/80 transition-colors cursor-pointer ${
+                          isPending ? 'bg-amber-50/20' : ''
+                        }`}
+                        onClick={() => setSelectedDetailOrder(order)}
+                      >
+                        {/* Nº Pedido */}
+                        <td className="py-3 px-3.5 whitespace-nowrap">
+                          <span className="font-mono font-black text-slate-900 bg-slate-100 px-2 py-0.5 rounded-lg border border-slate-200">
+                            #{order.orderNumber}
+                          </span>
+                        </td>
 
-            return (
-              <div
-                key={order.id}
-                className={`bg-white rounded-2xl border shadow-sm transition-all overflow-hidden ${
-                  isPending
-                    ? 'border-amber-300 ring-1 ring-amber-400/20'
-                    : isConfirmed
-                    ? 'border-emerald-200'
-                    : 'border-slate-200 opacity-80'
-                }`}
-              >
-                {/* Order Top Card Header */}
-                <div className="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 bg-slate-50/50">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-black text-slate-900 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
-                      #{order.orderNumber}
-                    </span>
+                        {/* Fecha */}
+                        <td className="py-3 px-3 whitespace-nowrap text-slate-600">
+                          <div className="font-medium text-slate-800">{dateStr}</div>
+                          <div className="text-[10px] text-slate-400">{timeStr} hs</div>
+                        </td>
 
-                    <span className="text-xs text-slate-500 font-medium">
-                      {dateStr} • {timeStr} hs
-                    </span>
+                        {/* Cliente */}
+                        <td className="py-3 px-3 max-w-[200px]">
+                          <div className="font-bold text-slate-900 truncate">
+                            {order.buyerName || order.userBusinessName}
+                          </div>
+                          {order.cuit && (
+                            <div className="text-[10px] text-slate-400 font-mono">
+                              CUIT: {order.cuit}
+                            </div>
+                          )}
+                        </td>
 
-                    {/* Status Badge */}
+                        {/* Entrega */}
+                        <td className="py-3 px-3 whitespace-nowrap">
+                          <span
+                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-semibold text-[11px] ${
+                              order.deliveryMethod === 'pickup'
+                                ? 'bg-blue-50 text-blue-700'
+                                : 'bg-purple-50 text-purple-700'
+                            }`}
+                          >
+                            <MapPin className="w-3 h-3" />
+                            <span>{order.deliveryMethod === 'pickup' ? 'Retiro Local' : 'Envío Expreso'}</span>
+                          </span>
+                        </td>
+
+                        {/* Artículos */}
+                        <td className="py-3 px-3 text-center whitespace-nowrap">
+                          <span className="font-semibold text-slate-700">
+                            {order.items.length} prods.
+                          </span>
+                          <span className="text-[11px] text-slate-400 block">
+                            ({totalUnits} un.)
+                          </span>
+                        </td>
+
+                        {/* Total */}
+                        <td className="py-3 px-3 text-right whitespace-nowrap">
+                          <div className="font-black text-slate-900">
+                            $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')}
+                          </div>
+                          <div className="text-[10px] font-bold text-blue-600">
+                            u$s {order.totalUSD.toFixed(2).replace('.', ',')} USD
+                          </div>
+                        </td>
+
+                        {/* Estado */}
+                        <td className="py-3 px-3 text-center whitespace-nowrap">
+                          {isPending && (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                              Pendiente
+                            </span>
+                          )}
+                          {isConfirmed && (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-300">
+                              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                              Confirmado
+                            </span>
+                          )}
+                          {isCancelled && (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-300">
+                              <XCircle className="w-3 h-3 text-slate-400" />
+                              Cancelado
+                            </span>
+                          )}
+                        </td>
+
+                        {/* Acciones */}
+                        <td className="py-3 px-3.5 text-right whitespace-nowrap">
+                          <div
+                            className="flex items-center justify-end gap-1.5"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <button
+                              onClick={() => setSelectedDetailOrder(order)}
+                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white font-bold text-xs transition-colors cursor-pointer"
+                              title="Ver detalle completo del pedido"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              <span>Ver Pedido</span>
+                            </button>
+
+                            <button
+                              onClick={() => setSelectedEditOrder(order)}
+                              className="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                              title="Editar pedido (cantidades, eliminar o agregar productos)"
+                            >
+                              <Edit3 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* MOBILE CARD VIEW: Clean, compact cards (< 100px) */}
+          <div className="md:hidden space-y-2.5">
+            {filteredOrders.map((order) => {
+              const isPending = order.status === 'pendiente' || order.status === 'enviado';
+              const isConfirmed = order.status === 'confirmado' || order.status === 'completado';
+              const isCancelled = order.status === 'cancelado';
+
+              const orderDate = new Date(order.date);
+              const dateStr = orderDate.toLocaleDateString('es-AR', {
+                day: '2-digit',
+                month: 'short',
+              });
+
+              return (
+                <div
+                  key={order.id}
+                  onClick={() => setSelectedDetailOrder(order)}
+                  className={`p-3 rounded-xl bg-white border shadow-2xs space-y-2 cursor-pointer active:scale-[0.99] transition-all ${
+                    isPending ? 'border-amber-300 ring-1 ring-amber-400/20' : 'border-slate-200'
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono font-black text-xs text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                        #{order.orderNumber}
+                      </span>
+                      <span className="text-[11px] text-slate-500 font-medium">{dateStr}</span>
+                    </div>
+
                     {isPending && (
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-black bg-amber-100 text-amber-800 border border-amber-300">
-                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                        Pendiente de Confirmación
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                        Pendiente
                       </span>
                     )}
                     {isConfirmed && (
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-900">
                         Confirmado
                       </span>
                     )}
                     {isCancelled && (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-300">
-                        <XCircle className="w-3.5 h-3.5 text-slate-500" />
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">
                         Cancelado
                       </span>
                     )}
                   </div>
 
-                  {/* Order Total */}
-                  <div className="text-right">
-                    <div className="text-base sm:text-lg font-black text-slate-900">
-                      $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')} ARS
-                    </div>
-                    <div className="text-xs font-bold text-blue-600">
-                      u$s {order.totalUSD.toFixed(2).replace('.', ',')} USD
-                    </div>
-                  </div>
-                </div>
-
-                {/* Customer Details & Metadata */}
-                <div className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs border-b border-slate-100">
-                  {/* Buyer Data */}
-                  <div className="space-y-1.5">
-                    <div className="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
-                      Datos del Cliente
-                    </div>
-                    <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
-                      <UserIcon className="w-4 h-4 text-blue-600 shrink-0" />
-                      <span>{order.buyerName || order.userBusinessName || 'Sin nombre'}</span>
-                    </div>
-                    {order.cuit && (
-                      <div className="text-slate-600 flex items-center gap-1.5">
-                        <Building className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        <span>CUIT / DNI: <strong className="text-slate-800">{order.cuit}</strong></span>
+                  <div className="flex items-center justify-between gap-2 pt-0.5">
+                    <div className="min-w-0">
+                      <div className="font-bold text-xs text-slate-900 truncate">
+                        {order.buyerName || order.userBusinessName}
                       </div>
-                    )}
-                    {order.phone && (
-                      <div className="flex items-center gap-2 pt-0.5">
-                        <a
-                          href={`tel:${order.phone}`}
-                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors"
-                        >
-                          <Phone className="w-3 h-3 text-slate-500" />
-                          <span>{order.phone}</span>
-                        </a>
-
-                        <a
-                          href={getWhatsAppLink(order)}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold transition-colors"
-                          title="Contactar al cliente por WhatsApp"
-                        >
-                          <MessageCircle className="w-3 h-3 text-emerald-600" />
-                          <span>WhatsApp</span>
-                        </a>
+                      <div className="text-[11px] text-slate-400">
+                        {order.items.length} prods. ({order.items.reduce((s, it) => s + it.quantity, 0)} un.)
                       </div>
-                    )}
-                  </div>
+                    </div>
 
-                  {/* Delivery & Invoice */}
-                  <div className="space-y-1.5">
-                    <div className="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
-                      Entrega y Facturación
-                    </div>
-                    <div className="text-slate-700 flex items-start gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
-                      <span>
-                        Entrega: <strong className="text-slate-900">{order.shippingAddress || (order.deliveryMethod === 'pickup' ? 'Retiro en Local (San Nicolás 2277, Rosario)' : 'Envío')}</strong>
-                      </span>
-                    </div>
-                    <div className="text-slate-700 flex items-center gap-1.5">
-                      <CreditCard className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      <span>
-                        Factura: <strong className="text-slate-900 font-bold">{order.invoiceType || 'B'}</strong>
-                      </span>
+                    <div className="text-right shrink-0">
+                      <div className="font-black text-xs text-slate-900">
+                        $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')}
+                      </div>
+                      <div className="text-[10px] font-bold text-blue-600">
+                        u$s {order.totalUSD.toFixed(2)} USD
+                      </div>
                     </div>
                   </div>
 
-                  {/* Notes / Observaciones */}
-                  <div className="space-y-1.5">
-                    <div className="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
-                      Observaciones
-                    </div>
-                    {order.notes ? (
-                      <p className="text-slate-700 bg-slate-50 p-2 rounded-lg border border-slate-200 italic leading-snug">
-                        "{order.notes}"
-                      </p>
-                    ) : (
-                      <span className="text-slate-400 italic">Sin observaciones adicionales</span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Items preview and list */}
-                <div className="p-4 sm:p-5 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-xs text-slate-800">
-                        Artículos del Pedido ({order.items.reduce((s, it) => s + it.quantity, 0)} unidades en {order.items.length} productos)
-                      </span>
-                      {isPending && hasAnyShortage && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
-                          <AlertTriangle className="w-3 h-3 text-amber-600" />
-                          Stock faltante detectado
-                        </span>
-                      )}
-                    </div>
+                  <div
+                    className="flex items-center justify-between pt-1.5 border-t border-slate-100"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      onClick={() => setSelectedDetailOrder(order)}
+                      className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 cursor-pointer"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>Ver y Gestionar Pedido</span>
+                    </button>
 
                     <button
-                      onClick={() => toggleExpand(order.id)}
-                      className="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 cursor-pointer"
+                      onClick={() => setSelectedEditOrder(order)}
+                      className="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 cursor-pointer"
                     >
-                      <span>{isExpanded ? 'Ocultar Detalle' : 'Ver Detalle Completo'}</span>
-                      {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                      <Edit3 className="w-3 h-3" />
+                      <span>Editar</span>
                     </button>
                   </div>
-
-                  {/* Items List (Collapsible / Preview) */}
-                  <div className="border border-slate-200 rounded-xl overflow-hidden divide-y divide-slate-100">
-                    {(isExpanded ? itemStockAnalysis : itemStockAnalysis.slice(0, 2)).map((it, idx) => (
-                      <div
-                        key={idx}
-                        className="p-3 flex flex-wrap items-center justify-between gap-3 text-xs hover:bg-slate-50/60"
-                      >
-                        <div className="flex items-center gap-3">
-                          {it.product.imageUrl ? (
-                            <img
-                              src={it.product.imageUrl}
-                              alt={it.product.name}
-                              className="w-10 h-10 object-contain rounded-lg border border-slate-200 bg-white"
-                            />
-                          ) : (
-                            <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-[10px]">
-                              {it.product.sku.substring(0, 4)}
-                            </div>
-                          )}
-
-                          <div>
-                            <div className="font-bold text-slate-900">{it.product.name}</div>
-                            <div className="text-[11px] text-slate-400 font-mono">SKU: {it.product.sku}</div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-4 text-right">
-                          {/* Live Stock Comparison Pill */}
-                          {isPending && (
-                            <div>
-                              {it.hasEnough ? (
-                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-bold text-[11px] border border-emerald-200">
-                                  ✓ Stock: {it.available} un.
-                                </span>
-                              ) : it.isPartial ? (
-                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 font-bold text-[11px] border border-amber-300">
-                                  ⚠️ Solo {it.available} un. disp.
-                                </span>
-                              ) : (
-                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 font-bold text-[11px] border border-rose-200">
-                                  ❌ Sin stock (0 un.)
-                                </span>
-                              )}
-                            </div>
-                          )}
-
-                          <div>
-                            <div className="font-bold text-slate-900">
-                              {it.quantity} un. × {formatPrice(it.product.priceUSD)}
-                            </div>
-                            <div className="text-[11px] text-slate-500">
-                              Subtotal: {formatPrice(it.product.priceUSD * it.quantity)}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-
-                    {!isExpanded && itemStockAnalysis.length > 2 && (
-                      <div
-                        onClick={() => toggleExpand(order.id)}
-                        className="p-2 text-center text-xs font-semibold text-slate-500 hover:text-blue-600 bg-slate-50 cursor-pointer"
-                      >
-                        + Ver {itemStockAnalysis.length - 2} productos más...
-                      </div>
-                    )}
-                  </div>
                 </div>
-
-                {/* Actions Bar */}
-                <div className="p-4 sm:p-5 bg-slate-50/70 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    {order.confirmedAt && (
-                      <span className="text-xs text-emerald-700 font-medium">
-                        Confirmado el {new Date(order.confirmedAt).toLocaleDateString('es-AR')} a las{' '}
-                        {new Date(order.confirmedAt).toLocaleTimeString('es-AR', {
-                          hour: '2-digit',
-                          minute: '2-digit',
-                        })}{' '}
-                        hs
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-2 flex-wrap">
-                    {/* WhatsApp Quick Reply */}
-                    <a
-                      href={getWhatsAppLink(order)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition-colors cursor-pointer"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      <span>Responder por WhatsApp</span>
-                    </a>
-
-                    {/* Pending Actions */}
-                    {isPending && (
-                      <>
-                        <button
-                          onClick={() => handleCancelClick(order)}
-                          disabled={isProcessing}
-                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-rose-50 border border-slate-200 hover:border-rose-300 text-rose-600 font-bold text-xs transition-colors cursor-pointer disabled:opacity-50"
-                        >
-                          <XCircle className="w-4 h-4" />
-                          <span>Cancelar Pedido</span>
-                        </button>
-
-                        <button
-                          onClick={() => handleConfirmClick(order)}
-                          disabled={isProcessing}
-                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs shadow-md transition-all cursor-pointer disabled:opacity-50"
-                        >
-                          <PackageCheck className="w-4 h-4" />
-                          <span>{isProcessing ? 'Verificando...' : 'Confirmar Pedido y Descontar Stock'}</span>
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </>
       )}
+
+      {/* Order Detail Modal */}
+      <AdminOrderDetailModal
+        isOpen={selectedDetailOrder !== null}
+        onClose={() => setSelectedDetailOrder(null)}
+        order={activeDetailOrder}
+        products={products}
+        onConfirm={handleConfirmClick}
+        onCancel={handleCancelClick}
+        onEdit={(ord) => {
+          setSelectedEditOrder(ord);
+        }}
+        isProcessing={processingOrderId !== null}
+        formatPrice={formatPrice}
+        exchangeRate={exchangeRate}
+      />
+
+      {/* Order Edit Modal */}
+      <AdminOrderEditModal
+        isOpen={selectedEditOrder !== null}
+        onClose={() => setSelectedEditOrder(null)}
+        order={selectedEditOrder}
+        products={products}
+        exchangeRate={exchangeRate}
+        formatPrice={formatPrice}
+        onSave={handleSaveEditedOrder}
+        isSaving={isSavingEdit}
+      />
 
       {/* Stock Shortage Warning Modal */}
       <StockShortageModal

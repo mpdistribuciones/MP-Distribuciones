@@ -113,6 +113,10 @@ interface AppContextType {
   }>;
   cancelOrder: (orderId: string) => Promise<{ success: boolean; error?: string }>;
   updateOrderStatus: (orderId: string, status: OrderStatus) => Promise<boolean>;
+  updateOrder: (
+    orderId: string,
+    updatedData: { items: CartItem[]; totalUSD: number; totalARS: number; notes?: string }
+  ) => Promise<boolean>;
   isOrderHistoryModalOpen: boolean;
   openOrderHistoryModal: () => void;
   closeOrderHistoryModal: () => void;
@@ -1977,6 +1981,55 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return true;
   };
 
+  const updateOrder = async (
+    orderId: string,
+    updatedData: { items: CartItem[]; totalUSD: number; totalARS: number; notes?: string }
+  ): Promise<boolean> => {
+    const order = orders.find((o) => o.id === orderId);
+    if (!order) return false;
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('orders')
+          .update({
+            items: updatedData.items,
+            total_usd: Number(updatedData.totalUSD.toFixed(2)),
+            total_ars: Math.round(updatedData.totalARS),
+            ...(updatedData.notes !== undefined ? { notes: updatedData.notes } : {}),
+          })
+          .eq('id', orderId);
+        if (error) {
+          console.error('[Supabase Update Order Error]:', error);
+          showToast('Error al actualizar el pedido en la nube', 'error');
+          return false;
+        }
+      } catch (err) {
+        console.error('[Network Error Update Order]:', err);
+        showToast('Error de conexión al actualizar pedido', 'error');
+        return false;
+      }
+    }
+
+    setOrders((prev) =>
+      prev.map((o) =>
+        o.id === orderId
+          ? {
+              ...o,
+              items: updatedData.items,
+              totalUSD: Number(updatedData.totalUSD.toFixed(2)),
+              totalARS: Math.round(updatedData.totalARS),
+              notes: updatedData.notes !== undefined ? updatedData.notes : o.notes,
+            }
+          : o
+      )
+    );
+
+    showToast(`Pedido #${order.orderNumber} actualizado con éxito`, 'success');
+    return true;
+  };
+
   const repeatOrder = (order: Order) => {
     let count = 0;
     order.items.forEach((item) => {
@@ -2475,6 +2528,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         confirmOrder,
         cancelOrder,
         updateOrderStatus,
+        updateOrder,
         isOrderHistoryModalOpen,
         openOrderHistoryModal,
         closeOrderHistoryModal,

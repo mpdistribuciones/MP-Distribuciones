@@ -85,7 +85,7 @@ export const Header: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar producto, marca, código SKU..."
-              className="w-full pl-8 sm:pl-9 pr-7 sm:pr-8 py-1.5 rounded-lg bg-blue-700/60 focus:bg-white focus:text-slate-900 border border-blue-400/40 text-xs text-white placeholder-blue-200 focus:placeholder-slate-400 outline-none transition-all shadow-inner"
+              className="w-full pl-8 sm:pl-9 pr-7 sm:pr-8 py-1.5 rounded-lg bg-blue-700/60 focus:bg-white focus:text-slate-900 border border-blue-400/40 text-base sm:text-xs text-white placeholder-blue-200 focus:placeholder-slate-400 outline-none transition-all shadow-inner leading-normal"
             />
             {searchQuery && (
               <button

@@ -184,7 +184,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     setItemQuantity(product, isNaN(val) ? 0 : val);
                   }}
                   onClick={(e) => e.stopPropagation()}
-                  className="text-sm font-black text-slate-800 font-mono w-12 text-center bg-transparent outline-none focus:bg-emerald-50 rounded"
+                  className="text-base sm:text-sm font-black text-slate-800 font-mono w-12 text-center bg-transparent outline-none focus:bg-emerald-50 rounded"
                   title="Cantidad a pedir"
                 />
 
