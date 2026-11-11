@@ -6,7 +6,6 @@ import {
   MapPin,
   Phone,
   X,
-  ShieldCheck,
   ChevronDown,
   FileSpreadsheet,
   FileText,
@@ -30,9 +29,6 @@ export const Header: React.FC = () => {
     setIsOutletOnly,
     showToast,
     products,
-    isAdminLoggedIn,
-    openAdminModal,
-    setIsAdminView,
     openContactModal,
   } = useApp();
 
@@ -101,24 +97,8 @@ export const Header: React.FC = () => {
             )}
           </div>
 
-          {/* Actions: Panel Dueño (Left of Ver Pedido) & Ver Pedido */}
+          {/* Actions: Ver Pedido */}
           <div className="flex items-center gap-2 shrink-0">
-            {/* Panel Dueño (Desktop: placed to the left of Ver Pedido) */}
-            <button
-              onClick={() => {
-                if (isAdminLoggedIn) {
-                  setIsAdminView(true);
-                } else {
-                  openAdminModal();
-                }
-              }}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400/20 hover:bg-amber-400/30 border border-amber-300/40 font-bold text-amber-300 hover:text-white transition-all cursor-pointer shadow-xs text-xs"
-              title="Panel de gestión de stock y precios exclusivo para el dueño"
-            >
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
-              <span>Panel Dueño</span>
-            </button>
-
             {/* Ver Pedido */}
             <button
               onClick={openCartDrawer}
@@ -263,22 +243,6 @@ export const Header: React.FC = () => {
             >
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
               <span>Dónde Estamos</span>
-            </button>
-
-            {/* Mobile-only Panel Dueño button */}
-            <span className="sm:hidden text-blue-400/60">|</span>
-            <button
-              onClick={() => {
-                if (isAdminLoggedIn) {
-                  setIsAdminView(true);
-                } else {
-                  openAdminModal();
-                }
-              }}
-              className="sm:hidden flex items-center gap-1 px-2 py-0.5 rounded-lg bg-amber-400/20 text-amber-300 font-bold text-[10px]"
-            >
-              <ShieldCheck className="w-3 h-3 text-amber-400" />
-              <span>Dueño</span>
             </button>
           </div>
 

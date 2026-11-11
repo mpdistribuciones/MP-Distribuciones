@@ -14,6 +14,7 @@ export const AdminLoginModal: React.FC = () => {
     closeAdminModal,
     loginAdmin,
     isAdminLoggedIn,
+    isAdminView,
     setIsAdminView,
   } = useApp();
 
@@ -42,6 +43,13 @@ export const AdminLoginModal: React.FC = () => {
     setIsAdminView(true);
   };
 
+  const handleClose = () => {
+    closeAdminModal();
+    if (isAdminView && !isAdminLoggedIn) {
+      setIsAdminView(false);
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
       <div
@@ -49,7 +57,7 @@ export const AdminLoginModal: React.FC = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          onClick={closeAdminModal}
+          onClick={handleClose}
           className="absolute top-4 right-4 p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors"
         >
           <X className="w-5 h-5" />
@@ -132,7 +140,7 @@ export const AdminLoginModal: React.FC = () => {
             <div className="flex gap-2 pt-2">
               <button
                 type="button"
-                onClick={closeAdminModal}
+                onClick={handleClose}
                 className="flex-1 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition-colors"
               >
                 Cancelar

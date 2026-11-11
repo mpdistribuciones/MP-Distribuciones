@@ -327,23 +327,66 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const isAdminUser = (u: { app_metadata?: Record<string, any> } | null | undefined): boolean =>
     u?.app_metadata?.role === 'admin';
 
+  // Helper para verificar si la URL actual corresponde a la ruta administrativa /admin
+  const checkIsAdminPath = (): boolean => {
+    if (typeof window === 'undefined') return false;
+    const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+    return path === '/admin';
+  };
+
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState<boolean>(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
-  const [isAdminView, setIsAdminView] = useState(false);
+  const [isAdminView, setIsAdminViewState] = useState<boolean>(checkIsAdminPath);
+
+  const setIsAdminView = (val: boolean) => {
+    setIsAdminViewState(val);
+    if (typeof window !== 'undefined') {
+      const currentPath = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+      if (val && currentPath !== '/admin') {
+        window.history.pushState({}, '', '/admin');
+      } else if (!val && currentPath === '/admin') {
+        window.history.pushState({}, '', '/');
+      }
+    }
+  };
 
   useEffect(() => {
     const client = getSupabaseClient();
     if (!client) return;
     client.auth.getSession().then(({ data }) => {
-      setIsAdminLoggedIn(isAdminUser(data.session?.user));
+      const isAdmin = isAdminUser(data.session?.user);
+      setIsAdminLoggedIn(isAdmin);
+      if (checkIsAdminPath()) {
+        setIsAdminViewState(true);
+        if (!isAdmin) {
+          setIsAdminModalOpen(true);
+        }
+      }
     });
     const { data: sub } = client.auth.onAuthStateChange((_event, session) => {
       const isAdmin = isAdminUser(session?.user);
       setIsAdminLoggedIn(isAdmin);
-      if (!isAdmin) setIsAdminView(false);
+      if (!isAdmin) {
+        if (!checkIsAdminPath()) {
+          setIsAdminView(false);
+        }
+      }
     });
     return () => sub.subscription.unsubscribe();
   }, []);
+
+  // Sincronizar con navegación del navegador (atrás/adelante)
+  useEffect(() => {
+    const handlePopState = () => {
+      const isAdminRoute = checkIsAdminPath();
+      setIsAdminViewState(isAdminRoute);
+      if (isAdminRoute && !isAdminLoggedIn) {
+        setIsAdminModalOpen(true);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [isAdminLoggedIn]);
 
   const openAdminModal = () => setIsAdminModalOpen(true);
   const closeAdminModal = () => setIsAdminModalOpen(false);
