@@ -2485,6 +2485,32 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       .channel('mp_admin_realtime')
       .on(
         'postgres_changes',
+        { event: '*', schema: 'public', table: 'orders' },
+        (payload) => {
+          console.log('⚡ [Admin Realtime Postgres Changes] orders:', payload);
+          if (payload.eventType === 'INSERT') {
+            const newOrder = dbToOrder(payload.new);
+            setOrders((prev) => {
+              if (prev.some((o) => o.id === newOrder.id || o.orderNumber === newOrder.orderNumber)) {
+                return prev;
+              }
+              return [newOrder, ...prev];
+            });
+            playOrderSound();
+            showToast(`🔔 ¡Nuevo pedido recibido: #${newOrder.orderNumber}!`, 'info');
+          } else if (payload.eventType === 'UPDATE') {
+            const updated = dbToOrder(payload.new);
+            setOrders((prev) => prev.map((o) => (o.id === updated.id ? updated : o)));
+          } else if (payload.eventType === 'DELETE') {
+            const deletedId = String(payload.old?.id);
+            if (deletedId) {
+              setOrders((prev) => prev.filter((o) => o.id !== deletedId));
+            }
+          }
+        }
+      )
+      .on(
+        'postgres_changes',
         { event: '*', schema: 'public', table: 'product_costs' },
         (payload) => {
           if (payload.eventType === 'INSERT' || payload.eventType === 'UPDATE') {
