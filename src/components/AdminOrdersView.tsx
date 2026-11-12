@@ -40,14 +40,10 @@ export const AdminOrdersView: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [processingOrderId, setProcessingOrderId] = useState<string | null>(null);
 
-  // Auto-sync inmediata en tiempo real: polling cada 4 segundos + evento focus + BroadcastChannel
+  // Auto-sync en tiempo real: sincronización al abrir + evento focus + BroadcastChannel
   useEffect(() => {
     // Sincronización inmediata al abrir la vista
     syncOrders();
-
-    const interval = setInterval(() => {
-      syncOrders();
-    }, 4000);
 
     const handleFocus = () => {
       if (document.visibilityState === 'visible') {
@@ -69,7 +65,6 @@ export const AdminOrdersView: React.FC = () => {
     }
 
     return () => {
-      clearInterval(interval);
       window.removeEventListener('focus', handleFocus);
       document.removeEventListener('visibilitychange', handleFocus);
       if (bc) bc.close();

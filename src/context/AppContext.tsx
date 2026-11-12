@@ -2534,27 +2534,19 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
   }, [isAdminLoggedIn]);
 
-  // Polling automático permanente en segundo plano para administradores (cada 3 segundos)
+  // Red de seguridad pasiva cada 60s (el tiempo real primario e instantáneo funciona 100% por WebSocket Push)
   useEffect(() => {
     if (!isAdminLoggedIn && !isAdminView) return;
 
-    let isMounted = true;
-    let timerId: any = null;
-
-    const poll = async () => {
-      if (!isMounted) return;
-      await syncOrders();
-      if (isMounted) {
-        timerId = setTimeout(poll, 3000);
+    // Respaldo pasivo cada 60 segundos solo si la pestaña está visible, para 0 consumo en reposo
+    const interval = setInterval(() => {
+      if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+        syncOrders();
       }
-    };
-
-    // Primera ejecución a los 3 segundos
-    timerId = setTimeout(poll, 3000);
+    }, 60000);
 
     return () => {
-      isMounted = false;
-      if (timerId) clearTimeout(timerId);
+      clearInterval(interval);
     };
   }, [isAdminLoggedIn, isAdminView]);
 
