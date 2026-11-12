@@ -2534,16 +2534,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     };
   }, [isAdminLoggedIn]);
 
-  // Red de seguridad pasiva cada 60s (el tiempo real primario e instantáneo funciona 100% por WebSocket Push)
+  // Sincronización automática continua para administradores (cada 4s mientras la pantalla esté activa)
   useEffect(() => {
     if (!isAdminLoggedIn && !isAdminView) return;
 
-    // Respaldo pasivo cada 60 segundos solo si la pestaña está visible, para 0 consumo en reposo
+    // Respaldo cada 4 segundos solo si la pestaña está visible (0 consumo al minimizar o cambiar de app)
     const interval = setInterval(() => {
       if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
         syncOrders();
       }
-    }, 60000);
+    }, 4000);
 
     return () => {
       clearInterval(interval);
