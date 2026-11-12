@@ -460,7 +460,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         profitMargin: undefined,
       }))
     );
-    setOrders([]);
+    // Si hay un cliente B2B logueado, mantenemos sus pedidos; si no, limpiamos
+    if (user) {
+      setOrders((prev) => prev.filter((o) => o.userId === user.id || o.cuit === user.cuit));
+    }
     showToast('Sesión de Administrador cerrada.', 'info');
   };
 
@@ -1317,6 +1320,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     } catch {}
     setIsAuthModalOpen(false);
     showToast(`¡Bienvenido de nuevo, ${activeUser.businessName}!`, 'success');
+    // Sincronizar inmediatamente el historial de pedidos del cliente
+    setTimeout(() => {
+      syncOrders();
+    }, 100);
     return { success: true, user: activeUser };
   };
 
@@ -1776,7 +1783,28 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       date: now.toISOString(),
       status: 'pendiente',
     };
-    setOrders((prev) => [newOrder, ...prev]);
+    setOrders((prev) => {
+      const updated = [newOrder, ...prev];
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(updated));
+        if (newOrder.userId) {
+          const uKey = `mp_user_orders_${newOrder.userId}`;
+          const current = localStorage.getItem(uKey);
+          const parsed = current ? JSON.parse(current) : [];
+          localStorage.setItem(uKey, JSON.stringify([newOrder, ...parsed.filter((o: any) => o.id !== newOrder.id)]));
+        }
+        if (newOrder.cuit) {
+          const cleanCuit = newOrder.cuit.replace(/[^0-9a-zA-Z]/g, '').toLowerCase();
+          if (cleanCuit && cleanCuit !== 'sd') {
+            const cKey = `mp_user_orders_${cleanCuit}`;
+            const current = localStorage.getItem(cKey);
+            const parsed = current ? JSON.parse(current) : [];
+            localStorage.setItem(cKey, JSON.stringify([newOrder, ...parsed.filter((o: any) => o.id !== newOrder.id)]));
+          }
+        }
+      } catch {}
+      return updated;
+    });
 
     // Supabase Cloud Persist & Realtime Instant Broadcast
     const client = getSupabaseClient();
@@ -2110,17 +2138,41 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     () => products.length === 0 && isSupabaseConfigured()
   );
 
-  // Sincronización ligera exclusiva de pedidos (ultrarrápida para actualización inmediata)
+  // Sincronización ligera de pedidos (para panel de admin o historial del cliente)
   const syncOrders = async (): Promise<void> => {
     const client = getSupabaseClient();
     if (!client) return;
 
     try {
-      const { data: dbOrders, error: ordErr } = await client
-        .from('orders')
-        .select('*')
-        .order('date', { ascending: false })
-        .limit(100);
+      let currentCustomer = user;
+      if (!currentCustomer) {
+        try {
+          const saved = localStorage.getItem(LOCAL_STORAGE_KEY_USER);
+          if (saved) currentCustomer = JSON.parse(saved);
+        } catch {}
+      }
+
+      let query = client.from('orders').select('*').order('date', { ascending: false });
+
+      // Si no es admin y hay un cliente autenticado, filtramos por sus datos
+      if (!isAdminLoggedIn && !isAdminView) {
+        if (!currentCustomer) return;
+        const orConditions: string[] = [];
+        if (currentCustomer.id) orConditions.push(`user_id.eq.${currentCustomer.id}`);
+        if (currentCustomer.cuit && currentCustomer.cuit !== 'S/D') {
+          orConditions.push(`customer_cuit.eq.${currentCustomer.cuit}`);
+        }
+        if (currentCustomer.businessName) {
+          orConditions.push(`user_business_name.ilike.${currentCustomer.businessName}`);
+        }
+        if (orConditions.length > 0) {
+          query = query.or(orConditions.join(','));
+        }
+      } else {
+        query = query.limit(100);
+      }
+
+      const { data: dbOrders, error: ordErr } = await query;
 
       if (ordErr) {
         console.warn('[Sync Orders Error]:', ordErr);
@@ -2130,13 +2182,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (dbOrders) {
         const mappedOrders = dbOrders.map(dbToOrder);
         setOrders((prev) => {
-          const prevMap = new Map(prev.map((o) => [o.id, o]));
-          const hasNew = mappedOrders.some((o) => !prevMap.has(o.id));
-          if (hasNew && prev.length > 0) {
-            playOrderSound();
-            showToast('🔔 ¡Nuevo pedido recibido en tiempo real!', 'info');
+          if (isAdminLoggedIn || isAdminView) {
+            const prevMap = new Map(prev.map((o) => [o.id, o]));
+            const hasNew = mappedOrders.some((o) => !prevMap.has(o.id));
+            if (hasNew && prev.length > 0) {
+              playOrderSound();
+              showToast('🔔 ¡Nuevo pedido recibido en tiempo real!', 'info');
+            }
+            return mappedOrders;
+          } else {
+            // Para cliente: combinar los pedidos del cliente sin perder pedidos locales
+            const map = new Map(mappedOrders.map((o) => [o.id, o]));
+            prev.forEach((o) => {
+              if (!map.has(o.id)) map.set(o.id, o);
+            });
+            return Array.from(map.values()).sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            );
           }
-          return mappedOrders;
         });
 
         try {
@@ -2282,6 +2345,54 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           }
         } catch (uErr) {
           console.warn('[Supabase Sync B2B Users]:', uErr);
+        }
+      } else {
+        // Para clientes B2B autenticados: sincronizar sus propios pedidos
+        let currentCustomer = user;
+        if (!currentCustomer) {
+          try {
+            const saved = localStorage.getItem(LOCAL_STORAGE_KEY_USER);
+            if (saved) currentCustomer = JSON.parse(saved);
+          } catch {}
+        }
+
+        if (currentCustomer) {
+          try {
+            const orConditions: string[] = [];
+            if (currentCustomer.id) orConditions.push(`user_id.eq.${currentCustomer.id}`);
+            if (currentCustomer.cuit && currentCustomer.cuit !== 'S/D') {
+              orConditions.push(`customer_cuit.eq.${currentCustomer.cuit}`);
+            }
+            if (currentCustomer.businessName) {
+              orConditions.push(`user_business_name.ilike.${currentCustomer.businessName}`);
+            }
+
+            if (orConditions.length > 0) {
+              const { data: userOrders, error: uErr } = await client
+                .from('orders')
+                .select('*')
+                .or(orConditions.join(','))
+                .order('date', { ascending: false });
+
+              if (!uErr && userOrders && userOrders.length > 0) {
+                const mapped = userOrders.map(dbToOrder);
+                setOrders((prev) => {
+                  const map = new Map(mapped.map((o) => [o.id, o]));
+                  prev.forEach((o) => {
+                    if (!map.has(o.id)) map.set(o.id, o);
+                  });
+                  return Array.from(map.values()).sort(
+                    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+                  );
+                });
+                try {
+                  localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(mapped));
+                } catch {}
+              }
+            }
+          } catch (cErr) {
+            console.warn('[Supabase Sync Customer Orders]:', cErr);
+          }
         }
       }
 

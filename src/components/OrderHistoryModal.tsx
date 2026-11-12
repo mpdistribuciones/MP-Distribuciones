@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
+import { Order } from '../types';
 import {
   X,
   History,
@@ -20,16 +21,63 @@ export const OrderHistoryModal: React.FC = () => {
     user,
     openAuthModal,
     exchangeRate,
+    syncOrders,
   } = useApp();
 
-  if (!isOrderHistoryModalOpen) return null;
+  // Sincronizar pedidos con Supabase al abrir el historial
+  useEffect(() => {
+    if (isOrderHistoryModalOpen && user) {
+      syncOrders();
+    }
+  }, [isOrderHistoryModalOpen, user]);
 
-  // Filter orders for current logged in user
-  const userOrders = user
-    ? orders.filter(
-        (o) => o.userId === user.id || o.userBusinessName.toLowerCase() === user.businessName.toLowerCase()
-      )
-    : [];
+  // Filtrar pedidos del cliente actual con alta tolerancia (por ID, CUIT, Razón Social o backup local)
+  const userOrders = useMemo<Order[]>(() => {
+    if (!user) return [];
+    const cleanUserCuit = user.cuit ? user.cuit.replace(/[^0-9a-zA-Z]/g, '').toLowerCase() : '';
+    const cleanBusiness = (user.businessName || '').trim().toLowerCase();
+
+    // 1. Filtrar desde el estado orders de AppContext
+    const matched = orders.filter((o) => {
+      // Coincidencia por ID de usuario
+      if (o.userId && (o.userId === user.id || (user.id && o.userId.includes(user.id)))) {
+        return true;
+      }
+      // Coincidencia por CUIT
+      if (cleanUserCuit && cleanUserCuit !== 'sd') {
+        const orderCuit = (o.cuit || '').replace(/[^0-9a-zA-Z]/g, '').toLowerCase();
+        if (orderCuit && orderCuit === cleanUserCuit) return true;
+      }
+      // Coincidencia por Razón Social o Nombre
+      if (cleanBusiness) {
+        const orderBiz = (o.userBusinessName || '').trim().toLowerCase();
+        const orderBuyer = (o.buyerName || '').trim().toLowerCase();
+        if (orderBiz === cleanBusiness || orderBuyer === cleanBusiness) return true;
+      }
+      return false;
+    });
+
+    // 2. Respaldo local de seguridad: leer pedidos guardados para este usuario
+    try {
+      const uKey = `mp_user_orders_${user.id}`;
+      const cKey = cleanUserCuit ? `mp_user_orders_${cleanUserCuit}` : '';
+      const savedU = localStorage.getItem(uKey);
+      const savedC = cKey ? localStorage.getItem(cKey) : null;
+      const parsedU: Order[] = savedU ? JSON.parse(savedU) : [];
+      const parsedC: Order[] = savedC ? JSON.parse(savedC) : [];
+      const combined = [...matched, ...parsedU, ...parsedC];
+      const seen = new Set<string>();
+      return combined.filter((o): o is Order => {
+        if (!o || !o.id || seen.has(o.id)) return false;
+        seen.add(o.id);
+        return true;
+      });
+    } catch {
+      return matched;
+    }
+  }, [orders, user]);
+
+  if (!isOrderHistoryModalOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
