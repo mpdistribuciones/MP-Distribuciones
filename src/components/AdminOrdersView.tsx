@@ -9,6 +9,7 @@ import {
   Eye,
   Edit3,
   MapPin,
+  Trash2,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Order, CartItem, OrderStatus } from '../types';
@@ -29,6 +30,7 @@ export const AdminOrdersView: React.FC = () => {
     confirmOrder,
     cancelOrder,
     updateOrder,
+    deleteOrders,
     syncOrders,
     formatPrice,
     exchangeRate,
@@ -39,6 +41,8 @@ export const AdminOrdersView: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<'all' | OrderStatus>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [processingOrderId, setProcessingOrderId] = useState<string | null>(null);
+  const [selectedOrderIds, setSelectedOrderIds] = useState<string[]>([]);
+  const [isDeletingSelected, setIsDeletingSelected] = useState(false);
 
   // Auto-sync continua en tiempo real: sincronización cada 4 segundos (solo con pestaña activa) + foco + BroadcastChannel
   useEffect(() => {
@@ -221,6 +225,62 @@ export const AdminOrdersView: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const validIds = new Set(orders.map((order) => order.id));
+    setSelectedOrderIds((prev) => {
+      const next = prev.filter((id) => validIds.has(id));
+      return next.length === prev.length ? prev : next;
+    });
+  }, [orders]);
+
+  const allFilteredSelected =
+    filteredOrders.length > 0 &&
+    filteredOrders.every((order) => selectedOrderIds.includes(order.id));
+
+  const toggleSelectOrder = (orderId: string) => {
+    setSelectedOrderIds((prev) =>
+      prev.includes(orderId) ? prev.filter((id) => id !== orderId) : [...prev, orderId]
+    );
+  };
+
+  const toggleSelectAllFiltered = () => {
+    if (allFilteredSelected) {
+      const filteredSet = new Set(filteredOrders.map((order) => order.id));
+      setSelectedOrderIds((prev) => prev.filter((id) => !filteredSet.has(id)));
+      return;
+    }
+
+    setSelectedOrderIds((prev) => {
+      const next = new Set(prev);
+      filteredOrders.forEach((order) => next.add(order.id));
+      return Array.from(next);
+    });
+  };
+
+  const handleDeleteSelected = async () => {
+    if (selectedOrderIds.length === 0 || isDeletingSelected) return;
+
+    const count = selectedOrderIds.length;
+    const confirmed = window.confirm(
+      `¿Eliminar ${count} ${count === 1 ? 'pedido seleccionado' : 'pedidos seleccionados'} de forma permanente? Esta acción no se puede deshacer.`
+    );
+    if (!confirmed) return;
+
+    setIsDeletingSelected(true);
+    try {
+      const deletedIds = [...selectedOrderIds];
+      const success = await deleteOrders(deletedIds);
+      if (success) {
+        const deletedSet = new Set(deletedIds);
+        setSelectedOrderIds([]);
+        setSelectedDetailOrder((prev) => (prev && deletedSet.has(prev.id) ? null : prev));
+        setSelectedEditOrder((prev) => (prev && deletedSet.has(prev.id) ? null : prev));
+      }
+    } finally {
+      setIsDeletingSelected(false);
+    }
+  };
+
   return (
     <div className="space-y-4 sm:space-y-5 animate-fadeIn">
       {/* Top Banner / Summary Stats */}
@@ -371,6 +431,41 @@ export const AdminOrdersView: React.FC = () => {
         </div>
       </div>
 
+      {/* Bulk selection action bar */}
+      {selectedOrderIds.length > 0 && (
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-2xl bg-red-50 border border-red-200 shadow-2xs">
+          <div className="flex items-center gap-2.5 text-sm font-bold text-red-900">
+            <span className="inline-flex items-center justify-center min-w-6 h-6 px-2 rounded-full bg-red-600 text-white text-xs font-black">
+              {selectedOrderIds.length}
+            </span>
+            <span>
+              {selectedOrderIds.length === 1
+                ? '1 pedido seleccionado'
+                : `${selectedOrderIds.length} pedidos seleccionados`}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setSelectedOrderIds([])}
+              disabled={isDeletingSelected}
+              className="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-100 transition-colors disabled:opacity-50"
+            >
+              Deseleccionar
+            </button>
+            <button
+              type="button"
+              onClick={handleDeleteSelected}
+              disabled={isDeletingSelected}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-black text-white bg-red-600 hover:bg-red-700 transition-colors shadow-2xs disabled:opacity-50"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              {isDeletingSelected ? 'Eliminando...' : 'Eliminar seleccionados'}
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Orders List Area */}
       {filteredOrders.length === 0 ? (
         <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-3">
@@ -394,6 +489,15 @@ export const AdminOrdersView: React.FC = () => {
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
                   <tr className="bg-slate-100/80 text-slate-600 border-b border-slate-200 font-black uppercase text-[10px] tracking-wider">
+                    <th className="py-3 pl-3.5 pr-1 w-10">
+                      <input
+                        type="checkbox"
+                        checked={allFilteredSelected}
+                        onChange={toggleSelectAllFiltered}
+                        aria-label="Seleccionar todos los pedidos visibles"
+                        className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-600"
+                      />
+                    </th>
                     <th className="py-3 px-3.5">Nº Pedido</th>
                     <th className="py-3 px-3">Fecha y Hora</th>
                     <th className="py-3 px-3">Cliente / Razón Social</th>
@@ -421,15 +525,32 @@ export const AdminOrdersView: React.FC = () => {
                     });
 
                     const totalUnits = order.items.reduce((s, it) => s + it.quantity, 0);
+                    const isSelected = selectedOrderIds.includes(order.id);
 
                     return (
                       <tr
                         key={order.id}
                         className={`hover:bg-slate-50/80 transition-colors cursor-pointer ${
-                          isPending ? 'bg-amber-50/20' : ''
+                          isSelected
+                            ? 'bg-blue-50/70'
+                            : isPending
+                            ? 'bg-amber-50/20'
+                            : ''
                         }`}
                         onClick={() => setSelectedDetailOrder(order)}
                       >
+                        <td
+                          className="py-3 pl-3.5 pr-1 whitespace-nowrap"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => toggleSelectOrder(order.id)}
+                            aria-label={`Seleccionar pedido ${order.orderNumber}`}
+                            className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-600"
+                          />
+                        </td>
                         {/* Nº Pedido */}
                         <td className="py-3 px-3.5 whitespace-nowrap">
                           <span className="font-mono font-black text-slate-900 bg-slate-100 px-2 py-0.5 rounded-lg border border-slate-200">
@@ -545,10 +666,27 @@ export const AdminOrdersView: React.FC = () => {
 
           {/* MOBILE CARD VIEW: Clean, compact cards (< 100px) */}
           <div className="md:hidden space-y-2.5">
+            <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-white border border-slate-200 shadow-2xs">
+              <label className="flex items-center gap-2.5 text-xs font-bold text-slate-700 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={allFilteredSelected}
+                  onChange={toggleSelectAllFiltered}
+                  className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-600"
+                />
+                <span>Seleccionar todos ({filteredOrders.length})</span>
+              </label>
+              {selectedOrderIds.length > 0 && (
+                <span className="text-[11px] font-bold text-blue-700">
+                  {selectedOrderIds.length} selec.
+                </span>
+              )}
+            </div>
             {filteredOrders.map((order) => {
               const isPending = order.status === 'pendiente' || order.status === 'enviado';
               const isConfirmed = order.status === 'confirmado' || order.status === 'completado';
               const isCancelled = order.status === 'cancelado';
+              const isSelected = selectedOrderIds.includes(order.id);
 
               const orderDate = new Date(order.date);
               const dateStr = orderDate.toLocaleDateString('es-AR', {
@@ -561,11 +699,24 @@ export const AdminOrdersView: React.FC = () => {
                   key={order.id}
                   onClick={() => setSelectedDetailOrder(order)}
                   className={`p-3 rounded-xl bg-white border shadow-2xs space-y-2 cursor-pointer active:scale-[0.99] transition-all ${
-                    isPending ? 'border-amber-300 ring-1 ring-amber-400/20' : 'border-slate-200'
+                    isSelected
+                      ? 'border-blue-400 bg-blue-50/40 ring-1 ring-blue-400/30'
+                      : isPending
+                      ? 'border-amber-300 ring-1 ring-amber-400/20'
+                      : 'border-slate-200'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
+                      <div onClick={(e) => e.stopPropagation()} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => toggleSelectOrder(order.id)}
+                          aria-label={`Seleccionar pedido ${order.orderNumber}`}
+                          className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-600"
+                        />
+                      </div>
                       <span className="font-mono font-black text-xs text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
                         #{order.orderNumber}
                       </span>

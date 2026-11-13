@@ -117,6 +117,7 @@ interface AppContextType {
     orderId: string,
     updatedData: { items: CartItem[]; totalUSD: number; totalARS: number; notes?: string }
   ) => Promise<boolean>;
+  deleteOrders: (orderIds: string[]) => Promise<boolean>;
   syncOrders: () => Promise<void>;
   isOrderHistoryModalOpen: boolean;
   openOrderHistoryModal: () => void;
@@ -2114,6 +2115,47 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return true;
   };
 
+  const deleteOrders = async (orderIds: string[]): Promise<boolean> => {
+    if (!orderIds || orderIds.length === 0) return true;
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('orders')
+          .delete()
+          .in('id', orderIds);
+
+        if (error) {
+          console.error('[Supabase Delete Orders Error]:', error);
+          showToast('Error al eliminar pedidos en la base de datos', 'error');
+          return false;
+        }
+      } catch (err) {
+        console.error('[Network Error Delete Orders]:', err);
+        showToast('Error de conexión al eliminar pedidos', 'error');
+        return false;
+      }
+    }
+
+    const idSet = new Set(orderIds);
+    setOrders((prev) => {
+      const updated = prev.filter((o) => !idSet.has(o.id));
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    showToast(
+      orderIds.length === 1
+        ? 'Pedido eliminado permanentemente.'
+        : `${orderIds.length} pedidos eliminados permanentemente.`,
+      'success'
+    );
+    return true;
+  };
+
   const repeatOrder = (order: Order) => {
     let count = 0;
     order.items.forEach((item) => {
@@ -2294,7 +2336,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           .select('*')
           .order('date', { ascending: false });
 
-        if (!ordErr && dbOrders && dbOrders.length > 0) {
+        if (!ordErr && dbOrders) {
           const mappedOrders = dbOrders.map(dbToOrder);
           setOrders(mappedOrders);
           try {
@@ -2808,6 +2850,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         cancelOrder,
         updateOrderStatus,
         updateOrder,
+        deleteOrders,
         syncOrders,
         isOrderHistoryModalOpen,
         openOrderHistoryModal,
