@@ -100,10 +100,6 @@ export const AdminUsersView: React.FC = () => {
     setActionProcessingId(u.id);
     try {
       await approveUser(u.id);
-      // Auto offer WhatsApp notification
-      if (window.confirm(`¿Desea abrir WhatsApp para avisar a "${u.businessName}" que su cuenta fue habilitada?`)) {
-        window.open(getWhatsAppLink(u, true), '_blank');
-      }
     } finally {
       setActionProcessingId(null);
     }

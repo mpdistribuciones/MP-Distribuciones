@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Order, CartItem, OrderStatus } from '../types';
-import { AdminOrderDetailModal, getConfirmationWaLink } from './AdminOrderDetailModal';
+import { AdminOrderDetailModal } from './AdminOrderDetailModal';
 import { AdminOrderEditModal } from './AdminOrderEditModal';
 import { StockShortageModal } from './StockShortageModal';
 
@@ -156,14 +156,6 @@ export const AdminOrdersView: React.FC = () => {
         });
         return;
       }
-
-      if (result.success) {
-        // Automatically send confirmation message via WhatsApp to the customer
-        const waLink = getConfirmationWaLink(order, exchangeRate);
-        if (waLink) {
-          window.open(waLink, '_blank');
-        }
-      }
     } finally {
       setProcessingOrderId(null);
     }
@@ -177,10 +169,6 @@ export const AdminOrdersView: React.FC = () => {
       const result = await confirmOrder(targetOrder.id, { adjustedItems });
       if (result.success) {
         setShortageModalState({ isOpen: false, order: null, shortages: [] });
-        const waLink = getConfirmationWaLink(targetOrder, exchangeRate);
-        if (waLink) {
-          window.open(waLink, '_blank');
-        }
       }
     } finally {
       setProcessingOrderId(null);
@@ -195,10 +183,6 @@ export const AdminOrdersView: React.FC = () => {
       const result = await confirmOrder(targetOrder.id, { allowNegativeStock: true });
       if (result.success) {
         setShortageModalState({ isOpen: false, order: null, shortages: [] });
-        const waLink = getConfirmationWaLink(targetOrder, exchangeRate);
-        if (waLink) {
-          window.open(waLink, '_blank');
-        }
       }
     } finally {
       setProcessingOrderId(null);
