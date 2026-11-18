@@ -81,9 +81,9 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         const priceARS =
           productToEdit.priceARS || Math.round(productToEdit.priceUSD * rate);
         const costARS =
-          productToEdit.costARS != null
+          productToEdit.costARS != null && productToEdit.costARS > 0
             ? productToEdit.costARS
-            : productToEdit.costUSD != null
+            : productToEdit.costUSD != null && productToEdit.costUSD > 0
             ? Math.round(productToEdit.costUSD * rate)
             : Math.round(priceARS / (1 + margin / 100));
         setCostInput(costARS);
@@ -92,7 +92,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         setPriceCurrency('USD');
         const priceUSD = productToEdit.priceUSD;
         const costUSD =
-          productToEdit.costUSD != null
+          productToEdit.costUSD != null && productToEdit.costUSD > 0
             ? productToEdit.costUSD
             : priceUSD > 0
             ? Number((priceUSD / (1 + margin / 100)).toFixed(2))
@@ -215,7 +215,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     if (newCurrency === priceCurrency) return;
     setPriceCurrency(newCurrency);
     if (newCurrency === 'USD') {
-      const newCostUSD = Number((costInput / activeRate).toFixed(2));
+      const newCostUSD = Number((costInput / activeRate).toFixed(4));
       setCostInput(newCostUSD);
       const factor = 1 + profitMarginInput / 100;
       setPriceArsInput(Math.round(newCostUSD * activeRate * factor));

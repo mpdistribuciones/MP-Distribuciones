@@ -269,6 +269,150 @@ export const AdminPanel: React.FC = () => {
           return;
         }
 
+        const parseExcelNumber = (val: any): number => {
+          if (typeof val === 'number') return isNaN(val) ? 0 : val;
+          let s = String(val ?? '')
+            .replace(/USD|ARS|u\$s|\$|\s/gi, '')
+            .trim();
+          if (!s) return 0;
+          if (s.includes(',') && s.includes('.')) {
+            if (s.lastIndexOf(',') > s.lastIndexOf('.')) {
+              s = s.replace(/\./g, '').replace(',', '.');
+            } else {
+              s = s.replace(/,/g, '');
+            }
+          } else if (s.includes(',')) {
+            s = s.replace(',', '.');
+          }
+          const n = parseFloat(s);
+          return isNaN(n) ? 0 : n;
+        };
+
+        // Detectar formato oficial LISTA MP PARA WEB.xlsx (Cols: STOCK | NOMBRE | PRECIO DE VENTA | COSTO | FOTO)
+        const matrixRows: any[][] = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: '' });
+        const headerRow = (matrixRows[0] || []).map((c) => String(c || '').trim().toUpperCase());
+        const secondRowFirstCell = String((matrixRows[1] || [])[0] || '').trim().toUpperCase();
+        const isListaMpFormat =
+          (headerRow.includes('PRECIO DE VENTA') && headerRow.includes('COSTO')) ||
+          secondRowFirstCell === 'STOCK';
+
+        if (isListaMpFormat) {
+          const isConfirmReplace = products.length > 0 && window.confirm(
+            `Se detectó la planilla oficial (PRECIO DE VENTA / COSTO).\n\n¿Desea REEMPLAZAR todo el catálogo anterior con este archivo?\n\n• Aceptar: Deja ÚNICAMENTE los artículos de este Excel (respetando fotos e historial).\n• Cancelar: Actualiza precios de venta, costos, porcentajes reales y stock manteniendo el resto del catálogo.`
+          );
+
+          const existingByName = new Map(
+            products.map((p) => [p.name.trim().toLowerCase(), p])
+          );
+          const updated: Product[] = isConfirmReplace ? [] : [...products];
+          let updatedCount = 0;
+          let createdCount = 0;
+          let currentCat: Category = 'VARIOS';
+          let itemSeq = 0;
+
+          for (let r = 1; r < matrixRows.length; r++) {
+            const [colA, colB, colC, colD] = matrixRows[r] || [];
+            const rawA = String(colA ?? '').trim();
+            const rawB = String(colB ?? '').trim();
+            if (!rawB) continue;
+
+            if (rawA.toUpperCase() === 'STOCK' || colC === '' || colC == null) {
+              currentCat = rawB as Category;
+              continue;
+            }
+
+            itemSeq++;
+            const rowName = rawB;
+            const normName = rowName.toLowerCase();
+            const rowStock = Math.max(0, Math.round(parseExcelNumber(colA)));
+            const rawSaleStr = String(colC ?? '').trim().toUpperCase();
+            const isExplicitArs = rawSaleStr.includes('ARS') || (rawSaleStr.startsWith('$') && !rawSaleStr.includes('U$S'));
+            const saleVal = parseExcelNumber(colC);
+            const costVal = parseExcelNumber(colD);
+
+            const prevProd = existingByName.get(normName);
+            const rowDollarKey = prevProd?.dollarRateKey || 'dolar1';
+            const rateForRow = dollarRates[rowDollarKey]?.rate || exchangeRate;
+
+            let rowPriceUSD = 0;
+            let rowPriceARS = 0;
+            let rowCostUSD = 0;
+            let rowCostARS = 0;
+            let calcMargin = 0;
+
+            if (isExplicitArs) {
+              rowPriceARS = Math.max(1, Math.round(saleVal));
+              rowCostARS = costVal > 0 ? Math.round(costVal) : 0;
+              rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
+              rowCostUSD = Number((rowCostARS / rateForRow).toFixed(2));
+              calcMargin = rowCostARS > 0 ? Number((((rowPriceARS - rowCostARS) / rowCostARS) * 100).toFixed(2)) : 0;
+            } else {
+              rowPriceUSD = Math.max(0.01, Number(saleVal.toFixed(2)));
+              rowCostUSD = costVal > 0 ? Number(costVal.toFixed(2)) : rowPriceUSD;
+              calcMargin = rowCostUSD > 0 ? Number((((rowPriceUSD - rowCostUSD) / rowCostUSD) * 100).toFixed(2)) : 0;
+              rowCostARS = Math.round(rowCostUSD * rateForRow);
+              rowPriceARS = Math.max(1, Math.round(rowPriceUSD * rateForRow));
+            }
+
+            const existingIdx = updated.findIndex(
+              (p) => p.name.trim().toLowerCase() === normName
+            );
+
+            if (existingIdx !== -1) {
+              updated[existingIdx] = {
+                ...updated[existingIdx],
+                name: rowName,
+                category: currentCat || updated[existingIdx].category,
+                priceUSD: rowPriceUSD,
+                costUSD: rowCostUSD,
+                priceARS: rowPriceARS,
+                costARS: rowCostARS,
+                profitMargin: calcMargin,
+                priceCurrency: isExplicitArs ? 'ARS' : 'USD',
+                dollarRateKey: rowDollarKey,
+                stockQuantity: rowStock,
+                inStock: rowStock > 0,
+              };
+              updatedCount++;
+            } else {
+              const fallbackId =
+                prevProd?.id || `mp_prod_${String(itemSeq).padStart(4, '0')}`;
+              updated.push({
+                id: fallbackId,
+                name: rowName,
+                category: currentCat,
+                subcategory: prevProd?.subcategory || '',
+                description: prevProd?.description || rowName,
+                specs: prevProd?.specs || ['Garantía oficial MP Distribuciones'],
+                priceUSD: rowPriceUSD,
+                costUSD: rowCostUSD,
+                priceARS: rowPriceARS,
+                costARS: rowCostARS,
+                profitMargin: calcMargin,
+                priceCurrency: isExplicitArs ? 'ARS' : 'USD',
+                dollarRateKey: rowDollarKey,
+                stockQuantity: rowStock,
+                inStock: rowStock > 0,
+                imageUrl: prevProd?.imageUrl || DEFAULT_PRODUCT_IMAGE,
+                minWholesaleQty: prevProd?.minWholesaleQty || 1,
+                createdAt: prevProd?.createdAt || new Date().toISOString(),
+              });
+              createdCount++;
+            }
+          }
+
+          if (isConfirmReplace) {
+            await replaceProducts(updated);
+          } else {
+            await bulkUpdateProducts(updated);
+            showToast(
+              `Planilla importada: ${updatedCount} actualizados, ${createdCount} nuevos (precios, costos y % calculados exactamente).`,
+              'success'
+            );
+          }
+          return;
+        }
+
         const sampleRow = rawRows[0];
         const rowKeys = Object.keys(sampleRow);
         const findKey = (candidates: string[]) => {
@@ -285,8 +429,11 @@ export const AdminPanel: React.FC = () => {
 
         const categoryKey = findKey(['category', 'rubro', 'categoría', 'categoria']);
         const subcategoryKey = findKey(['subcategory', 'subrubro', 'subcategoría', 'subcategoria']);
-        const priceUsdKey = findKey(['priceusd', 'precio usd', 'precio u$s', 'usd']);
+        const priceUsdKey = findKey(['priceusd', 'precio usd', 'precio u$s', 'usd', 'precio de venta']);
         const priceArsKey = findKey(['pricears', 'precio ars', 'precio pesos', 'ars', 'precio mayorista ($ ars)']);
+        const costUsdKey = findKey(['costusd', 'costo usd', 'costo', 'cost']);
+        const costArsKey = findKey(['costars', 'costo ars', 'costo pesos']);
+        const marginKey = findKey(['profitmargin', 'margen', 'porcentaje', 'ganancia']);
         const priceCurrencyKey = findKey(['pricecurrency', 'costcurrency', 'moneda', 'moneda base']);
         const dollarRateKeyCol = findKey(['dollarratekey', 'dolar', 'dólar']);
         const stockKey = findKey(['stockquantity', 'stock', 'cantidad', 'stock mayorista', 'stock disponible']);
@@ -320,27 +467,61 @@ export const AdminPanel: React.FC = () => {
               : 'dolar1';
           const rateForRow = dollarRates[rowDollarKey]?.rate || exchangeRate;
 
-          let rowPriceUSD = 10;
+          let rowPriceUSD = 0;
           let rowPriceARS: number | undefined = undefined;
+          let rowCostUSD: number | undefined = undefined;
+          let rowCostARS: number | undefined = undefined;
+          let rowMargin: number | undefined = undefined;
 
           if (priceArsKey && row[priceArsKey] !== '') {
-            const rawArs = String(row[priceArsKey]).replace('$', '').replace(/\s/g, '').replace(',', '.');
-            rowPriceARS = Math.round(parseFloat(rawArs) || 0);
+            rowPriceARS = Math.round(parseExcelNumber(row[priceArsKey]));
           }
 
           if (priceUsdKey && row[priceUsdKey] !== '') {
-            const rawPrice = String(row[priceUsdKey])
-              .replace('$', '')
-              .replace(/u\$s/i, '')
-              .replace(/\s/g, '')
-              .replace(',', '.');
-            rowPriceUSD = parseFloat(rawPrice) || 10;
+            rowPriceUSD = parseExcelNumber(row[priceUsdKey]);
+          }
+
+          if (costUsdKey && row[costUsdKey] !== '') {
+            const parsedCostUsd = parseExcelNumber(row[costUsdKey]);
+            if (parsedCostUsd > 0) rowCostUSD = Number(parsedCostUsd.toFixed(2));
+          }
+
+          if (costArsKey && row[costArsKey] !== '') {
+            const parsedCostArs = parseExcelNumber(row[costArsKey]);
+            if (parsedCostArs > 0) rowCostARS = Math.round(parsedCostArs);
+          }
+
+          if (marginKey && row[marginKey] !== '') {
+            rowMargin = Number(parseExcelNumber(row[marginKey]).toFixed(2));
           }
 
           if (rowPriceCurrency === 'ARS' && rowPriceARS) {
             rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
-          } else if (!rowPriceARS && rowPriceUSD) {
-            rowPriceARS = Math.round(rowPriceUSD * rateForRow);
+            if (rowCostARS == null && rowCostUSD != null) {
+              rowCostARS = Math.round(rowCostUSD * rateForRow);
+            }
+            if (rowCostARS != null && rowCostUSD == null) {
+              rowCostUSD = Number((rowCostARS / rateForRow).toFixed(2));
+            }
+            if (rowMargin == null && rowCostARS && rowCostARS > 0) {
+              rowMargin = Number((((rowPriceARS - rowCostARS) / rowCostARS) * 100).toFixed(2));
+            }
+          } else {
+            if (!rowPriceARS && rowPriceUSD > 0) {
+              rowPriceARS = Math.round(rowPriceUSD * rateForRow);
+            }
+            if (rowPriceUSD <= 0 && rowPriceARS) {
+              rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
+            }
+            if (rowCostUSD != null && rowCostARS == null) {
+              rowCostARS = Math.round(rowCostUSD * rateForRow);
+            }
+            if (rowCostARS != null && rowCostUSD == null) {
+              rowCostUSD = Number((rowCostARS / rateForRow).toFixed(2));
+            }
+            if (rowMargin == null && rowCostUSD && rowCostUSD > 0 && rowPriceUSD > 0) {
+              rowMargin = Number((((rowPriceUSD - rowCostUSD) / rowCostUSD) * 100).toFixed(2));
+            }
           }
 
           const rawStock = stockKey ? String(row[stockKey]) : '0';
@@ -352,16 +533,17 @@ export const AdminPanel: React.FC = () => {
               p.name.trim().toLowerCase() === rowName.toLowerCase()
           );
           if (existingIndex !== -1) {
+            const prevProd = updated[existingIndex];
             updated[existingIndex] = {
-              ...updated[existingIndex],
+              ...prevProd,
               name: rowName,
-              priceUSD: rowPriceUSD,
-              costUSD: rowPriceUSD > 0 ? Number((rowPriceUSD / 1.15).toFixed(2)) : 0,
-              priceARS: rowPriceARS,
-              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * rateForRow),
-              profitMargin: 15,
+              priceUSD: rowPriceUSD || prevProd.priceUSD,
+              costUSD: rowCostUSD ?? prevProd.costUSD,
+              priceARS: rowPriceARS ?? prevProd.priceARS,
+              costARS: rowCostARS ?? prevProd.costARS,
+              profitMargin: rowMargin ?? prevProd.profitMargin,
               priceCurrency: rowPriceCurrency,
-              dollarRateKey: rowDollarKey,
+              dollarRateKey: dollarRateKeyCol ? rowDollarKey : prevProd.dollarRateKey,
               stockQuantity: rowStock,
               inStock: rowStock > 0,
             };
@@ -375,10 +557,10 @@ export const AdminPanel: React.FC = () => {
               description: (descKey && String(row[descKey])) || rowName,
               specs: ['Garantía oficial MP Distribuciones'],
               priceUSD: rowPriceUSD,
-              costUSD: rowPriceUSD > 0 ? Number((rowPriceUSD / 1.15).toFixed(2)) : 0,
+              costUSD: rowCostUSD ?? rowPriceUSD,
               priceARS: rowPriceARS,
-              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * rateForRow),
-              profitMargin: 15,
+              costARS: rowCostARS ?? rowPriceARS,
+              profitMargin: rowMargin ?? 0,
               priceCurrency: rowPriceCurrency,
               dollarRateKey: rowDollarKey,
               stockQuantity: rowStock,

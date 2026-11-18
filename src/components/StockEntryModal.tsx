@@ -74,24 +74,25 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
       const isArs = selectedProduct.priceCurrency === 'ARS';
       const margin = selectedProduct.profitMargin != null ? selectedProduct.profitMargin : 15;
       setMarginInput(margin);
+      const prodRate = getDollarRateForProduct(selectedProduct);
 
       if (isArs) {
-        const prodRate = getDollarRateForProduct(selectedProduct);
         const pArs = selectedProduct.priceARS || Math.round(selectedProduct.priceUSD * prodRate);
-        const cArs = selectedProduct.costARS != null
+        const cArs = selectedProduct.costARS != null && selectedProduct.costARS > 0
           ? selectedProduct.costARS
-          : (selectedProduct.costUSD != null
+          : (selectedProduct.costUSD != null && selectedProduct.costUSD > 0
               ? Math.round(selectedProduct.costUSD * prodRate)
               : Math.round(pArs / (1 + margin / 100)));
         setCostInput(cArs);
         setPriceInput(pArs);
       } else {
         const pUsd = selectedProduct.priceUSD;
-        const cUsd = selectedProduct.costUSD != null
+        const cUsd = selectedProduct.costUSD != null && selectedProduct.costUSD > 0
           ? selectedProduct.costUSD
           : (pUsd > 0 ? Number((pUsd / (1 + margin / 100)).toFixed(2)) : 0);
+        const pArs = selectedProduct.priceARS || Math.round(cUsd * prodRate * (1 + margin / 100));
         setCostInput(cUsd);
-        setPriceInput(pUsd);
+        setPriceInput(pArs);
       }
 
       setIsCostChanged(false);
@@ -126,18 +127,15 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
     setQuantityToAdd((prev) => Math.max(1, prev + amount));
   };
 
-  // Cost change calculations
+  // Cost change calculations (siempre calcula precio final en Pesos $ ARS sin redondeo intermedio)
   const handleCostInputChange = (val: number) => {
     const safeCost = Math.max(0, val);
     setCostInput(safeCost);
     setIsCostChanged(true);
     const factor = 1 + marginInput / 100;
     const isArs = selectedProduct?.priceCurrency === 'ARS';
-    if (isArs) {
-      setPriceInput(Math.round(safeCost * factor));
-    } else {
-      setPriceInput(Number((safeCost * factor).toFixed(2)));
-    }
+    const prodRate = getDollarRateForProduct(selectedProduct);
+    setPriceInput(isArs ? Math.round(safeCost * factor) : Math.round(safeCost * prodRate * factor));
   };
 
   const handleMarginInputChange = (val: number) => {
@@ -145,11 +143,8 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
     setIsCostChanged(true);
     const factor = 1 + val / 100;
     const isArs = selectedProduct?.priceCurrency === 'ARS';
-    if (isArs) {
-      setPriceInput(Math.round(costInput * factor));
-    } else {
-      setPriceInput(Number((costInput * factor).toFixed(2)));
-    }
+    const prodRate = getDollarRateForProduct(selectedProduct);
+    setPriceInput(isArs ? Math.round(costInput * factor) : Math.round(costInput * prodRate * factor));
   };
 
   // Submit stock entry
@@ -167,21 +162,20 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
         // Update both stock and financial values
         const isArs = selectedProduct.priceCurrency === 'ARS';
         const prodRate = getDollarRateForProduct(selectedProduct);
+        const factor = 1 + marginInput / 100;
         let priceUSD = selectedProduct.priceUSD;
-        let priceARS = selectedProduct.priceARS || Math.round(priceUSD * prodRate);
+        let priceARS = Math.max(1, Math.round(priceInput));
         let costUSD = selectedProduct.costUSD || 0;
         let costARS = selectedProduct.costARS || 0;
 
         if (isArs) {
-          priceARS = Math.round(priceInput);
           costARS = Math.round(costInput);
-          priceUSD = Number((priceARS / prodRate).toFixed(2));
           costUSD = Number((costARS / prodRate).toFixed(2));
+          priceUSD = Number((priceARS / prodRate).toFixed(2));
         } else {
-          priceUSD = Number(priceInput.toFixed(2));
           costUSD = Number(costInput.toFixed(2));
-          priceARS = Math.round(priceUSD * prodRate);
           costARS = Math.round(costUSD * prodRate);
+          priceUSD = Number((costUSD * factor).toFixed(2));
         }
 
         const success = await updateProduct(selectedProduct.id, {
@@ -564,12 +558,10 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
                       {/* Recalculated Price */}
                       <div className="space-y-1">
                         <label className="text-[11px] font-bold text-slate-700">
-                          Precio Venta Resultante:
+                          Precio Venta Cliente ($ ARS):
                         </label>
                         <div className="px-3 py-2 rounded-xl bg-blue-50 border border-blue-200 text-xs font-black text-blue-700">
-                          {selectedProduct.priceCurrency === 'ARS'
-                            ? `$ ${Math.round(priceInput).toLocaleString('es-AR')}`
-                            : `u$s ${Number(priceInput).toFixed(2)}`}
+                          $ {Math.round(priceInput).toLocaleString('es-AR')} ARS
                         </div>
                       </div>
                     </div>

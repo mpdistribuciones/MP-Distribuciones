@@ -52,13 +52,13 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
   const defaultPriceUSD = product.priceUSD;
   const defaultPriceARS = product.priceARS || Math.round(product.priceUSD * productRate);
   const defaultCostUSD =
-    product.costUSD != null
+    product.costUSD != null && (product.costUSD > 0 || defaultPriceUSD === 0)
       ? product.costUSD
       : defaultPriceUSD > 0
       ? Number((defaultPriceUSD / (1 + defaultMargin / 100)).toFixed(2))
       : 0;
   const defaultCostARS =
-    product.costARS != null
+    product.costARS != null && (product.costARS > 0 || defaultPriceARS === 0)
       ? product.costARS
       : product.priceARS
       ? Math.round(product.priceARS / (1 + defaultMargin / 100))
@@ -214,7 +214,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       setPriceArsInput(nextPriceArs);
       await saveFinancials(nextCostArs, marginInput, nextPriceArs, 'ARS', currentDollarKey);
     } else {
-      const nextCostUsd = Number((costInput / productRate).toFixed(2));
+      const nextCostUsd = Number((costInput / productRate).toFixed(4));
       const nextPriceArs = Math.round(nextCostUsd * productRate * factor);
       setCostInput(nextCostUsd);
       setPriceArsInput(nextPriceArs);

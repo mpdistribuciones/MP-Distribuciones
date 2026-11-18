@@ -577,23 +577,27 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const rateKey: DollarRateKey =
         p.dollarRateKey === 'dolar2' || p.dollarRateKey === 'dolar3' ? p.dollarRateKey : 'dolar1';
       const rate = sanitized[rateKey].rate;
-      const margin = p.profitMargin != null ? p.profitMargin : 15;
-      const costUSD =
-        p.costUSD != null
-          ? p.costUSD
-          : p.priceUSD > 0
-          ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2))
-          : 0;
-      const priceUSD =
-        costUSD > 0 ? Number((costUSD * (1 + margin / 100)).toFixed(2)) : p.priceUSD;
-      const costARS = Math.round(costUSD * rate);
-      const priceARS = Math.round(priceUSD * rate);
 
+      if (p.costUSD != null && p.costUSD > 0 && p.profitMargin != null) {
+        const factor = 1 + p.profitMargin / 100;
+        const exactPriceUSD = p.costUSD * factor;
+        const priceUSD = Number(exactPriceUSD.toFixed(2));
+        const costARS = Math.round(p.costUSD * rate);
+        const priceARS = Math.max(1, Math.round(exactPriceUSD * rate));
+
+        return {
+          ...p,
+          priceUSD,
+          costARS,
+          priceARS,
+          dollarRateKey: rateKey,
+        };
+      }
+
+      // Si no tiene costo cargado en USD, respetar priceUSD directo sin inventar margen
+      const priceARS = Math.max(1, Math.round(p.priceUSD * rate));
       return {
         ...p,
-        priceUSD,
-        costUSD,
-        costARS,
         priceARS,
         dollarRateKey: rateKey,
       };
@@ -2765,13 +2769,37 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             const newProd = dbToProduct(payload.new);
             setProducts((prev) => {
               if (prev.some((p) => p.id === newProd.id)) {
-                return prev.map((p) => (p.id === newProd.id ? { ...p, ...newProd } : p));
+                return prev.map((p) =>
+                  p.id === newProd.id
+                    ? {
+                        ...p,
+                        ...newProd,
+                        costUSD: p.costUSD,
+                        costARS: p.costARS,
+                        profitMargin: p.profitMargin,
+                        dollarRateKey: p.dollarRateKey ?? newProd.dollarRateKey,
+                      }
+                    : p
+                );
               }
               return [newProd, ...prev];
             });
           } else if (payload.eventType === 'UPDATE') {
             const updated = dbToProduct(payload.new);
-            setProducts((prev) => prev.map((p) => (p.id === updated.id ? { ...p, ...updated } : p)));
+            setProducts((prev) =>
+              prev.map((p) =>
+                p.id === updated.id
+                  ? {
+                      ...p,
+                      ...updated,
+                      costUSD: p.costUSD,
+                      costARS: p.costARS,
+                      profitMargin: p.profitMargin,
+                      dollarRateKey: p.dollarRateKey ?? updated.dollarRateKey,
+                    }
+                  : p
+              )
+            );
           } else if (payload.eventType === 'DELETE') {
             const deletedId = String(payload.old?.id);
             if (deletedId) {
@@ -2848,6 +2876,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
                         costUSD: Number(costData.cost_usd),
                         costARS: Number(costData.cost_ars),
                         profitMargin: Number(costData.profit_margin),
+                        dollarRateKey:
+                          costData.dollar_rate_key === 'dolar2' ||
+                          costData.dollar_rate_key === 'dolar3' ||
+                          costData.dollar_rate_key === 'dolar1'
+                            ? costData.dollar_rate_key
+                            : p.dollarRateKey,
+                        priceCurrency:
+                          costData.cost_currency === 'ARS' || costData.cost_currency === 'USD'
+                            ? costData.cost_currency
+                            : p.priceCurrency,
                       }
                     : p
                 )
