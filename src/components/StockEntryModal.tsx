@@ -536,8 +536,16 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
                           type="number"
                           step="any"
                           min="0"
-                          value={costInput}
-                          onChange={(e) => handleCostInputChange(parseFloat(e.target.value) || 0)}
+                          value={costInput === 0 ? '' : costInput}
+                          placeholder="0"
+                          onFocus={(e) => e.currentTarget.select()}
+                          onChange={(e) => {
+                            const raw = e.target.value;
+                            if (/^0+\d/.test(raw)) {
+                              e.target.value = raw.replace(/^0+(?=\d)/, '');
+                            }
+                            handleCostInputChange(parseFloat(e.target.value) || 0);
+                          }}
                           className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 text-xs font-bold text-slate-900 outline-none"
                         />
                       </div>
@@ -549,8 +557,9 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
                         </label>
                         <input
                           type="number"
-                          step="0.5"
+                          step="any"
                           value={marginInput}
+                          onFocus={(e) => e.currentTarget.select()}
                           onChange={(e) => handleMarginInputChange(parseFloat(e.target.value) || 0)}
                           className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 text-xs font-bold text-slate-900 outline-none"
                         />

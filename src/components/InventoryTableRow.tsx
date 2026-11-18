@@ -65,11 +65,13 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       ? cleanFloat(product.priceARS / (1 + defaultMargin / 100))
       : cleanFloat(defaultCostUSD * productRate);
 
-  const [costInput, setCostInput] = useState<number>(
-    isCostArs ? defaultCostARS : defaultCostUSD
-  );
+  const initialCostVal = isCostArs ? defaultCostARS : defaultCostUSD;
+  const [costInput, setCostInput] = useState<number>(initialCostVal);
+  const [costStr, setCostStr] = useState<string>(String(initialCostVal));
   const [marginInput, setMarginInput] = useState<number>(defaultMargin);
+  const [marginStr, setMarginStr] = useState<string>(String(defaultMargin));
   const [priceArsInput, setPriceArsInput] = useState<number>(defaultPriceARS);
+  const [priceArsStr, setPriceArsStr] = useState<string>(String(defaultPriceARS));
 
   const [isSaving, setIsSaving] = useState(false);
   const [justSaved, setJustSaved] = useState(false);
@@ -78,9 +80,13 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
 
   useEffect(() => {
     if (!isDirtyRef.current) {
-      setCostInput(isCostArs ? defaultCostARS : defaultCostUSD);
+      const nextCost = isCostArs ? defaultCostARS : defaultCostUSD;
+      setCostInput(nextCost);
+      setCostStr(String(nextCost));
       setMarginInput(defaultMargin);
+      setMarginStr(String(defaultMargin));
       setPriceArsInput(defaultPriceARS);
+      setPriceArsStr(String(defaultPriceARS));
     }
   }, [
     product.priceUSD,
@@ -156,8 +162,14 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     }, 800);
   };
 
-  const handleCostChange = (val: number) => {
-    const newCost = Math.max(0, val);
+  const stripLeadingZero = (raw: string) =>
+    /^0+\d/.test(raw) ? raw.replace(/^0+(?=\d)/, '') : raw;
+
+  const handleCostChange = (rawValue: string) => {
+    const clean = stripLeadingZero(rawValue);
+    setCostStr(clean);
+    const parsed = parseFloat(clean);
+    const newCost = !isNaN(parsed) && parsed > 0 ? parsed : 0;
     setCostInput(newCost);
     isDirtyRef.current = true;
     const factor = 1 + marginInput / 100;
@@ -165,10 +177,15 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       ? cleanFloat(newCost * factor)
       : cleanFloat(newCost * productRate * factor);
     setPriceArsInput(newPriceArs);
+    setPriceArsStr(String(newPriceArs));
     scheduleDebouncedSave(newCost, marginInput, newPriceArs);
   };
 
-  const handleMarginChange = (val: number) => {
+  const handleMarginChange = (rawValue: string) => {
+    const clean = stripLeadingZero(rawValue);
+    setMarginStr(clean);
+    const parsed = parseFloat(clean);
+    const val = !isNaN(parsed) ? parsed : 0;
     setMarginInput(val);
     isDirtyRef.current = true;
     const factor = 1 + val / 100;
@@ -176,11 +193,15 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       ? cleanFloat(costInput * factor)
       : cleanFloat(costInput * productRate * factor);
     setPriceArsInput(newPriceArs);
+    setPriceArsStr(String(newPriceArs));
     scheduleDebouncedSave(costInput, val, newPriceArs);
   };
 
-  const handlePriceArsChange = (val: number) => {
-    const newPriceArs = Math.max(0.01, cleanFloat(val));
+  const handlePriceArsChange = (rawValue: string) => {
+    const clean = stripLeadingZero(rawValue);
+    setPriceArsStr(clean);
+    const parsed = parseFloat(clean);
+    const newPriceArs = !isNaN(parsed) && parsed > 0 ? cleanFloat(parsed) : 0;
     setPriceArsInput(newPriceArs);
     isDirtyRef.current = true;
     const baseCostArs = isCostArs ? costInput : costInput * productRate;
@@ -189,6 +210,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       newMargin = cleanFloat(((newPriceArs - baseCostArs) / baseCostArs) * 100);
     }
     setMarginInput(newMargin);
+    setMarginStr(String(newMargin));
     scheduleDebouncedSave(costInput, newMargin, newPriceArs);
   };
 
@@ -212,13 +234,17 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       const nextCostArs = cleanFloat(costInput * productRate);
       const nextPriceArs = cleanFloat(nextCostArs * factor);
       setCostInput(nextCostArs);
+      setCostStr(String(nextCostArs));
       setPriceArsInput(nextPriceArs);
+      setPriceArsStr(String(nextPriceArs));
       await saveFinancials(nextCostArs, marginInput, nextPriceArs, 'ARS', currentDollarKey);
     } else {
       const nextCostUsd = cleanFloat(costInput / productRate);
       const nextPriceArs = cleanFloat(nextCostUsd * productRate * factor);
       setCostInput(nextCostUsd);
+      setCostStr(String(nextCostUsd));
       setPriceArsInput(nextPriceArs);
+      setPriceArsStr(String(nextPriceArs));
       await saveFinancials(nextCostUsd, marginInput, nextPriceArs, 'USD', currentDollarKey);
     }
   };
@@ -231,6 +257,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       ? priceArsInput
       : cleanFloat(costInput * nextRate * factor);
     setPriceArsInput(nextPriceArs);
+    setPriceArsStr(String(nextPriceArs));
     await saveFinancials(costInput, marginInput, nextPriceArs, currentCurrency, newKey);
   };
 
@@ -276,7 +303,8 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
             type="number"
             min="0"
             value={product.stockQuantity}
-            onChange={(e) => onUpdateStock(product.id, parseInt(e.target.value) || 0)}
+            onFocus={(e) => e.currentTarget.select()}
+            onChange={(e) => onUpdateStock(product.id, parseInt(e.target.value, 10) || 0)}
             className={`w-16 px-2 py-1 text-center font-mono font-bold rounded-lg border text-xs outline-none transition-all ${
               product.stockQuantity > 0
                 ? 'bg-slate-50 border-slate-300 focus:border-emerald-500 focus:bg-white text-slate-900'
@@ -350,9 +378,16 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
               type="number"
               step="any"
               min="0"
-              value={costInput}
-              onChange={(e) => handleCostChange(parseFloat(e.target.value) || 0)}
-              onBlur={handleBlur}
+              placeholder="0"
+              value={costStr}
+              onFocus={() => {
+                if (costStr === '0') setCostStr('');
+              }}
+              onChange={(e) => handleCostChange(e.target.value)}
+              onBlur={() => {
+                if (costStr.trim() === '') setCostStr('0');
+                handleBlur();
+              }}
               onKeyDown={handleKeyDown}
               className="w-24 px-2 py-1 text-right font-mono font-bold text-xs text-slate-800 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white outline-none transition-all shadow-2xs"
               title="Costo base de compra (Enter para guardar)"
@@ -390,9 +425,16 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
             <input
               type="number"
               step="any"
-              value={marginInput}
-              onChange={(e) => handleMarginChange(parseFloat(e.target.value) || 0)}
-              onBlur={handleBlur}
+              placeholder="0"
+              value={marginStr}
+              onFocus={() => {
+                if (marginStr === '0') setMarginStr('');
+              }}
+              onChange={(e) => handleMarginChange(e.target.value)}
+              onBlur={() => {
+                if (marginStr.trim() === '') setMarginStr('0');
+                handleBlur();
+              }}
               onKeyDown={handleKeyDown}
               className={`w-20 px-1.5 py-1 text-center font-mono font-black text-xs rounded-lg border outline-none transition-all shadow-2xs ${
                 isPositiveMargin
@@ -433,9 +475,16 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
               type="number"
               step="any"
               min="0.01"
-              value={priceArsInput}
-              onChange={(e) => handlePriceArsChange(parseFloat(e.target.value) || 1)}
-              onBlur={handleBlur}
+              placeholder="0"
+              value={priceArsStr}
+              onFocus={() => {
+                if (priceArsStr === '0') setPriceArsStr('');
+              }}
+              onChange={(e) => handlePriceArsChange(e.target.value)}
+              onBlur={() => {
+                if (priceArsStr.trim() === '') setPriceArsStr('0');
+                handleBlur();
+              }}
               onKeyDown={handleKeyDown}
               className="w-28 px-2 py-1 text-right font-mono font-black text-xs text-slate-900 rounded-lg border bg-emerald-50/50 border-emerald-300 focus:border-emerald-600 focus:bg-white outline-none transition-all shadow-2xs"
               title="Precio final en Pesos ($ ARS) visible para el cliente"

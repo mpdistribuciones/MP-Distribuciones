@@ -42,9 +42,13 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [priceCurrency, setPriceCurrency] = useState<'USD' | 'ARS'>('USD');
   const [dollarRateKey, setDollarRateKey] = useState<DollarRateKey>('dolar1');
   const [costInput, setCostInput] = useState<number>(0);
+  const [costStr, setCostStr] = useState<string>('0');
   const [profitMarginInput, setProfitMarginInput] = useState<number>(15);
+  const [marginStr, setMarginStr] = useState<string>('15');
   const [priceArsInput, setPriceArsInput] = useState<number>(0);
+  const [priceArsStr, setPriceArsStr] = useState<string>('0');
   const [stockQuantity, setStockQuantity] = useState<number>(0);
+  const [stockStr, setStockStr] = useState<string>('0');
   const [minWholesaleQty, setMinWholesaleQty] = useState<number>(1);
   const [imageUrl, setImageUrl] = useState('');
   const [isUploadingImage, setIsUploadingImage] = useState(false);
@@ -63,11 +67,13 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       setDescription(productToEdit.description);
       setSpecsText(productToEdit.specs ? productToEdit.specs.join('\n') : '');
       setStockQuantity(productToEdit.stockQuantity);
+      setStockStr(String(productToEdit.stockQuantity));
       setMinWholesaleQty(productToEdit.minWholesaleQty || 1);
       setImageUrl(productToEdit.imageUrl);
 
       const margin = productToEdit.profitMargin != null ? productToEdit.profitMargin : 15;
       setProfitMarginInput(margin);
+      setMarginStr(String(margin));
 
       const dKey: DollarRateKey =
         productToEdit.dollarRateKey === 'dolar2' || productToEdit.dollarRateKey === 'dolar3'
@@ -87,7 +93,9 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             ? cleanFloat(productToEdit.costUSD * rate)
             : cleanFloat(priceARS / (1 + margin / 100));
         setCostInput(costARS);
+        setCostStr(String(costARS));
         setPriceArsInput(priceARS);
+        setPriceArsStr(String(priceARS));
       } else {
         setPriceCurrency('USD');
         const priceUSD = productToEdit.priceUSD;
@@ -100,7 +108,9 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         const priceARS =
           productToEdit.priceARS || cleanFloat(costUSD * rate * (1 + margin / 100));
         setCostInput(costUSD);
+        setCostStr(String(costUSD));
         setPriceArsInput(priceARS);
+        setPriceArsStr(String(priceARS));
       }
     } else {
       const prefillName = (initialValues?.name || '').trim();
@@ -117,6 +127,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       const rate = getRateByKey(defaultKey);
       const defaultMargin = initialValues?.profitMargin ?? 15;
       setProfitMarginInput(defaultMargin);
+      setMarginStr(String(defaultMargin));
 
       if (defaultCurrency === 'USD') {
         const defaultCostUSD =
@@ -126,6 +137,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             ? cleanFloat(initialValues.costARS / rate)
             : 0;
         setCostInput(defaultCostUSD);
+        setCostStr(String(defaultCostUSD));
         const defaultPriceARS =
           initialValues?.priceARS != null
             ? initialValues.priceARS
@@ -133,6 +145,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             ? cleanFloat(defaultCostUSD * rate * (1 + defaultMargin / 100))
             : 0;
         setPriceArsInput(defaultPriceARS);
+        setPriceArsStr(String(defaultPriceARS));
       } else {
         const defaultCostARS =
           initialValues?.costARS != null
@@ -141,6 +154,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             ? cleanFloat(initialValues.costUSD * rate)
             : 0;
         setCostInput(defaultCostARS);
+        setCostStr(String(defaultCostARS));
         const defaultPriceARS =
           initialValues?.priceARS != null
             ? initialValues.priceARS
@@ -148,16 +162,25 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             ? cleanFloat(defaultCostARS * (1 + defaultMargin / 100))
             : 0;
         setPriceArsInput(defaultPriceARS);
+        setPriceArsStr(String(defaultPriceARS));
       }
-      setStockQuantity(initialValues?.stockQuantity ?? 0);
+      const defStock = initialValues?.stockQuantity ?? 0;
+      setStockQuantity(defStock);
+      setStockStr(String(defStock));
       setMinWholesaleQty(initialValues?.minWholesaleQty || 1);
       setImageUrl(initialValues?.imageUrl || '');
     }
   }, [productToEdit, initialValues, isOpen, dollarRates]);
 
+  const stripLeadingZero = (raw: string) =>
+    /^0+\d/.test(raw) ? raw.replace(/^0+(?=\d)/, '') : raw;
+
   // Manejo de Costo, Dólar Asignado, Porcentaje Puntual y Precio Final en Pesos (sin redondeo)
-  const handleCostChange = (newCost: number) => {
-    const safeCost = Math.max(0, newCost);
+  const handleCostChange = (rawValue: string) => {
+    const clean = stripLeadingZero(rawValue);
+    setCostStr(clean);
+    const parsed = parseFloat(clean);
+    const safeCost = !isNaN(parsed) && parsed > 0 ? parsed : 0;
     setCostInput(safeCost);
     const factor = 1 + profitMarginInput / 100;
     const calculatedArs =
@@ -165,9 +188,14 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         ? cleanFloat(safeCost * activeRate * factor)
         : cleanFloat(safeCost * factor);
     setPriceArsInput(calculatedArs);
+    setPriceArsStr(String(calculatedArs));
   };
 
-  const handleProfitMarginChange = (newMargin: number) => {
+  const handleProfitMarginChange = (rawValue: string) => {
+    const clean = stripLeadingZero(rawValue);
+    setMarginStr(clean);
+    const parsed = parseFloat(clean);
+    const newMargin = !isNaN(parsed) ? parsed : 0;
     setProfitMarginInput(newMargin);
     const factor = 1 + newMargin / 100;
     const calculatedArs =
@@ -175,6 +203,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         ? cleanFloat(costInput * activeRate * factor)
         : cleanFloat(costInput * factor);
     setPriceArsInput(calculatedArs);
+    setPriceArsStr(String(calculatedArs));
   };
 
   const handleDollarRateSelect = (newKey: DollarRateKey) => {
@@ -182,12 +211,17 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     const rate = getRateByKey(newKey);
     if (priceCurrency === 'USD') {
       const factor = 1 + profitMarginInput / 100;
-      setPriceArsInput(cleanFloat(costInput * rate * factor));
+      const nextArs = cleanFloat(costInput * rate * factor);
+      setPriceArsInput(nextArs);
+      setPriceArsStr(String(nextArs));
     }
   };
 
-  const handlePriceArsChange = (newPriceArs: number) => {
-    const safePriceArs = Math.max(0, cleanFloat(newPriceArs));
+  const handlePriceArsChange = (rawValue: string) => {
+    const clean = stripLeadingZero(rawValue);
+    setPriceArsStr(clean);
+    const parsed = parseFloat(clean);
+    const safePriceArs = !isNaN(parsed) && parsed > 0 ? cleanFloat(parsed) : 0;
     setPriceArsInput(safePriceArs);
     const baseCostArs =
       priceCurrency === 'USD' ? costInput * activeRate : costInput;
@@ -196,8 +230,10 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         ((safePriceArs - baseCostArs) / baseCostArs) * 100
       );
       setProfitMarginInput(calculatedMargin);
+      setMarginStr(String(calculatedMargin));
     } else {
       setProfitMarginInput(0);
+      setMarginStr('0');
     }
   };
 
@@ -217,13 +253,19 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     if (newCurrency === 'USD') {
       const newCostUSD = cleanFloat(costInput / activeRate);
       setCostInput(newCostUSD);
+      setCostStr(String(newCostUSD));
       const factor = 1 + profitMarginInput / 100;
-      setPriceArsInput(cleanFloat(newCostUSD * activeRate * factor));
+      const nextArs = cleanFloat(newCostUSD * activeRate * factor);
+      setPriceArsInput(nextArs);
+      setPriceArsStr(String(nextArs));
     } else {
       const newCostARS = cleanFloat(costInput * activeRate);
       setCostInput(newCostARS);
+      setCostStr(String(newCostARS));
       const factor = 1 + profitMarginInput / 100;
-      setPriceArsInput(cleanFloat(newCostARS * factor));
+      const nextArs = cleanFloat(newCostARS * factor);
+      setPriceArsInput(nextArs);
+      setPriceArsStr(String(nextArs));
     }
   };
 
@@ -580,8 +622,15 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                     step="any"
                     min="0"
                     required
-                    value={costInput}
-                    onChange={(e) => handleCostChange(parseFloat(e.target.value) || 0)}
+                    placeholder="0"
+                    value={costStr}
+                    onFocus={() => {
+                      if (costStr === '0') setCostStr('');
+                    }}
+                    onBlur={() => {
+                      if (costStr.trim() === '') setCostStr('0');
+                    }}
+                    onChange={(e) => handleCostChange(e.target.value)}
                     className="w-full pl-9 pr-3 py-2 rounded-lg bg-white border border-slate-300 focus:border-blue-600 text-sm font-mono font-bold text-slate-900 outline-none"
                   />
                 </div>
@@ -603,8 +652,15 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                     type="number"
                     step="any"
                     required
-                    value={profitMarginInput}
-                    onChange={(e) => handleProfitMarginChange(parseFloat(e.target.value) || 0)}
+                    placeholder="0"
+                    value={marginStr}
+                    onFocus={() => {
+                      if (marginStr === '0') setMarginStr('');
+                    }}
+                    onBlur={() => {
+                      if (marginStr.trim() === '') setMarginStr('0');
+                    }}
+                    onChange={(e) => handleProfitMarginChange(e.target.value)}
                     className="w-full pl-3 pr-8 py-2 rounded-lg bg-emerald-50/70 border border-emerald-300 focus:border-emerald-600 text-sm font-mono font-black text-emerald-900 outline-none text-right"
                   />
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 font-mono font-bold text-emerald-700">
@@ -631,8 +687,15 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                     step="any"
                     min="0.01"
                     required
-                    value={priceArsInput}
-                    onChange={(e) => handlePriceArsChange(parseFloat(e.target.value) || 0)}
+                    placeholder="0"
+                    value={priceArsStr}
+                    onFocus={() => {
+                      if (priceArsStr === '0') setPriceArsStr('');
+                    }}
+                    onBlur={() => {
+                      if (priceArsStr.trim() === '') setPriceArsStr('0');
+                    }}
+                    onChange={(e) => handlePriceArsChange(e.target.value)}
                     className="w-full pl-8 pr-3 py-2 rounded-lg bg-white border-2 border-blue-400 focus:border-blue-600 text-sm font-mono font-black text-blue-950 outline-none shadow-xs"
                   />
                 </div>
@@ -656,8 +719,20 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 type="number"
                 min="0"
                 required
-                value={stockQuantity}
-                onChange={(e) => setStockQuantity(parseInt(e.target.value) || 0)}
+                placeholder="0"
+                value={stockStr}
+                onFocus={() => {
+                  if (stockStr === '0') setStockStr('');
+                }}
+                onBlur={() => {
+                  if (stockStr.trim() === '') setStockStr('0');
+                }}
+                onChange={(e) => {
+                  const clean = stripLeadingZero(e.target.value);
+                  setStockStr(clean);
+                  const parsed = parseInt(clean, 10);
+                  setStockQuantity(!isNaN(parsed) && parsed >= 0 ? parsed : 0);
+                }}
                 className="w-full px-3 py-2 rounded-lg bg-white border border-slate-300 focus:border-blue-600 text-sm font-mono font-black text-slate-900 outline-none"
               />
               <p className={`text-[10px] font-bold ${stockQuantity > 0 ? 'text-emerald-700' : 'text-red-600'}`}>
