@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
+import { getProductPriceARS } from '../lib/supabase';
 import { InvoiceType, DeliveryMethod } from '../types';
 import confetti from 'canvas-confetti';
 import {
@@ -22,7 +23,6 @@ export const CheckoutModal: React.FC = () => {
     cart,
     cartTotalUSD,
     cartTotalARS,
-    currency,
     exchangeRate,
     clearCart,
     showToast,
@@ -61,10 +61,7 @@ export const CheckoutModal: React.FC = () => {
 
   if (!isCheckoutModalOpen) return null;
 
-  const currentTotal =
-    currency === 'USD'
-      ? `u$s ${cartTotalUSD.toFixed(2).replace('.', ',')}`
-      : `$ ${Math.round(cartTotalARS).toLocaleString('es-AR')}`;
+  const currentTotal = `$ ${Math.round(cartTotalARS).toLocaleString('es-AR')} ARS`;
 
   const handleDeliveryChange = (method: DeliveryMethod) => {
     setDeliveryMethod(method);
@@ -89,11 +86,9 @@ export const CheckoutModal: React.FC = () => {
     // Build the items lines
     const itemsLines = cart
       .map((item) => {
-        const itemSubtotal =
-          currency === 'USD'
-            ? `u$s ${(item.product.priceUSD * item.quantity).toFixed(2).replace('.', ',')}`
-            : `$ ${Math.round(item.product.priceUSD * exchangeRate * item.quantity).toLocaleString('es-AR')}`;
-        return `• ${item.quantity}x ${item.product.name} (SKU: ${item.product.sku}) - ${itemSubtotal}`;
+        const unitArs = getProductPriceARS(item.product, exchangeRate);
+        const itemSubtotal = `$ ${(unitArs * item.quantity).toLocaleString('es-AR')}`;
+        return `• ${item.quantity}x ${item.product.name} - ${itemSubtotal}`;
       })
       .join('\n');
 
@@ -413,15 +408,6 @@ export const CheckoutModal: React.FC = () => {
               <span className="text-xl font-black text-emerald-700">
                 {currentTotal}
               </span>
-              {currency === 'USD' ? (
-                <span className="block text-[10px] text-slate-500 font-mono">
-                  ≈ $ {Math.round(cartTotalARS).toLocaleString('es-AR')} ARS
-                </span>
-              ) : (
-                <span className="block text-[10px] text-slate-500 font-mono">
-                  ≈ u$s {cartTotalUSD.toFixed(2).replace('.', ',')} USD
-                </span>
-              )}
             </div>
           </div>
         </div>

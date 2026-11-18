@@ -200,9 +200,7 @@ export const OrderHistoryModal: React.FC = () => {
                               </span>
                             </div>
                             <span className="text-[11px] font-mono font-bold text-slate-600 shrink-0 ml-2">
-                              {item.product.priceCurrency === 'USD'
-                                ? `u$s ${(item.product.priceUSD * item.quantity).toFixed(2)}`
-                                : `$ ${((item.product.priceARS || Math.round(item.product.priceUSD * exchangeRate)) * item.quantity).toLocaleString('es-AR')}`}
+                              $ {((item.product.priceARS || Math.round(item.product.priceUSD * exchangeRate)) * item.quantity).toLocaleString('es-AR')}
                             </span>
                           </div>
                         ))}
@@ -226,10 +224,7 @@ export const OrderHistoryModal: React.FC = () => {
                           <span>{order.invoiceType}</span>
                         </div>
                         <div className="text-sm font-black text-slate-900">
-                          Total: $ {Math.round(order.totalARS).toLocaleString('es-AR')} ARS{' '}
-                          <span className="text-xs font-normal text-slate-500 font-mono">
-                            (u$s {order.totalUSD.toFixed(2)})
-                          </span>
+                          Total: $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')} ARS
                         </div>
                       </div>
 

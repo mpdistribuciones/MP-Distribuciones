@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { useApp } from '../context/AppContext';
+import { getProductPriceARS } from '../lib/supabase';
 import { Plus, Minus, Eye, Lock } from 'lucide-react';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 
@@ -33,22 +34,10 @@ export const ProductListRow: React.FC<ProductListRowProps> = ({ product }) => {
     }
   };
 
-  // Price formatting strictly based on owner's chosen product currency
-  const isUSD = product.priceCurrency === 'USD';
-  const unitPriceARS =
-    product.priceCurrency === 'ARS' && product.priceARS
-      ? product.priceARS
-      : Math.round(product.priceUSD * exchangeRate);
-
-  const formattedPrice = isUSD
-    ? `u$s ${product.priceUSD.toFixed(2)}`
-    : `$ ${unitPriceARS.toLocaleString('es-AR')}`;
-
-  const rawUnitPrice = isUSD ? product.priceUSD : unitPriceARS;
-
-  const subtotalPrice = isUSD
-    ? `u$s ${(rawUnitPrice * cartQuantity).toFixed(2)}`
-    : `$ ${(rawUnitPrice * cartQuantity).toLocaleString('es-AR')}`;
+  // El cliente siempre ve el precio en Pesos ($ ARS)
+  const unitPriceARS = getProductPriceARS(product, exchangeRate);
+  const formattedPrice = `$ ${unitPriceARS.toLocaleString('es-AR')}`;
+  const subtotalPrice = `$ ${(unitPriceARS * cartQuantity).toLocaleString('es-AR')}`;
 
   const isSelected = cartQuantity > 0;
 
@@ -76,10 +65,12 @@ export const ProductListRow: React.FC<ProductListRowProps> = ({ product }) => {
         </div>
       </td>
 
-      {/* SKU & Category */}
+      {/* Category */}
       <td className="p-2 sm:p-3 text-xs">
-        <span className="font-mono text-slate-500 font-semibold">{product.sku}</span>
-        <div className="text-[11px] text-slate-400">{product.brand}</div>
+        <span className="font-semibold text-blue-700 text-[11px]">{product.category}</span>
+        {product.subcategory && (
+          <div className="text-[10px] text-slate-400">{product.subcategory}</div>
+        )}
       </td>
 
       {/* Product Name */}
@@ -90,11 +81,6 @@ export const ProductListRow: React.FC<ProductListRowProps> = ({ product }) => {
         >
           {product.name.toUpperCase()}
         </div>
-        {product.badge && (
-          <span className="inline-block mt-0.5 px-1.5 py-0.2 rounded text-[9px] font-black uppercase tracking-wider bg-blue-100 text-blue-700">
-            {product.badge}
-          </span>
-        )}
       </td>
 
       {/* Stock */}

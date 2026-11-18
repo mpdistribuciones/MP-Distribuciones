@@ -87,7 +87,7 @@ export const StockShortageModal: React.FC<StockShortageModalProps> = ({
           <table className="w-full text-xs text-left">
             <thead className="bg-slate-50 border-b border-slate-200 font-semibold text-slate-600 uppercase text-[10px] tracking-wider">
               <tr>
-                <th className="py-2.5 px-3">Producto / SKU</th>
+                <th className="py-2.5 px-3">Producto</th>
                 <th className="py-2.5 px-3 text-center">Solicitado</th>
                 <th className="py-2.5 px-3 text-center">En Stock</th>
                 <th className="py-2.5 px-3 text-right text-rose-600">Faltante</th>
@@ -100,7 +100,6 @@ export const StockShortageModal: React.FC<StockShortageModalProps> = ({
                   <tr key={idx} className="hover:bg-slate-50/60">
                     <td className="py-2.5 px-3">
                       <div className="font-bold text-slate-900">{s.item.product.name}</div>
-                      <div className="font-mono text-[11px] text-slate-400">SKU: {s.item.product.sku}</div>
                     </td>
                     <td className="py-2.5 px-3 text-center font-bold text-slate-700">
                       {s.requested} un.

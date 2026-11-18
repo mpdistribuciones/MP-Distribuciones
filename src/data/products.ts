@@ -8,14 +8,11 @@ import { Product } from '../types';
 export const PRODUCTS: Product[] = [
   {
     "id": "mp_prod_0001",
-    "sku": "MP-NB-001",
     "name": "NB ACER ASPIRE GO 15 AG15-45P-R917 RYZEN 7-7730U/16GB/512GB/15.6 W11",
-    "brand": "Acer",
     "category": "NOTEBOOKS",
     "description": "NB ACER ASPIRE GO 15 AG15-45P-R917 RYZEN 7-7730U/16GB/512GB/15.6 W11. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: NOTEBOOKS",
-      "Marca: Acer",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -24,20 +21,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN8nQqsoYrb-Z7hJYxSAAdfpcIDDYMrGctJQV-8JaE7xFx2ECMZrc5sBgS1jhaGGUze6Y9C4_uC_cHWgsfEPOv2xfjFIeJOqpffkQpkHdnFgjNr17td=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0002",
-    "sku": "MP-NB-002",
     "name": "NB HP 255R G10 RYZEN 3-7335U / 16GB / 256GB / 15,6\"",
-    "brand": "Hp",
     "category": "NOTEBOOKS",
     "description": "NB HP 255R G10 RYZEN 3-7335U / 16GB / 256GB / 15,6\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: NOTEBOOKS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -46,20 +39,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPOqWNReSGB8l8gIlsSSmfy8kwr1lZi-58DgkxVaJ92LBFdbkJSjs_6xvY0YFMpxppwHYTTGXI1eAAI28IapGxDyNtCDKc8ejBYDS9uqgpdcVrmya0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0003",
-    "sku": "MP-NB-003",
     "name": "NB LENOVO IDEAPAD SLIM3 RYZEN 7 170 -16GB/512GB/15,3 TOUCH/W11 (COLOR: LUNA GREY)",
-    "brand": "Lenovo",
     "category": "NOTEBOOKS",
     "description": "NB LENOVO IDEAPAD SLIM3 RYZEN 7 170 -16GB/512GB/15,3 TOUCH/W11 (COLOR: LUNA GREY). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: NOTEBOOKS",
-      "Marca: Lenovo",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -68,20 +57,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPvzhTV4FbAC-zlr8QJsS-qki17rMLnE8WE5WRY4WZg9WexF6cknW__gr5sHoOqzx9FOsJ54epglxxczWo8MLlFGUTOdNJRMJ7KkdTc5kTbzIkocoqP=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0004",
-    "sku": "MP-NB-004",
     "name": "NB GFAST N-321/2R RYZEN 3-3200U/SSD240/8GB/15.6\"/W",
-    "brand": "Gfast",
     "category": "NOTEBOOKS",
     "description": "NB GFAST N-321/2R RYZEN 3-3200U/SSD240/8GB/15.6\"/W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: NOTEBOOKS",
-      "Marca: Gfast",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -90,20 +75,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM-keJdpO1qjdpmLe-0VTGM-Hgk8CgHRJS3G4Inhv3_YwSmvYbhki137PJmopqH1FGDruZ9KYNAVrE0mOZ7f-17rfoMS_UF2x2JfiheJtBiJz3dXqaj=s250-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0005",
-    "sku": "MP-NB-005",
     "name": "NB GFAST N-537R RYZEN 5-3500U/SSD240/8GB/15.6\"/W11",
-    "brand": "Gfast",
     "category": "NOTEBOOKS",
     "description": "NB GFAST N-537R RYZEN 5-3500U/SSD240/8GB/15.6\"/W11. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: NOTEBOOKS",
-      "Marca: Gfast",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -112,20 +93,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1NHNGKOHdQ7GOQMxo24GsNdWEsSVDHUxF=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0006",
-    "sku": "MP-GAM-001",
     "name": "CAMARA IMPRESORA NETMAK NM-KIDCAM TERMICA CELESTE",
-    "brand": "Netmak",
     "category": "CONSOLAS Y GAMERS",
     "description": "CAMARA IMPRESORA NETMAK NM-KIDCAM TERMICA CELESTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -134,20 +111,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1VYR8qiQa69yYoI3xaiFhnnMoL6xiSVBn=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0007",
-    "sku": "MP-GAM-002",
     "name": "CAMARA IMPRESORA NETMAK NM-KIDCAM2-P",
-    "brand": "Netmak",
     "category": "CONSOLAS Y GAMERS",
     "description": "CAMARA IMPRESORA NETMAK NM-KIDCAM2-P. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -156,20 +129,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 21,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM0qPgon_o-jw0caJRVC3ldYg6_9CYZndPfuuS_uOMsKEMjAMEaHWIdfBRWI9dnWyVmLxQxiDDBrZvfCQ2v7B3kKNHuDyJM3_VMVIF6XKVMbvkrizRb=s250-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0008",
-    "sku": "MP-GAM-003",
     "name": "CAMARA IMPRESORA NETMAK NM-KIDCAM2-B",
-    "brand": "Netmak",
     "category": "CONSOLAS Y GAMERS",
     "description": "CAMARA IMPRESORA NETMAK NM-KIDCAM2-B. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -178,20 +147,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 16,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPtUKlncouhRvYq3Ti17xDabr1qfMupXq5XgNAd82cPmKW2zt6YnWC87g0pOR4YSQjWs7ZLpD468ut0w432p8qO_AuueqYCedcYGKBBVtOojGv2WGDY=s250-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0009",
-    "sku": "MP-GAM-004",
     "name": "CONSOLA DE JUEGO NETMAK NM-CLASS RETRO JOY/TV/500J",
-    "brand": "Netmak",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA DE JUEGO NETMAK NM-CLASS RETRO JOY/TV/500J. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -200,20 +165,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1H4hfNdrh7ps8XzBjOF1cWkyI3jpeEn6n=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0010",
-    "sku": "MP-GAM-005",
     "name": "CONSOLA DE JUEGO RETRO BOX M3 PATANALLA 3,5\"",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA DE JUEGO RETRO BOX M3 PATANALLA 3,5\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -222,20 +183,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 21,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP3cKHocZ7pcUjfXSctRV0dt5jgHjWn4GNYcdGjPsHcxRF21yKgEz0cDzuQnfWF7B2F0o_EatvkLYSIh9eGDMwHgNGpUjEX9Jq-sLb51lyULJFHhLnZ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0011",
-    "sku": "MP-GAM-006",
     "name": "CONSOLA RETRO HDMI 2 JOYSTICK INAL TIPO PS5 BLANCA",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA RETRO HDMI 2 JOYSTICK INAL TIPO PS5 BLANCA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -244,20 +201,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1ABi4RM8wFgYUFo9QXg97gKxalTPnl_kY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0012",
-    "sku": "MP-GAM-007",
     "name": "CONSOLA RETRO HDMI 2 JOYSTICK INAL TIPO PS3 NEGRA",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA RETRO HDMI 2 JOYSTICK INAL TIPO PS3 NEGRA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -266,20 +219,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1Vill-EOVCnNOfaoWfsz1FPc2_CVMtgCL=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0013",
-    "sku": "MP-GAM-008",
     "name": "CONSOLA GAMER R39S RETRO PANTALLA 4\"",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA GAMER R39S RETRO PANTALLA 4\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -288,20 +237,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 15,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1fpHCspubhzJGA15cd57v-Vc3enu7iggC=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0014",
-    "sku": "MP-GAM-009",
     "name": "CONSOLA GAMER R36S RETRO PANTALLA 480P",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA GAMER R36S RETRO PANTALLA 480P. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -310,20 +255,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 51,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/d/1TLFpHy9uVh8LFdhT04-0dZXEuHEaBpSj=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0015",
-    "sku": "MP-GAM-010",
     "name": "CONSOLA GAMER BOX G9 CON JOYSTICK (FORMATO SWTICH)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CONSOLA GAMER BOX G9 CON JOYSTICK (FORMATO SWTICH). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -332,20 +273,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1xE4BAnR7cE1vaXErWBgKQsSeyI7e-qa5=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0016",
-    "sku": "MP-GAM-011",
     "name": "CABLE PS4-PC (2 MACHOS A 1 HEMBRA)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CABLE PS4-PC (2 MACHOS A 1 HEMBRA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -354,20 +291,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1gZUn3NtpeZ_txds03EPphg8KDfqP8aRk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0017",
-    "sku": "MP-GAM-012",
     "name": "CABLE PC-PS4 (2 HEMBRAS A 1 MACHO)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CABLE PC-PS4 (2 HEMBRAS A 1 MACHO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -376,20 +309,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1sp3mcefFvs7LMnOp35wezRdvaFQAM3Pq=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0018",
-    "sku": "MP-GAM-013",
     "name": "CABLE MINI USB V3 PS3/GPS CON FILTRO 1.5 MTS",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CABLE MINI USB V3 PS3/GPS CON FILTRO 1.5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -398,20 +327,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 27,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/d/1V-LQu1qePWX5y6Hpk1GZZs0S0c45CN26=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0019",
-    "sku": "MP-GAM-014",
     "name": "CABLE PLAY2 AV 1,5 SIN CAJA",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "CABLE PLAY2 AV 1,5 SIN CAJA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -420,20 +345,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP1lTXUXaKAIPLkkVAN1rdHbNAh_x7pAfwlJ0iF2gN8M9CmhgHsLfwtPH53jfmxwlv1GJdtU4L9LktSO2YcHhrYi4AZH_m00HhhsVES1PipeC5Pq91K=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0020",
-    "sku": "MP-GAM-015",
     "name": "BASE CARGADORA DOBLE PARA JOYS PS4",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "BASE CARGADORA DOBLE PARA JOYS PS4. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -442,20 +363,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1Y58Cs6PcJDreQxa0JGlQ4ABq8wbywjzI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0021",
-    "sku": "MP-GAM-016",
     "name": "BASE CARGADORA DOBLE PARA JOYS PS5",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "BASE CARGADORA DOBLE PARA JOYS PS5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -464,20 +381,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1T7OF82tykEhTc1VyH66qzVYwBmcoPGF9=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0022",
-    "sku": "MP-GAM-017",
     "name": "JOYSTICK REDRAGON HARROW PRO G808-PRO 2.4/PS3/PC/ANDROID",
-    "brand": "Redragon",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK REDRAGON HARROW PRO G808-PRO 2.4/PS3/PC/ANDROID. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -486,20 +399,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/18lkBTX9Oo2XM-TfRWcJx2CkOcRrJ8Wfn=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0023",
-    "sku": "MP-GAM-018",
     "name": "JOYSTICK REDRAGON JUNO G818 PS3/PS4/PC/WIRELESS",
-    "brand": "Redragon",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK REDRAGON JUNO G818 PS3/PS4/PC/WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -508,20 +417,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1ZY_vlMPY_aLYpTlz9SyJckGi4J7TEoJH=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0024",
-    "sku": "MP-GAM-019",
     "name": "JOYSTICK REDRAGON RIFT G710 PS3/SWITCH/PC/USB",
-    "brand": "Redragon",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK REDRAGON RIFT G710 PS3/SWITCH/PC/USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -530,20 +435,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1vD6xcKsMsYLEaJLLgOZYubUzmEy4BC5U=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0025",
-    "sku": "MP-GAM-020",
     "name": "JOYSTICK REDRAGON SATURN G807 PS3/PC/USB",
-    "brand": "Redragon",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK REDRAGON SATURN G807 PS3/PC/USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -552,20 +453,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1qKXqq48iTXvNad-ffAuhCyiDzvQBWS_6=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0026",
-    "sku": "MP-GAM-021",
     "name": "JOYSTICK NETMAK NM-NITRO BT5.0 PC/PS3/PS4/IOS/USB/ANDROID",
-    "brand": "Netmak",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK NETMAK NM-NITRO BT5.0 PC/PS3/PS4/IOS/USB/ANDROID. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -574,20 +471,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/d/1Sb1UvPB_EPxWyRLkrmKVda_2nfR4T-2f=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0027",
-    "sku": "MP-GAM-022",
     "name": "JOYSTICK NETMAK NM-DANGER BT 5EN1 CEL/PC/P4/P3/NSW",
-    "brand": "Netmak",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK NETMAK NM-DANGER BT 5EN1 CEL/PC/P4/P3/NSW. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -596,20 +489,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 23,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNBGSqqg3n3E_yZgPGcmkEygz0qK-m_y8RcDfVaEGiAvXhWMBJSYfJVyWFtxnUUgLZKIpMYTDejH7pepiHNKe7eBT02vLycLOVk6zya4TRkDUTQP4E=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0028",
-    "sku": "MP-GAM-023",
     "name": "JOYSTICK PC ANALOGICO (FORMATO PS3)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PC ANALOGICO (FORMATO PS3). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -618,20 +507,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPYiqBkrEQs9hz1_8GxcgTWSl_DV-SXWPiOsIKiwzN5CK4H9IGQU6HeUlxegQauQrCXtgEruOihPnkrH7_LJWoi2ZQ9MaJOS9wI0GYG1x6zDkuDdbD1=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0029",
-    "sku": "MP-GAM-024",
     "name": "JOYSTICK PS2 CAJA AMARILLA",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS2 CAJA AMARILLA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -640,20 +525,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNWqtPO3IHg5W_KHkLXROiEqcjDqw7YRA08BCLq4U10R-IWmTVirETDBzlK1OnGk1cUyKNMENjxjTpylFpzUh1-q32cezp9Jz29CzstGxoJ6jyRBHHt=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0030",
-    "sku": "MP-GAM-025",
     "name": "JOYSTICK PS3 SONY (REPLICA)",
-    "brand": "Sony",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS3 SONY (REPLICA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Sony",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -662,20 +543,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFsWK3HRNWvHnufoHXDqkmT0hZKWg1H7cH6DGQvo4poXlfFVRWP1XgAh_u2BBhdNVEvashOjE5fQqslVugrENaJocqTCVxRABnuk73o8Upzwr3Sq8o=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0031",
-    "sku": "MP-GAM-026",
     "name": "JOYSTICK PS4 SONY (REPLICA) INALAMBRICO",
-    "brand": "Sony",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS4 SONY (REPLICA) INALAMBRICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Sony",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -684,20 +561,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 28,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFsWK3HRNWvHnufoHXDqkmT0hZKWg1H7cH6DGQvo4poXlfFVRWP1XgAh_u2BBhdNVEvashOjE5fQqslVugrENaJocqTCVxRABnuk73o8Upzwr3Sq8o=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0032",
-    "sku": "MP-GAM-027",
     "name": "JOYSTICK PS4 SONY (REPLICA) INALAMBRICO CAMUFLADO",
-    "brand": "Sony",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS4 SONY (REPLICA) INALAMBRICO CAMUFLADO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Sony",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -706,20 +579,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 28,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0033",
-    "sku": "MP-GAM-028",
     "name": "JOYSTICK PS5 BLUE STARLIGHT DUAL SENSE WIRELESS (ORIGINAL)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS5 BLUE STARLIGHT DUAL SENSE WIRELESS (ORIGINAL). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -728,20 +597,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNwGg_w2ntCn_vHTxnJ5ChCkmtzmIWrbEupZI-we_sk9kD4C3gjOPKaNF_jAJIyL4sXy1p0AQJbDLFBNjAftn6tGDzbuVzGs1sf_D5cheoDmegilTHG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0034",
-    "sku": "MP-GAM-029",
     "name": "JOYSTICK PS5 MIDNIGHT BLACK DUAL SENSE WIRELESS (ORIGINAL)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS5 MIDNIGHT BLACK DUAL SENSE WIRELESS (ORIGINAL). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -750,20 +615,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNGvik0Ipp9ZDa5eR7swyeAEGBoKo-99-BavJs8kgRQf4inkcq6EDFYigDsyABdXbcDbsj_ZGUssbEJoPm2D4MJ8gc7U2TivBbT-kqhw_6hx2HuBnSh=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0035",
-    "sku": "MP-GAM-030",
     "name": "JOYSTICK PS5 COSMIC RED DUAL SENSE WIRELESS (ORIGINAL)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS5 COSMIC RED DUAL SENSE WIRELESS (ORIGINAL). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -772,20 +633,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOn3CpSpogkfGFIoS1HWSZUxyN1Xovk1dvmrVPd3b0dfLgxscqC1F10Kl67p2YNGrY5BqoQJw3Eh-v3k4BLasjCbL97P8qWfj2C4VeEryKqxWYxl3T6=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0036",
-    "sku": "MP-GAM-031",
     "name": "JOYSTICK PS5 WHITE DUAL SENSE WIRELESS (ORIGINAL)",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "JOYSTICK PS5 WHITE DUAL SENSE WIRELESS (ORIGINAL). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -794,20 +651,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOz9gf-y2FQmv2oYbPu1Azi385kraGIwGgRUojNsgtaYqSJMvyOz9AT5LZrzULaNp0jO8Dn_yY_Z72OV5wmCVLPgelmrxHU3ST6DKFj-gjhbrSy150y=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0037",
-    "sku": "MP-GAM-032",
     "name": "PIZARRA ACRILICA LED 15X15 CON MARCADORES",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "PIZARRA ACRILICA LED 15X15 CON MARCADORES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -816,20 +669,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOq9fcMW0OmeMbPixANfLJt5A9Udbqmgj8_sp6IZdU0bCY45u6Q2oCa-38nJJJ9VN7lbQwc-E9OW8ORKPIf3TOM9yBg_veKnj4GHS8EBIvJlMQQQA6l=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0038",
-    "sku": "MP-GAM-033",
     "name": "ESCRITORIO GLOBAL ELECTRICO 120X60CM/BK-BK/REGULAB",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "ESCRITORIO GLOBAL ELECTRICO 120X60CM/BK-BK/REGULAB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -838,20 +687,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM0aIAaO4-_yGOx4eZPUvwuwb5oYwe5-mNmi7ykvjFECP9BX6q1lKgYF1mJeonBmPYihAynziKFgh37ulxXyaIQWw2aLMlJ6JnQU6SCEc3PdNOpsNx2=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0039",
-    "sku": "MP-GAM-034",
     "name": "ESCRITORIO GLOBAL ELECTRICO REGULABLE RGB 140X70 CM",
-    "brand": "Genérico",
     "category": "CONSOLAS Y GAMERS",
     "description": "ESCRITORIO GLOBAL ELECTRICO REGULABLE RGB 140X70 CM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONSOLAS Y GAMERS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -860,20 +705,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO5k-VCJfA6r7cRAYYFig6KQ_WS-1VW7fGUtKpQsoUlSCgEI2hoSltpOMze5IYOqYtxG3Xed9ivsLzGfVnm9fR74fNeQXFnsLFaVgORHjg1g3TH9xTb=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0040",
-    "sku": "MP-POLI-001",
     "name": "CAMARA DIGITAL ACTION CAM TYME Q13",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "CAMARA DIGITAL ACTION CAM TYME Q13. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -882,20 +723,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMniB8ayzVL8BBaDVu821S3cYz38wkmfXjQFz7eHQL3MhOKGMCsm0fvWvd3ZilVImBmMdXRaV80A9vKA58zMOhlY4343k3nEy0TfBeAB5DkCUhtQro=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0041",
-    "sku": "MP-POLI-002",
     "name": "ACTION CAM SJCAM SJ8 AIR (PANTALLA 2,33\"/CAMARA 14 MP/ CONEXION TIPO C)",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "ACTION CAM SJCAM SJ8 AIR (PANTALLA 2,33\"/CAMARA 14 MP/ CONEXION TIPO C). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -904,20 +741,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOhKXveY-edUAV_xYLCBQdYqHfc74-c38R2hupuVe1UJOYT6DeDslAL8C4PkIq28Qm2I6IUt2Vv9olg9jqsIo2qDBZVuzzX7h-HKIFYSFDrj2fyV_c=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0042",
-    "sku": "MP-POLI-003",
     "name": "BOLSO/CARTERA GADNIC LONA MUJER MOCH231G",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "BOLSO/CARTERA GADNIC LONA MUJER MOCH231G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -926,20 +759,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOKKKzxreUObeS2WypuBB7bf037jj61iMkLjhhqdmwSbw6zCwUE8LjMhvZc2McC4Jmhd6EXe3ugSlmYc2mxizOyk1IIcc-qesSMK6cg5AaTHsAQnW8-=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0043",
-    "sku": "MP-POLI-004",
     "name": "MOCHILA GADNIC VIAJE IMPERMEABLE ANTIRROB MOCH023",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "MOCHILA GADNIC VIAJE IMPERMEABLE ANTIRROB MOCH023. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -948,20 +777,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN0mYsNbjkJS90l-BQbKCv7PAikZ4g-4a2HFV5L_2nNn66AS8PpBONws9SwdAAe-kvy8GgSWKlzVsgnCFZaQ4DJqZTmSbRJYExW2H6rRvINGt2hNIrL=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0044",
-    "sku": "MP-POLI-005",
     "name": "MOCHILA GADNIC SOUTH PORT MOCH0135",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "MOCHILA GADNIC SOUTH PORT MOCH0135. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -970,20 +795,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNY8-EyVmlGdnMWEaqD-D44c6i6R3Z9Cm94dzUbcISyb40In9dhZL1mN_5MXts-UiR8UPvo26kC7Zz57bw7L-F58K5sbeTBGybf6gxkLAWmSRr06pDD=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0045",
-    "sku": "MP-POLI-006",
     "name": "BALLERS ZURU SORPRESA CAPSULA MUNDIAL FIFA 2026 X UNIDAD",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "BALLERS ZURU SORPRESA CAPSULA MUNDIAL FIFA 2026 X UNIDAD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -992,20 +813,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN6hoUiHsf9kEQFpxBwVT2vJX7KG-zkx8bMAKRft6NpczIGWyxfr4_cmG8iSZJmexMCIUvZTV4eQ1g5vHCW4pp3e7BEu80iyeYFhRwcoP-YuFCIWwjc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0046",
-    "sku": "MP-POLI-007",
     "name": "DESHUMIFICADOR NAPPO 12L NVD-297",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "DESHUMIFICADOR NAPPO 12L NVD-297. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1014,20 +831,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNCjWIrGco1LxBSgq_0crnn6styl2nqAaQ7cvFkzrwnGuP0q3PD-Fq_iAZuuM1TpJLre4C8zcKVxGSRh6e_ZY1NwoUZeixc7tYcgDNlIptbH7cONurZ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0047",
-    "sku": "MP-POLI-008",
     "name": "COMPRESOR DE AIRE PORTATIL NETMAK NM-CA101",
-    "brand": "Netmak",
     "category": "POLIRUBRO / HOGAR",
     "description": "COMPRESOR DE AIRE PORTATIL NETMAK NM-CA101. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1036,20 +849,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM-XgwAs9erOD7aYjOsVD7tFzf6zW6qd3W78PK8w-ulPLSMwRDIxWQ02k1OB3cyuUm-LNlp6Q5qhRcRM38q8lfJFx6a-GzlulEBxC5hP9aXZgJBtD-m=s250-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0048",
-    "sku": "MP-POLI-009",
     "name": "COMPRESOR DE AIRE PORTATIL ARRANCADOR NETMAK NM-CA102",
-    "brand": "Netmak",
     "category": "POLIRUBRO / HOGAR",
     "description": "COMPRESOR DE AIRE PORTATIL ARRANCADOR NETMAK NM-CA102. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1058,20 +867,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNBAaKjIe-gl4eYIK6k71hv6e7OfLyP2vpqbb7grJGQnDFouke3n92EVj3fIKDSgA88ddyDuf16B8494FiT5Tc4rQXg9g7Gr7tq1VzhrcERqLqTx0Xu=s250-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0049",
-    "sku": "MP-POLI-010",
     "name": "INFLADOR DE AIRE MULTIPROPOSITO NAPPO NHI-294",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "INFLADOR DE AIRE MULTIPROPOSITO NAPPO NHI-294. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1080,20 +885,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMRSK5uHj6iQMLniIgBTDW5Xf6CZy6teiCaIItkpp9ksg43N8jE3VePdFBMrP4u2lis_Ove9FPXmTbgonA-g2MdJFvjxpGoQIOih6u1mKqPNuGOv5rD=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0050",
-    "sku": "MP-POLI-011",
     "name": "SET DE DESTONILLADORES DE PRESICION 115 EN 1 NHK-207",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "SET DE DESTONILLADORES DE PRESICION 115 EN 1 NHK-207. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1102,20 +903,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOf5y6818ha1nSuKHqjtsowBODt2JjdmCzQEbFFaAmMoG3z022i1bGcdHFXq-jLiJZGNjFt79DAEmaMU28S6hBjkcBZ8VHHH3P7vxE2LGArE_ToZPGH=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0051",
-    "sku": "MP-POLI-012",
     "name": "Llave Impacto 1/2'' + Atornillador Con Percutor 66nm, 2 Baterías 2.0Ah (TOTAL ORIGINAL)",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "Llave Impacto 1/2'' + Atornillador Con Percutor 66nm, 2 Baterías 2.0Ah (TOTAL ORIGINAL). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1124,20 +921,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMZv1Scp6m3OnUGl5BezuqGDwM4IcM5rOmqAfILtLDP6A6GDvZB8E-kEn0eYVT32HsPdZSOa0GmcvbH9_4npoRYgWJBpOmQWsGFdSTMnL4q1Mqiu_E=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0052",
-    "sku": "MP-POLI-013",
     "name": "SOLDADOR INVERTER GEELE WL-243",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "SOLDADOR INVERTER GEELE WL-243. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1146,20 +939,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP5iBKTAiBy8jQI8GoA6fGn1lAZ2BLVVYSzdSEo9rZj5i06l4b4xL16cOMuESD_bVR3vdgHfOzon4AyAkmXbZZO7fNZVpM-UL7LWJhLUY87f86ksoo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0053",
-    "sku": "MP-POLI-014",
     "name": "KIT HERRAMIENTAS MANUALES NAPPO 189 PCS NHK-052",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "KIT HERRAMIENTAS MANUALES NAPPO 189 PCS NHK-052. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1168,20 +957,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOtflIR50hd82gdqNhaf_E7qvLmmb37pQDRVVk2SeLoUU-a_gZZKhogFT0XKTfy_HrfNLI-xZmgOSosHlbNLu-fCMrV_Lp_VPXpZlrqAmhEvFSrOCE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0054",
-    "sku": "MP-POLI-015",
     "name": "TALADRO RECARGABLE KANDEXS LITIO SP-992 3 FUNCIONES",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "TALADRO RECARGABLE KANDEXS LITIO SP-992 3 FUNCIONES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1190,20 +975,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOL1ZaL2Uy2SmpFLv7jfWSAXciHZ4ByZt4SI7dbDLDlSzIuh38F9liP_rCMe0fzGAaH4z7_J4t5kj6z_cfOBQKR29g_ua46LSm_xN1V3F6nZdhOyyo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0055",
-    "sku": "MP-POLI-016",
     "name": "ATORNILLADOR SATE A-TK84",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "ATORNILLADOR SATE A-TK84. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1212,20 +993,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMhmp62bwqZ997O2GjQhM5dHwPX8_Jp1bryjZP4dC4K1BtgSwqK0aMP0hCLhbz_xt_q5e6aRIdDlgb8cj47dzhyOiCwhFofMcT90aQrCY2TIlGQ3DA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0056",
-    "sku": "MP-POLI-017",
     "name": "SET DE ACCESORIOS NAPPO PARA TALADRO 16 PCS NHC-185",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "SET DE ACCESORIOS NAPPO PARA TALADRO 16 PCS NHC-185. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1234,20 +1011,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOOzpWT4OLJs2tHD-q3dj1jMZ6yuaQWRd6XkBir9SKrRX5_pinHgwwFJa3BjoWg6AaSiPXkNoJC4kpmsFO38U_6GbUCv0E0xPSgUNN5x8EBhJ2lVCX9=s201-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0057",
-    "sku": "MP-POLI-018",
     "name": "KIT DE LLAVES TUBO 40 PIEZAS NHK-047",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "KIT DE LLAVES TUBO 40 PIEZAS NHK-047. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1256,20 +1029,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczODLDPK_4hiX3kVbs_BNpjP9RHILMTVoDTQtKCjnDmc6-T6wXL1LDpG5JCJWyCjx-bwN2HQwfj7Lpz3SVZj5HYg3nKWPOPdCIfBgY0B2iu9zxYlPpWG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0058",
-    "sku": "MP-POLI-019",
     "name": "CAFETERA NAPPO ESPRESSO CON BOMBA NEC -241 NEGRA",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "CAFETERA NAPPO ESPRESSO CON BOMBA NEC -241 NEGRA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1278,20 +1047,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO_rttJKzDj-hLwN0KiVlta5XUPlViBVG47jZhhJ0HFd_yXAPGUYUW2gNKtZOzpRF0dICYvZS2oOPS0zbTPl4u1aTD2wbVE2GADRcdN7UeR-BWPWu2R=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0059",
-    "sku": "MP-POLI-020",
     "name": "FREIDORA DE AIRE MONDIAL 6LTS AFN-60-BL",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "FREIDORA DE AIRE MONDIAL 6LTS AFN-60-BL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1300,20 +1065,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNvkt2HzbR0TcCNie63VSYxwDHLB6ELMHFzZejc7CSMtRjyIn0WTHrKz6WbolLRfmsyYDXwcQn_FvzH9hIh0c7jWuwDdn6Hkl_JczzahRMxK-Md6jYY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0060",
-    "sku": "MP-POLI-021",
     "name": "BATIDORA DE MANO MONDIAL B-36",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "BATIDORA DE MANO MONDIAL B-36. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1322,20 +1083,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczORUFNclyQbVAM2UkHZ_BkYzIx9VDhcgcm8t-xc0yQf5gl2ADu-FbN3BXcbxaGtUMNq2myGJbD_WY05JecVn8X5E2u2jmo23drfOrfkVe_MMjdjqkFO=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0061",
-    "sku": "MP-POLI-022",
     "name": "BATIDORA DE MESA MONDIAL NEGRA B-04NP",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "BATIDORA DE MESA MONDIAL NEGRA B-04NP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1344,20 +1101,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNasIU1e10Q9MRQB38HNjXonbVl5f7XyjU3fIIKNif_x3Dv4ImLhB1JJcOfp8rUlb6BmXARtn4wlLWC03Xr8TIm2FPVxTTo8pvKQWa-mFAeCnqmdKBb=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0062",
-    "sku": "MP-POLI-023",
     "name": "BATIDORA DE MESA MONDIAL BLANCA BP-03W",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "BATIDORA DE MESA MONDIAL BLANCA BP-03W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1366,20 +1119,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN5mX10z62yZHtaCTL_ONCkoCEMYJFahPcYHHokZ29yRGaNKWSveGwscckFOXrqli8U-Ng_mD8J9Namj89acLfBFSCrt4tp15ZG4vI3RawvGRQx35UC=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0063",
-    "sku": "MP-POLI-024",
     "name": "LICUADORA MONDIAL 3LTS 12 VELOCIDADES",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LICUADORA MONDIAL 3LTS 12 VELOCIDADES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1388,20 +1137,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNTXHg_pTUfth-ZLr8p07oWj3BbyEOofT17XZ8g9R5aeP_Rg247XzlQqxYen2Dap53Nr1O4u7PNaiSmfR22Wpaoay16pQVJRvIlC78aAobWjhtdEfnx=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0064",
-    "sku": "MP-POLI-025",
     "name": "EXPRIMIDOR MONDIAL 1,25LTS E-01",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "EXPRIMIDOR MONDIAL 1,25LTS E-01. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1410,20 +1155,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO5oT2ZFUle1f9bRkNa5ApbxIczngL8FXPWDPfl5i-jPGATeZ3ldDJCkJ_0-X9sQg1jw-AGigEVuunyt0bHyJkao9zj-US8Tt6tes_WHqHcrk7MdLj3=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0065",
-    "sku": "MP-POLI-026",
     "name": "FREIDORA DE AIRE MULTILASER DIGITAL 4.2L 220V 1500W",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "FREIDORA DE AIRE MULTILASER DIGITAL 4.2L 220V 1500W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1432,20 +1173,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN1lD7C7NHL2hti3yNyxvrwbFRxy-Kvern3mE0jU7jN8gu69cpcfscNMkpqmQQ6_Kth79sJNSAnn1jSRBB2-FJR6z-MkIo553PvuHvUxPZLTYG7Y7Ye=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0066",
-    "sku": "MP-POLI-027",
     "name": "FREIDORA DE AIRE NAPPO DIGITAL CHEF XL 10LTS NEF-223",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "FREIDORA DE AIRE NAPPO DIGITAL CHEF XL 10LTS NEF-223. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1454,20 +1191,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN84CVoDLUYZ5B_cs7o-PixYMLSjvV3A8yxNKwj7rAmJwEm0JSpIY1rPFMLNjjunGWXGdOe_eKoijyHKQcpMvuUtCFoRUfzMFy0WA3S3Lm-kj8C5PUd=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0067",
-    "sku": "MP-POLI-028",
     "name": "MARCADORES DOBLE PUNTA TOUCH X60 COLORES",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "MARCADORES DOBLE PUNTA TOUCH X60 COLORES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1476,20 +1209,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 19,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOVB8fufVdEVt2d7A-mGehwMMI2mWdtNOpIV1oROJBYyUr0xZW_48A5qgcAWDVXCdl7nIEdQc6uPV1-RkijtlMXAY9lYtXrVRqDfPjDoH6_s5BY-Uyc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0068",
-    "sku": "MP-POLI-029",
     "name": "LINTERNA LLAVERO ECOPOWER EP-8112 300 LUMENS",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LINTERNA LLAVERO ECOPOWER EP-8112 300 LUMENS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1498,20 +1227,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMSg-6SucjjmbFZTEwqQ4DC9ef_wKx5jl5DoIg4moCCjFLYQ9AU67kIN336p5e_V74UlHgWu14h6hpcaaSUz0QpoND0ZtjMQe0a8hDZFesBtFcBQzE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0069",
-    "sku": "MP-POLI-030",
     "name": "LINTERNA TACTICA CAJITA VERDE MODV-00B3",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LINTERNA TACTICA CAJITA VERDE MODV-00B3. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1520,20 +1245,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 70,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP1RV5Vf0ssLDUAtVR5vsVNYpAnUK3F3P9it5zEzCqwYR2mMCqZ_xd6dyIFye7j2eaLFZaT9ySFsXXRIZMkDHGbvQaoRhJAfVCR1_fk7F0nK7GNo9cy=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0070",
-    "sku": "MP-POLI-031",
     "name": "LINTERNA RECARGABLE ECOPOWER EP-8171 1000 LUMENS",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LINTERNA RECARGABLE ECOPOWER EP-8171 1000 LUMENS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1542,20 +1263,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNCgZjab6K8_-t4y1x8hyp3GHxZED9z_7gmZsW3yih7tb82qsByNz_zDiHOeW4Hifcni80G5aXraqoQXXbo_AgXfK01-wXINcL8PtDaG73s1M_yVn4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0071",
-    "sku": "MP-POLI-032",
     "name": "LINTERNA RECARGABLE ECOPOWER EP-8029 1 LED 20W",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LINTERNA RECARGABLE ECOPOWER EP-8029 1 LED 20W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1564,20 +1281,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM-uBMC-Na3QyI783RpdDRFzSXdDwW-NWQz-iYfkIfhAM3EjSwULK6ClbUXs3d4RO7MxUhUCNoLW2mdNUsrItouiSMxSQezSlrLTgjhP6oYCtcB_co=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0072",
-    "sku": "MP-POLI-033",
     "name": "LUZ NOCTURNA PORTATIL RECARGABLE CON SENSOR DE MOVIMIENTO",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LUZ NOCTURNA PORTATIL RECARGABLE CON SENSOR DE MOVIMIENTO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1586,20 +1299,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 36,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOXYs2P9CdWhNi-wgOQYOXX5d-SgJJvrnvlPdSpnz-tIT5fRl3VMrHA0wmW1rW_UUF6TS2gRcRJHY2DGOSLHSCDEF1jIDtERyRWze9NvMm7DJKQL8w=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0073",
-    "sku": "MP-POLI-034",
     "name": "LINTERNA MINERA VINCHA SATE A-FL-1101",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LINTERNA MINERA VINCHA SATE A-FL-1101. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1608,20 +1317,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 68,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNAfONWORQs0JjqGsyt6R6iU8EokQ9UR_MZgAeOuvtWb4Ufb8yIm6lx3rWZK6cYAZ6PnjPDgpz9X2j9ikAYtN1BzmxR_pY8bAexMxfEMWePKdr0Kxg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0074",
-    "sku": "MP-POLI-035",
     "name": "LUZ DE TRABAJO LUO LP-195 RECARGABLE",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LUZ DE TRABAJO LUO LP-195 RECARGABLE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1630,20 +1335,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 40,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPv9yWFpuFe0bBD9zcO6RMtaIAsbKcSuTD1nT0A4NbEtcdU0zWM4XKosf_Mu8Dy2d636DeZeXJ6rT5MUHNbvkMeIS1kYeOdWBKx4zMwyW-VMT4-8SI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0075",
-    "sku": "MP-POLI-036",
     "name": "LAMPARA LED DE EMEGENCIA 7W",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "LAMPARA LED DE EMEGENCIA 7W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1652,20 +1353,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOTxY3x8om7Xo0Qu_vGfL4O1cu3mlrKDS26imkbUgGutVHYmO6mPSY883wWMiB-BDHS60j1J5tAFAJAsm074WcaJKGNHlYZLMSLCc-IyoZ2M_7ln1Bx=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0076",
-    "sku": "MP-POLI-037",
     "name": "REFLECTOR SOLAR CON SENSOR DE MOVIMIENTO",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "REFLECTOR SOLAR CON SENSOR DE MOVIMIENTO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1674,20 +1371,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPs1pJTpLGJWoNMgIY_PfzZhJtPB7U9F-RviNfnBitTxKERtuUb00gA7cUcfwwiRWbVX0IdZYwpvNAfTiSu_kntNDLF-BhXPZxi0-sW1YkBnxq4BP0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0077",
-    "sku": "MP-POLI-038",
     "name": "FAROL SOLAR CON SENSOR DE MOVIMIENTO Y CONTROL REMOTO",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "FAROL SOLAR CON SENSOR DE MOVIMIENTO Y CONTROL REMOTO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1696,20 +1389,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0078",
-    "sku": "MP-POLI-039",
     "name": "TACHO DE BASURA SATE A-JA616 CON SENSOR DE APERTURA AUTOMATICO 16LTS",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "TACHO DE BASURA SATE A-JA616 CON SENSOR DE APERTURA AUTOMATICO 16LTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1718,20 +1407,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPnDQsPXytkrKmliKmKUJo1t2PGBMUEPJZIb1mJJ8PLLmy-MQq2JM-hqHXv7R27KUV_nYpU63CVyLvWwdp9lgqIE2vmb7RI5WuZQgUSmKFAD2Qf1OA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0079",
-    "sku": "MP-POLI-040",
     "name": "PROYECTOR USB/HDMI CON CONTROL REMOTO",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "PROYECTOR USB/HDMI CON CONTROL REMOTO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1740,20 +1425,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMfsOAoZrkeMVivKj_Vpmo3GgxzRnQXG3sxGDOCuKSVUGX05PaeI9yCHrsjo52jYUHQgaW3Z5RWpO_tcwNEEHhmIWAyufM1k58z-i7i0YXIgLEG5hYJ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0080",
-    "sku": "MP-POLI-041",
     "name": "PROYECTOR NETMAK NM-PR500 SMART ANDROID 14",
-    "brand": "Netmak",
     "category": "POLIRUBRO / HOGAR",
     "description": "PROYECTOR NETMAK NM-PR500 SMART ANDROID 14. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1762,20 +1443,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN6jHjCl4anc5zSLR63i0m78v20gmwm7YriowhzgPq3c33UVnbAyovsmybO0-v9_Z66-NAMprGhaEp4Qu9nDdSQ08aq4Kiw0AAPuJ0FVlQH5E6vVq8i=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0081",
-    "sku": "MP-POLI-042",
     "name": "PROYECTOR NETMAK NM-PR300 SMART ANDROID 14",
-    "brand": "Netmak",
     "category": "POLIRUBRO / HOGAR",
     "description": "PROYECTOR NETMAK NM-PR300 SMART ANDROID 14. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1784,20 +1461,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMsJ9KGkAVqDPjSnVdGginJvxL4zmS1ps7s7Bp4elGwFEeTVPYLdfh7YI4CY2ya5oR4P2UHDaxHGwZS1JaO2lIZKnEKXQVyZV56bXllNxqkATVMZfI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0082",
-    "sku": "MP-POLI-043",
     "name": "ZAPATILLA OGAAN 6 TOMAS + 4 USB",
-    "brand": "Genérico",
     "category": "POLIRUBRO / HOGAR",
     "description": "ZAPATILLA OGAAN 6 TOMAS + 4 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1806,20 +1479,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM01yUOJO_ZzPM53TBdEJG0PoQNABs7mtm6mpPWowEuLGEqqRSZ5-cHgkXHpFXaX9pH6_Y496b7eyraHY_SnYjDP6KRUDft1e0viTx3RsgTltRgiDo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0083",
-    "sku": "MP-POLI-044",
     "name": "WALKIE TALKIE NETMAK NM-WALKIE C/CAMARA Y PANTALLA",
-    "brand": "Netmak",
     "category": "POLIRUBRO / HOGAR",
     "description": "WALKIE TALKIE NETMAK NM-WALKIE C/CAMARA Y PANTALLA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: POLIRUBRO / HOGAR",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1828,20 +1497,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 24,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMKoIGMNJh_xwSyTwpAiB9Y_HqQSdgQ_kYRFQW3Sx7zi1yeQvWn4x2DvZGsrjMp_r81diWiIjFvGYPYudMy6NdbgKiXEDOXQRe0criv9oEOuvKXuBJ0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0084",
-    "sku": "MP-VAR-001",
     "name": "DIGITAL CASE JG-DIGITALCASE",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "DIGITAL CASE JG-DIGITALCASE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1850,20 +1515,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0085",
-    "sku": "MP-VAR-002",
     "name": "BLOCK DE NOTAS ADHESIVAS MAGNETICAS",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "BLOCK DE NOTAS ADHESIVAS MAGNETICAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1872,20 +1533,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0086",
-    "sku": "MP-VAR-003",
     "name": "CORTINA DE LUZ INTELIGENTE 400LED 2,4G CON CONTROL",
-    "brand": "Intel",
     "category": "VARIOS",
     "description": "CORTINA DE LUZ INTELIGENTE 400LED 2,4G CON CONTROL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Intel",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1894,20 +1551,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN050EU30uTzDb2OyKjyBbCam_psFjhBC5tTHs81zcIj3CTj77AYs9N2UEuw0I-3Li5xPQ8SNv46n4VZFJC31Byo2mA5dId0R16to17h8Ka2tnCsTxq=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0087",
-    "sku": "MP-VAR-004",
     "name": "LED PARED BIDIRECCIONAL RGB CON SENSOR LED-83055",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LED PARED BIDIRECCIONAL RGB CON SENSOR LED-83055. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1916,20 +1569,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOic1hx5evk4Vg9T3WIyRiCQJLq09b4JiM7qjLUD0X8J2c_or4b5ef8nzRIRe0vaRuy5a13SNK_yX5GQvALJ3TJP-f2nvwWte7LKA0Wj8jcPrWM5PnC=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0088",
-    "sku": "MP-VAR-005",
     "name": "LAMPARA DE PARED SOLAR 4 PROYECTORES",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LAMPARA DE PARED SOLAR 4 PROYECTORES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1938,20 +1587,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0089",
-    "sku": "MP-VAR-006",
     "name": "LED PARED BIDIRECCIONAL BLANCA CON SENSOR METALICA LED-83057",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LED PARED BIDIRECCIONAL BLANCA CON SENSOR METALICA LED-83057. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1960,20 +1605,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPm-7V-xIAWnC_CFSuAsZeXcxR7ovZDEMQTuylA6ULKuAInaRPl8DbIpWFFTQV10-knEAGh8q9QSRYB03AbQkEJaWYhTrbPwGwB5UgeOMB4nPFDcLaX=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0090",
-    "sku": "MP-VAR-007",
     "name": "LED PARED BIDIRECCIONAL RGB 4 LED PROYECTORES SENSOR LED-83056",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LED PARED BIDIRECCIONAL RGB 4 LED PROYECTORES SENSOR LED-83056. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -1982,20 +1623,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPUiW4-3bwlJ50QPNyxrhON86gUPgTFVcKUW3g3t4gE1-Pg8JElwfRXIe3cnh-qii5STn5o1WcFbauqpyAoqfZEIC_J0iCsuyejoshbXgly9kXLRXxO=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0091",
-    "sku": "MP-VAR-008",
     "name": "LUZ LED DECORATIVA RGB HEXAGONAL 6 PIEZAS PARA PARED C/ CONTROL LED-Q9875",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LUZ LED DECORATIVA RGB HEXAGONAL 6 PIEZAS PARA PARED C/ CONTROL LED-Q9875. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2004,20 +1641,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO2wB7RWi6sYycAcISo-gXTYyt3FWrqhoI940N5um_3VceD761tbC_6GCv5XP9tNi2Knkqiugwa-6arhAH3iNgAk87ODxzm_8hmyVX0FFvT5eundWSb=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0092",
-    "sku": "MP-VAR-009",
     "name": "HUMIDIFICADOR LED FLAMA",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "HUMIDIFICADOR LED FLAMA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2026,20 +1659,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMzbRvf4Bohb5Y6B05Czu2EVcOycvMS5ydDkYZ3C-LvTlls77zeunp5WSpgfxKQ7yDex-s5_gItst9oIPK20bjqYcx_LJ-S54TsRWWf__mnibRGPLXS=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0093",
-    "sku": "MP-VAR-010",
     "name": "PROYECTOR GALAXIA USB CON 3 DIAPOSITIVAS",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "PROYECTOR GALAXIA USB CON 3 DIAPOSITIVAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2048,20 +1677,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOKwL2wciB0Aw1cuRGwFk6N2LzaUcwJw31fkFkoYxdaepWpVFO_DAci5M-4_vnoBeiB4XkdK6vBr5-IIqjbjOOjWNG7Ok0XR-4soxV51VJi-3VZk0NS=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0094",
-    "sku": "MP-VAR-011",
     "name": "GAFAS DE SOL Luo LU-YJ003 (Con Cámara Integrada)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "GAFAS DE SOL Luo LU-YJ003 (Con Cámara Integrada). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2070,20 +1695,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP_qUrISTrf-zixccgMpetwLb4hnz3mIyOpnN5E7omgscdEUzkHw-JqwUDN6o-vcV8ARSGtfdoVlHlz1jJS7n1RKARsfOv70DojVwopoyqqNDBEvOs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0095",
-    "sku": "MP-VAR-012",
     "name": "BATERIA ELECTRICA NM-DRUM BT",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "BATERIA ELECTRICA NM-DRUM BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2092,20 +1713,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 16,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPROomBdfHTIob5j8UR3dD4vI9tRfCdhufzFvSdtXMBW4mrI_rKGafvKmodEBxx8LLjv2y6lzLpfShKRKojN4mYL98f_fktmE0mkC-j8-IwLLbPN5c=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0096",
-    "sku": "MP-VAR-013",
     "name": "CARPA 4 PERSONAS KAWANA",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "CARPA 4 PERSONAS KAWANA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2114,20 +1731,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNyqWCjREXz5U0hMczQGXzX_QjIjl_FF0TvAkSyPH3W2qAyxI5_uEg9UgmLAKhQZzplfRfnJ7-QCgGuRjAqMfUurQq0feWRponMUAcCj8dKzTBkAuo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0097",
-    "sku": "MP-VAR-014",
     "name": "CONTADORA DE BILLETES DAEWOO 2821VC-DISPLAY (OFERTA)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "CONTADORA DE BILLETES DAEWOO 2821VC-DISPLAY (OFERTA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2136,20 +1749,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP7bnivGxzxgBOc8KavyvSHbrrGd4fu4ofhU2FcttvBkBeGjq1vn4ZPmXCLXSj61t7WfrZO4BBK_ZM_7zCurG_T1VCItRHdsLiiynhUKP8dIwd1TFM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0098",
-    "sku": "MP-VAR-015",
     "name": "AVION DRONE NETMAK NM-FIGHTER",
-    "brand": "Netmak",
     "category": "VARIOS",
     "description": "AVION DRONE NETMAK NM-FIGHTER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2158,20 +1767,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNhbzlNke5fxtwmYoNrz84YK9QAeobe7-GcPN6IzHPBaLw-PmXAw129hxfufbSWSh7hvn5f80fJb8KN0wflBsh79UYEhxNklRJriXVANXLbBgktKXE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0099",
-    "sku": "MP-VAR-016",
     "name": "MINI DRON A CONTROL REMOTO CON FORMA DE AVION (sin gtia, por daño fisico)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "MINI DRON A CONTROL REMOTO CON FORMA DE AVION (sin gtia, por daño fisico). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2180,20 +1785,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPNp7sQezLoRba5p2IlVVG6v8fa0tdgWrXMl5ej2Jjxk3Dq9VYlafspnokugNYBJLfprTJjpAWJvtpsLOpfdvR1PeF4Bojo4oqOcbh7rdTQOyxrdHZg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0100",
-    "sku": "MP-VAR-017",
     "name": "DRONE QUADRICOPTERO A CONTROL REMOTO 4 HELICES NO2691/92 (sin gtia, por daño fisico)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "DRONE QUADRICOPTERO A CONTROL REMOTO 4 HELICES NO2691/92 (sin gtia, por daño fisico). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2202,20 +1803,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNBWQVNRL17MQ1vbSPifEUbOl-FSDSvmWaQVnJLy72BvzUFEq159k4zaM6YS061pOogbXF7dLdlxwmEEmRLTcEJ-WLEb5yM-mPYyKwb9MB-MR-gUA7x=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0101",
-    "sku": "MP-VAR-018",
     "name": "DRONE QUADRICOPTERO MR LAUFLY A CONTROL REMOTO 4 HELICES NO2690 (sin gtia, por daño fisico)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "DRONE QUADRICOPTERO MR LAUFLY A CONTROL REMOTO 4 HELICES NO2690 (sin gtia, por daño fisico). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2224,20 +1821,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNdlUQ5MQhX6rImaBidqLe7i1eDh5tIDioifKX1npSZvDQR2yA4SbSoHXEHu4e5GAb_qTmSwEDA3oaSPuyAcN9f2av_17krZtiTW_RxUGjVe_NJCM55=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0102",
-    "sku": "MP-VAR-019",
     "name": "DRONE QUADRICOPTERO MR LAUFLY A CONTROL REMOTO CON PANTALLA 4 HELICES NO2711(sin gtia, por daño fisico)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "DRONE QUADRICOPTERO MR LAUFLY A CONTROL REMOTO CON PANTALLA 4 HELICES NO2711(sin gtia, por daño fisico). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2246,20 +1839,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNLbXHRtzXF2D_ZvJX04xF_qDheHrioCvJBEeEGW50V2MiZ-P9v9CStWTIq7U8zaLD9OWU2aOFWoBiIvqcYOu8a_uULR18EIU6vbocRt_1gKjyI494=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0103",
-    "sku": "MP-VAR-020",
     "name": "ADAPTADOR PARA FOCO",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "ADAPTADOR PARA FOCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2268,20 +1857,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPrDLN4JuM40TkeJnwVdReUyUeWxBlIFvSMsSvdC-ZFE_owIlgVMz97E7zM8SfoMmFIQTPjXvcaL4wTAKIDh_HeDDLq5CORnmQYwZby_yo1qhn3SpR3=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0104",
-    "sku": "MP-VAR-021",
     "name": "CARTEL LED FLEXIBLE USB 12V 12X75 CM",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "CARTEL LED FLEXIBLE USB 12V 12X75 CM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2290,20 +1875,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO4WtOPpDD7ufwZXp0DUtgceObh-5g8dy8vzkQ5W3vprtC1mhkjbG1TXt0CRb2ChvnH6hEPSu3iQT3qXPVOizSpDA7B-sBFvKXDQyA2Nknxrn0g-2zx=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0105",
-    "sku": "MP-VAR-022",
     "name": "CARTEL LED FLEXIBLE USB 12V 10X38 CM",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "CARTEL LED FLEXIBLE USB 12V 10X38 CM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2312,20 +1893,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMAJ_SxAxSNPSPYH9p3mSu0w7AHa3MbfpN7uCeH4V5jl4-Gnsgrqdk7s_N_SVI2fm0U4Xf5OvFSjAO_BfmsQ7Ub9uPpC9gtJBP3CHn4M2icLcSDGDx-=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0106",
-    "sku": "MP-VAR-023",
     "name": "LAPIZ OPTICO PARA PC - TABLET",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LAPIZ OPTICO PARA PC - TABLET. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2334,20 +1911,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMlYLTq688ToLt5DVVVgQK1b-K2s_fIZSNv1ZiFYZjJrF-ihErZKXmvyGIrDIOsKsNY1_oAuDG7FOyNLriS89wrMk77UXPeEqvJsm4fysGYT6A5YxX8=s300-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0107",
-    "sku": "MP-VAR-024",
     "name": "LAPIZ OPTICO IOS Y ANDROID JG-LAPIZOPT",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "LAPIZ OPTICO IOS Y ANDROID JG-LAPIZOPT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2356,20 +1929,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPccliKskaTtuvHOrjSOKmsJdpBLlK7JOiz6mLMBaE1TPvKj7DzRH7Edz7zl8RNb6OnOiEh2v0hFVKIAPl2OfqGE3ejyAMwVWev6Th1gkmX_GFzWRgw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0108",
-    "sku": "MP-VAR-025",
     "name": "REPUESTO FILAMENTO PARA LAPIZ 3D (PLA)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "REPUESTO FILAMENTO PARA LAPIZ 3D (PLA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2378,20 +1947,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 34,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOnD4UsGwScAAzpUWud7SS89AeSCE6tc6x220QUCUa__onUaHJuOmXJrqM6icVCaWLd48DrFKAmWc4DbHBisB3Y3R2hImGD9dsUlmUmN7TyNtRSlgNj=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0109",
-    "sku": "MP-VAR-026",
     "name": "REPUESTO FILAMENTO PARA LAPIZ 3D (PCL)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "REPUESTO FILAMENTO PARA LAPIZ 3D (PCL). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2400,20 +1965,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOnD4UsGwScAAzpUWud7SS89AeSCE6tc6x220QUCUa__onUaHJuOmXJrqM6icVCaWLd48DrFKAmWc4DbHBisB3Y3R2hImGD9dsUlmUmN7TyNtRSlgNj=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0110",
-    "sku": "MP-VAR-027",
     "name": "MOCHILA REDRAGON HERACLES GB-82",
-    "brand": "Redragon",
     "category": "VARIOS",
     "description": "MOCHILA REDRAGON HERACLES GB-82. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2422,20 +1983,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMGpsndz80OOBAefziY5uWVXEJ-Gok8nMHHOy-ffs5Er3k8199tz5foqcBDiHiA6KUk89jlwyMQD_kzAxgVP7A32Pn6vMTBDiqw0yb4FPjcy-bFoHVu=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0111",
-    "sku": "MP-VAR-028",
     "name": "PLANCHITA ECOPOWER EP-3573",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "PLANCHITA ECOPOWER EP-3573. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2444,20 +2001,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMDX5uO8vc9dTa_tjBCzNhu3jGW9u8s7uhH9sQO5phTrn1j7T71sUVdVVoEz_-LbsePw7klZ2rXMB8oYrsMNQcW41unn7cFB2ElmHXHp6qBoVYGdVg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0112",
-    "sku": "MP-VAR-029",
     "name": "PLANCHITA ECOPOWER EP-2011 4 EN 1",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "PLANCHITA ECOPOWER EP-2011 4 EN 1. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2466,20 +2019,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPMiYHHORLKm6RJHyRdWnhsaeHez4idHHi6K7zbFpT9alv1usL-j40Ngl33GzJZ3WcUV8I58OF94soOPOfNSz7PKgQMNWHvS-48LZfFlFjkJXREl2g=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0113",
-    "sku": "MP-VAR-030",
     "name": "MOLDEADOR DE AIRE PARA CABELLO ECOPOWER EP-3575 (INCLUYE ESTUCHE Y ACCESORIOS)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "MOLDEADOR DE AIRE PARA CABELLO ECOPOWER EP-3575 (INCLUYE ESTUCHE Y ACCESORIOS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2488,20 +2037,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNj8lwqAfr8HJ13O-SvnNyVUa13uH1cQ8hBUH3yZ6SbOupVqu6g_3fFj1H4cLfJcMx4nahIci2S2M8FfBwDJSGBkPs45cUd5Q7S5me3oUM0EqGBw4M=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0114",
-    "sku": "MP-VAR-031",
     "name": "MASAJEADOR CERVICAL RECARGABLE MANITO",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "MASAJEADOR CERVICAL RECARGABLE MANITO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2510,20 +2055,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM9unfdC3bwCABI6Y2rdK3o-DZSUTectm-kEZUaeKSC2Azuejh-4gbvccOXJ-ehVznxRYXNVtBZDUfX4Qv7XdNLqxqfBKsjmpvxoBINNJQOvkUeZlM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0115",
-    "sku": "MP-VAR-032",
     "name": "TABLET SAMSUNG GALAXY TAB A11 GR 8.7\"/4G/64G/SM/X1",
-    "brand": "Samsung",
     "category": "VARIOS",
     "description": "TABLET SAMSUNG GALAXY TAB A11 GR 8.7\"/4G/64G/SM/X1. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2532,20 +2073,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN0_ge4M8GUKvj086jwI49ZE7XUVzcTjwiWPLRi5K7DFH7yrLcb0Qlzz1I39LL0oAprA8BNAJzJhfvRma88tQMaHQ6xPFModetQM_XPzOxR61Ceq_KB=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0116",
-    "sku": "MP-VAR-033",
     "name": "TABLET XIAOMI REDMI PAD 2 8+256 11\"",
-    "brand": "Xiaomi",
     "category": "VARIOS",
     "description": "TABLET XIAOMI REDMI PAD 2 8+256 11\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2554,20 +2091,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNuVb2JUWO_4qgsH75XTQocX7ZhV1100cv2dHwy4nm_rsDIqW7UTPr0R1wxqWCCbHgaMv15dlrBX8ZYhT4EIaeA5oM8BkennfeU-0XLOuvVEaG4Muvw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0117",
-    "sku": "MP-VAR-034",
     "name": "TABLET C IDEA 10\" 5G LTE CAMARA 8+13/ANDROID 13/ 8G + 1TB",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "TABLET C IDEA 10\" 5G LTE CAMARA 8+13/ANDROID 13/ 8G + 1TB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2576,20 +2109,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPQNtjzdinyisY4EJ6hrsu2u4WQLGodno-8HPXi-s0zfdZctC378jSq1vCCvR8Vaj4HyC6kn1G8HckYDDRsGhpq4L5lgLTF8mgWbzBr0dyHGSIZy40=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0118",
-    "sku": "MP-VAR-035",
     "name": "TECLADO FUNDA NETMAK NM-FT11 PARA TABLET 9\" A11\"",
-    "brand": "Netmak",
     "category": "VARIOS",
     "description": "TECLADO FUNDA NETMAK NM-FT11 PARA TABLET 9\" A11\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2598,20 +2127,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN4VFA1L9vCOf7r7GBrRGsL23pigTO-a056Nss68h9GCEhLwSCZwCRLAPWoAUTsHs-XgxQAF5Qu5zrVb2dKP3gFCTDApI6-rcG72CVnFYVoAzXMftQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0119",
-    "sku": "MP-VAR-036",
     "name": "TECLADO NETMAK WIRELES NM-KB915 PLEGABLE BT5.0",
-    "brand": "Netmak",
     "category": "VARIOS",
     "description": "TECLADO NETMAK WIRELES NM-KB915 PLEGABLE BT5.0. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2620,20 +2145,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNV7DtxnoGhvTNnC6pdXoA-Xxcv21fS1J_ET-4KXRt_LZbGKCeg97Vn_f6tQiR3lwcJVNabA3baBdYwUtADc00eYEH_xOSkvpW-_mn-NXpgtZh-FFNA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0120",
-    "sku": "MP-VAR-037",
     "name": "TAG XIAOMI PACK X4 M2543T1 RASTREADOR GPS",
-    "brand": "Xiaomi",
     "category": "VARIOS",
     "description": "TAG XIAOMI PACK X4 M2543T1 RASTREADOR GPS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2642,20 +2163,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP6dPHwJ68k9wXG-W5qF5MgeRXTzOW9gNcdbCuZXZUzSYKG0R7N-Vz48AkLamKBeMFZPsS577w7oDgO7MhX6qCupIEzSdxAwQeKrkwtANavkq5MOPra=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0121",
-    "sku": "MP-VAR-038",
     "name": "TAG VERBATIM VB MYF-01 BT-BLACK RASTREADOR SATELITAL (SOLO PARA IPHONE)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "TAG VERBATIM VB MYF-01 BT-BLACK RASTREADOR SATELITAL (SOLO PARA IPHONE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2664,20 +2181,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 42,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQUbljMi_FKfvbGovl4BXLCEA4c6G5nWpnbXgguXz-HTpoV8ufLSLW0YlnPux5SKOSsCgRdvj7k8EGJgcP8ap1jMnST52mMMRZ4jpKP_Ms-8Im7yAz=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0122",
-    "sku": "MP-VAR-039",
     "name": "ESTABILIZADOR SELFIE CON LUZ LED Y MICROFONO",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "ESTABILIZADOR SELFIE CON LUZ LED Y MICROFONO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2686,20 +2199,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO_N17rMKihJLGWebVeIPCWBNGoXMegOutGicybkHwBMWGRQWsTGx9XydsrUFAG-_c2b9CDXsg4-idsM5GAU9N5CZ4rqb9qxq0X8qLJ2juEwO8uqmg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0123",
-    "sku": "MP-VAR-040",
     "name": "KIT ESTABILIZADOR SELFIE CON MIC Y LUZ (PARA CELU Y CAMARA)",
-    "brand": "Genérico",
     "category": "VARIOS",
     "description": "KIT ESTABILIZADOR SELFIE CON MIC Y LUZ (PARA CELU Y CAMARA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: VARIOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2708,20 +2217,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNKgt18L1IjVQBi6zXUXc01wzJ-tk-j79mhq00G_eJLJdhX1UiCRwKChMJtHYPc1Nxuu5DY2ZITMiU033_FmqJbdmLipINjujDPt6ssnfxaRo9NodTD=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0124",
-    "sku": "MP-WAT-001",
     "name": "SMARTWACHT NETMAK NM-ACTION BLACK BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-ACTION BLACK BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2730,20 +2235,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMZS43VMQgQzBlwi39w-woYzPndrQUncDZY2qY8_9fWpK80PwT0A4bWxK1WRITwWzOQDpQb3SiD1sEpJaVKYDc5zdeppXNrA5axN4zGjKbUrQYB0myG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0125",
-    "sku": "MP-WAT-002",
     "name": "SMARTWACHT NETMAK NM-ACTION GRIS BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-ACTION GRIS BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2752,20 +2253,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMZS43VMQgQzBlwi39w-woYzPndrQUncDZY2qY8_9fWpK80PwT0A4bWxK1WRITwWzOQDpQb3SiD1sEpJaVKYDc5zdeppXNrA5axN4zGjKbUrQYB0myG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0126",
-    "sku": "MP-WAT-003",
     "name": "SMARTWACHT NETMAK NM-DINAMYC-S ACERO INOXIDABLE",
-    "brand": "Acer",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-DINAMYC-S ACERO INOXIDABLE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Acer",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2774,20 +2271,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPkJZcPC4IjUpavQqKaQS2VUpTCKIXgZzXxTxQBNbQEA33OjzEx6O9LtLgNfAqkbJns-CrLOQtDNwQD6RgauyztbfQYlC3RWIYl-XIpkm4Po4pGA99F=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0127",
-    "sku": "MP-WAT-004",
     "name": "SMARTWACHT NETMAK NM-POWER BLACK BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-POWER BLACK BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2796,20 +2289,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMHNJGMR-o8-2G-NeN7OzgcBt2-JDx-p6VlBmmlZBvDt4A95Wr4VlBej-jm_zw3dk3hP5r50Bw4YHSgd7QzLTsMdNkj1N6HcU_hr9r2-VKcWftDqlb_=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0128",
-    "sku": "MP-WAT-005",
     "name": "SMARTWACHT NETMAK NM-ENERGY BLACK BT AMOLED",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-ENERGY BLACK BT AMOLED. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2818,20 +2307,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqfIcp4nXZ9xtljuyTTENoFxoRKunrrgos-nd_qf0tNFQ5cv7s-l8NhMyHqiuqSN0wuGFMUxcTokf2E6T_rmRCKDmvCSfObq_tE41b1orRqq8Ef2NF=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0129",
-    "sku": "MP-WAT-006",
     "name": "SMARTWACHT NETMAK NM-ENERGY AZUL BT AMOLED",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-ENERGY AZUL BT AMOLED. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2840,20 +2325,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqfIcp4nXZ9xtljuyTTENoFxoRKunrrgos-nd_qf0tNFQ5cv7s-l8NhMyHqiuqSN0wuGFMUxcTokf2E6T_rmRCKDmvCSfObq_tE41b1orRqq8Ef2NF=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0130",
-    "sku": "MP-WAT-007",
     "name": "SMARTWACHT NETMAK NM-EVOLUTION BLACK BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-EVOLUTION BLACK BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2862,20 +2343,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPqes6Tf1b5-JLKqrl1Co_UHtZFHxS5y067PuF18IxF7ZyNaVeqZ_MtZuxuphUyEbPpAhsgQAdW02zisFRReDaK9HNroImR8Fa4qQILJ0__U4jg1Nli=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0131",
-    "sku": "MP-WAT-008",
     "name": "SMARTWATCH KIESLECT KS MINI BLUE",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH KIESLECT KS MINI BLUE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2884,20 +2361,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNx-rSVeWy5jz4Nakcj1WSeoYj9mTJU2tT3AFGbI3eiow-LH2vRIXxMFDvrWm2Qk-xn-JzNP2uSXG1-NQ-moLlVNGN3joJgPvKw6l6JtdfdH8fl1eA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0132",
-    "sku": "MP-WAT-009",
     "name": "SMARTWATCH KIESLECT KS BLACK",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH KIESLECT KS BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2906,20 +2379,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPBxyetbm8JFIq0hSIjzZ5xxjfc_1oIdJeNO5BGMy_kZv2GhKuGt_RhLWAO0HtLbX5XL0MjIOVcL2slxR-oprzHYjT19XXW-nnFDYxUdP_RXFV_84k=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0133",
-    "sku": "MP-WAT-010",
     "name": "SMARTWATCH GOLDERY BY NOGA AMOLED IP68 GY-S01 ROSADO",
-    "brand": "Noga",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH GOLDERY BY NOGA AMOLED IP68 GY-S01 ROSADO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Noga",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2928,20 +2397,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMV7bp4pIp3MvzbEpkLkbM-f5U4o1LPGMuEyIBA6H2DXG5x102wbQB2R9hGUDoCB_2Y1mqgpl_lD6sU4EZsdQR1zUG1kJq07EL0GMHpg-QcJH4fijAs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0134",
-    "sku": "MP-WAT-011",
     "name": "SMARTWACH HAYLOU SOLAR NEO HF008 (DOS MALLAS)",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWACH HAYLOU SOLAR NEO HF008 (DOS MALLAS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2950,20 +2415,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNSHjIPMrXgLjwmia78rql1Sk7LS07DPvy7bAitRfFuTzD_oR8v32Dqs0qDx2-1st6whnDHJ2TEguJhRK0vdLxx6DEcCj_0lVW06KhNHlSqAae_4l4x=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0135",
-    "sku": "MP-WAT-012",
     "name": "SMARTWATCH HAYLOU SOLAR LITE 2 BLACK",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH HAYLOU SOLAR LITE 2 BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2972,20 +2433,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0136",
-    "sku": "MP-WAT-013",
     "name": "SMARTWACH REALME WATCH 5 AMOLED 1.97 (CON GPS/ SUMERGIBLE)",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWACH REALME WATCH 5 AMOLED 1.97 (CON GPS/ SUMERGIBLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -2994,20 +2451,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPb0Uaf1R_E44AZVgiU5CTR4DklwC6pyT-tbNY8FrOzq-zH5PgiQCyC4rlGP8RHnrE7Q72_9f7ueGMThahspSGWAZxky5SSoaUE8lG1TXZMNUmkXSaG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0137",
-    "sku": "MP-WAT-014",
     "name": "SMARTWATCH REDMI WATCH 5 LITE BLACK (CON GPS/ SUMERGIBLE)",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH REDMI WATCH 5 LITE BLACK (CON GPS/ SUMERGIBLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3016,20 +2469,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOIro2iWYoQWjbw0-ZRy2xfBZF-aGg90kHHdtx-37_JVoMddbyY74bYj3b50DK9G6wPLrBmV1WQnLcEvYwUzQyDOf89QonXbvnvVDbe49yaP7sCokco=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0138",
-    "sku": "MP-WAT-015",
     "name": "SMARTWATCH MI BAND 10 BLACK",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH MI BAND 10 BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3038,20 +2487,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMECe6QrbMQgPUtY9GqFuW6jzdbzjmx7fcV0jmS3tJ99BuAqP2_aDzUROccUsaixopKSNdzZMUlf-qxBSzeull2FB1R03P1Cq1Esz66vw_qgf3-81e2=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0139",
-    "sku": "MP-WAT-016",
     "name": "SMARTWATCH NETMAK NM-BENEFIT-P ROSADO BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH NETMAK NM-BENEFIT-P ROSADO BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3060,20 +2505,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOE7bgk9k30E69K4BR8ZL975K7wZ0yrBdCchMsZ1lsKQF4QAq8XcPWqZ9aaKVsjTeKn4lzaCgfRm7OaTHomyZm0PimdY_8B06qmCz9R7CV5huwyoTQ0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0140",
-    "sku": "MP-WAT-017",
     "name": "SMARTWACHT NETMAK NM-ENERGY ROSA BT AMOLED",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-ENERGY ROSA BT AMOLED. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3082,20 +2523,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqfIcp4nXZ9xtljuyTTENoFxoRKunrrgos-nd_qf0tNFQ5cv7s-l8NhMyHqiuqSN0wuGFMUxcTokf2E6T_rmRCKDmvCSfObq_tE41b1orRqq8Ef2NF=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0141",
-    "sku": "MP-WAT-018",
     "name": "SMARTWATCH MI BAND 9 ACTIVE ROSA",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH MI BAND 9 ACTIVE ROSA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3104,20 +2541,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOpvgo449ckR9rmvPihWIEPLPaDgH7fO9jDWWxwiQrflTkxa73hVwQxKj-9QFEWPNEvOEmPs_tfw2X2W3ZlLsVLtacQhkMVH4cFMVjC3M2T25hm-Xc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0142",
-    "sku": "MP-WAT-019",
     "name": "SMARTWATCH HAYLOU S6",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH HAYLOU S6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3126,20 +2559,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOldQT9Qrnh2YlwuZo0uoKzifcAYwM8h74DzlBEY2Hl11eX8Ldkad7rGV1i4ZVXCYftF__ZMC7TkvVWzBD8e6RM-MdGgLZGGeg5EvGyCcwZrGinBcEg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0143",
-    "sku": "MP-WAT-020",
     "name": "SMARTWATCH NETMAK NM-BENEFIT-P NEGRO BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH NETMAK NM-BENEFIT-P NEGRO BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3148,20 +2577,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMHtGYH_KmCppyoTp1Bxpq_uQkBLcxsTBiuBGg88eOqxk3hWZ9LcVJOPxPLUEteBMAztWELlBJEpSmXR3o_DGa_AnYH8DDcVT_utxEzFoAFZb8h6iFo=s250-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0144",
-    "sku": "MP-WAT-021",
     "name": "SMARTWACHT NETMAK NM-ACTION ROSA BT",
-    "brand": "Netmak",
     "category": "SMARTWACHES",
     "description": "SMARTWACHT NETMAK NM-ACTION ROSA BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3170,20 +2595,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMZS43VMQgQzBlwi39w-woYzPndrQUncDZY2qY8_9fWpK80PwT0A4bWxK1WRITwWzOQDpQb3SiD1sEpJaVKYDc5zdeppXNrA5axN4zGjKbUrQYB0myG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0145",
-    "sku": "MP-WAT-022",
     "name": "SMARTWATCH REDMI WATCH 5 ACTIVE BLACK",
-    "brand": "Genérico",
     "category": "SMARTWACHES",
     "description": "SMARTWATCH REDMI WATCH 5 ACTIVE BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SMARTWACHES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3192,20 +2613,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOIro2iWYoQWjbw0-ZRy2xfBZF-aGg90kHHdtx-37_JVoMddbyY74bYj3b50DK9G6wPLrBmV1WQnLcEvYwUzQyDOf89QonXbvnvVDbe49yaP7sCokco=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0146",
-    "sku": "MP-STR-001",
     "name": "ROKU LE HDMI",
-    "brand": "Genérico",
     "category": "STREAMING",
     "description": "ROKU LE HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3214,20 +2631,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM6sjo-kxA9rjwhkkR6gJ08RPKU2MuAdS_afY0PpQ6TgPblQu3zHq7wYSVkQwgK8BaFyWhLjYeTKeBc2cLFai-7YLJMenzhCnokqT0cqcRBf_Lh1b4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0147",
-    "sku": "MP-STR-002",
     "name": "ROKU EXPRESS HD STREAMING MEDIA PLAYER WITH SINGLE REMOTE",
-    "brand": "Genérico",
     "category": "STREAMING",
     "description": "ROKU EXPRESS HD STREAMING MEDIA PLAYER WITH SINGLE REMOTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3236,20 +2649,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0148",
-    "sku": "MP-STR-003",
     "name": "ROKU HDMI STREAMER HD/HDMI SKU#3840E (MODELO NUEVO)",
-    "brand": "Genérico",
     "category": "STREAMING",
     "description": "ROKU HDMI STREAMER HD/HDMI SKU#3840E (MODELO NUEVO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3258,20 +2667,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOdHTl9WYQeSkOyMu5iXpeuu5kbuFVmTn4srj9y77mZ1I4fdYJ7TyRKBnNV1AWd11SDHUgmONWSUGssk2voguPTZfHPPPzYt2qI1Q2xE-uuBt3Y02o=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0149",
-    "sku": "MP-STR-004",
     "name": "TV STICK ONN TV GOOGLE TV 2K FHD",
-    "brand": "Genérico",
     "category": "STREAMING",
     "description": "TV STICK ONN TV GOOGLE TV 2K FHD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3280,20 +2685,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 35,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNhyPo1-YQdbPVEbJqAB1JbUGBrA3KmywGb2OvmURMz-mwO-jguLEhQcp48jkvpTILyGs5YF3Nenkbcsl9tESzLP_Udx59bmdahVI_kFu38wolNpKUv=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0150",
-    "sku": "MP-STR-005",
     "name": "FIRE TV STICK AMAZON FHD 8GB WI-FI 6",
-    "brand": "Genérico",
     "category": "STREAMING",
     "description": "FIRE TV STICK AMAZON FHD 8GB WI-FI 6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3302,20 +2703,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN2efpSPzF-oDeh-fquz651FhWLNHGibMDhi1-vGI3pYj7aKq_60zY2evY4ZmkSlUN7KvdW5S0OPqugGVoCCm3aGvm4bl68x919pH7GvDa0TWP1QxAS=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0151",
-    "sku": "MP-STR-006",
     "name": "XIAOMI MI TV STICK 2K",
-    "brand": "Xiaomi",
     "category": "STREAMING",
     "description": "XIAOMI MI TV STICK 2K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3324,20 +2721,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOcrf9AN6H4QpH6Of7x4uWzNzOp13mIUOAwzT4U1FSrUUZWF0UXrv2y7LfarA3ILV1MkDYxaZE1cc5hM8I6mjPETJEWOrktOG8JzxpVJ0-CpuiXSFMM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0152",
-    "sku": "MP-STR-007",
     "name": "Amazon Echo Spot Reloj Despertador Inteligente Negro",
-    "brand": "Intel",
     "category": "STREAMING",
     "description": "Amazon Echo Spot Reloj Despertador Inteligente Negro. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Intel",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3346,20 +2739,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNr6LyRFYRDJdzIuIMmVHX6HFiGX-LHQcsohXeceSPMTm2JDQHc5S2HZp2G19xrD6Hugw8KnVY8wQw0DD1xlSAQJsi9hlCsrsCTU-OL130KGCYUkRQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0153",
-    "sku": "MP-STR-008",
     "name": "Amazon Echo Spot Reloj Despertador Inteligente Blanco",
-    "brand": "Intel",
     "category": "STREAMING",
     "description": "Amazon Echo Spot Reloj Despertador Inteligente Blanco. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Intel",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3368,20 +2757,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNr6LyRFYRDJdzIuIMmVHX6HFiGX-LHQcsohXeceSPMTm2JDQHc5S2HZp2G19xrD6Hugw8KnVY8wQw0DD1xlSAQJsi9hlCsrsCTU-OL130KGCYUkRQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0154",
-    "sku": "MP-STR-009",
     "name": "Amazon Echo Dot 5th Gen Alexa Parlante Inteligente Negro",
-    "brand": "Intel",
     "category": "STREAMING",
     "description": "Amazon Echo Dot 5th Gen Alexa Parlante Inteligente Negro. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: STREAMING",
-      "Marca: Intel",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3390,20 +2775,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNr6LyRFYRDJdzIuIMmVHX6HFiGX-LHQcsohXeceSPMTm2JDQHc5S2HZp2G19xrD6Hugw8KnVY8wQw0DD1xlSAQJsi9hlCsrsCTU-OL130KGCYUkRQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0155",
-    "sku": "MP-CEL-001",
     "name": "CONSOLA PS5 DIGITAL 825GB CFI-2115",
-    "brand": "Genérico",
     "category": "CELULARES / PS5",
     "description": "CONSOLA PS5 DIGITAL 825GB CFI-2115. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CELULARES / PS5",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3412,20 +2793,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMIQTHxCZjsDBgkQwMt10u242v2b8gftCQpvG-Xe35YctTKo_OiwZgojbym_OvGAmDdmknxEEJ9HiErGSQOOFnSM81aGuPcFh_WhGcfAAKUwzQahEk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0156",
-    "sku": "MP-CEL-002",
     "name": "SAMSUNG A07 4/64GB DUAL SIM",
-    "brand": "Samsung",
     "category": "CELULARES / PS5",
     "description": "SAMSUNG A07 4/64GB DUAL SIM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CELULARES / PS5",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3434,20 +2811,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0157",
-    "sku": "MP-CEL-003",
     "name": "SAMSUNG A37 8/256 5G",
-    "brand": "Samsung",
     "category": "CELULARES / PS5",
     "description": "SAMSUNG A37 8/256 5G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CELULARES / PS5",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3456,20 +2829,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0158",
-    "sku": "MP-CEL-004",
     "name": "SAMSUNG A56 8+128GB 5G Dual Sim",
-    "brand": "Samsung",
     "category": "CELULARES / PS5",
     "description": "SAMSUNG A56 8+128GB 5G Dual Sim. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CELULARES / PS5",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3478,20 +2847,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0159",
-    "sku": "MP-CEL-005",
     "name": "POCO X8 PRO 8/256GB",
-    "brand": "Genérico",
     "category": "CELULARES / PS5",
     "description": "POCO X8 PRO 8/256GB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CELULARES / PS5",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3500,20 +2865,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0160",
-    "sku": "MP-CEL-006",
     "name": "XIAOMI REDMI A7 PRO 4/128GB",
-    "brand": "Xiaomi",
     "category": "CELULARES / PS5",
     "description": "XIAOMI REDMI A7 PRO 4/128GB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CELULARES / PS5",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3522,20 +2883,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0161",
-    "sku": "MP-ALM-001",
     "name": "LECTOR DE MEMORIA MULTIPLE USB Y TIPO C",
-    "brand": "Genérico",
     "category": "ALMACENAMIENTO",
     "description": "LECTOR DE MEMORIA MULTIPLE USB Y TIPO C. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3544,20 +2901,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNo7PNyUYw5OVZ5mHAYkQyaUzdlfYnfrafhCEO3hGFLA98EO-e8MDb4AdxH06Pdq2G4_jEgYms73AGWNEckdC50iSutzDB_MA2SvtWkfLK2uOEiP7Ef=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0162",
-    "sku": "MP-ALM-002",
     "name": "LECTOR DE MEMORIA MULTIPLE USB ECONOMICO",
-    "brand": "Genérico",
     "category": "ALMACENAMIENTO",
     "description": "LECTOR DE MEMORIA MULTIPLE USB ECONOMICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3566,20 +2919,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNo7PNyUYw5OVZ5mHAYkQyaUzdlfYnfrafhCEO3hGFLA98EO-e8MDb4AdxH06Pdq2G4_jEgYms73AGWNEckdC50iSutzDB_MA2SvtWkfLK2uOEiP7Ef=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0163",
-    "sku": "MP-ALM-003",
     "name": "PENDRIVE PHILIPS 16 GB VIVID 2.0 FM16FD06B/00",
-    "brand": "Philips",
     "category": "ALMACENAMIENTO",
     "description": "PENDRIVE PHILIPS 16 GB VIVID 2.0 FM16FD06B/00. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Philips",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3588,20 +2937,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 72,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPaAVgqU9xCRWmwIzPMjYfgMtKsvsrxshkErFQsGps6ydjLoEdq_6CGGpsV3fpz9L6ARS7bj8Jgos50QIiBx_V-9LdN6ynJphna9-FfxL90b1d6-EI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0164",
-    "sku": "MP-ALM-004",
     "name": "PENDRIVE SANDISK 16GB BLACK CRUZE BLADE",
-    "brand": "Sandisk",
     "category": "ALMACENAMIENTO",
     "description": "PENDRIVE SANDISK 16GB BLACK CRUZE BLADE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Sandisk",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3610,20 +2955,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM6P9rU_K7Oa-mtD3kRWHqtbYPiRaoLlqV-x4BYMWEEKRk2wusP_cvu-IyGe1tnYgj9QsKT_z-o8Y5A2GarJ4MQr4lZukeE5PLGUMFzCppIF4Ga65I=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0165",
-    "sku": "MP-ALM-005",
     "name": "PENDRIVE PHILIPS 32.00 GB SNOW 2.0 FM32FD70B/00",
-    "brand": "Philips",
     "category": "ALMACENAMIENTO",
     "description": "PENDRIVE PHILIPS 32.00 GB SNOW 2.0 FM32FD70B/00. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Philips",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3632,20 +2973,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 64,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPNAJahlHMsNkvQGW6YirxAiC4ha-uJ5gIQbaSKRzaD4umtO49Jlf5-b7hF1maB3GEPhzg0noSCw64BiCQcO7-b1mYM5KD1isqb-rtVxVrQ6WRMzGY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0166",
-    "sku": "MP-ALM-006",
     "name": "PENDRIVE KINGSTON DTX 64 GB EXODIA S USB 3.2",
-    "brand": "Kingston",
     "category": "ALMACENAMIENTO",
     "description": "PENDRIVE KINGSTON DTX 64 GB EXODIA S USB 3.2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3654,20 +2991,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 110,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOvvKZVTDIdXz34lfq6SfXaUJKVVtUtql9EgvTyiQK3OtEWwdRXNogRsdvFvuCwKXMmAftf6z6MZjfzWGirO5G0KiMrrMpc0RR3XafeiwxaszHHtPUW=s220-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0167",
-    "sku": "MP-ALM-007",
     "name": "PENDRIVE KINGSTON DTX 128GB BLACK EXODIA USB 3.2",
-    "brand": "Kingston",
     "category": "ALMACENAMIENTO",
     "description": "PENDRIVE KINGSTON DTX 128GB BLACK EXODIA USB 3.2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3676,20 +3009,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 83,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMN62Pis3bQdjAD3fWbE9_rRfuMXB16QpZaud6icbIIVrqwafNDKbS0ZIx8r0SozAjVIWRS2s9ZHI9gkVdcOKkAfEZRXPQ0UQ5FajFtMk6g-OpHjyAP=s191-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0168",
-    "sku": "MP-ALM-008",
     "name": "MICRO SD 16GB HIKSEMI NEO HOME HS-TF-D1 16G",
-    "brand": "Genérico",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD 16GB HIKSEMI NEO HOME HS-TF-D1 16G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3698,20 +3027,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 18,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczME0BRQjMoriZ07y-wrWXfCGDMDV5gtNbSSQnKmgQW1h1k2g1eI1q4of4c2oVXzD3gfvzENZNKLJGQRmdbRI4s1_-A1m1FJhVoxjTDVkNjav0xOzElU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0169",
-    "sku": "MP-ALM-009",
     "name": "MICRO SD XC 32 GB HIKSEMI NEO 2 EN 1 CLASE 10",
-    "brand": "Genérico",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD XC 32 GB HIKSEMI NEO 2 EN 1 CLASE 10. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3720,20 +3045,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 27,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM9YK0Vx_WbKdIYnfGFRN3nAc_kmdsspmP-c5xt-F475v2g5l1d9z2RxzV5cbc0_5F8tHXxj3qgJKqxdX3vVxDgvRnNtRUN4wryuYDUpJmziYGPtv8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0170",
-    "sku": "MP-ALM-010",
     "name": "MICRO SD XC 64 GB HIKSEMI NEO 2 EN 1 CLASE 10",
-    "brand": "Genérico",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD XC 64 GB HIKSEMI NEO 2 EN 1 CLASE 10. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3742,20 +3063,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 25,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM9YK0Vx_WbKdIYnfGFRN3nAc_kmdsspmP-c5xt-F475v2g5l1d9z2RxzV5cbc0_5F8tHXxj3qgJKqxdX3vVxDgvRnNtRUN4wryuYDUpJmziYGPtv8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0171",
-    "sku": "MP-ALM-011",
     "name": "MICRO SD 64GB KINGSTON CANVAS SELECT PLUS CL10",
-    "brand": "Kingston",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD 64GB KINGSTON CANVAS SELECT PLUS CL10. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3764,20 +3081,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 79,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNU04rWuLKDJgAR0afJNSbhHmOX4WNf-Ay_2eKQykqjVT9tnypuwajo9K8UeXEzU5UcFjOfZk_kwKL-DRuwRudSGtbhfVq5EUSvW-ajeRAAozNXzOcH=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0172",
-    "sku": "MP-ALM-012",
     "name": "MICRO SD 128GB KINGSTON CANVAS SELECT PLUS CL10",
-    "brand": "Kingston",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD 128GB KINGSTON CANVAS SELECT PLUS CL10. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3786,20 +3099,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMh0c3YX7ISLZwaVkmp7Vvm1k6Lpr6r-oYCjrhIKjLZgFqrsg0HjXKVgK8sG6Ls3Xhn_UYKFe7kuatdpzSJL8V0c-FLa7wA3sMZGSeDf4lEUdkdd4O6=s192-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0173",
-    "sku": "MP-ALM-013",
     "name": "MICRO SD 128GB SANDISK 2 EN 1 CL10",
-    "brand": "Sandisk",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD 128GB SANDISK 2 EN 1 CL10. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Sandisk",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3808,20 +3117,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 41,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMh0c3YX7ISLZwaVkmp7Vvm1k6Lpr6r-oYCjrhIKjLZgFqrsg0HjXKVgK8sG6Ls3Xhn_UYKFe7kuatdpzSJL8V0c-FLa7wA3sMZGSeDf4lEUdkdd4O6=s192-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0174",
-    "sku": "MP-ALM-014",
     "name": "MICRO SD 256GB ADATA 2 EN 1 CL10 UHS-I",
-    "brand": "Genérico",
     "category": "ALMACENAMIENTO",
     "description": "MICRO SD 256GB ADATA 2 EN 1 CL10 UHS-I. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ALMACENAMIENTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3830,20 +3135,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMxyGj6SMtzGqFg4EY5Qu8caEupzID3D6289yyhCEaclf4javMhjQPxmOO43aFUmuABlhVyliXbKhdXUyuvxpEqH_zdrMFigTLbummrj3QC-pN_TY4P=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0175",
-    "sku": "MP-INS-001",
     "name": "CART GTC EPSON T206 NEGRO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T206 NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3852,20 +3153,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0176",
-    "sku": "MP-INS-002",
     "name": "CART GTC EPSON T206 CYAN",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T206 CYAN. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3874,20 +3171,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0177",
-    "sku": "MP-INS-003",
     "name": "CART GTC EPSON T206 MAGENTA",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T206 MAGENTA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3896,20 +3189,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0178",
-    "sku": "MP-INS-004",
     "name": "CART GTC EPSON T206 AMARILLO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T206 AMARILLO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3918,20 +3207,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0179",
-    "sku": "MP-INS-005",
     "name": "CART GTC EPSON T133 NEGRO TX420",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T133 NEGRO TX420. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3940,20 +3225,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0180",
-    "sku": "MP-INS-006",
     "name": "CART GTC EPSON T135 NEGRO TX125/T25",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T135 NEGRO TX125/T25. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3962,20 +3243,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0181",
-    "sku": "MP-INS-007",
     "name": "CART GTC EPSON T133 CYAN TX125/T25/TX420W",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T133 CYAN TX125/T25/TX420W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -3984,20 +3261,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0182",
-    "sku": "MP-INS-008",
     "name": "CART GTC EPSON T133 MAGENTA TX125/T25/TX420W",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T133 MAGENTA TX125/T25/TX420W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4006,20 +3279,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0183",
-    "sku": "MP-INS-009",
     "name": "CART GTC EPSON T133 AMARILLO TX125/T25/TX420W",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T133 AMARILLO TX125/T25/TX420W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4028,20 +3297,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0184",
-    "sku": "MP-INS-010",
     "name": "CART GTC EPSON T197/T196/T195 NEGRO XP-101/201/204/211",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T197/T196/T195 NEGRO XP-101/201/204/211. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4050,20 +3315,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 19,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0185",
-    "sku": "MP-INS-011",
     "name": "CART GTC EPSON T195/196 CYAN XP-101/201/204/211",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T195/196 CYAN XP-101/201/204/211. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4072,20 +3333,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0186",
-    "sku": "MP-INS-012",
     "name": "CART GTC EPSON T195/196 MAGENTA XP-101/201/204/211",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T195/196 MAGENTA XP-101/201/204/211. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4094,20 +3351,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0187",
-    "sku": "MP-INS-013",
     "name": "CART GTC EPSON T195/196 AMARILLO XP-101/201/204/211",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T195/196 AMARILLO XP-101/201/204/211. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4116,20 +3369,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0188",
-    "sku": "MP-INS-014",
     "name": "CART GTC EPSON T297N NEGRO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T297N NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4138,20 +3387,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0189",
-    "sku": "MP-INS-015",
     "name": "CART GTC EPSON T296C CYAN",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T296C CYAN. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4160,20 +3405,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0190",
-    "sku": "MP-INS-016",
     "name": "CART GTC EPSON T296M MAGENTA",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T296M MAGENTA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4182,20 +3423,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0191",
-    "sku": "MP-INS-017",
     "name": "CART GTC EPSON T296A AMARILLO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T296A AMARILLO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4204,20 +3441,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0192",
-    "sku": "MP-INS-018",
     "name": "CART GTC EPSON T117 NEGRO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T117 NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4226,20 +3459,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0193",
-    "sku": "MP-INS-019",
     "name": "CART GTC EPSON T73 NEGRO 6ta",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T73 NEGRO 6ta. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4248,20 +3477,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0194",
-    "sku": "MP-INS-020",
     "name": "CART GTC EPSON T73 CYAN 6ta",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T73 CYAN 6ta. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4270,20 +3495,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0195",
-    "sku": "MP-INS-021",
     "name": "CART GTC EPSON T73 MAGENTA 6ta",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T73 MAGENTA 6ta. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4292,20 +3513,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0196",
-    "sku": "MP-INS-022",
     "name": "CART GTC EPSON T73 YELLOW 6ta",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC EPSON T73 YELLOW 6ta. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4314,20 +3531,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMbg1Smf04dkz7WfRQZ4ObeyW5vpimcC70Ke0BLkiJ1J4DNvEqsWXrA99xghOcdYHle-rFda-MBOM0C5ruo2Y9oVhAbBo1o5Y7uG8PCbcBF-p9FxLRo=s213-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0197",
-    "sku": "MP-INS-023",
     "name": "CART GTC 664 XL NEGRO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC 664 XL NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4336,20 +3549,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBlqcjPTZiJAyVne0WVt0wR1IeqWRsfYxfAh7pg4qy_cpSsVX46F4bzPXNEX8n7zQoS89mLMYTI0NzQz--N2Sy1040Eb1G51Oehg8YvZitTQt8sAb7=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0198",
-    "sku": "MP-INS-024",
     "name": "CART GTC 664 XL COLOR",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC 664 XL COLOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4358,20 +3567,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBlqcjPTZiJAyVne0WVt0wR1IeqWRsfYxfAh7pg4qy_cpSsVX46F4bzPXNEX8n7zQoS89mLMYTI0NzQz--N2Sy1040Eb1G51Oehg8YvZitTQt8sAb7=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0199",
-    "sku": "MP-INS-025",
     "name": "CART GTC 662 XL NEGRO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC 662 XL NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4380,20 +3585,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBlqcjPTZiJAyVne0WVt0wR1IeqWRsfYxfAh7pg4qy_cpSsVX46F4bzPXNEX8n7zQoS89mLMYTI0NzQz--N2Sy1040Eb1G51Oehg8YvZitTQt8sAb7=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0200",
-    "sku": "MP-INS-026",
     "name": "CART GTC 662 XL COLOR",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC 662 XL COLOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4402,20 +3603,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBlqcjPTZiJAyVne0WVt0wR1IeqWRsfYxfAh7pg4qy_cpSsVX46F4bzPXNEX8n7zQoS89mLMYTI0NzQz--N2Sy1040Eb1G51Oehg8YvZitTQt8sAb7=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0201",
-    "sku": "MP-INS-027",
     "name": "CART GTC 667 XL NEGRO",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC 667 XL NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4424,20 +3621,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBlqcjPTZiJAyVne0WVt0wR1IeqWRsfYxfAh7pg4qy_cpSsVX46F4bzPXNEX8n7zQoS89mLMYTI0NzQz--N2Sy1040Eb1G51Oehg8YvZitTQt8sAb7=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0202",
-    "sku": "MP-INS-028",
     "name": "CART GTC 667 XL COLOR",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "CART GTC 667 XL COLOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4446,20 +3639,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBlqcjPTZiJAyVne0WVt0wR1IeqWRsfYxfAh7pg4qy_cpSsVX46F4bzPXNEX8n7zQoS89mLMYTI0NzQz--N2Sy1040Eb1G51Oehg8YvZitTQt8sAb7=s216-p-k",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0203",
-    "sku": "MP-INS-029",
     "name": "RESMA ARTWORK A4 70 GRS X 500 HOJAS",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "RESMA ARTWORK A4 70 GRS X 500 HOJAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4468,20 +3657,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 41,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOO7mFTq6xsNMylrNgNNgr9_haF6M9FUCTVbRK4u0MyVdBLGrBPyzkcfkyBDF8rLNy1Acv7DIoKBky_C_V7muxx9OqcnYgRot3KiEFUP9rZol9b9jA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0204",
-    "sku": "MP-INS-030",
     "name": "PAPEL FOTO GLOBAL GLOSSY ADHESIVO 135G A4 X 20",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "PAPEL FOTO GLOBAL GLOSSY ADHESIVO 135G A4 X 20. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4490,20 +3675,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0205",
-    "sku": "MP-INS-031",
     "name": "PAPEL FOTO GLOBAL GLOSSY 140 GRS A4 PACK X 20",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "PAPEL FOTO GLOBAL GLOSSY 140 GRS A4 PACK X 20. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4512,20 +3693,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0206",
-    "sku": "MP-INS-032",
     "name": "PAPEL FOTO GLOBAL GLOSSY 180 GRS A4 X20",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "PAPEL FOTO GLOBAL GLOSSY 180 GRS A4 X20. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4534,20 +3711,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0207",
-    "sku": "MP-INS-033",
     "name": "PAPEL FOTO GLOBAL GLOSSY 260 GRS A4 PACK X 20",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "PAPEL FOTO GLOBAL GLOSSY 260 GRS A4 PACK X 20. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4556,20 +3729,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0208",
-    "sku": "MP-INS-034",
     "name": "TINTA GTC BROTHER B-BT6001 NEGRA T300/500/700/800",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC BROTHER B-BT6001 NEGRA T300/500/700/800. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4578,20 +3747,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0209",
-    "sku": "MP-INS-035",
     "name": "TINTA GTC BROTHER B-BT5001 CYAN T300/500/700/800",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC BROTHER B-BT5001 CYAN T300/500/700/800. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4600,20 +3765,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0210",
-    "sku": "MP-INS-036",
     "name": "TINTA GTC BROTHER B-BT5001 MAGENTA T300/500/700/800",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC BROTHER B-BT5001 MAGENTA T300/500/700/800. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4622,20 +3783,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0211",
-    "sku": "MP-INS-037",
     "name": "TINTA GTC BROTHER B-BT5001 AMARILLO T300/500/700/800",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC BROTHER B-BT5001 AMARILLO T300/500/700/800. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4644,20 +3801,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0212",
-    "sku": "MP-INS-038",
     "name": "TINTA GTC EPSON E-T664 NEGRO L200/355",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC EPSON E-T664 NEGRO L200/355. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4666,20 +3819,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNtu6b6p_tvVKcVTEYXAygQGrnVnftOcpFl87Us3Mo8Ttf-rIwTAwPkfBjlBB7l1Gepb0gJ2GEgFVmAunaiER-aivwDljhzql5qzCZOHiqPnkTWHeI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0213",
-    "sku": "MP-INS-039",
     "name": "TINTA GTC EPSON E-T664 CYAN L200/355",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC EPSON E-T664 CYAN L200/355. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4688,20 +3837,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNtu6b6p_tvVKcVTEYXAygQGrnVnftOcpFl87Us3Mo8Ttf-rIwTAwPkfBjlBB7l1Gepb0gJ2GEgFVmAunaiER-aivwDljhzql5qzCZOHiqPnkTWHeI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0214",
-    "sku": "MP-INS-040",
     "name": "TINTA GTC EPSON E-T664 MAGENTA L200/355",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC EPSON E-T664 MAGENTA L200/355. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4710,20 +3855,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNtu6b6p_tvVKcVTEYXAygQGrnVnftOcpFl87Us3Mo8Ttf-rIwTAwPkfBjlBB7l1Gepb0gJ2GEgFVmAunaiER-aivwDljhzql5qzCZOHiqPnkTWHeI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0215",
-    "sku": "MP-INS-041",
     "name": "TINTA GTC EPSON E-T664 AMARILLO L200/355",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA GTC EPSON E-T664 AMARILLO L200/355. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4732,20 +3873,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNtu6b6p_tvVKcVTEYXAygQGrnVnftOcpFl87Us3Mo8Ttf-rIwTAwPkfBjlBB7l1Gepb0gJ2GEgFVmAunaiER-aivwDljhzql5qzCZOHiqPnkTWHeI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0216",
-    "sku": "MP-INS-042",
     "name": "TINTA GTC HP H-GT51N NEGRO",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TINTA GTC HP H-GT51N NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4754,20 +3891,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0217",
-    "sku": "MP-INS-043",
     "name": "TINTA GTC HP H-GT52C CYAN",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TINTA GTC HP H-GT52C CYAN. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4776,20 +3909,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0218",
-    "sku": "MP-INS-044",
     "name": "TINTA GTC HP H-GT52M MAGENTA",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TINTA GTC HP H-GT52M MAGENTA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4798,20 +3927,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0219",
-    "sku": "MP-INS-045",
     "name": "TINTA GTC HP H-GT52Y AMARILLO",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TINTA GTC HP H-GT52Y AMARILLO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4820,20 +3945,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0220",
-    "sku": "MP-INS-046",
     "name": "TINTA ALT GTC EPSON 544 NEGRA L1110/3110/5190/65M",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA ALT GTC EPSON 544 NEGRA L1110/3110/5190/65M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4842,20 +3963,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0221",
-    "sku": "MP-INS-047",
     "name": "TINTA ALT GTC EPSON 544 CYAN L1110/3110/5190/65M",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA ALT GTC EPSON 544 CYAN L1110/3110/5190/65M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4864,20 +3981,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0222",
-    "sku": "MP-INS-048",
     "name": "TINTA ALT GTC EPSON 544 MAGENTA L1110/3110/5190/65M",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA ALT GTC EPSON 544 MAGENTA L1110/3110/5190/65M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4886,20 +3999,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0223",
-    "sku": "MP-INS-049",
     "name": "TINTA ALT GTC EPSON 544 AMARILLO L1110/3110/5190/65M",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TINTA ALT GTC EPSON 544 AMARILLO L1110/3110/5190/65M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4908,20 +4017,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0224",
-    "sku": "MP-INS-050",
     "name": "DRUM UNIT LASER GOLD BROTHER DR1060 PARA 1110/1510",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "DRUM UNIT LASER GOLD BROTHER DR1060 PARA 1110/1510. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4930,20 +4035,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0225",
-    "sku": "MP-INS-051",
     "name": "TONER GLOBAL/LASER GOLD BROTHER TN 1060",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TONER GLOBAL/LASER GOLD BROTHER TN 1060. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4952,20 +4053,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 46,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0226",
-    "sku": "MP-INS-052",
     "name": "TONER LASER GOLD HP CB435U/Q436/CE285/278 UNIVERSAL",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP CB435U/Q436/CE285/278 UNIVERSAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4974,20 +4071,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0227",
-    "sku": "MP-INS-053",
     "name": "TONER LASER GOLD HP CF230AC M203 M227 C/CHIP",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP CF230AC M203 M227 C/CHIP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -4996,20 +4089,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0228",
-    "sku": "MP-INS-054",
     "name": "TONER LASER GOLD HP LA-HP151AC C/CHIP 4003W-4103DW",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP LA-HP151AC C/CHIP 4003W-4103DW. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5018,20 +4107,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0229",
-    "sku": "MP-INS-055",
     "name": "TONER GLOBAL/LASER GOLD HP Q2612A",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GLOBAL/LASER GOLD HP Q2612A. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5040,20 +4125,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0230",
-    "sku": "MP-INS-056",
     "name": "TONER LASER GOLD HP CF258AC CON CHIP MFP 404/428",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP CF258AC CON CHIP MFP 404/428. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5062,20 +4143,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0231",
-    "sku": "MP-INS-057",
     "name": "TONER LASER GOLD HP LA-HP145AC C/CHIP MFP3103/1.7K",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP LA-HP145AC C/CHIP MFP3103/1.7K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5084,20 +4161,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0232",
-    "sku": "MP-INS-058",
     "name": "TONER LASER GOLD HP LA-HP147A S/CHIP/10K M612N/",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP LA-HP147A S/CHIP/10K M612N/. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5106,20 +4179,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0233",
-    "sku": "MP-INS-059",
     "name": "TONER LASER GOLD HP LA-HP147ANC C/CHIP/10K M612N/",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP LA-HP147ANC C/CHIP/10K M612N/. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5128,20 +4197,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0234",
-    "sku": "MP-INS-060",
     "name": "TONER LASER GOLD HP CF226A M402/M426",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP CF226A M402/M426. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5150,20 +4215,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0235",
-    "sku": "MP-INS-061",
     "name": "TONER GNEISS/LASER GOLD SAMSUNG GN-TOD111LNC NEW CHIP 1.8K M2",
-    "brand": "Samsung",
     "category": "INSUMOS",
     "description": "TONER GNEISS/LASER GOLD SAMSUNG GN-TOD111LNC NEW CHIP 1.8K M2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5172,20 +4233,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0236",
-    "sku": "MP-INS-062",
     "name": "TONER LASER GOLD SAMSUNG D101S ML2160/2165/2168",
-    "brand": "Samsung",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD SAMSUNG D101S ML2160/2165/2168. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5194,20 +4251,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0237",
-    "sku": "MP-INS-063",
     "name": "TONER LASER GOLD SAMSUNG D104S ML1660/1860/3200",
-    "brand": "Samsung",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD SAMSUNG D104S ML1660/1860/3200. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5216,20 +4269,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0238",
-    "sku": "MP-INS-064",
     "name": "TONER GLOBAL SAMSUNG MLT-D108S",
-    "brand": "Samsung",
     "category": "INSUMOS",
     "description": "TONER GLOBAL SAMSUNG MLT-D108S. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5238,20 +4287,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0239",
-    "sku": "MP-INS-065",
     "name": "TONER LASER GOLD SAMSUNG D105L ML1910/2580",
-    "brand": "Samsung",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD SAMSUNG D105L ML1910/2580. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5260,20 +4305,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0240",
-    "sku": "MP-INS-066",
     "name": "TONER LASER GOLD SAMSUNG D116V2 M2625/2826",
-    "brand": "Samsung",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD SAMSUNG D116V2 M2625/2826. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5282,20 +4323,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0241",
-    "sku": "MP-INS-067",
     "name": "TONER LASER GOLD HP 105A NO CHIP 107A/135A/137A",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP 105A NO CHIP 107A/135A/137A. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5304,20 +4341,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0242",
-    "sku": "MP-INS-068",
     "name": "TONER GLOBAL/GTC HP 105A C/CHIP W1105ACOMP",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GLOBAL/GTC HP 105A C/CHIP W1105ACOMP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5326,20 +4359,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0243",
-    "sku": "MP-INS-069",
     "name": "TONER GTC/LASER GOLD HP CF217A M102W/M130/132 C/HIP",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GTC/LASER GOLD HP CF217A M102W/M130/132 C/HIP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5348,20 +4377,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0244",
-    "sku": "MP-INS-070",
     "name": "TONER LASER GOLD XEROX X3020-X3025 NEW CHIP",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD XEROX X3020-X3025 NEW CHIP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5370,20 +4395,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0245",
-    "sku": "MP-INS-071",
     "name": "TONER GNEISS HP HP Q7553A/Q5949A GN-T07553U",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GNEISS HP HP Q7553A/Q5949A GN-T07553U. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5392,20 +4413,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0246",
-    "sku": "MP-INS-072",
     "name": "TONER GTC HP W1500A 150A C/CHIPM110/M141/M15A/M28A",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GTC HP W1500A 150A C/CHIPM110/M141/M15A/M28A. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5414,20 +4431,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0247",
-    "sku": "MP-INS-073",
     "name": "TONER LASER GOLD HP 248AC C/CHIP M15/M28/137A",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP 248AC C/CHIP M15/M28/137A. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5436,20 +4449,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0248",
-    "sku": "MP-INS-074",
     "name": "TONER GTC HP 283A M125/ M127FN/ M127W/ M201DW/",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GTC HP 283A M125/ M127FN/ M127W/ M201DW/. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5458,20 +4467,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0249",
-    "sku": "MP-INS-075",
     "name": "TONER LASER GOLD HP CF287A MFP M506N/M527",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP CF287A MFP M506N/M527. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5480,20 +4485,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0250",
-    "sku": "MP-INS-076",
     "name": "TONER LASER GOLD HP CF279A PRO M12A/M12W/MFP M26A",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP CF279A PRO M12A/M12W/MFP M26A. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5502,20 +4503,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0251",
-    "sku": "MP-INS-077",
     "name": "TONER LASER GOLD HP W136A LA-HP136A S/CHIP",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD HP W136A LA-HP136A S/CHIP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5524,20 +4521,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0252",
-    "sku": "MP-INS-078",
     "name": "TONER LASER GOLD/GLOBAL BROTHER TN 660/630/2370",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD/GLOBAL BROTHER TN 660/630/2370. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5546,20 +4539,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0253",
-    "sku": "MP-INS-079",
     "name": "TONER GLOBAL HP CF280A/CE505A HP 2035/2055",
-    "brand": "Hp",
     "category": "INSUMOS",
     "description": "TONER GLOBAL HP CF280A/CE505A HP 2035/2055. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5568,20 +4557,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0254",
-    "sku": "MP-INS-080",
     "name": "TONER GTC BROTHER TN 720/750/780 UNIVERSAL",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TONER GTC BROTHER TN 720/750/780 UNIVERSAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5590,20 +4575,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0255",
-    "sku": "MP-INS-081",
     "name": "TONER GTC PANTUM PD219 P2509/W M6509 /M6559 1.6K",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TONER GTC PANTUM PD219 P2509/W M6509 /M6559 1.6K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5612,20 +4593,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0256",
-    "sku": "MP-INS-082",
     "name": "TONER LASER GOLD BROTHER TN450/410 UNIVERSAL",
-    "brand": "Genérico",
     "category": "INSUMOS",
     "description": "TONER LASER GOLD BROTHER TN450/410 UNIVERSAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: INSUMOS",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5634,20 +4611,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0257",
-    "sku": "MP-CNB-001",
     "name": "CARGADOR NOTEBOOK LETOS LE-100 UNIVERSAL NOTEBOOK USB-C MANUAL",
-    "brand": "Genérico",
     "category": "CARGADORES NB",
     "description": "CARGADOR NOTEBOOK LETOS LE-100 UNIVERSAL NOTEBOOK USB-C MANUAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADORES NB",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5656,20 +4629,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOGLR4ZunemS6zI-IooNj5QI7pXErlP9A7W4tBU0aSLpFPbduy34PuyeDdOIO00-6mjaovX0MmPzumnnlCGcT2ocdw2gDG9fUwViZB4b59o_E1FoLRk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0258",
-    "sku": "MP-CNB-002",
     "name": "CARGADOR NOTEBOOK LETOS LE-90 UNIVERSAL NOTEBOOK MANUAL",
-    "brand": "Genérico",
     "category": "CARGADORES NB",
     "description": "CARGADOR NOTEBOOK LETOS LE-90 UNIVERSAL NOTEBOOK MANUAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADORES NB",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5678,20 +4647,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0259",
-    "sku": "MP-CNB-003",
     "name": "CARGADOR NOTEBOOK UNIVERSAL XAEA 90W AUTOMATICO TC",
-    "brand": "Xaea",
     "category": "CARGADORES NB",
     "description": "CARGADOR NOTEBOOK UNIVERSAL XAEA 90W AUTOMATICO TC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADORES NB",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5700,20 +4665,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0260",
-    "sku": "MP-CNB-004",
     "name": "CARGADOR NOTEBOOK UNIVERSAL ONLY",
-    "brand": "Genérico",
     "category": "CARGADORES NB",
     "description": "CARGADOR NOTEBOOK UNIVERSAL ONLY. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADORES NB",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5722,20 +4683,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0261",
-    "sku": "MP-CNB-005",
     "name": "CARGADOR NOTEBOOK UNIVERSAL PRO TC",
-    "brand": "Genérico",
     "category": "CARGADORES NB",
     "description": "CARGADOR NOTEBOOK UNIVERSAL PRO TC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADORES NB",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5744,20 +4701,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 35,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPmayv2upKcfEtAgHo3P6djPG753GvRsoNKy6lJg_CMq7SvfzWcea99tkJ2mXJl3XEjDzR8dt43lf15xNVhYrfRMH2pvOfraz2FX7QQ2NA0iDvHlM2W=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0262",
-    "sku": "MP-CNB-006",
     "name": "CARGADOR NOTEBOOK UNIVERSAL XAEA 96W 9 PINES + PIN TC",
-    "brand": "Xaea",
     "category": "CARGADORES NB",
     "description": "CARGADOR NOTEBOOK UNIVERSAL XAEA 96W 9 PINES + PIN TC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADORES NB",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5766,20 +4719,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0263",
-    "sku": "MP-CV8-001",
     "name": "CABLE DATOS V8 6A EN CAJA ECONOMICO JG-B1337",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR V8",
     "description": "CABLE DATOS V8 6A EN CAJA ECONOMICO JG-B1337. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR V8",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5788,20 +4737,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 32,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMEDjWDAwAKxfORqxo7HO-pQroyheoz58a5N1UbiH3xJeiDbVfXUM_BPrYnwXuS8wHI-DqFUan_JoYTbJQkji2aW1GuPtJPWuTv2FOPlesvvuZ7cJ0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0264",
-    "sku": "MP-CV8-002",
     "name": "CABLE MICRO USB V8 PARA PS4 1.5 MTS (CON CAJA)",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR V8",
     "description": "CABLE MICRO USB V8 PARA PS4 1.5 MTS (CON CAJA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR V8",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5810,20 +4755,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0265",
-    "sku": "MP-CTC-001",
     "name": "CABLE DATOS TIPO C GENERICO EN CAJA (EXCELENTE CALIDAD)",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE DATOS TIPO C GENERICO EN CAJA (EXCELENTE CALIDAD). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5832,20 +4773,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 110,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0266",
-    "sku": "MP-CTC-002",
     "name": "CABLE DATOS TIPO C TYME-CAB41012",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE DATOS TIPO C TYME-CAB41012. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5854,20 +4791,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0267",
-    "sku": "MP-CTC-003",
     "name": "CABLE TIPO C MALLADO 4.4A XAEA HULK",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C MALLADO 4.4A XAEA HULK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5876,20 +4809,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 200,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0268",
-    "sku": "MP-CTC-004",
     "name": "CABLE TIPO C MALLADO 4.4A XAEA THOR",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C MALLADO 4.4A XAEA THOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5898,20 +4827,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 104,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0269",
-    "sku": "MP-CTC-005",
     "name": "CABLE TIPO C MALLADO 4.4A XAEA HERA 1,5MT",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C MALLADO 4.4A XAEA HERA 1,5MT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5920,20 +4845,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 98,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0270",
-    "sku": "MP-CTC-006",
     "name": "CABLE TIPO C MALLADO XAEA WOLVERINE",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C MALLADO XAEA WOLVERINE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5942,20 +4863,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0271",
-    "sku": "MP-CTC-007",
     "name": "CABLE TIPO C MALLADO XAEA ZEUS CARGA RAPIDA",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C MALLADO XAEA ZEUS CARGA RAPIDA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5964,20 +4881,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 19,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0272",
-    "sku": "MP-CTC-008",
     "name": "CABLE TIPO C A TIPO C XAEA SYNC",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C A TIPO C XAEA SYNC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -5986,20 +4899,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 30,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0273",
-    "sku": "MP-CTC-009",
     "name": "CABLE TIPO C A TIPO C NEGRO 1M X PACK 10 UNID",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C A TIPO C NEGRO 1M X PACK 10 UNID. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6008,20 +4917,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0274",
-    "sku": "MP-CTC-010",
     "name": "CABLE TIPO C A TIPO C TIPO CERTIFICADO",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TIPO C A TIPO C TIPO CERTIFICADO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6030,20 +4935,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 40,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0275",
-    "sku": "MP-CTC-011",
     "name": "CABLE TC A TC 240W 90 GRADOS CON SOPORTE",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR TIPO C",
     "description": "CABLE TC A TC 240W 90 GRADOS CON SOPORTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR TIPO C",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6052,20 +4953,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 37,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0276",
-    "sku": "MP-CIPH-001",
     "name": "CABLE TIPO C A IPHONE 1MTS TIPO ORIGINAL COD:ZXM001",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR IPHONE",
     "description": "CABLE TIPO C A IPHONE 1MTS TIPO ORIGINAL COD:ZXM001. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR IPHONE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6074,20 +4971,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 102,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPQQQJPbK2gihRZ8l6gzrhmTZIX7x-uZKCTPl_lqg2u_oYkH74n85v3HUIbZAi7hRNV2Lkl3IbUEZEwpj6u82Wv5vgf316sbFxF63NieFjBzBIekeg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0277",
-    "sku": "MP-CIPH-002",
     "name": "CABLE USB A IPHONE 1MT HOMOLOGADO",
-    "brand": "Genérico",
     "category": "CARGADOR Y CABLE CELULAR IPHONE",
     "description": "CABLE USB A IPHONE 1MT HOMOLOGADO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR IPHONE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6096,20 +4989,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 112,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPSbNjGae8ofE6qXMcv5HTPqrCgbKP9p0ZeJkbCAPhqJaVQVIs9oPj2QnS56HaXtTub9mXshSaXh9OwWP49js2qsj_nZIKv1kSWBcHvkW4xsi-Tg-s=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0278",
-    "sku": "MP-CIPH-003",
     "name": "CABLE USB A IPHONE 4.4A XAEA THOR",
-    "brand": "Xaea",
     "category": "CARGADOR Y CABLE CELULAR IPHONE",
     "description": "CABLE USB A IPHONE 4.4A XAEA THOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CARGADOR Y CABLE CELULAR IPHONE",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6118,20 +5007,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 19,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0279",
-    "sku": "MP-AUTO-001",
     "name": "BASE DE CARGA INALAMBRICO NETMAK NM-BC12 10W",
-    "brand": "Netmak",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "BASE DE CARGA INALAMBRICO NETMAK NM-BC12 10W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6140,20 +5025,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPJro2ecNlDNRpfmAzYN4W9mY0Z54AWyseiD58C6NT1V9pvFklzXC3tJdXyt23msy4GjuI-n4plh6SQzgpZ4-bqIow4eMevpLisxl1YEcJX0dB2CB8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0280",
-    "sku": "MP-AUTO-002",
     "name": "BASE DE CARGAR INALAMBRICO 15W FLEXA CON LUZ 2A 1TC XAEA",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "BASE DE CARGAR INALAMBRICO 15W FLEXA CON LUZ 2A 1TC XAEA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6162,20 +5043,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0281",
-    "sku": "MP-AUTO-003",
     "name": "BASE DE CARGA Y POWERBANK INALAMBRICO 10000 MAH REPLICA APPLE",
-    "brand": "Apple",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "BASE DE CARGA Y POWERBANK INALAMBRICO 10000 MAH REPLICA APPLE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Apple",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6184,20 +5061,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0282",
-    "sku": "MP-AUTO-004",
     "name": "CARGADOR 12V 1TC + 1 USB",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR 12V 1TC + 1 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6206,20 +5079,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 109,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMnhxbmvhf7wBR479xEjIkJwFbcl9LrFIobva1UFFyk7tgMrTnTGbf7dW-Q1IMJgt66540r2r6Cp09Oh7p8GWeUHAYrIWqF1DzDyUAZDqjPkvZSLV8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0283",
-    "sku": "MP-AUTO-005",
     "name": "CARGADOR NETMAK NM-UCC14 DOBLE 48W USB+USBC",
-    "brand": "Netmak",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR NETMAK NM-UCC14 DOBLE 48W USB+USBC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6228,20 +5097,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 15,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOuYW3ocr0Q6CBAvMgxohQaFJPyCejzM7RBM5x7f5hQB-kRH11r0n5aDgGRS6Igcp-DY8k5d2Yf-M7lLdM0J5BwXAiOj2u6s6P9C_I_j-D0HGbpeV1K=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0284",
-    "sku": "MP-AUTO-006",
     "name": "CARGADOR 12V XAEA 3A 1USB 1TC VOLTAIR",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR 12V XAEA 3A 1USB 1TC VOLTAIR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6250,20 +5115,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOf-XCMztRnPjHrjdW90__0a61lMRVQj8glFCtPWxxisNPBLO-yIt2Tjr8eJ7wThabdlobrnBwj5h-Ih9vExR9NI2cHJXz1Il3A0K2FSWWrE5Jbph6O=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0285",
-    "sku": "MP-AUTO-007",
     "name": "CARGADOR CABEZAL USB 4.8 RUSH YEXA 1USB MODY-00FQ",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL USB 4.8 RUSH YEXA 1USB MODY-00FQ. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6272,20 +5133,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 31,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMCd_SlpTc5V6P-npQHHAxwe_LR0ffpDNAEwwP86oYdYatCn8p74vAEqW_ZEmsb4C8j7inJusqtB0vRjo_qp-dCkoa2yvJljCdzihsSv7sXeEhu7Iw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0286",
-    "sku": "MP-AUTO-008",
     "name": "CARGADOR CABEZAL USB 5V 1A ORIGINALES",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL USB 5V 1A ORIGINALES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6294,20 +5151,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0287",
-    "sku": "MP-AUTO-009",
     "name": "CARGADOR CABEZAL 35W TC TIPO IPHONE",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL 35W TC TIPO IPHONE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6316,20 +5169,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0288",
-    "sku": "MP-AUTO-010",
     "name": "CARGADOR CABEZAL 20W TC TIPO IPHONE( PATA ARGENTINA )COD:ZXM006",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL 20W TC TIPO IPHONE( PATA ARGENTINA )COD:ZXM006. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6338,20 +5187,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 63,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0289",
-    "sku": "MP-AUTO-011",
     "name": "CARGADOR CABEZAL 20W TC TIPO IPHONE + CABLE ( PATA ARGENTINA )",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL 20W TC TIPO IPHONE + CABLE ( PATA ARGENTINA ). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6360,20 +5205,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0290",
-    "sku": "MP-AUTO-012",
     "name": "CARGADOR CABEZAL 20W 5.8A IBEK TIPO C + USB IB582",
-    "brand": "Ibek",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL 20W 5.8A IBEK TIPO C + USB IB582. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Ibek",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6382,20 +5223,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 27,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMgC_cMZGywjMgBJr6jL3mpde9_P9_6fgk4paXO-Fvtr0pSxT1cFu418ayPXASEQ4EsFPWoQh3kq7ij6kO6Ynyj484vvAIbfx7x4nmjfJlVsmLNPyE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0291",
-    "sku": "MP-AUTO-013",
     "name": "CARGADOR 30W 2 USB INTENSIFY XAEA (VIENE CON CABLE)",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR 30W 2 USB INTENSIFY XAEA (VIENE CON CABLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6404,20 +5241,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0292",
-    "sku": "MP-AUTO-014",
     "name": "CARGADOR 30W 1 USB + 1 TC INTENSIFY XAEA (CON CABLE)",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR 30W 1 USB + 1 TC INTENSIFY XAEA (CON CABLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6426,20 +5259,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 23,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0293",
-    "sku": "MP-AUTO-015",
     "name": "CARGADOR 30W 1 USB + 1 TC INTENSIFY XAEA (SIN CABLE)",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR 30W 1 USB + 1 TC INTENSIFY XAEA (SIN CABLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6448,20 +5277,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 24,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0294",
-    "sku": "MP-AUTO-016",
     "name": "CARGADOR CABEZAL XAEA 45W 1TC + PD 5.1 RAPTOR (CON CABLE)",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL XAEA 45W 1TC + PD 5.1 RAPTOR (CON CABLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6470,20 +5295,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 26,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0295",
-    "sku": "MP-AUTO-017",
     "name": "CARGADOR CABEZAL XAEA 45W 1TC + 1 USB OPTIMUM/SUPREME",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL XAEA 45W 1TC + 1 USB OPTIMUM/SUPREME. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6492,20 +5313,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 124,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM-bFx_ar9ISIHkMd3N5l0swr-K8NK1Xl2yr76Iw_B4c25zm7X2pu0ygSMSXsq9vy1zRbAGn4Jrv8-wkj8kncRxUj97dOV7p4hJbG_aTojcKlSvIaU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0296",
-    "sku": "MP-AUTO-018",
     "name": "CARGADOR CABEZAL 5,4A 55W HYPER 1USB + 1TC -XAEA",
-    "brand": "Xaea",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "CARGADOR CABEZAL 5,4A 55W HYPER 1USB + 1TC -XAEA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6514,20 +5331,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0297",
-    "sku": "MP-AUTO-019",
     "name": "FM TRANSMISOR BT 12V-24V 2USB + 1TC + RGB",
-    "brand": "Genérico",
     "category": "CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
     "description": "FM TRANSMISOR BT 12V-24V 2USB + 1TC + RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CABEZALES, CARGADORES AUTO Y TRANSMISORES DE AUTO",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6536,20 +5349,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNIDM5pJASzNk4nrSaC1H9ap90d1H-CTDsJNUpG0Vrf9Dfl-Xav5Jf2yFqjcgyWvAUU-fG0YC1Ou_N8_K9QKxtWTmTTeCbQ19N4eS6cXntfKGg2evk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0298",
-    "sku": "MP-CAB-001",
     "name": "ARO DE LUZ USB 26CM SIN TRIPODE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ARO DE LUZ USB 26CM SIN TRIPODE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6558,20 +5367,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBvWdKn4zpKHysHXcOlFbRSNe-_iNmecFHkK-mu1u-jVxLtaSTFOP5PRN3_UbCQZE8XLcWz2HnMtgK2s6fNYf2wjeq9xWlFVZCP_dy3weT_KsxRFs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0299",
-    "sku": "MP-CAB-002",
     "name": "ARO DE LUZ USB 30CM SIN TRIPODE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ARO DE LUZ USB 30CM SIN TRIPODE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6580,20 +5385,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBvWdKn4zpKHysHXcOlFbRSNe-_iNmecFHkK-mu1u-jVxLtaSTFOP5PRN3_UbCQZE8XLcWz2HnMtgK2s6fNYf2wjeq9xWlFVZCP_dy3weT_KsxRFs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0300",
-    "sku": "MP-CAB-003",
     "name": "ARO DE LUZ RGB USB 30CM SIN TRIPODE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ARO DE LUZ RGB USB 30CM SIN TRIPODE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6602,20 +5403,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxvjtCJqpL2GJwXLc_zG_1XSsOHosxy6wh5M0ejNzH8rZoz2FxNOWJdR_YYlorYjwSoTLTrxu2Ax5ZzXX9Cr0MSUOTReyMo0ekg5uV2Ebu6hYNoPyX=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0301",
-    "sku": "MP-CAB-004",
     "name": "TRIPODE PARA ARO 2,1 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "TRIPODE PARA ARO 2,1 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6624,20 +5421,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 53,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBvWdKn4zpKHysHXcOlFbRSNe-_iNmecFHkK-mu1u-jVxLtaSTFOP5PRN3_UbCQZE8XLcWz2HnMtgK2s6fNYf2wjeq9xWlFVZCP_dy3weT_KsxRFs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0302",
-    "sku": "MP-CAB-005",
     "name": "CARGADOR DE BATERIA 18650 USB",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CARGADOR DE BATERIA 18650 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6646,20 +5439,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0303",
-    "sku": "MP-CAB-006",
     "name": "PACK CONTROL REMOTO (12 UNIDADES MAS VENDIDAS + BANNER PUBLICIDAD) - PDF CON EXPLICACION",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PACK CONTROL REMOTO (12 UNIDADES MAS VENDIDAS + BANNER PUBLICIDAD) - PDF CON EXPLICACION. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6668,20 +5457,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0304",
-    "sku": "MP-CAB-007",
     "name": "CONTROL REMOTO UNIVERSAL PARA SMART TV *",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO UNIVERSAL PARA SMART TV *. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6690,20 +5475,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 75,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0305",
-    "sku": "MP-CAB-008",
     "name": "CONTROL REMOTO UNIVERSAL PARA AIRE ACONDICIONADO AC-1058",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO UNIVERSAL PARA AIRE ACONDICIONADO AC-1058. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6712,20 +5493,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0306",
-    "sku": "MP-CAB-009",
     "name": "TECLADO KOLKE MINI RETROILUMINADO KET-1107",
-    "brand": "Kolke",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "TECLADO KOLKE MINI RETROILUMINADO KET-1107. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6734,20 +5511,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMb7ztHhxJX5hIB0KXVgiFmpdxmjzBYxxdllScC0fabF33_T8pFTLXLEttH_X2BAMMnEuhTaZ9_-yT8QViBQZTwQcjbJVJWtLHOeAgoflNx9inLsQU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0307",
-    "sku": "MP-CAB-010",
     "name": "CONTROL REMOTO + MINI TECLADO KOLKE KET-725",
-    "brand": "Kolke",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO + MINI TECLADO KOLKE KET-725. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6756,20 +5529,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0308",
-    "sku": "MP-CAB-011",
     "name": "CONTROL REMOTO AMAZON",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO AMAZON. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6778,20 +5547,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0309",
-    "sku": "MP-CAB-012",
     "name": "CONTROL REMOTO ROKU",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO ROKU. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6800,20 +5565,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0310",
-    "sku": "MP-CAB-013",
     "name": "CONTROL REMOTO FLOW",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO FLOW. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6822,20 +5583,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0311",
-    "sku": "MP-CAB-014",
     "name": "CONTROL REMOTO ONN TV",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CONTROL REMOTO ONN TV. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6844,20 +5601,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0312",
-    "sku": "MP-CAB-015",
     "name": "ADAPTADOR AUXILIAR HEMBRA A TC",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR AUXILIAR HEMBRA A TC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6866,20 +5619,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 55,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0313",
-    "sku": "MP-CAB-016",
     "name": "ADAPTADOR AUXILIAR HEMBRA A IPHONE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR AUXILIAR HEMBRA A IPHONE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6888,20 +5637,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0314",
-    "sku": "MP-CAB-017",
     "name": "ADAPTADOR ENCHUFE TURISTA/MOSQUITO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR ENCHUFE TURISTA/MOSQUITO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6910,20 +5655,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 115,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPE8K9afihJ3_hEHMF1OEvbxmDL12xlE0bLY1GwoAO3_Sd1s0BidpdVV13UeMSStsLepiaE2AVYs0RHMsBGKMimfyavqPK9ijQk7tGMcYTGArArors=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0315",
-    "sku": "MP-CAB-018",
     "name": "ADAPTADOR MUNDIAL VIAJERO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR MUNDIAL VIAJERO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6932,20 +5673,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 50,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0316",
-    "sku": "MP-CAB-019",
     "name": "ADAPTADOR EXTENSOR RJ45 A HDMI",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR EXTENSOR RJ45 A HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6954,20 +5691,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0317",
-    "sku": "MP-CAB-020",
     "name": "ADAPTADOR TP-LINK DE RED UE302C USB-C 3.0 - ETHERNET",
-    "brand": "Tp-link",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR TP-LINK DE RED UE302C USB-C 3.0 - ETHERNET. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6976,20 +5709,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0318",
-    "sku": "MP-CAB-021",
     "name": "RECEPTOR NETMAK NM-BT22 BT3.0 AUDIO PLUG 3.5MM",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "RECEPTOR NETMAK NM-BT22 BT3.0 AUDIO PLUG 3.5MM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -6998,20 +5727,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 54,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOVAc2U53me48_AstahL9VCGjI8ZbdMuHH2AIPPW8BsjA4jwxTuWH7q26u5Ijg_sH3OrtC_UVB_UVFMQgjHHvnM4Y6dOQLRc7qu4I8Elq49SjceCdWE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0319",
-    "sku": "MP-CAB-022",
     "name": "ADAPTADOR BLUETOOTH NETMAK NM-BT7 PLUG 3.5",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR BLUETOOTH NETMAK NM-BT7 PLUG 3.5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7020,20 +5745,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP2gurNjaiDNRkZXqS4bNDS7xhzZpnzK5ndyfeTVdXg-Xo4aiic9h67TbMPbagMzdOY5-mjI2a-ykux1a0rTprTCjyImJSdIwyd4k-CZ8h_1d_FTJ4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0320",
-    "sku": "MP-CAB-023",
     "name": "ADAPTADOR CUDY UE10C USB-C A RJ45",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR CUDY UE10C USB-C A RJ45. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7042,20 +5763,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0321",
-    "sku": "MP-CAB-024",
     "name": "ADAPTADOR USB 2.0 A RJ45",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR USB 2.0 A RJ45. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7064,20 +5781,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN2NwpGRQnI4uTTaDTDtzj19yMPzlWvNs_M9H62H1gi_7RxTF_q0-FnvXBpMjIAmLOd3icMem0Jm27kNYUOPNAe4M7G8ul3Do-32XScyAfymZLCw7Y=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0322",
-    "sku": "MP-CAB-025",
     "name": "ADAPTADOR HDMI A DVI 24+1",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR HDMI A DVI 24+1. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7086,20 +5799,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0323",
-    "sku": "MP-CAB-026",
     "name": "ADAPTADOR DVI 24+1 A VGA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR DVI 24+1 A VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7108,20 +5817,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 18,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0324",
-    "sku": "MP-CAB-027",
     "name": "ADAPTADOR CONVERSOR AUDIO OPTICO A RCA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR CONVERSOR AUDIO OPTICO A RCA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7130,20 +5835,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0325",
-    "sku": "MP-CAB-028",
     "name": "ADAPTADOR CONVERTIDOR ACTIVO DVI 24+1 A VGA (CABLE)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR CONVERTIDOR ACTIVO DVI 24+1 A VGA (CABLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7152,20 +5853,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0326",
-    "sku": "MP-CAB-029",
     "name": "ADAPTADOR DISPLAYPORT A HDMI",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR DISPLAYPORT A HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7174,20 +5871,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNGkWcvgvpdTG2FxbftR_JgEsCnn0XNUp6QAyvFC62BbKGXBdCfzRE8QH3Jvc2Buyrg7q71gKMuEyduOhQlcPqH5kFxT-fzWdqtfYJp1bkTM0FUNE_p=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0327",
-    "sku": "MP-CAB-030",
     "name": "ADAPTADOR DISPLAYPORT A HDMI BISWAL",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR DISPLAYPORT A HDMI BISWAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7196,20 +5889,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNGkWcvgvpdTG2FxbftR_JgEsCnn0XNUp6QAyvFC62BbKGXBdCfzRE8QH3Jvc2Buyrg7q71gKMuEyduOhQlcPqH5kFxT-fzWdqtfYJp1bkTM0FUNE_p=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0328",
-    "sku": "MP-CAB-031",
     "name": "ADAPTADOR DISPLAYPORT A VGA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR DISPLAYPORT A VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7218,20 +5907,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMVzc3wfbqYbQosgdUdHRxvRG62LVL9s9LO7NY7LHusZF3b_TaOydrdztDttyq7uaQvvtanxThTvC8GINt2n3lHToTFfKvYwe-0J7avnG6WA-GCsok=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0329",
-    "sku": "MP-CAB-032",
     "name": "CABLE DISPLAYPORT A DISPLAYPORT 4K",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE DISPLAYPORT A DISPLAYPORT 4K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7240,20 +5925,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 18,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPNG4fi55kyz4QwRz8m7n95W-papdTf51uU-PJRnD_PRj9Kg0A8X-Gcy5TjO5ozCHuc3PScNFEDoQVimVeu1e82jM2oq59agqqJ8pmTpLDYD-QkDc0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0330",
-    "sku": "MP-CAB-033",
     "name": "CABLE BISWAL DISPLAY PORT 1.0 MTR 4K HQ 60HZ 23958",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL DISPLAY PORT 1.0 MTR 4K HQ 60HZ 23958. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7262,20 +5943,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0331",
-    "sku": "MP-CAB-034",
     "name": "CABLE BISWAL DISPLAY PORT 1.0MTR 8K V1.4 23979Z",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL DISPLAY PORT 1.0MTR 8K V1.4 23979Z. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7284,20 +5961,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0332",
-    "sku": "MP-CAB-035",
     "name": "CABLE BISWAL DISPLAY PORT 3.0MTR 8K V1.4 23993F",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL DISPLAY PORT 3.0MTR 8K V1.4 23993F. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7306,20 +5979,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0333",
-    "sku": "MP-CAB-036",
     "name": "CABLE BISWAL DISPLAY PORT 1.5MTR 8K V1.4 23986K",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL DISPLAY PORT 1.5MTR 8K V1.4 23986K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7328,20 +5997,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0334",
-    "sku": "MP-CAB-037",
     "name": "CABLE BISWAL DISPLAY PORT 3.0 MTR 4K HQ 60HZ 23972",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL DISPLAY PORT 3.0 MTR 4K HQ 60HZ 23972. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7350,20 +6015,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0335",
-    "sku": "MP-CAB-038",
     "name": "ADAPTADOR HDMI A RCA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR HDMI A RCA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7372,20 +6033,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 22,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0336",
-    "sku": "MP-CAB-039",
     "name": "ADAPTADOR RCA A HDMI",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR RCA A HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7394,20 +6051,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 29,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0337",
-    "sku": "MP-CAB-040",
     "name": "ADAPTADOR HDMI A VGA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR HDMI A VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7416,20 +6069,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0338",
-    "sku": "MP-CAB-041",
     "name": "ADAPTADOR VGA A HDMI",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR VGA A HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7438,20 +6087,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0339",
-    "sku": "MP-CAB-042",
     "name": "CABLE ADAPTADOR BISWAL HDMI A VGA SIN PLUG",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE ADAPTADOR BISWAL HDMI A VGA SIN PLUG. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7460,20 +6105,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0340",
-    "sku": "MP-CAB-043",
     "name": "CABLE ADAPTADOR HDMI A VGA SIN PLUG",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE ADAPTADOR HDMI A VGA SIN PLUG. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7482,20 +6123,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 138,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOnN07CrmPqu33OUUOSn5U7KfAI_NHoIlYbm3Bu97mC418HQAL2eNyXehxifmycgTvSPQJOIS797KrBaq98DL76EcIC1J_kNXnTxHjqe9Peu6s0KFs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0341",
-    "sku": "MP-CAB-044",
     "name": "CABLE VGA 1.5 MTS 4K",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE VGA 1.5 MTS 4K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7504,20 +6141,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0342",
-    "sku": "MP-CAB-045",
     "name": "CABLE VGA 1.5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE VGA 1.5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7526,20 +6159,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 55,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0343",
-    "sku": "MP-CAB-046",
     "name": "CABLE VGA 3 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE VGA 3 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7548,20 +6177,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 74,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0344",
-    "sku": "MP-CAB-047",
     "name": "ADAPTADOR DE CABLE HDMI HEMBRA A HEMBRA 2K/4K",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR DE CABLE HDMI HEMBRA A HEMBRA 2K/4K. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7570,20 +6195,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0345",
-    "sku": "MP-CAB-048",
     "name": "CABLE FIBRA OPTICA 1,5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE FIBRA OPTICA 1,5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7592,20 +6213,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0346",
-    "sku": "MP-CAB-049",
     "name": "CABLE FIBRA OPTICA 3 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE FIBRA OPTICA 3 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7614,20 +6231,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0347",
-    "sku": "MP-CAB-050",
     "name": "CABLE HDMI 1,5 MTS 4K PUNTA DORADA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 1,5 MTS 4K PUNTA DORADA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7636,20 +6249,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0348",
-    "sku": "MP-CAB-051",
     "name": "CABLE HDMI 3 MTS 4K PUNTA DORADA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 3 MTS 4K PUNTA DORADA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7658,20 +6267,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0349",
-    "sku": "MP-CAB-052",
     "name": "CABLE HDMI 5 MTS 4K 60HZ BISWAL",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 5 MTS 4K 60HZ BISWAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7680,20 +6285,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0350",
-    "sku": "MP-CAB-053",
     "name": "CABLE HDMI 1 MTS (SIN MALLA)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 1 MTS (SIN MALLA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7702,20 +6303,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 195,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0351",
-    "sku": "MP-CAB-054",
     "name": "CABLE BISWAL HDMI 1.5 MTR 4K 30HZ 23804H",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL HDMI 1.5 MTR 4K 30HZ 23804H. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7724,20 +6321,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 86,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPbpMAnYkCI1DkJ1xewm0uGGScOf9jAUsAi8uX1VEHbOXHZiX5o-T7jpGFlhroZvJGlYJhyQhwXDDyggKZ6VTREZDJopAElx_znX24ItCcIUqRTdAw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0352",
-    "sku": "MP-CAB-055",
     "name": "CABLE BISWAL HDMI 1.5 MTR V2.0 4K 60HZ 21662C",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL HDMI 1.5 MTR V2.0 4K 60HZ 21662C. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7746,20 +6339,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 43,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0353",
-    "sku": "MP-CAB-056",
     "name": "CABLE BISWAL HDMI 3.0 MTR 4K 30HZ 24000A",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL HDMI 3.0 MTR 4K 30HZ 24000A. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7768,20 +6357,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0354",
-    "sku": "MP-CAB-057",
     "name": "CABLE BISWAL HDMI 3.0 MTR V2.0 4K 60HZ 21669Z",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE BISWAL HDMI 3.0 MTR V2.0 4K 60HZ 21669Z. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7790,20 +6375,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0355",
-    "sku": "MP-CAB-058",
     "name": "CABLE HDMI 1.5 MTS MALLADO C/ FILTRO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 1.5 MTS MALLADO C/ FILTRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7812,20 +6393,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 68,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFC0YYrczhD8B3yZKoOgWuGM6GaXVmZX78JBwA2IgFWNi3TrJ3M4iArzlaeaxmVrixQSDYVB74O_navL30Yul27aKiusGNk_7Jz3PHC73guTBBN6Ty=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0356",
-    "sku": "MP-CAB-059",
     "name": "CABLE HDMI 3 MTS MALLADO C/FILTRO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 3 MTS MALLADO C/FILTRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7834,20 +6411,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 119,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFC0YYrczhD8B3yZKoOgWuGM6GaXVmZX78JBwA2IgFWNi3TrJ3M4iArzlaeaxmVrixQSDYVB74O_navL30Yul27aKiusGNk_7Jz3PHC73guTBBN6Ty=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0357",
-    "sku": "MP-CAB-060",
     "name": "CABLE HDMI 5 MTS MALLADO C/FILTRO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 5 MTS MALLADO C/FILTRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7856,20 +6429,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 70,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFC0YYrczhD8B3yZKoOgWuGM6GaXVmZX78JBwA2IgFWNi3TrJ3M4iArzlaeaxmVrixQSDYVB74O_navL30Yul27aKiusGNk_7Jz3PHC73guTBBN6Ty=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0358",
-    "sku": "MP-CAB-061",
     "name": "CABLE HDMI 10 MTS MALLADO C/FILTRO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 10 MTS MALLADO C/FILTRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7878,20 +6447,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 50,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFC0YYrczhD8B3yZKoOgWuGM6GaXVmZX78JBwA2IgFWNi3TrJ3M4iArzlaeaxmVrixQSDYVB74O_navL30Yul27aKiusGNk_7Jz3PHC73guTBBN6Ty=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0359",
-    "sku": "MP-CAB-062",
     "name": "CABLE HDMI 15 MTS MALLADO C/FILTRO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 15 MTS MALLADO C/FILTRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7900,20 +6465,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFC0YYrczhD8B3yZKoOgWuGM6GaXVmZX78JBwA2IgFWNi3TrJ3M4iArzlaeaxmVrixQSDYVB74O_navL30Yul27aKiusGNk_7Jz3PHC73guTBBN6Ty=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0360",
-    "sku": "MP-CAB-063",
     "name": "CABLE HDMI 20 MTS MALLADO C/FILTRO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI 20 MTS MALLADO C/FILTRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7922,20 +6483,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFC0YYrczhD8B3yZKoOgWuGM6GaXVmZX78JBwA2IgFWNi3TrJ3M4iArzlaeaxmVrixQSDYVB74O_navL30Yul27aKiusGNk_7Jz3PHC73guTBBN6Ty=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0361",
-    "sku": "MP-CAB-064",
     "name": "CABLE HDMI A MINI HDMI",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE HDMI A MINI HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7944,20 +6501,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0362",
-    "sku": "MP-CAB-065",
     "name": "CABLE EXTENSION USB MACHO A HEMBRA 2.0 1.5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE EXTENSION USB MACHO A HEMBRA 2.0 1.5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7966,20 +6519,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 90,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM_7uPjpct3zsW8NHR-bnTUBu7f7RRiqwpkQq1CyqOblYZGr4cV0Q4ZAhrPMemZGg69ybBQW0wr0v2_Hoglpn3byAedG4DWzGOhlbridKZ2i-UMvdw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0363",
-    "sku": "MP-CAB-066",
     "name": "CABLE EXTENSION USB MACHO A HEMBRA 2.0 3 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE EXTENSION USB MACHO A HEMBRA 2.0 3 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -7988,20 +6537,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM_7uPjpct3zsW8NHR-bnTUBu7f7RRiqwpkQq1CyqOblYZGr4cV0Q4ZAhrPMemZGg69ybBQW0wr0v2_Hoglpn3byAedG4DWzGOhlbridKZ2i-UMvdw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0364",
-    "sku": "MP-CAB-067",
     "name": "CABLE EXTENSION USB MACHO A USB MACHO 2.0 1,5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE EXTENSION USB MACHO A USB MACHO 2.0 1,5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8010,20 +6555,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 63,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMTAOM2nR4QvSlrd9vExwcUldGAKhtK7-26BV5R1uGHXYCSGs9I9wtobzvsZ3fEONqsxDkthB7THnPVkZtt4DBUocCBqpvfrj_3VyqyWvFX3MKxufMA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0365",
-    "sku": "MP-CAB-068",
     "name": "CABLE IMPRESORA USB 1,5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE IMPRESORA USB 1,5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8032,20 +6573,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 492,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0366",
-    "sku": "MP-CAB-069",
     "name": "CABLE IMPRESORA USB 3 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE IMPRESORA USB 3 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8054,20 +6591,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0367",
-    "sku": "MP-CAB-070",
     "name": "CABLE AUX PLUG A PLUG 3.5 1,5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE AUX PLUG A PLUG 3.5 1,5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8076,20 +6609,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 857,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN96OE8V8cjSX1nmVBQ5Gf5W9TCKnIBSfzn46H0S8ixnAif9IGiyg0c4j-Qdq2xjNa-pIigSYiqRtyMuSIGRxT_W50d7L3wrfciqdVDa4SiQyT5pXk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0368",
-    "sku": "MP-CAB-071",
     "name": "CABLE 2 RCA A PLUG (AUDIO)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE 2 RCA A PLUG (AUDIO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8098,20 +6627,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 520,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOTgOd_hTYGOjKJ8lhmh7Bh4NMkeWZjTRDle8z_R9u_U0nUUn2fphgDGTspnZC6ArqEg4m31Y26aeHC5royMfvDXUIQ9byjmBePxMbfXN2gAPkE0lQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0369",
-    "sku": "MP-CAB-072",
     "name": "CABLE 3 RCA A PLUG (AUDIO Y VIDEO)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE 3 RCA A PLUG (AUDIO Y VIDEO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8120,20 +6645,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0370",
-    "sku": "MP-CAB-073",
     "name": "CABLE 3 RCA A 3 RCA 1,5 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE 3 RCA A 3 RCA 1,5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8142,20 +6663,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 19,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNZR-DtxzPeKC6jddv2FuzBfPp9B57bLMW3chLhkZD59A1FQzybHfTeT1mACq--yBnAU2QdM_O54X-_MV7wnZCkbqkarhOBSvd1t0HyXTzZb5EZw5W_=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0371",
-    "sku": "MP-CAB-074",
     "name": "CABLE USB 3,0 PARA DISCO EXTERNO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE USB 3,0 PARA DISCO EXTERNO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8164,20 +6681,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0372",
-    "sku": "MP-CAB-075",
     "name": "CABLE POWER PC 220V (ECONOMICO)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE POWER PC 220V (ECONOMICO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8186,20 +6699,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 35,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOnLeyARINyAt5oeBzCdhMS4e4SaF1XL1U3mT1BFBY3y_bqgDhXE9oR2Lm0m6gDy5R-qm_BhCZLI34SxyV3b7AAgqayThpWuBSUgs92w4iVd4XdUXmP=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0373",
-    "sku": "MP-CAB-076",
     "name": "CABLE POWER PC 220V 1.8 MTS PREMIUM",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE POWER PC 220V 1.8 MTS PREMIUM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8208,20 +6717,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0374",
-    "sku": "MP-CAB-077",
     "name": "CABLE POWER 8 220V INTERLOCK PATA ARGENTINA 1.5 CM",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE POWER 8 220V INTERLOCK PATA ARGENTINA 1.5 CM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8230,20 +6735,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 139,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0375",
-    "sku": "MP-CAB-078",
     "name": "CABLE POWER TREBOL 220V 1,8 MTS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CABLE POWER TREBOL 220V 1,8 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8252,20 +6753,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 184,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0376",
-    "sku": "MP-CAB-079",
     "name": "OTG ADAPTADOR IPHONE A TC",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "OTG ADAPTADOR IPHONE A TC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8274,20 +6771,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0377",
-    "sku": "MP-CAB-080",
     "name": "OTG ADAPTADOR USB A TC",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "OTG ADAPTADOR USB A TC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8296,20 +6789,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 451,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPcG204VbYsDH3D36qypI4MuKyvBSWa4nK--5f6PnPNrWO9AyIT_ED4ewOMnGmW11JQ_Nga8RN7fy1-XNCc3lIgi-hoHXjhf7FpHe3KotmYzXAoeD0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0378",
-    "sku": "MP-CAB-081",
     "name": "ADAPTADOR OTG TIPO C HEMBRA A USB MACHO 3.0",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR OTG TIPO C HEMBRA A USB MACHO 3.0. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8318,20 +6807,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 52,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0379",
-    "sku": "MP-CAB-082",
     "name": "LAMPARA LED IMANTADA MODS-045 1200 mAh 5V 30CM Encendido y atenuación táctil (Touch)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "LAMPARA LED IMANTADA MODS-045 1200 mAh 5V 30CM Encendido y atenuación táctil (Touch). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8340,20 +6825,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 29,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPv3KPOYzSKGQZBVVsDP3N1r6Mp_Ieppk2zW9gMt7k8ooYfHhymmIuI3suu2d-lc_J5aiqSoPoQqiwewOXdbE45vnQaZZb-Ns0FgRCqxCoCP-UB2Eg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0380",
-    "sku": "MP-CAB-083",
     "name": "LAMPARA LED EFECTO SOL ATARDECER",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "LAMPARA LED EFECTO SOL ATARDECER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8362,20 +6843,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPiPGvvaxZFapvKoazNC8QYIGEAqGPz-iuQRwY6TPHSg6Ym2i2jsV5fEaLNlo9vTVtddSZyeHcTp8VtEeLWUT9QXn-nJGt-jHf_FfWu1xW_HC3PITM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0381",
-    "sku": "MP-CAB-084",
     "name": "LAMPARA ESCRITORIO NETMAK NM-GLOW C/RELOJ/DESPERTADOR/CALENDARIO/TEMPERATURA",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "LAMPARA ESCRITORIO NETMAK NM-GLOW C/RELOJ/DESPERTADOR/CALENDARIO/TEMPERATURA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8384,20 +6861,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0382",
-    "sku": "MP-CAB-085",
     "name": "LUZ DE EMERGENCIA PROBATTERY 120 LEDS IE-AL3005",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "LUZ DE EMERGENCIA PROBATTERY 120 LEDS IE-AL3005. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8406,20 +6879,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0383",
-    "sku": "MP-CAB-086",
     "name": "KIT TIRA LED RGB 5050 IBEK EXTERIOR/INTERIOR 5 MTS",
-    "brand": "Ibek",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "KIT TIRA LED RGB 5050 IBEK EXTERIOR/INTERIOR 5 MTS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Ibek",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8428,20 +6897,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPZLH806opPhGwqYnDjJjFlROX_Z6vr03PL5ON43HkrjZ0nnVS0Cskpzc2OAe9j60qZ6GZvPMIQPSb0PsQBZyBsHiTjxAZSo0zugwSpRjMB1kpBLhY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0384",
-    "sku": "MP-CAB-087",
     "name": "TIRA LED 50X50 TV 3 MTS 90 LED",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "TIRA LED 50X50 TV 3 MTS 90 LED. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8450,20 +6915,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0385",
-    "sku": "MP-CAB-088",
     "name": "TIRA LED NEON RGB 5M 5V APP+BT",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "TIRA LED NEON RGB 5M 5V APP+BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8472,20 +6933,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0386",
-    "sku": "MP-CAB-089",
     "name": "TIRA LED 10MTS RGB USB CON APP AUDIORITMICA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "TIRA LED 10MTS RGB USB CON APP AUDIORITMICA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8494,20 +6951,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0387",
-    "sku": "MP-CAB-090",
     "name": "PAD MOUE GENERICO C/ALMOHADILLA DE GEL",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PAD MOUE GENERICO C/ALMOHADILLA DE GEL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8516,20 +6969,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 64,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0388",
-    "sku": "MP-CAB-091",
     "name": "PAD MOUSE COLORES",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PAD MOUSE COLORES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8538,20 +6987,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 79,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0389",
-    "sku": "MP-CAB-092",
     "name": "PAD MOUSE CAMUFLADOS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PAD MOUSE CAMUFLADOS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8560,20 +7005,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNHJfd9C6_pyHBFQ9aYQ9iPau4-H6wKY9EB7RaxPxDKeePUq3y1O0xS5YHiB-3tjUx-lkU14RYIpbcfDfTFVkGYpwn-OMjv2d2ipjhK1w1aTMJ4p9Q=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0390",
-    "sku": "MP-CAB-093",
     "name": "PAD MOUSE GAMER XXL 70X30",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PAD MOUSE GAMER XXL 70X30. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8582,20 +7023,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 48,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNOLSsvpe2n4JFU9lbfUWj6cht_H0GpO45w7Z9xPC7Wbq6kHKtlL6psL2ALoWTLulefiBzXizeGBFkRQCStXs9w1w_ffXQ9BiHBNVTQmC8PeHtRK3Q=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0391",
-    "sku": "MP-CAB-094",
     "name": "PAD MOUSE GAMER XXL 80X30 CON RGB",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PAD MOUSE GAMER XXL 80X30 CON RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8604,20 +7041,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPQJL8cjMLjANFoYMRx4Z0Cfyg_W_WsHaQOTi3KCi0uU1OkHidVTEKkQPYyP6-76TE3gLpjzcucoA0_sQbTa5Gg8bYJaDAnSSC_HyMznuPFW40EJazB=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0392",
-    "sku": "MP-CAB-095",
     "name": "PAD MOUSE GAMER REDRAGON KUNLUN 88X42",
-    "brand": "Redragon",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PAD MOUSE GAMER REDRAGON KUNLUN 88X42. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8626,20 +7059,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNJGk7L1k-Ck_aHj2rHtzLundv11_McSdXPJfseuqKAniT2Hd2Cmp9pFn_0aME0cKyI60fZeNWdQB1BRj_GFmbMA-QBm-xTK5AVl5bKUWug-mkJ_dt-=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0393",
-    "sku": "MP-CAB-096",
     "name": "ADAPTADOR NETMAK NM-SATA3 USB 3.0 A SATA",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR NETMAK NM-SATA3 USB 3.0 A SATA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8648,20 +7077,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0394",
-    "sku": "MP-CAB-097",
     "name": "ADAPTADOR NETMAK NM-C61 USB A SATA/IDE",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR NETMAK NM-C61 USB A SATA/IDE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8670,20 +7095,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0395",
-    "sku": "MP-CAB-098",
     "name": "CARRY DISK 2.0",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CARRY DISK 2.0. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8692,20 +7113,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0396",
-    "sku": "MP-CAB-099",
     "name": "CARRY DISK 3.0",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CARRY DISK 3.0. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8714,20 +7131,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 19,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0397",
-    "sku": "MP-CAB-100",
     "name": "CARRY DISK PARA SSD 3.1 M2",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CARRY DISK PARA SSD 3.1 M2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8736,20 +7149,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0398",
-    "sku": "MP-CAB-101",
     "name": "ADAPTADOR HDMI A TIPO C 3.0",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR HDMI A TIPO C 3.0. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8758,20 +7167,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0399",
-    "sku": "MP-CAB-102",
     "name": "HUB TC A (3 USB 2.0 + 1 USB 3.0)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB TC A (3 USB 2.0 + 1 USB 3.0). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8780,20 +7185,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOL7E8_uWigCPdveVS2mtrnyGwe6bn4Eqz5HvkrAcYB9hFd-VHLOkFo11wmDxtIH-n0mQNOgkbcTPUHtTLp3RYB5OZ9wI5pSFdQr2jnzCq__PkdDqw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0400",
-    "sku": "MP-CAB-103",
     "name": "HUB ADAPTADOR 8 EN 1 TIPO C A HDMI/USB/TC/RJ45",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB ADAPTADOR 8 EN 1 TIPO C A HDMI/USB/TC/RJ45. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8802,20 +7203,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0401",
-    "sku": "MP-CAB-104",
     "name": "HUB USB 4 PUERTOS 2.0 CON INTERRUPTOR",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB USB 4 PUERTOS 2.0 CON INTERRUPTOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8824,20 +7221,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0402",
-    "sku": "MP-CAB-105",
     "name": "HUB USB 7 PUERTOS 2.0 CON INTERRUPTOR",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB USB 7 PUERTOS 2.0 CON INTERRUPTOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8846,20 +7239,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0403",
-    "sku": "MP-CAB-106",
     "name": "HUB USB 4 PUERTOS 3.0 REAL",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB USB 4 PUERTOS 3.0 REAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8868,20 +7257,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 32,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0404",
-    "sku": "MP-CAB-107",
     "name": "HUB USB 7 PUERTOS 3.0 CON INTERRUPTOR",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB USB 7 PUERTOS 3.0 CON INTERRUPTOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8890,20 +7275,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0405",
-    "sku": "MP-CAB-108",
     "name": "HUB CUDY UH407 7 EN 1 USB-C HDMI 4K 60HZ 2TC/2USB/1HDMI/MEM.",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "HUB CUDY UH407 7 EN 1 USB-C HDMI 4K 60HZ 2TC/2USB/1HDMI/MEM.. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8912,20 +7293,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0406",
-    "sku": "MP-CAB-109",
     "name": "BATERIA CR-2032 VINNIC/NETMAK 3V/LITIO PACK X5",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "BATERIA CR-2032 VINNIC/NETMAK 3V/LITIO PACK X5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8934,20 +7311,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 77,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0407",
-    "sku": "MP-CAB-110",
     "name": "BATERIA CR-2016 MAXELL V3 X 5 UNIDADES",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "BATERIA CR-2016 MAXELL V3 X 5 UNIDADES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8956,20 +7329,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0408",
-    "sku": "MP-CAB-111",
     "name": "BATERIA CR-2450 PANASONIC V3 X 5 UNIDADES",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "BATERIA CR-2450 PANASONIC V3 X 5 UNIDADES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -8978,20 +7347,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0409",
-    "sku": "MP-CAB-112",
     "name": "PILA ALCALINA AAA PROBATTERY PACK*2",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PILA ALCALINA AAA PROBATTERY PACK*2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9000,20 +7365,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 166,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0410",
-    "sku": "MP-CAB-113",
     "name": "PILA ALCALINA AA PROBATTERY PACK*4",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PILA ALCALINA AA PROBATTERY PACK*4. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9022,20 +7383,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 21,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0411",
-    "sku": "MP-CAB-114",
     "name": "PILA RECARGABLE AA PROBATTERY 2700MHA/1.2/PACK X 2",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PILA RECARGABLE AA PROBATTERY 2700MHA/1.2/PACK X 2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9044,20 +7401,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0412",
-    "sku": "MP-CAB-115",
     "name": "PILA RECARGABLE AAA NETMAK/PROBATERY 800MHA/1.2V/PACK X 2",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PILA RECARGABLE AAA NETMAK/PROBATERY 800MHA/1.2V/PACK X 2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9066,20 +7419,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0413",
-    "sku": "MP-CAB-116",
     "name": "CARGADOR DE PILA SEISA/NETMAK USB 4 PILAS AA/AAA",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "CARGADOR DE PILA SEISA/NETMAK USB 4 PILAS AA/AAA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9088,20 +7437,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 24,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0414",
-    "sku": "MP-CAB-117",
     "name": "PLACA SONIDO USB",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PLACA SONIDO USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9110,20 +7455,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0415",
-    "sku": "MP-CAB-118",
     "name": "ADAPTADOR CAR PLAY Y ANDROID AUTO BT",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR CAR PLAY Y ANDROID AUTO BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9132,20 +7473,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0416",
-    "sku": "MP-CAB-119",
     "name": "ADAPTADOR CAR PLAY NETMAK NM-CAR14",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "ADAPTADOR CAR PLAY NETMAK NM-CAR14. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9154,20 +7491,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0417",
-    "sku": "MP-CAB-120",
     "name": "RECEPTOR BLUETOOTH USB 5.0",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "RECEPTOR BLUETOOTH USB 5.0. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9176,20 +7509,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 68,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0418",
-    "sku": "MP-CAB-121",
     "name": "RECEPTOR BLUETOOTH USB 5.4 TP LINK NANO UB500",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "RECEPTOR BLUETOOTH USB 5.4 TP LINK NANO UB500. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9198,20 +7527,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0419",
-    "sku": "MP-CAB-122",
     "name": "RECEPTOR BLUETOOTH CUDY BU530 NANO USB2.0/BT5.3",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "RECEPTOR BLUETOOTH CUDY BU530 NANO USB2.0/BT5.3. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9220,20 +7545,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0420",
-    "sku": "MP-CAB-123",
     "name": "PUNTERO LASER EN ESTUCHE A PILAS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PUNTERO LASER EN ESTUCHE A PILAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9242,20 +7563,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPCm16gS4geE7kCAAvlHpIAf1CrOZRpA8rldJhwUuwkLRA5AyIvksf2LYi31BtpooYfCZpkciYGQKbe8uQ8_5fPQICu5aYRivaHnVkqiaEHlhYfcVY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0421",
-    "sku": "MP-CAB-124",
     "name": "LASER STAGE MULTIPUNTO DE COLORES",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "LASER STAGE MULTIPUNTO DE COLORES. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9264,20 +7581,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOx1q3P-P2WY0P9ejpR3kysaHDUs9fZDQGfvGhyVmyVjHIfTcTHzQTXkQeJDe8VaqxngJUUV3ToDXsyXF16qvDc_3YxOTwFWZD6rT1u5XqPUQQMIaQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0422",
-    "sku": "MP-CAB-125",
     "name": "SOPORTE CELULAR NETMAK NM-HC55 ESCRITORIO/ALUMINIO",
-    "brand": "Netmak",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE CELULAR NETMAK NM-HC55 ESCRITORIO/ALUMINIO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9286,20 +7599,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0423",
-    "sku": "MP-CAB-126",
     "name": "SOPORTE DE CELULAR PARA AUTO ESPEJO RETROVISOR",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE CELULAR PARA AUTO ESPEJO RETROVISOR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9308,20 +7617,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0424",
-    "sku": "MP-CAB-127",
     "name": "SOPORTE DE CELULAR BASE ASTRONAUTA",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE CELULAR BASE ASTRONAUTA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9330,20 +7635,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 46,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPY_JYmtW9RNgICZe3NvvACGPVAYrrIjbmycI4-fGJwI-4_rxMoxUUWwl9S-zZCTxGUBkrRY9N0ZWKVHcd07BhK7jbjR2RF5r7o8MzXPlFvMbBDePY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0425",
-    "sku": "MP-CAB-128",
     "name": "SOPORTE DE CELULAR IMANTADO SOPAPA, GIRO 360° Y ALUMINIO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE CELULAR IMANTADO SOPAPA, GIRO 360° Y ALUMINIO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9352,20 +7653,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0426",
-    "sku": "MP-CAB-129",
     "name": "SOPORTE DE CELULAR PARA AUTO CON BRAZO (JG-039/038)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE CELULAR PARA AUTO CON BRAZO (JG-039/038). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9374,20 +7671,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNTGSch8bEhLrYrMLfrj5yW69KA2u44qEHPm6GU8hGb9KUSw4mReoYYOWxxXJpB9L8QILX6LYkDRfZPE_XnC0iQLABqTljQ5RcPWgDY84hj2RX0gyc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0427",
-    "sku": "MP-CAB-130",
     "name": "SOPORTE CELULAR PARA BICI-MOTO",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE CELULAR PARA BICI-MOTO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9396,20 +7689,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 26,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNNDduPg9_pQDRiuMaHxBCteIdiGibTeuLCv8bPcSXzl7REJIz9QU3DJ0D5JMgXmSHoy36ndcRef2K0IZGhT1hpjje1vtlahztJr2ouUlH1BBfZc3g=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0428",
-    "sku": "MP-CAB-131",
     "name": "SOPORTE KOLKE PARA MONITOR/NOTEBOOK DOBLE BRAZO KVS-599 17 A 32\"",
-    "brand": "Kolke",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE KOLKE PARA MONITOR/NOTEBOOK DOBLE BRAZO KVS-599 17 A 32\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9418,20 +7707,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9MgubN8yJKzHloIeSeOuWcvqnrU3oiMRZv6fNehD0BwUUkksGjMfyEGH3kiSrOSZmB54YbaPTVuRj7iJofazEPNQw2MZhBA1aPy7kLc2Eck_zHjM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0429",
-    "sku": "MP-CAB-132",
     "name": "SOPORTE DE TV FIJO 26-63 PULGADAS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE TV FIJO 26-63 PULGADAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9440,20 +7725,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0430",
-    "sku": "MP-CAB-133",
     "name": "SOPORTE DE TV FIJO 40-85 PULGADAS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE TV FIJO 40-85 PULGADAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9462,20 +7743,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0431",
-    "sku": "MP-CAB-134",
     "name": "SOPORTE DE TV FIJO 55-120 PULGADAS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE TV FIJO 55-120 PULGADAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9484,20 +7761,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0432",
-    "sku": "MP-CAB-135",
     "name": "SOPORTE DE TV MOVIL 14 A 55 PULGADAS",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE TV MOVIL 14 A 55 PULGADAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9506,20 +7779,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNkenngup5D64O2gBAQBkB4sO0XQTDDwKHtQhL6NytPtp1WjqgfnewugkxdY_-PakhnjEE47C_ymgCAlG2RiB1GKEY79mk6u1Y1xv6nWKRW_VQXtAzX=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0433",
-    "sku": "MP-CAB-136",
     "name": "SOPORTE TV MOVIL REFORZADO 32 A 55 PLG",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE TV MOVIL REFORZADO 32 A 55 PLG. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9528,20 +7797,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0434",
-    "sku": "MP-CAB-137",
     "name": "SOPORTE TV MOVIL REFORZADO 32 A 70 PLG",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE TV MOVIL REFORZADO 32 A 70 PLG. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9550,20 +7815,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM9vDz8VNrwr91X_rUSjBZX0fASZcsRtEM8xjP1SMFpgAqRrzHkyggzBWGTFa0u1SMCF_woBZ4SoFCcuyOc-9eAQG09th5IkZVgVQe-oQQ5IJHjxZg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0435",
-    "sku": "MP-CAB-138",
     "name": "MESA PARA NOTEBOOK",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "MESA PARA NOTEBOOK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9572,20 +7833,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNACJyLsTChO1xSpArxQi-VLWMI8V6OcXDgbJVFcB7_9Ooyd23keGzHkTUPl7SiRbeyP6ZwJV3Z1BImIm-z5BTvml1IVj758ksjx_P9ewE0rN8XcFmv=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0436",
-    "sku": "MP-CAB-139",
     "name": "SOPORTE DE NOTEBOOK PLEGABLE METAL",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SOPORTE DE NOTEBOOK PLEGABLE METAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9594,20 +7851,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 44,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOiXHYq1MNVrLRf9rvpa-qukw_yiTV5W-9aL7bV5cFCRxluSsK0FJvO_ao5FDM70o6lnEmr_U-W1Nq3eN8m7RUpPFWe4z5m2LXF9aV8e_3mEVg3vho=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0437",
-    "sku": "MP-CAB-140",
     "name": "TRIPODE ALUMINIO EXTENSIBLE 1.1 MTS H-3110 *",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "TRIPODE ALUMINIO EXTENSIBLE 1.1 MTS H-3110 *. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9616,20 +7869,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0438",
-    "sku": "MP-CAB-141",
     "name": "POWER BANK 12.000 MAH REPLICA APPLE (LAMBOTECH)",
-    "brand": "Apple",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "POWER BANK 12.000 MAH REPLICA APPLE (LAMBOTECH). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Apple",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9638,20 +7887,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0439",
-    "sku": "MP-CAB-142",
     "name": "POWER BANK 10.000 MAH 4 EN 1 LAMBOTECH (V8/TC/IP/IPADS ANTIGUOS)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "POWER BANK 10.000 MAH 4 EN 1 LAMBOTECH (V8/TC/IP/IPADS ANTIGUOS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9660,20 +7905,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0440",
-    "sku": "MP-CAB-143",
     "name": "POWER BANK 25.000 MAH 4 EN 1 LAMBOTECH (V8/TC/IP/IPADS ANTIGUOS)",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "POWER BANK 25.000 MAH 4 EN 1 LAMBOTECH (V8/TC/IP/IPADS ANTIGUOS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9682,20 +7923,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0441",
-    "sku": "MP-CAB-144",
     "name": "VENTILADOR DE MANO COLORES MINIFIN",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "VENTILADOR DE MANO COLORES MINIFIN. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9704,20 +7941,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 39,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNy_gHnqNVL2iPUz1H1jh7yQgkOkAcbA20dsEP8VBL6adbcBiPp-yJRPglNHaYfuVOsDB5u4mP3eOSwrqENwOf3lwQHu2l3S7fhgJZOuL4ROMML6nY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0442",
-    "sku": "MP-CAB-145",
     "name": "SPLITTER HDMI 1 X 2 4K CON FUENTE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SPLITTER HDMI 1 X 2 4K CON FUENTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9726,20 +7959,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQtXdohuzUDlH9Jchw0mMlYvYQzJVi5pN4Vc4Tmj8-VHInRp0wDYx_sBIck_vZb2m8tnlpUVcTNkn4gqhbZvWUVUNU34VSvAahDvKU2_uo-EE1fMY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0443",
-    "sku": "MP-CAB-146",
     "name": "SPLITTER HDMI 1 X 4 4K CON FUENTE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SPLITTER HDMI 1 X 4 4K CON FUENTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9748,20 +7977,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOBDT3YaYy0fSEZ-SQO4K9hj0z6pQbcn23lwMcHCRyPglecF7SZuy7FW_tOcBiefNGQrIps_oG1Fc32r4XxeP9rTRoYWDpbVixaCVHu6FjsqtCFwXE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0444",
-    "sku": "MP-CAB-147",
     "name": "SPLITTER HDMI 1 X 8 4K CON FUENTE",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "SPLITTER HDMI 1 X 8 4K CON FUENTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9770,20 +7995,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0445",
-    "sku": "MP-CAB-148",
     "name": "PROYECTOR DE GALAXIA ASTRONAUTA CON CONTROL",
-    "brand": "Genérico",
     "category": "ACCESORIOS, ADAPTADORES Y CABLES",
     "description": "PROYECTOR DE GALAXIA ASTRONAUTA CON CONTROL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: ACCESORIOS, ADAPTADORES Y CABLES",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9792,20 +8013,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0446",
-    "sku": "MP-AUR-001",
     "name": "AURICULAR EARBUDS BT CON DISPLAY Y CARGA INALAMBRICA M10/M20",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT CON DISPLAY Y CARGA INALAMBRICA M10/M20. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9814,20 +8031,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0447",
-    "sku": "MP-AUR-002",
     "name": "AURICULAR EARBUDS BT SIMIL SAMSUNG HL-07",
-    "brand": "Samsung",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT SIMIL SAMSUNG HL-07. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9836,20 +8049,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNY35HEsOml9mEOJyFRWj1AoibE1OTM7cM6Uq2y5y9lF8o47dlhfHrD8enR6_8FaFMTBSF2usTy81Xbalr63k2TAnpjzwtKH6f9XKXg5TO0xJN3kBE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0448",
-    "sku": "MP-AUR-003",
     "name": "AURICULAR EARBUDS BT A6S",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT A6S. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9858,20 +8067,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPxL7wGn3OoPIPyvh0uz2sGwKAZHyg_tdQc9xT9WqYIpGg_H9IxWAasnjG-1jIqBanb2JkHJUOAdXbi9pOUoL4OYKRFZH-nwwaUujguzG_bM6P8K42R=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0449",
-    "sku": "MP-AUR-004",
     "name": "AURICULAR EARBUDS BT M25 GAME HEADSET",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT M25 GAME HEADSET. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9880,20 +8085,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPxL7wGn3OoPIPyvh0uz2sGwKAZHyg_tdQc9xT9WqYIpGg_H9IxWAasnjG-1jIqBanb2JkHJUOAdXbi9pOUoL4OYKRFZH-nwwaUujguzG_bM6P8K42R=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0450",
-    "sku": "MP-AUR-005",
     "name": "AURICULAR EARBUDS BT CON VISOR Y-80",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT CON VISOR Y-80. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9902,20 +8103,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOMBZDcwlKA7tPYoCR7_QBWPwwCcSbw7380MI_0-T1S4erokbTLffAYwBQtjUs9mBjQL_ki01eMkSHPYMfF_iTwQT8yJKAtKRgdxlY6fW-AElp9cUc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0451",
-    "sku": "MP-AUR-006",
     "name": "AURICULAR EARBUDS BT NETMAK NM-FAST NEGRO",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-FAST NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9924,20 +8121,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0452",
-    "sku": "MP-AUR-007",
     "name": "AURICULAR EARBUDS BT NETMAK NM-SPIRIT NEGRO",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-SPIRIT NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9946,20 +8139,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMU_q2ND2Rrn9TydTa_LORh5CfwP7sLZFAb_NJYISbpXt1mJiVtOsSv5MsfWzRPt3ZyiVKVP5Z3qcMZXd0VL5Vvl87Ss0AY7AgKURgltCWDEtnERStK=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0453",
-    "sku": "MP-AUR-008",
     "name": "AURICULAR NETMAK NM-MELOW-V VIOLETA BT",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-MELOW-V VIOLETA BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9968,20 +8157,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP7V4S0TQjJYcCC2cV7JQagFtaFyKtexW8GcDu4DxqYhvIIfFkLhPx9PwCKk7-ZGFEBplSHNEOylyx-1XUamETdGUPDs3BhEut1DZPfIKklBnL03EM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0454",
-    "sku": "MP-AUR-009",
     "name": "AURICULAR NETMAK NM-MELOW-B BLACK BT",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-MELOW-B BLACK BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -9990,20 +8175,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 15,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP7V4S0TQjJYcCC2cV7JQagFtaFyKtexW8GcDu4DxqYhvIIfFkLhPx9PwCKk7-ZGFEBplSHNEOylyx-1XUamETdGUPDs3BhEut1DZPfIKklBnL03EM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0455",
-    "sku": "MP-AUR-010",
     "name": "AURICULAR NETMAK NM-MELOW-A AZUL BT",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-MELOW-A AZUL BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10012,20 +8193,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP7V4S0TQjJYcCC2cV7JQagFtaFyKtexW8GcDu4DxqYhvIIfFkLhPx9PwCKk7-ZGFEBplSHNEOylyx-1XUamETdGUPDs3BhEut1DZPfIKklBnL03EM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0456",
-    "sku": "MP-AUR-011",
     "name": "AURICULAR EARBUDS BT NETMAK NM-BIZA DISPLAY BLANCO",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-BIZA DISPLAY BLANCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10034,20 +8211,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPgwmTPr4H0BmtkIiqHEg_Z5K5P8Cubop1yTLwp5uyYoL6xgAt7eEjZS0mt4-7-bXOH1fJ7CVJuaG8Mbhxnuf2aeLpF7jwvUvY7QITNF2_UHAWuhUg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0457",
-    "sku": "MP-AUR-012",
     "name": "AURICULAR EARBUDS BT NETMAK NM-BIZA DISPLAY ROSA",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-BIZA DISPLAY ROSA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10056,20 +8229,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPgwmTPr4H0BmtkIiqHEg_Z5K5P8Cubop1yTLwp5uyYoL6xgAt7eEjZS0mt4-7-bXOH1fJ7CVJuaG8Mbhxnuf2aeLpF7jwvUvY7QITNF2_UHAWuhUg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0458",
-    "sku": "MP-AUR-013",
     "name": "AURICULAR EARBUDS BT NETMAK NM-BIZA DISPLAY GRIS",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-BIZA DISPLAY GRIS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10078,20 +8247,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPgwmTPr4H0BmtkIiqHEg_Z5K5P8Cubop1yTLwp5uyYoL6xgAt7eEjZS0mt4-7-bXOH1fJ7CVJuaG8Mbhxnuf2aeLpF7jwvUvY7QITNF2_UHAWuhUg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0459",
-    "sku": "MP-AUR-014",
     "name": "AURICULAR EARBUDS BT NETMAK NM-MIKO BLANCO",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-MIKO BLANCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10100,20 +8265,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0460",
-    "sku": "MP-AUR-015",
     "name": "AURICULAR EARBUDS BT NETMAK NM-GUMY ROSA",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-GUMY ROSA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10122,20 +8283,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 25,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZcUepLKcRV8TqTfLTczHTstg_t90vpJmKsVPdpskRSdHBFLQGyzDHXXqpbBIS5UUhh6wawSt1CQcIGOXR_ANpoxcsg27zIy29070J53hh-VIjxFI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0461",
-    "sku": "MP-AUR-016",
     "name": "AURICULAR EARBUDS BT NETMAK NM-GUMY BLANCO",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT NETMAK NM-GUMY BLANCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10144,20 +8301,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZcUepLKcRV8TqTfLTczHTstg_t90vpJmKsVPdpskRSdHBFLQGyzDHXXqpbBIS5UUhh6wawSt1CQcIGOXR_ANpoxcsg27zIy29070J53hh-VIjxFI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0462",
-    "sku": "MP-AUR-017",
     "name": "AURICULAR BT GOLDERY DIAMONDS GY-E01 NEGRO",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR BT GOLDERY DIAMONDS GY-E01 NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10166,20 +8319,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqewnse7IJdV0vXd22QGcc29yneCOsD54xB9HqJC65YBIIe5FxhOEBuqXiUg_6dI6mn-4QseLweJkv46y0mXUE9j9NVxx_vMhSQT-ds4YEijONE0s=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0463",
-    "sku": "MP-AUR-018",
     "name": "AURICULAR BT GOLDERY DIAMONDS GY-E01 BLANCO",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR BT GOLDERY DIAMONDS GY-E01 BLANCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10188,20 +8337,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqewnse7IJdV0vXd22QGcc29yneCOsD54xB9HqJC65YBIIe5FxhOEBuqXiUg_6dI6mn-4QseLweJkv46y0mXUE9j9NVxx_vMhSQT-ds4YEijONE0s=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0464",
-    "sku": "MP-AUR-019",
     "name": "AURICULAR BT GOLDERY DIAMONDS GY-E01 PURPURA",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR BT GOLDERY DIAMONDS GY-E01 PURPURA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10210,20 +8355,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqewnse7IJdV0vXd22QGcc29yneCOsD54xB9HqJC65YBIIe5FxhOEBuqXiUg_6dI6mn-4QseLweJkv46y0mXUE9j9NVxx_vMhSQT-ds4YEijONE0s=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0465",
-    "sku": "MP-AUR-020",
     "name": "AURICULAR BT AIRPODS TIPO IPHONE 4GEN.",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR BT AIRPODS TIPO IPHONE 4GEN.. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10232,20 +8373,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0466",
-    "sku": "MP-AUR-021",
     "name": "AURICULAR EARBUDS BT SIMIL SAMSUNG BUDS 3 R530",
-    "brand": "Samsung",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR EARBUDS BT SIMIL SAMSUNG BUDS 3 R530. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10254,20 +8391,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0467",
-    "sku": "MP-AUR-022",
     "name": "AURICULAR LENOVO OPEN EAR BT TC3403 BLACK",
-    "brand": "Lenovo",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR LENOVO OPEN EAR BT TC3403 BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Lenovo",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10276,20 +8409,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0468",
-    "sku": "MP-AUR-023",
     "name": "AURICULAR LENOVO IN EAR BT XT80 BLACK CON AGARRE",
-    "brand": "Lenovo",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR LENOVO IN EAR BT XT80 BLACK CON AGARRE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Lenovo",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10298,20 +8427,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPmTLpPyTRTq8AIlIyZF9yOc7FA9I-9CnD-FJ4J-1ZhDEBh5f2rtgBPSzh48U7EWFbYivSGY41RYz8DOEXdgOv9nE6FlMbn5VebRXArVQYV7bYAG1U=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0469",
-    "sku": "MP-AUR-024",
     "name": "AURICULAR LENOVO LP40",
-    "brand": "Lenovo",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR LENOVO LP40. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Lenovo",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10320,20 +8445,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0470",
-    "sku": "MP-AUR-025",
     "name": "AURICULAR LENOVO HT38",
-    "brand": "Lenovo",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR LENOVO HT38. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Lenovo",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10342,20 +8463,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMiFbba-E_x2M3EtOBahU7bydYfWx_rUXXiaTV24R_vMjshcgzN0AnLcoZIhp8rEOVcc52qL5whRPSlfW-kIkCITQmC4ST0MEm4SxwzmCXi3IWqR0U=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0471",
-    "sku": "MP-AUR-026",
     "name": "AURICULAR XIAOMI REDMI BUDS 6 PLAY BT",
-    "brand": "Xiaomi",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR XIAOMI REDMI BUDS 6 PLAY BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10364,20 +8481,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPm1Cz307RvOI7z4tchfaRYPo5EHsUbTBSGmuV7sEJGb6AP0g_MeR3Yj97r774fHtbqJ35WSDqpJtqlPu2K92Tn9w7z-serUkxKpHql65XSBCLrPZpJ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0472",
-    "sku": "MP-AUR-027",
     "name": "AURICULAR XIAOMI IN-EAR REDMI BUDS 8 LITE BLACK",
-    "brand": "Xiaomi",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR XIAOMI IN-EAR REDMI BUDS 8 LITE BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10386,20 +8499,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0473",
-    "sku": "MP-AUR-028",
     "name": "AURICULAR XIAOMI IN-EAR REDMI BUDS 8 ACTIVE BLACK",
-    "brand": "Xiaomi",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR XIAOMI IN-EAR REDMI BUDS 8 ACTIVE BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10408,20 +8517,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0474",
-    "sku": "MP-AUR-029",
     "name": "AURICULAR IN EAR PHILIPS TAUE100BK/00",
-    "brand": "Philips",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR IN EAR PHILIPS TAUE100BK/00. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Philips",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10430,20 +8535,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0475",
-    "sku": "MP-AUR-030",
     "name": "AURICULAR IN EAR AKG SAMSUNG S10",
-    "brand": "Samsung",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR IN EAR AKG SAMSUNG S10. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10452,20 +8553,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOMamsV1r3Stbcrf50lBrbM1y-idFobeaK2-R0V0CFlRtJH5rv3pqIxnLdHB9iUzHWvIKARkaS4Vk85cV3DQIMPOQYElVOyW2gt8CKN4Epy9DM9gOw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0476",
-    "sku": "MP-AUR-031",
     "name": "AURICULAR IN EAR MANOS LIBRES TIPO SAMSUNG",
-    "brand": "Samsung",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR IN EAR MANOS LIBRES TIPO SAMSUNG. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Samsung",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10474,20 +8571,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 16,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0477",
-    "sku": "MP-AUR-032",
     "name": "AURICULAR IN EAR CON MIC TYME JLG-11007",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR IN EAR CON MIC TYME JLG-11007. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10496,20 +8589,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0478",
-    "sku": "MP-AUR-033",
     "name": "AURICIULAR IN EAR TIPO C XAEA THUNDER",
-    "brand": "Xaea",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICIULAR IN EAR TIPO C XAEA THUNDER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10518,20 +8607,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 24,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0479",
-    "sku": "MP-AUR-034",
     "name": "AURICULAR IN EAR TIPO C JB-INEARTC",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR IN EAR TIPO C JB-INEARTC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10540,20 +8625,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0480",
-    "sku": "MP-AUR-035",
     "name": "AURICULAR IN EAR TIPO C XIAOMI ORIGINAL",
-    "brand": "Xiaomi",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR IN EAR TIPO C XIAOMI ORIGINAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xiaomi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10562,20 +8643,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0481",
-    "sku": "MP-AUR-036",
     "name": "AURICULAR VINCHA JBL TUNE 780NC ORIGINAL",
-    "brand": "Jbl",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA JBL TUNE 780NC ORIGINAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Jbl",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10584,20 +8661,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0482",
-    "sku": "MP-AUR-037",
     "name": "AURICULAR NETMAK NM-B21 NEGRO BT",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-B21 NEGRO BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10606,20 +8679,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOaJ-T6Pd0wbTtHHpkT_AYXSkyApgnVKupSNg0FDsLYt037802r5_KvhEn-woJhcAABRBF8g2fzFG4Vn_G5gKk5zG1aNC9hyn9qnOJR7_Qp9LRGYlZW=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0483",
-    "sku": "MP-AUR-038",
     "name": "AURICULAR NETMAK NM-MAGIC BT CABEZAL LUMINOSO",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-MAGIC BT CABEZAL LUMINOSO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10628,20 +8697,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN3hbFsF5L3VvNzh78k6TPKxHcjr0PHoPq_Plqrbggb0DV0Vaxkl3fQWyR1839ydIEbg5AYSjTwVmgnakXW5fAzZ2qV8FdSDEq3wjrTMhzpuLufNeA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0484",
-    "sku": "MP-AUR-039",
     "name": "AURICULAR VINCHA BT NETMAK NM-LIVE (ROSA/BLANCO/MARRON/NEGRO)",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA BT NETMAK NM-LIVE (ROSA/BLANCO/MARRON/NEGRO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10650,20 +8715,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN7CCIxLFO14QUR--hvigGRwdTyge4SyjXIrtc_IoVE52MIUlXN_dDG1Nwm8ly0UShQF7Tg9wlPAXXr4fHshazXug5TMEmJ0dJ_KvBVR4UM5FBp_aph=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0485",
-    "sku": "MP-AUR-040",
     "name": "AURICULAR VINCHA BT NETMAK NM-VOLT (BLANCO/AZUL/VERDE/VIOLETA/ROSA)",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA BT NETMAK NM-VOLT (BLANCO/AZUL/VERDE/VIOLETA/ROSA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10672,20 +8733,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMY64fa4BgMRyxFHXLElnylZZr2H5-e9iR4erQ14g3MXSChZaKFBpoUIJQbQ0c8VFghbRmBpbDIEaFdwh6iYjEFWT6pF28_FXikE4EnSoTnHNvHHhGO=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0486",
-    "sku": "MP-AUR-041",
     "name": "AURICULAR NETMAK NM-ULTRA VINCHA BT/CABLE Y ESTUCHE",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-ULTRA VINCHA BT/CABLE Y ESTUCHE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10694,20 +8751,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOyoBRf1QsTpGjxA5Yb_cPZnz5BqFg8SR1tB83Z7aytSPrLu6_CyEmPd2-qTX_Cju91usEbmOspRdP0KTaiDfrSj1mW5K-kWh_AtC4tq_EAgVbP4PZI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0487",
-    "sku": "MP-AUR-042",
     "name": "AURICULAR VINCHA BT P47",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA BT P47. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10716,20 +8769,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNWbIKs2Pb6hdHP1phegaApZZieokxT2ZJM0vmLh6GueuZID5mM82xNi4guiuWAhcD45j3y7xhojI-B3yiPz4E4htYpTqG7JFxeK2K97a_cq_j99ofb=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0488",
-    "sku": "MP-AUR-043",
     "name": "AURICULAR VINCHA BT P9 PRO MAX (TIPO APPLE)",
-    "brand": "Apple",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA BT P9 PRO MAX (TIPO APPLE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Apple",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10738,20 +8787,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNunnUwhNY7dgc5zpKvMvk-0feLX4Fu1pGwGlMbIZJJFDMAMiPmWvIpNEPb4GB0LBloZgFFlO_cgGALil9v_9T6r_jbRhoZlc7CZBwMG_i-Gb5ZS2zd=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0489",
-    "sku": "MP-AUR-044",
     "name": "AURICULAR BT XAEA CROWS 706 (COLORES) (VERDE/NEGRO/ROSA)",
-    "brand": "Xaea",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR BT XAEA CROWS 706 (COLORES) (VERDE/NEGRO/ROSA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10760,20 +8805,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 39,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPNtoSGAdbHfSPfgpQPv77lJsQWGTUGwRyddsYfcmXj3q9ayP5Ua6s7mGYW3BDxJROjUHdM6JsUTVd1z9lJv_VHy99EFScCyQvJQF_LbogyWdmgAVoS=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0490",
-    "sku": "MP-AUR-045",
     "name": "AURICULAR BT XAEA ZENIX 705 (COLORES) (AZUL/BLANCO/NEGRO/ROSA)",
-    "brand": "Xaea",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR BT XAEA ZENIX 705 (COLORES) (AZUL/BLANCO/NEGRO/ROSA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10782,20 +8823,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 57,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO-Mkk6bfF6RTVMwPfuPH1a6uHMakBPD43QX0PC2kxmJ_VOfZafWFHEqVWPiIAGxchanpdRA8apS2-tTq3wu6bcVJG_ztYN-vcCH2PQSI-0x1TFDIBw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0491",
-    "sku": "MP-AUR-046",
     "name": "AURICULAR VINCHA XAEA ZYFER MODX-704 (BT, TIPO C, AUX, CANCELACION DE SONIDO, INCLUYE PLUG)",
-    "brand": "Xaea",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA XAEA ZYFER MODX-704 (BT, TIPO C, AUX, CANCELACION DE SONIDO, INCLUYE PLUG). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10804,20 +8841,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPSu5KpUruCLdg76Mb-OpI5SfLyRSe8EvwleUmhzPnuC-K2pXpa2sgKz3_AODtpQyW1V4TPU2Vyt1nMutuYb9ULIiSCXBo-2jWtPw471ENaEVY_nFbp=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0492",
-    "sku": "MP-AUR-047",
     "name": "AURICULAR SOLARMAX GHW97B NEGRO USB-BT-WIFI/RGB/MIC",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR SOLARMAX GHW97B NEGRO USB-BT-WIFI/RGB/MIC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10826,20 +8859,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0493",
-    "sku": "MP-AUR-048",
     "name": "AURICULAR SOLARMAX GHS59 NEGRO/VIOLETA PLUG 3.5/USB/RGB/MI",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR SOLARMAX GHS59 NEGRO/VIOLETA PLUG 3.5/USB/RGB/MI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10848,20 +8877,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN-ZWNdHjIMt1uSxoqFO-hgmhOWSDP-PKv_kT7TST0DypPSYqVKztj2_7qTAqI6OxKRuWL3iKRmqhrK1oGdN1Yc0opQVpfJwdq7heANbE-plas_TWqp=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0494",
-    "sku": "MP-AUR-049",
     "name": "AURICULAR NETMAK NM-N18 NEGRO RGB/MIC/PLUG 3.5",
-    "brand": "Netmak",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR NETMAK NM-N18 NEGRO RGB/MIC/PLUG 3.5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10870,20 +8895,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMH5U0zMeimeUptEbGxWnukmGA3sQbyqQBNts0FfK92ws_I3fKPvVGu4r-6Ml7F-5uAWgPCZaXoqoZFHpcDeGIWfO3TSIGtdpOxBpd0S42zBsQIiAU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0495",
-    "sku": "MP-AUR-050",
     "name": "AURICULAR KOLKE CON MIC GAMER KGA-398 BATTLE 7.1",
-    "brand": "Kolke",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR KOLKE CON MIC GAMER KGA-398 BATTLE 7.1. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10892,20 +8913,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNlsYX7MAW7AbkM6pIDd2uP8UePiZ6kfKs3hlaFYCXkUd3F_kcTylNWrpxtBOCwNHAhNz0iHQZ_nrR8Z3F-bgX5rdHp9UHIuNxXEPrDREsjV75VP6K6=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0496",
-    "sku": "MP-AUR-051",
     "name": "AURICULAR KOLKE CON MIC GAMER KGA-487 TROOPER LED (CAMUFLADO COLORES)",
-    "brand": "Kolke",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR KOLKE CON MIC GAMER KGA-487 TROOPER LED (CAMUFLADO COLORES). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10914,20 +8931,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNivaMy0n_9iVRv_875R3Hd6OPbbFiued574Ppd9lzPi2mMPO4HN1CBwmQqMc2AaGIXXiWYP5ZkIeqTfxbSZExxhjRVxmuzZpGipMArTl4YPwKpFks8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0497",
-    "sku": "MP-AUR-052",
     "name": "AURICULAR KOLKE CON MIC GAMER KGA-480 ZEUS",
-    "brand": "Kolke",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR KOLKE CON MIC GAMER KGA-480 ZEUS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10936,20 +8949,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 24,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMWDJIAeRDzbGtlfkzyDk2Tk35wFM52ImuJX7IDhNCxX6bt7uxQK5YY4xGtTOBrVeK1z0AVPrUWv0ecnajk0QdkG0lr0myheb7ThuRZk8xKBe4MfGce=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0498",
-    "sku": "MP-AUR-053",
     "name": "AURICULAR KOLKE CON MIC GAMER KGA-494 PERSEO",
-    "brand": "Kolke",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR KOLKE CON MIC GAMER KGA-494 PERSEO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10958,20 +8967,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO8hTsAvrZWlOZmhI74Qv1-gqCG73K2-TLv2XN6k0goOiTuCAdqmAPIZtehbM_Xn8SH5VKiOIy5R19eCufvM48Q46vpxQLVSbcUez_J2R_4twRiU8GA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0499",
-    "sku": "MP-AUR-054",
     "name": "AURICULAR VINCHA GAMER GLOBAL EP-GMR035 PARA PC",
-    "brand": "Genérico",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR VINCHA GAMER GLOBAL EP-GMR035 PARA PC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -10980,20 +8985,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP9kR1oUs4v6d69O_1USgIrZPIFiKB_ExcNnVAO3FJRGz1JFwPtI0gajPA8d5fTTQ_SsGUT-KvPjU-yDRepOKyxdy54mONI5KJhdlFQJ9-0AAC-xXqV=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0500",
-    "sku": "MP-AUR-055",
     "name": "AURICULAR REDRAGON ARES RGB H120-RGB BLACK PS4/PS5",
-    "brand": "Redragon",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR REDRAGON ARES RGB H120-RGB BLACK PS4/PS5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11002,20 +9003,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 28,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNJ9g5_fOQlP2nhFqkTUWdwEZghW0UAqcWqgcKLyJW6tfP7YnVjR3PqfYqx8NcQCu39ffmWY80-hcJVHP0bjXcstPha0O6LuU8T5aD76tFL-Ak76xs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0501",
-    "sku": "MP-AUR-056",
     "name": "AURICULAR REDRAGON CRONUS H211-RGB BLACK PS4/PS5",
-    "brand": "Redragon",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR REDRAGON CRONUS H211-RGB BLACK PS4/PS5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11024,20 +9021,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 27,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOg5XY4IRg7RxK-ZKzjvWeyBlPCi4KijtxS2pasz1Efsd1iRZJv7VN_g3nIhaluZ5-Gw2lJrXGvNpv6Wje72Sj335KEfb5ZJp-oWlhaIuthq1dxNRE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0502",
-    "sku": "MP-AUR-057",
     "name": "AURICULAR REDRAGON HYLAS H260RGB BLACK C-MIC/3.5MM",
-    "brand": "Redragon",
     "category": "AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
     "description": "AURICULAR REDRAGON HYLAS H260RGB BLACK C-MIC/3.5MM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: AURICULARES (IN EAR/VINCHA/BLUETOOTH/GAMER)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11046,20 +9039,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0503",
-    "sku": "MP-CON-001",
     "name": "PLACA RED USB MERCUSYS MW150US 150MBPS NANO",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB MERCUSYS MW150US 150MBPS NANO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11068,20 +9057,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 26,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN7OpgqpfuFTub7cOiDIrJWWFllNeHCXUeCWQO1_QvphBd9wFMESHAaFPQGqBWItYyYfZhjgQh_MFmrJ-TKlljif8_E_rvSgsNcFulca-LwNl3ljUc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0504",
-    "sku": "MP-CON-002",
     "name": "PLACA RED USB MERCUSYS MW300U MINI 300MBPS",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB MERCUSYS MW300U MINI 300MBPS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11090,20 +9075,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 29,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0505",
-    "sku": "MP-CON-003",
     "name": "PLACA RED USB MERCUSYS MU6H AC650 DUAL-BAND/CON ANTENA 5DBI",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB MERCUSYS MU6H AC650 DUAL-BAND/CON ANTENA 5DBI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11112,20 +9093,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0506",
-    "sku": "MP-CON-004",
     "name": "PLACA RED USB CUDY WU650 AC650 MINI DOBLE BANDA",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB CUDY WU650 AC650 MINI DOBLE BANDA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11134,20 +9111,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNsl0akCbWq88CxCG-6KLaKGxnQgrAABhOteqBeebrmir_E4gHtxFbXHqZU_4gAgxSOyPFu6G_UNBhbh2b-aWvn9DXfzRo_nZnnFV1VtJPWvhCM8nM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0507",
-    "sku": "MP-CON-005",
     "name": "PLACA RED USB CUDY WU300 AX300 WIFI6",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB CUDY WU300 AX300 WIFI6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11156,20 +9129,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0508",
-    "sku": "MP-CON-006",
     "name": "PLACA DE RED USB CUDY WU1300S AC1300 DOBLE BANDA WIFI5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "PLACA DE RED USB CUDY WU1300S AC1300 DOBLE BANDA WIFI5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11178,20 +9147,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0509",
-    "sku": "MP-CON-007",
     "name": "PLACA RED USB CUDY WU1400 AC1300 ANTENA",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB CUDY WU1400 AC1300 ANTENA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11200,20 +9165,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0510",
-    "sku": "MP-CON-008",
     "name": "PLACA RED USB CUDY WU900 AX900 WIFI 6 DUAL BAND",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB CUDY WU900 AX900 WIFI 6 DUAL BAND. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11222,20 +9183,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0511",
-    "sku": "MP-CON-009",
     "name": "PLACA RED USB TP-LINK ARCHER TX1U NANO AX300 WIR",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK ARCHER TX1U NANO AX300 WIR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11244,20 +9201,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNDYFG3hLnLX-w3cNUWe9FgzIieI92DpAMFXKWqLleXSEpoAxUV58b6dmgo4bH5t46NZwoE3XsbE596aUYSu-_m0oWbRBm_3s4wWgUwMwSZsVaQei0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0512",
-    "sku": "MP-CON-010",
     "name": "PLACA RED USB TP-LINK TL-WN823N MINI 300MBPS WIRELESS",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK TL-WN823N MINI 300MBPS WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11266,20 +9219,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0513",
-    "sku": "MP-CON-011",
     "name": "PLACA RED USB TP-LINK TL-WN725N",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK TL-WN725N. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11288,20 +9237,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0514",
-    "sku": "MP-CON-012",
     "name": "PLACA RED USB TP-LINK TL-WN8200ND 2ANT 300M",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK TL-WN8200ND 2ANT 300M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11310,20 +9255,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0515",
-    "sku": "MP-CON-013",
     "name": "PLACA RED USB TP-LINK TL-WN722N 150MBPS WIRELESS",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK TL-WN722N 150MBPS WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11332,20 +9273,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0516",
-    "sku": "MP-CON-014",
     "name": "PLACA RED USB TP-LINK ARCHER TX20U AX1800 WIF",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK ARCHER TX20U AX1800 WIF. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11354,20 +9291,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN7jt3rYr-eBktqzrrUkN_DCY7JzsibhSORWnpirYoqyVF5kdEVMcVEk6cv_fipdjBTTC1pAByYc6miH-FVM0AgqVETJo5qiCf-VA1Ixmi9sY9nKOk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0517",
-    "sku": "MP-CON-015",
     "name": "PLACA RED USB TP-LINK ARCHER T2U NANO AC600 WIR",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK ARCHER T2U NANO AC600 WIR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11376,20 +9309,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0518",
-    "sku": "MP-CON-016",
     "name": "PLACA RED USB TP-LINK ARCHER T3U AC1300 WIRELESS",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK ARCHER T3U AC1300 WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11398,20 +9327,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0519",
-    "sku": "MP-CON-017",
     "name": "PLACA RED PCI-E TP-LINK TG-3468 10/100/1000",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED PCI-E TP-LINK TG-3468 10/100/1000. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11420,20 +9345,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNjdkKi7WHFyTWuG_y5uVD5mCpF1UGs-aqxSQmDHC4KLme44CdYMg7dUixXASH58PoUaOZGIeKxLO9_oBHujZtZfVPExJrB5vm6mgSZKxQvFO6bPv4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0520",
-    "sku": "MP-CON-018",
     "name": "PLACA RED USB TP-LINK ARCHER TX10UB NANO AX900 WIR",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "PLACA RED USB TP-LINK ARCHER TX10UB NANO AX900 WIR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11442,20 +9363,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0521",
-    "sku": "MP-CON-019",
     "name": "ROUTER WIRELESS MERCUSYS MW302R 300MBPS 2 ANT",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS MERCUSYS MW302R 300MBPS 2 ANT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11464,20 +9381,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0522",
-    "sku": "MP-CON-020",
     "name": "ROUTER WIRELESS MERCUSYS MW325R 300MBPS 4 ANT",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS MERCUSYS MW325R 300MBPS 4 ANT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11486,20 +9399,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOECUKc5LgxDEo3htHabaETIkxwnQ5wVQ24INsdwiU6-uwhWs0UtLXEdIa5WvXdIGjp13BkVxt4KQMuZUOgxQCKgc_KqpEjYa8_fRS8x7rsvd-l9YU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0523",
-    "sku": "MP-CON-021",
     "name": "ROUTER WIRELESS TP-LINK ARCHER C24 AC750 MBPS DUAL",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS TP-LINK ARCHER C24 AC750 MBPS DUAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11508,20 +9417,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN0yVZhDcrVjN1xFjCHSagS0dWApWcUkvVVjHH1SZw-4rIEJPYw5sSRAIm2aFAhNgGeZZSCKyN_uV-D0dxWteHkyGFoInyw672XdjRlbUEKxsT05QZR=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0524",
-    "sku": "MP-CON-022",
     "name": "ROUTER WIRELESS CUDY WR300 300 MBPS 5 EN 1",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS CUDY WR300 300 MBPS 5 EN 1. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11530,20 +9435,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 21,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPFyGcatMYwYQEOT40vdWT3J5hvbgn5NoRANwr3DLNFmQ2CcyamBWmZhRKUIcYsHb15dEc3NOl7sgyXTHGquviUS3zu_2cL4p41TT4Y9XGGmKD2-Nnz=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0525",
-    "sku": "MP-CON-023",
     "name": "ROUTER WIRELESS CUDY WR1200E AC1200 MBPS DUAL BAND",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS CUDY WR1200E AC1200 MBPS DUAL BAND. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11552,20 +9453,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0526",
-    "sku": "MP-CON-024",
     "name": "ROUTER WIRELESS CUDY WR1300 AC1200 GIGABIT DUAL B",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS CUDY WR1300 AC1200 GIGABIT DUAL B. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11574,20 +9471,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0527",
-    "sku": "MP-CON-025",
     "name": "ROUTER WIRELESS CUDY WR3000 AX3000 GIGABIT WIFI6",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "ROUTER WIRELESS CUDY WR3000 AX3000 GIGABIT WIFI6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11596,20 +9489,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0528",
-    "sku": "MP-CON-026",
     "name": "SISTEMA MESH CUDY M1200 AC1200 PACK X2",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "SISTEMA MESH CUDY M1200 AC1200 PACK X2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11618,20 +9507,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0529",
-    "sku": "MP-CON-027",
     "name": "SISTEMA MESH CUDY M1200 AC1200 PACK X3",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "SISTEMA MESH CUDY M1200 AC1200 PACK X3. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11640,20 +9525,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0530",
-    "sku": "MP-CON-028",
     "name": "SISTEMA MESH MERCUSYS HALO H30 AC1200 PACK X2",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "SISTEMA MESH MERCUSYS HALO H30 AC1200 PACK X2. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11662,20 +9543,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0531",
-    "sku": "MP-CON-029",
     "name": "SISTEMA MESH MERCUSYS HALO H32G AC1200 PACK X3",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "SISTEMA MESH MERCUSYS HALO H32G AC1200 PACK X3. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11684,20 +9561,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0532",
-    "sku": "MP-CON-030",
     "name": "SWITCH CUDY GS105D 5 PUERTOS GIGABIT",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "SWITCH CUDY GS105D 5 PUERTOS GIGABIT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11706,20 +9579,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNbcDa1ikgbsn2S_wVajCnbizsM1kur8yvhPeynpgsDIcExaUCcDT12gBmErF3aS7x_HIcPmaoZO_sWnAtldxLtwBdRnGDtge_AiqshLov1DHNSPN8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0533",
-    "sku": "MP-CON-031",
     "name": "SWITCH CUDY GS108D 8 PUERTOS GIGABIT",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "SWITCH CUDY GS108D 8 PUERTOS GIGABIT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11728,20 +9597,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNbcDa1ikgbsn2S_wVajCnbizsM1kur8yvhPeynpgsDIcExaUCcDT12gBmErF3aS7x_HIcPmaoZO_sWnAtldxLtwBdRnGDtge_AiqshLov1DHNSPN8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0534",
-    "sku": "MP-CON-032",
     "name": "SWITCH CUDY FS105D 5 PUERTOS 10/100 MBPS",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "SWITCH CUDY FS105D 5 PUERTOS 10/100 MBPS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11750,20 +9615,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0535",
-    "sku": "MP-CON-033",
     "name": "SWITCH CUDY FS108D 8 PUERTOS 10/100 MBPS",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "SWITCH CUDY FS108D 8 PUERTOS 10/100 MBPS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11772,20 +9633,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0536",
-    "sku": "MP-CON-034",
     "name": "AP RANGE EXTENDER TP-LINK TL-WA850RE 300MBPS",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "AP RANGE EXTENDER TP-LINK TL-WA850RE 300MBPS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11794,20 +9651,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPzpLR6j1d8MjdfTZQ1oMkTFk2H65M0xcsmrVhFna5hGM4sC0xs3Sb6Yox7x3WPPsL2nokpoqpUYmodGN96C-MO48NQZIqXhFPNc-_O_LI7aD5OsHU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0537",
-    "sku": "MP-CON-035",
     "name": "AP RANGE EXTENDER TP-LINK RE200 AC750",
-    "brand": "Tp-link",
     "category": "CONECTIVIDAD",
     "description": "AP RANGE EXTENDER TP-LINK RE200 AC750. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11816,20 +9669,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPzpLR6j1d8MjdfTZQ1oMkTFk2H65M0xcsmrVhFna5hGM4sC0xs3Sb6Yox7x3WPPsL2nokpoqpUYmodGN96C-MO48NQZIqXhFPNc-_O_LI7aD5OsHU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0538",
-    "sku": "MP-CON-036",
     "name": "AP RANGE EXTENDER MERCUSYS MW300RE 300MBPS",
-    "brand": "Mercusys",
     "category": "CONECTIVIDAD",
     "description": "AP RANGE EXTENDER MERCUSYS MW300RE 300MBPS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Mercusys",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11838,20 +9687,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0539",
-    "sku": "MP-CON-037",
     "name": "AP RANGE EXTENDER CUDY RE1200 AC1200 DUAL BAND",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "AP RANGE EXTENDER CUDY RE1200 AC1200 DUAL BAND. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11860,20 +9705,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMcJ1fDOSm05ia9ekjNtDrQZqmESRUzGqDkDyuQVEkezmFXuTGtJ3ce2fTs0PymwogxOyl1K0sfrWaXQna7x5VKG-YZyLDS8EBCw7fnJ57YOw1ldw0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0540",
-    "sku": "MP-CON-038",
     "name": "AP RANGE EXTENDER CUDY RE3000 AX3000 WI-FI 6",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "AP RANGE EXTENDER CUDY RE3000 AX3000 WI-FI 6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11882,20 +9723,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0541",
-    "sku": "MP-CON-039",
     "name": "CABLE UTP LETOS CAT 5E INT LE-CA5I (ROLLO 305 MTS)",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE UTP LETOS CAT 5E INT LE-CA5I (ROLLO 305 MTS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11904,20 +9741,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0542",
-    "sku": "MP-CON-040",
     "name": "CABLE UTP LETOS CAT 5E EXT LE-CA5E (ROLLO 305 MTS)",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE UTP LETOS CAT 5E EXT LE-CA5E (ROLLO 305 MTS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11926,20 +9759,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0543",
-    "sku": "MP-CON-041",
     "name": "CABLE UTP LETOS CAT 6E INT LE-CA6I (ROLLO 305 MT)",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE UTP LETOS CAT 6E INT LE-CA6I (ROLLO 305 MT). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11948,20 +9777,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0544",
-    "sku": "MP-CON-042",
     "name": "CABLE UTP LETOS CAT 6E INT LE-LE6UTI (ROLLO 305 MTS)",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE UTP LETOS CAT 6E INT LE-LE6UTI (ROLLO 305 MTS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11970,20 +9795,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0545",
-    "sku": "MP-CON-043",
     "name": "FICHA RJ45 NETMAK NM-R04 CAT 5E X 100",
-    "brand": "Netmak",
     "category": "CONECTIVIDAD",
     "description": "FICHA RJ45 NETMAK NM-R04 CAT 5E X 100. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -11992,20 +9813,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0546",
-    "sku": "MP-CON-044",
     "name": "CABLE RED 2 MTS CATEGORIA 5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 2 MTS CATEGORIA 5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12014,20 +9831,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 629,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0547",
-    "sku": "MP-CON-045",
     "name": "CABLE RED 3 MTS CATEGORIA 5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 3 MTS CATEGORIA 5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12036,20 +9849,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 375,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0548",
-    "sku": "MP-CON-046",
     "name": "CABLE RED 5 MTS CAT 6",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 5 MTS CAT 6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12058,20 +9867,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0549",
-    "sku": "MP-CON-047",
     "name": "CABLE RED 10 MTS CATEGORIA 5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 10 MTS CATEGORIA 5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12080,20 +9885,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 119,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0550",
-    "sku": "MP-CON-048",
     "name": "CABLE RED 15 MTS CATEGORIA 5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 15 MTS CATEGORIA 5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12102,20 +9903,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 94,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0551",
-    "sku": "MP-CON-049",
     "name": "CABLE RED 20 MTS CATEGORIA 5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 20 MTS CATEGORIA 5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12124,20 +9921,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0552",
-    "sku": "MP-CON-050",
     "name": "CABLE RED 30 MTS CATEGORIA 5",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 30 MTS CATEGORIA 5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12146,20 +9939,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 44,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0553",
-    "sku": "MP-CON-051",
     "name": "CABLE RED 20 MTS CAT 6",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 20 MTS CAT 6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12168,20 +9957,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 18,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0554",
-    "sku": "MP-CON-052",
     "name": "CABLE RED 3 MTS CAT 6",
-    "brand": "Genérico",
     "category": "CONECTIVIDAD",
     "description": "CABLE RED 3 MTS CAT 6. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: CONECTIVIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12190,20 +9975,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0555",
-    "sku": "MP-SEG-001",
     "name": "KIT ALARMA INALAMBRICA EZVIZ (Sensor de movimiento PIR-Sensor de apertura/cierre,Sensor de fugas de agua,Botón inteligente)",
-    "brand": "Intel",
     "category": "SEGURIDAD",
     "description": "KIT ALARMA INALAMBRICA EZVIZ (Sensor de movimiento PIR-Sensor de apertura/cierre,Sensor de fugas de agua,Botón inteligente). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Intel",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12212,20 +9993,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPv2Ga10sM1cBk0VwtU7LuY33NYALRyTTv_7Nl4BigoVgTMG8pIaxo1NeXTXv8GO1VOLct3L_8USiciUQ2CSfRPYW8QPZngkSwJYA6qEDRGCrm-cp4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0556",
-    "sku": "MP-SEG-002",
     "name": "CAMARA IP ECOPOWER EP-C049 CON PANEL SOLAR 4MP",
-    "brand": "Genérico",
     "category": "SEGURIDAD",
     "description": "CAMARA IP ECOPOWER EP-C049 CON PANEL SOLAR 4MP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12234,20 +10011,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMo18yGgxjiMG4b-RvqD2vWcBvBzCq_IJu2HZ72pRhOLgMVR7cRmGwGGHvJmpAvybvVzUiO_ORNderdG-epbChY9yRSmOME07g6mjJlfJDQyWnkOeGe=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0557",
-    "sku": "MP-SEG-003",
     "name": "CAMARA IP ECOPOWER EP-C083 CON PANEL SOLAR Y CHIP 4G Y DOBLE LENTE 4MP",
-    "brand": "Genérico",
     "category": "SEGURIDAD",
     "description": "CAMARA IP ECOPOWER EP-C083 CON PANEL SOLAR Y CHIP 4G Y DOBLE LENTE 4MP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12256,20 +10029,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPBfEjoENFZ1rtHua-hV-GQtznDRXfBNGGizgFdYCcF3_mrWMbN2OEVjkgRTv_m4xfH2xX6Hl4r8Ycm8MKxWuxL-PC0wRBjeS5aXCDyuFmxibtrXldR=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0558",
-    "sku": "MP-SEG-004",
     "name": "CAMARA IP EZVIZ H6C PRO INTERIOR 360° 2MP",
-    "brand": "Genérico",
     "category": "SEGURIDAD",
     "description": "CAMARA IP EZVIZ H6C PRO INTERIOR 360° 2MP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12278,20 +10047,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0559",
-    "sku": "MP-SEG-005",
     "name": "CAMARA IP EZVIZ H8C PRO WIFI 3K EXTERIOR 360°",
-    "brand": "Genérico",
     "category": "SEGURIDAD",
     "description": "CAMARA IP EZVIZ H8C PRO WIFI 3K EXTERIOR 360°. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12300,20 +10065,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0560",
-    "sku": "MP-SEG-006",
     "name": "CAMARA IP TP-LINK TAPO C100 INTERIOR FIJA",
-    "brand": "Tp-link",
     "category": "SEGURIDAD",
     "description": "CAMARA IP TP-LINK TAPO C100 INTERIOR FIJA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12322,20 +10083,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMNqMQEu2Ui-gXhHf1qR1ZdqKlP_j6cwDCJW89KJQJiCsWMz9lTQrKuQRmZOU3WE8gmBFSyWqo_NlCViNUUBS7joDk7j5Q8VQbK2DyELDxwB5Jl_lw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0561",
-    "sku": "MP-SEG-007",
     "name": "CAMARA IP TP-LINK TAPO C200 150MBPS WIFI 1080P",
-    "brand": "Tp-link",
     "category": "SEGURIDAD",
     "description": "CAMARA IP TP-LINK TAPO C200 150MBPS WIFI 1080P. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12344,20 +10101,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQKQXLNF8P9zoaBIesw_XU5hWn-aky5MFgaB2a_qauWFiek_dQmNJN6CJdUJG6zT2xY25v_nvM923M6Q4Fj1HsHQ5kJF6pObzZIv02eNC_cfEcSso=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0562",
-    "sku": "MP-SEG-008",
     "name": "CAMARA IP TP-LINK TAPO C500 WIFI/1080/IP65 EXTERIOR ROBOTICA",
-    "brand": "Tp-link",
     "category": "SEGURIDAD",
     "description": "CAMARA IP TP-LINK TAPO C500 WIFI/1080/IP65 EXTERIOR ROBOTICA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12366,20 +10119,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOyYywV9dbACaX9140oM1pJVaSHrZ3paSKYcIccmxWqx9zvxRyCRaRdRkyT0n3OUwzOYbINArmoous67nbN23Q27Bs2VgNsuGmmSgyYmeR_43Hw9Og=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0563",
-    "sku": "MP-SEG-009",
     "name": "CAMARA IP TP-LINK TAPO C310 EXTERIOR FIJA",
-    "brand": "Tp-link",
     "category": "SEGURIDAD",
     "description": "CAMARA IP TP-LINK TAPO C310 EXTERIOR FIJA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: SEGURIDAD",
-      "Marca: Tp-link",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12388,20 +10137,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO7w15uvu68AIpe_eHDd1ufUsyCs_rVhdxad94AX74274Vs9eDomZemVxt7vx270hk4JwDDnqPGmOiUtkEz523g7zFqyjs9CimTEaD9Qg4fxAX9oYQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0564",
-    "sku": "MP-PER-001",
     "name": "MICROFONO PC SOLARMAX LSM98B BLACK STREAMING/RGB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO PC SOLARMAX LSM98B BLACK STREAMING/RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12410,20 +10155,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM5mXLJay4Z0lXvqknXl77VzjMaD21aHcRg2JSV9Ur-i3V20BTIUgf0UH60Ug1cD0EivZUX-XrAJF7l87Z_r4OtRMUxZIla7-U-fBGC0OyvXnTJsLc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0565",
-    "sku": "MP-PER-002",
     "name": "MICROFONO PC SOLARMAX LSM95B BLACK STREAMING/RGB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO PC SOLARMAX LSM95B BLACK STREAMING/RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12432,20 +10173,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNNcQuZNKxvyr3c2RlIsX24SW21tP2imdeN_FP-CYSXmq9r-hmtgOHJ2fWI4-mU2u7WGwLvTMk-4La7ioH-CEp_2ueDIQpG4M2ivLvR66OEK_ARNoA3=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0566",
-    "sku": "MP-PER-003",
     "name": "MICROFONO PC NETMAK NM-MS790 STREAMING",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO PC NETMAK NM-MS790 STREAMING. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12454,20 +10191,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0567",
-    "sku": "MP-PER-004",
     "name": "SOPORTE MICROFONO SOLARMAX FLSM98B BLACK STREAMING",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "SOPORTE MICROFONO SOLARMAX FLSM98B BLACK STREAMING. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12476,20 +10209,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0568",
-    "sku": "MP-PER-005",
     "name": "MICROFONO COBATERO INALAMBRICO TC 2 MIC MAGNETICO ECOPOWER EP-M094",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO COBATERO INALAMBRICO TC 2 MIC MAGNETICO ECOPOWER EP-M094. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12498,20 +10227,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0569",
-    "sku": "MP-PER-006",
     "name": "MICROFONO CORBATERO INALAMBRICO K9 2 MIC TC JG-CORBAT2MICTC",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO CORBATERO INALAMBRICO K9 2 MIC TC JG-CORBAT2MICTC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12520,20 +10245,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMBg-XyK8n8_KQSb0OgnBcOrMjAWlVWD_hsQDbXAUB0ePfFr4paL4mQRYvZc0q5HQZPtLFp-3_fNCqCnOeGFMPAgirrlsixA27QZFV5tH52K8CYE70=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0570",
-    "sku": "MP-PER-007",
     "name": "MICROFONO COBATERO INALAMBRICO TC Y IPHONE CON BASE",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO COBATERO INALAMBRICO TC Y IPHONE CON BASE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12542,20 +10263,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0571",
-    "sku": "MP-PER-008",
     "name": "MICROFONO NETMAK NM-MC12 SETX2/CORBATERO/INALAMBRI",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO NETMAK NM-MC12 SETX2/CORBATERO/INALAMBRI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12564,20 +10281,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczORSj4Qk0-ES2szfQhbqRRBpQXxBISVMu_yuzlNRa3CzfOCgxU6fM8wUXPlAaTzrBzEMbXMJ1mC47tGhlncEX8kGEuGXOyPppB21Y-ZiaVRgXUVZ8g=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0572",
-    "sku": "MP-PER-009",
     "name": "MICROFONO NETMAK NM-MC13 CORBATERO INALAMBRICO PRO",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO NETMAK NM-MC13 CORBATERO INALAMBRICO PRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12586,20 +10299,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9KtcK5WuTM1OZ2BuLw0G77h1ibvXB6xIDp3N16wlFxRb2K8fXS-Q80vlg9zuTv-a1BHlyXeUIauIwc9yw1incvUfIYWVSpdTytQE72C8_gs-cjak3=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0573",
-    "sku": "MP-PER-010",
     "name": "MICROFONO NETMAK NM-MC14 SETX2 CORBATERO INALAMBRI",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO NETMAK NM-MC14 SETX2 CORBATERO INALAMBRI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12608,20 +10317,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMD1OvDqjcvUE3tqrzgtavcT-aPrAFVAMu2hQg5ZYiXdD_D58OnbKI9Igy2bOX_AF1Uc3hxx5pqf8jBS6UahshlS055ACBcuZMGAp2MvrAwJ6tyGWVp=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0574",
-    "sku": "MP-PER-011",
     "name": "MICROFONO NETMAK NM-MC15 SETX2/CORBATERO/ESTUCHE",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO NETMAK NM-MC15 SETX2/CORBATERO/ESTUCHE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12630,20 +10335,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMf--683TgI141pMxpmgQhqLRdLtLb4s-nb-fsUAvxcUFPwYii7mo1_tmxIkaFkzbTDJDvaWkJ_3ZdPbHzV6E1H_VE1ox2TzygInk2M-9vQpl1_Q0zi=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0575",
-    "sku": "MP-PER-012",
     "name": "MICROFONO KARAOKE INALMBRICO",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO KARAOKE INALMBRICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12652,20 +10353,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 78,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNOMVPWUfdxLKAAxQN5bCkZnOQPyoanZvRWsVIv8EkDkl_V7huoNTcJewEviaSasSF_0jVCwFC7-dhfrxgwGtyrXpalBvpJ4uHx7JqyeXGcQ7slu_w=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0576",
-    "sku": "MP-PER-013",
     "name": "MICROFONO KARAOKE NETMAK NM-MC7 DINAMICO CON CABLE",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO KARAOKE NETMAK NM-MC7 DINAMICO CON CABLE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12674,20 +10371,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 12,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0577",
-    "sku": "MP-PER-014",
     "name": "MICROFONO KARAOKE NETMAK NM-MC18 SETX2/INALAM/PLUG 6.3/10M",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MICROFONO KARAOKE NETMAK NM-MC18 SETX2/INALAM/PLUG 6.3/10M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12696,20 +10389,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0578",
-    "sku": "MP-PER-015",
     "name": "MOUSE MULTILASER MO300 USB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE MULTILASER MO300 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12718,20 +10407,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 65,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9jIwK9aGebIE5_ajTaOlKZEaOnW6K-Kud44Jicx8-eFffLoxkshe0Osro2xMMDT5Ut1dbIhMtYAYoMCVz8Rfoal3fvBeX7SY5JQsUN6GOiZCdL_g=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0579",
-    "sku": "MP-PER-016",
     "name": "MOUSE LOGITECH M90 USB",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE LOGITECH M90 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12740,20 +10425,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 25,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMTVF2FIWtMvF6yJ1efITHOSzo6x_hBaoU87KSbIrggALVd5wCGIbPTQy2GQipsV-XAsA0FQQXsf1rOhVK8wjk8DLps3DRiWazKb0HYLV-RFCrOfUU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0580",
-    "sku": "MP-PER-017",
     "name": "MOUSE NETMAK ERGO VERTICAL RECARGABLE WIRELESS",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK ERGO VERTICAL RECARGABLE WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12762,20 +10443,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOydRH3mndu2t9721QpEwMNaFGtNqBG9rIQ5P2V96yPbo0WL3zmgJu3MDIT-cZuVG73v6sjAzuLkQpWdMTNNXWUUz788TeMw3zJEDzXjN2EXesHN-E=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0581",
-    "sku": "MP-PER-018",
     "name": "MOUSE GENIUS DX-120 BLACK USB-C",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE GENIUS DX-120 BLACK USB-C. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12784,20 +10461,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0582",
-    "sku": "MP-PER-019",
     "name": "MOUSE GENIUS DX-110 BLACK USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE GENIUS DX-110 BLACK USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12806,20 +10479,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0583",
-    "sku": "MP-PER-020",
     "name": "MOUSE GENIUS DX-120 BLACK USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE GENIUS DX-120 BLACK USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12828,20 +10497,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0584",
-    "sku": "MP-PER-021",
     "name": "MOUSE GENIUS DX-125S BLACK/GREY SILENT USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE GENIUS DX-125S BLACK/GREY SILENT USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12850,20 +10515,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 18,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOI0kBTNdEEMQkPHcrWq4vq4Mofp5bVlIARRPn3MTSQtGtd5rmFP3kigz96uCuyrXHyPAH77AWnFuYdm4CPzLRc_PVz_bGL0i2BSA-oz6y3U3hq7nY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0585",
-    "sku": "MP-PER-022",
     "name": "MOUSE GENIUS DX-123 BLACK-BLUE USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE GENIUS DX-123 BLACK-BLUE USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12872,20 +10533,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0586",
-    "sku": "MP-PER-023",
     "name": "MOUSE MULTILASER MO307 NEGRO WIRELESS",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE MULTILASER MO307 NEGRO WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12894,20 +10551,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 32,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNWICDlyyMZG2WQ2EL9x64kmH28oFK22H_0z5LWWnExDkRF90mOqEbdf1SYA48s7qY_Y1nXTCU3ESp0u7dcUdj6_qkarlFz2iqF1KU341iEIOtT9gY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0587",
-    "sku": "MP-PER-024",
     "name": "MOUSE NETMAK NM-MK01B WIRELESS NIÑOS AZUL",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK NM-MK01B WIRELESS NIÑOS AZUL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12916,20 +10569,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMFWTN5GmziHA_yBe1gj-2OlEPAKwWJKpaF_vMi7gcKro8FfHSFIZUT9RMxkpfLwBt0fqbDF_AIU0KGtWFm-bcuyjWBUZbq_rUKC1bMlmD4JfPnDPU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0588",
-    "sku": "MP-PER-025",
     "name": "MOUSE NETMAK NM-MK01P WIRELESS NIÑAS ROSA",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK NM-MK01P WIRELESS NIÑAS ROSA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12938,20 +10587,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMFWTN5GmziHA_yBe1gj-2OlEPAKwWJKpaF_vMi7gcKro8FfHSFIZUT9RMxkpfLwBt0fqbDF_AIU0KGtWFm-bcuyjWBUZbq_rUKC1bMlmD4JfPnDPU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0589",
-    "sku": "MP-PER-026",
     "name": "MOUSE NETMAK NM-M640 WIRELESS BLANCO",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK NM-M640 WIRELESS BLANCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12960,20 +10605,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNDTxS9vXsF-ZPVBiPoGoEI_Q8GMqeIGhRP3Uga02Pg0jcUC4C8x13TO1OuYRm2bTnTWFewVlbP1_5gjg4OyMkNVpjBtijmrUhRtW-7rk9EO0XXG_k=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0590",
-    "sku": "MP-PER-027",
     "name": "MOUSE NETMAK NM-M640 WIRELESS NEGRO",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK NM-M640 WIRELESS NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -12982,20 +10623,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNDTxS9vXsF-ZPVBiPoGoEI_Q8GMqeIGhRP3Uga02Pg0jcUC4C8x13TO1OuYRm2bTnTWFewVlbP1_5gjg4OyMkNVpjBtijmrUhRtW-7rk9EO0XXG_k=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0591",
-    "sku": "MP-PER-028",
     "name": "MOUSE NETMAK NM-M640 WIRELESS AZUL",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK NM-M640 WIRELESS AZUL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13004,20 +10641,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNDTxS9vXsF-ZPVBiPoGoEI_Q8GMqeIGhRP3Uga02Pg0jcUC4C8x13TO1OuYRm2bTnTWFewVlbP1_5gjg4OyMkNVpjBtijmrUhRtW-7rk9EO0XXG_k=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0592",
-    "sku": "MP-PER-029",
     "name": "MOUSE NETMAK NM-M640 WIRELESS ROSA",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK NM-M640 WIRELESS ROSA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13026,20 +10659,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNDTxS9vXsF-ZPVBiPoGoEI_Q8GMqeIGhRP3Uga02Pg0jcUC4C8x13TO1OuYRm2bTnTWFewVlbP1_5gjg4OyMkNVpjBtijmrUhRtW-7rk9EO0XXG_k=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0593",
-    "sku": "MP-PER-030",
     "name": "MOUSE CUDY MS9922 WIRELES/2.4G",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE CUDY MS9922 WIRELES/2.4G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13048,20 +10677,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOgZSlGsyJuOoU40UU6z7pH7UyUYNx-ytMnRYwTyXbgvEEHhExrwEx5-u1ztBaLTqPIFEA6XJ0BHIT9W4QmRCM4OnREIFGoe_4nfwI7vTY4h75LYiw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0594",
-    "sku": "MP-PER-031",
     "name": "MOUSE GENIUS NX-7000SE BLACK WIRELESS 2,4GHZ",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE GENIUS NX-7000SE BLACK WIRELESS 2,4GHZ. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13070,20 +10695,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 29,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMqNrXdq4-1oHKSZzQGl5CnDoUvUJ320rVBZyBdfbC9WY2DaOT2c4EjnVe1bReQlYESt4lLMcLbTa6kenA4lv_xYTno_hdVXEGydXKMnxUt7h7gyEo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0595",
-    "sku": "MP-PER-032",
     "name": "MOUSE LOGITECH M170 WIRELESS",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE LOGITECH M170 WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13092,20 +10713,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 22,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0596",
-    "sku": "MP-PER-033",
     "name": "MOUSE NETMAK GAMER NM-EXPERT NEGRO RGB",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK GAMER NM-EXPERT NEGRO RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13114,20 +10731,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 16,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0597",
-    "sku": "MP-PER-034",
     "name": "MOUSE NETMAK GAMER NM-GM51 RGB",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK GAMER NM-GM51 RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13136,20 +10749,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 20,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPnoL1zp_IHP0lomhUGpcTmK0IbpGUfm4v2ovthm1Lt1Lfr_uZoifY3kz5zqc4U6PmFg5Pdbz2V0M6YSuAeVRoQ8yPM9pxWANJuYHutvuhvHbWgUh18=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0598",
-    "sku": "MP-PER-035",
     "name": "MOUSE NETMAK GAMER NM-GM53 RGB",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK GAMER NM-GM53 RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13158,20 +10767,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOgZSlGsyJuOoU40UU6z7pH7UyUYNx-ytMnRYwTyXbgvEEHhExrwEx5-u1ztBaLTqPIFEA6XJ0BHIT9W4QmRCM4OnREIFGoe_4nfwI7vTY4h75LYiw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0599",
-    "sku": "MP-PER-036",
     "name": "MOUSE NETMAK GAMER NM-GM62 RGB BT5.3 + UBS C",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE NETMAK GAMER NM-GM62 RGB BT5.3 + UBS C. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13180,20 +10785,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNKsayyk_d8ya03k5us8cNdFYAXgUcbltK7flMk2sI996BQlAkKFjIsPfhLN4cYa_iPgMZObwlkW5eSmtt0GJDm4JJ_KlaXZLXO_suarlAFnLnXp0c=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0600",
-    "sku": "MP-PER-037",
     "name": "MOUSE MULTILASER GAMER MO-298 CON LED USB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE MULTILASER GAMER MO-298 CON LED USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13202,20 +10803,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0601",
-    "sku": "MP-PER-038",
     "name": "MOUSE LOGITECH G305 LIGHTSPEED WIRELESS BLANCO",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE LOGITECH G305 LIGHTSPEED WIRELESS BLANCO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13224,20 +10821,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0602",
-    "sku": "MP-PER-039",
     "name": "MOUSE SOLARMAX GMW07B NEGRO USB/BT/WIFI/GAMER",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE SOLARMAX GMW07B NEGRO USB/BT/WIFI/GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13246,20 +10839,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOK4wE8623HboluuVm5yFMAwXXF0c6dV1gCDUAknEqnt0Dlxp2j2BrxMeI0K6etUa0v_05EN1USP6aBjHE5KoXYPAJ56oUT9a3WMsWP7BVEEajM6xtq=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0603",
-    "sku": "MP-PER-040",
     "name": "MOUSE SOLARMAX GMW07B BLANCO USB/BT/WIFI/GAMER",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE SOLARMAX GMW07B BLANCO USB/BT/WIFI/GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13268,20 +10857,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOK4wE8623HboluuVm5yFMAwXXF0c6dV1gCDUAknEqnt0Dlxp2j2BrxMeI0K6etUa0v_05EN1USP6aBjHE5KoXYPAJ56oUT9a3WMsWP7BVEEajM6xtq=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0604",
-    "sku": "MP-PER-041",
     "name": "MOUSE REDRAGON K1NG1K M724 USB BLACK GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE REDRAGON K1NG1K M724 USB BLACK GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13290,20 +10875,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 17,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN6Mm0opvW_oMP-NVN8j_fxNLxsrBo4PK_D6TldIbZgtNxCOfk7lkeJgWEOy3gJL1qOn1Kh_GEgHsTy-VFUuliCM0QpKGSjZAHdkYWGPsPH3NDDAk9v=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0605",
-    "sku": "MP-PER-042",
     "name": "MOUSE REDRAGON STORM PRO M808-KS USB BLACK GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE REDRAGON STORM PRO M808-KS USB BLACK GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13312,20 +10893,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN6Mm0opvW_oMP-NVN8j_fxNLxsrBo4PK_D6TldIbZgtNxCOfk7lkeJgWEOy3gJL1qOn1Kh_GEgHsTy-VFUuliCM0QpKGSjZAHdkYWGPsPH3NDDAk9v=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0606",
-    "sku": "MP-PER-043",
     "name": "MOUSE REDRAGON CENTROPHORUS2 M601-RGB USB BLACK",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE REDRAGON CENTROPHORUS2 M601-RGB USB BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13334,20 +10911,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0607",
-    "sku": "MP-PER-044",
     "name": "MOUSE REDRAGON GRIFFIN M607B USB BLACK RGB GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "MOUSE REDRAGON GRIFFIN M607B USB BLACK RGB GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13356,20 +10929,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN6Mm0opvW_oMP-NVN8j_fxNLxsrBo4PK_D6TldIbZgtNxCOfk7lkeJgWEOy3gJL1qOn1Kh_GEgHsTy-VFUuliCM0QpKGSjZAHdkYWGPsPH3NDDAk9v=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0608",
-    "sku": "MP-PER-045",
     "name": "FUNDA MALETIN NOTEBOOK 15,6\"",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "FUNDA MALETIN NOTEBOOK 15,6\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13378,20 +10947,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 52,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0609",
-    "sku": "MP-PER-046",
     "name": "TECLADO NUMERICO GENIUS NUMPAD 110 USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NUMERICO GENIUS NUMPAD 110 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13400,20 +10965,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0610",
-    "sku": "MP-PER-047",
     "name": "TECLADO REDRAGON YAMA K550-RGB-1 BLACK GAMER MECANICO",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON YAMA K550-RGB-1 BLACK GAMER MECANICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13422,20 +10983,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0611",
-    "sku": "MP-PER-048",
     "name": "TECLADO SOLARMAX GMKB64RW USB-BT-WIFI/RGB/60%/GAMER MECANICO",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO SOLARMAX GMKB64RW USB-BT-WIFI/RGB/60%/GAMER MECANICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13444,20 +11001,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0612",
-    "sku": "MP-PER-049",
     "name": "TECLADO SOLARMAX GMKB88RW USB-BT-WIFI/RGB/80%/GAMER MECANICO",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO SOLARMAX GMKB88RW USB-BT-WIFI/RGB/80%/GAMER MECANICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13466,20 +11019,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0613",
-    "sku": "MP-PER-050",
     "name": "TECLADO SENTEY MECANICO GS510 RGB GAMER USB",
-    "brand": "Sentey",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO SENTEY MECANICO GS510 RGB GAMER USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Sentey",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13488,20 +11037,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0614",
-    "sku": "MP-PER-051",
     "name": "TECLADO NETMAK MECANICO NM-ABILITY NEGRO 75%",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK MECANICO NM-ABILITY NEGRO 75%. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13510,20 +11055,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0615",
-    "sku": "MP-PER-052",
     "name": "TECLADO NETMAK MECANICO NM-DOMINATE NEGRO 60%",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK MECANICO NM-DOMINATE NEGRO 60%. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13532,20 +11073,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPoTHWXuvlXPF0kDVHO_E7zOm0aTruW_Hu3VNAYvQmP3_jyylPV0zEcsAJzPSUVL8wFB613XtBOClWfYw-JIOkFwmbxRxGrTqOpT443HGc_Yq_cpuE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0616",
-    "sku": "MP-PER-053",
     "name": "TECLADO NETMAK MECANICO NM-ALLIANCE 100%",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK MECANICO NM-ALLIANCE 100%. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13554,20 +11091,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0617",
-    "sku": "MP-PER-054",
     "name": "TECLADO NETMAK MECANICO NM-LEGEND",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK MECANICO NM-LEGEND. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13576,20 +11109,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0618",
-    "sku": "MP-PER-055",
     "name": "TECLADO NETMAK MECANICO NM-SKILL NEGRO 80%",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK MECANICO NM-SKILL NEGRO 80%. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13598,20 +11127,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0619",
-    "sku": "MP-PER-056",
     "name": "TECLADO NETMAK MECANICO NM-SKILL BLANCO 80%",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK MECANICO NM-SKILL BLANCO 80%. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13620,20 +11145,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0620",
-    "sku": "MP-PER-057",
     "name": "TECLADO REDRAGON FIZZ PRO RGB K617CT-RGB GAMER MECANICO",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON FIZZ PRO RGB K617CT-RGB GAMER MECANICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13642,20 +11163,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0621",
-    "sku": "MP-PER-058",
     "name": "TECLADO REDRAGON KUMARA K552KR 80% BLACK GAMER MECANICO",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON KUMARA K552KR 80% BLACK GAMER MECANICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13664,20 +11181,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0622",
-    "sku": "MP-PER-059",
     "name": "TECLADO REDRAGON DYAUS 2 K509RGB BLACK GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON DYAUS 2 K509RGB BLACK GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13686,20 +11199,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0623",
-    "sku": "MP-PER-060",
     "name": "TECLADO REDRAGON SHIVA K512RGB-1 BLACK USB BLACK GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON SHIVA K512RGB-1 BLACK USB BLACK GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13708,20 +11217,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0624",
-    "sku": "MP-PER-061",
     "name": "TECLADO REDRAGON HORUS MECANICO K619W-RGB WHITE GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON HORUS MECANICO K619W-RGB WHITE GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13730,20 +11235,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0625",
-    "sku": "MP-PER-062",
     "name": "TECLADO REDRAGON HARPE PRO K503A-RGB BLACK GAMER",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO REDRAGON HARPE PRO K503A-RGB BLACK GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13752,20 +11253,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0626",
-    "sku": "MP-PER-063",
     "name": "COMBO 4 EN 1 NETMAK NM-GC479 TEC-MOU-AURI-PAD",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "COMBO 4 EN 1 NETMAK NM-GC479 TEC-MOU-AURI-PAD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13774,20 +11271,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0627",
-    "sku": "MP-PER-064",
     "name": "COMBO 4 EN 1 SOLARMAX GC4P1503 TEC+MOU+AURI+PAD",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "COMBO 4 EN 1 SOLARMAX GC4P1503 TEC+MOU+AURI+PAD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13796,20 +11289,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOPM6p0gFv7KP-exSSwsCzKA-lb47I0POKic_1xea4TptwND_qdA8vbLrR9P5GMdiqg3mD_0EUDywXHKgRcw8aR4-YMVkzpTEmGGbwD19YlRU_jiME=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0628",
-    "sku": "MP-PER-065",
     "name": "COMBO 4 EN 1 REDRAGON S147 TEC+MOU+AURI+PAD",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "COMBO 4 EN 1 REDRAGON S147 TEC+MOU+AURI+PAD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13818,20 +11307,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN7m327dReenBNX23Ganlf9ZWzvqaSHeyNLCCWlFAVNKKEbPuGkbzyZwL1Qa6Mx_8wUrnqeJc7AfaLNQJ5BMWCnToDBi_OLKuSFryIbEIStap5lNos=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0629",
-    "sku": "MP-PER-066",
     "name": "TECLADO NETMAK NM-X408 GAMER RGB",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK NM-X408 GAMER RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13840,20 +11325,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczML9Mg5ODxeenZbS8Ny7zHrQHdI0fukfRd5F3PMSnZWiZeLhVms6BF4ZPZ5jZ5klaUpo-8G8_9T_KE9cri_Iajgimh-Z30RptrSQSu80CgJ1ffhvfA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0630",
-    "sku": "MP-PER-067",
     "name": "TECLADO LOGITECH K120 USB ESPAÑOL",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO LOGITECH K120 USB ESPAÑOL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13862,20 +11343,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNlVOOUDHcBOB0LbXBlsr1v3fb3Xe2yfYvVShjHQQPOg6iBKN84PRIy8Aos491noDJPcrohkTMKV2cREPC-pPTBReh3dZNeVOWt47bglThF56dTwcU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0631",
-    "sku": "MP-PER-068",
     "name": "TECLADO LOGITECH K250 WIRELESS/BT/ESPAÑ",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO LOGITECH K250 WIRELESS/BT/ESPAÑ. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13884,20 +11361,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0632",
-    "sku": "MP-PER-069",
     "name": "TECLADO GENIUS SLIMSTAR 126 SMARTKEY USB BLACK",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO GENIUS SLIMSTAR 126 SMARTKEY USB BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13906,20 +11379,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0633",
-    "sku": "MP-PER-070",
     "name": "TECLADO GENIUS KB-100 USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO GENIUS KB-100 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13928,20 +11397,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0634",
-    "sku": "MP-PER-071",
     "name": "TECLADO GENIUS KB-118 II USB BLACK",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO GENIUS KB-118 II USB BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13950,20 +11415,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN86-IVnMvdkJgNN3jV83Lq9ZfDltQsN-FNK_T_zznH0vOBAslCu8e3xhlTkkDPPeYs1532-FoyGBP7I4e95Wa6pYrvs_kXlSPo7Nmn1QyFecNoGAI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0635",
-    "sku": "MP-PER-072",
     "name": "TECLADO GENIUS KB-117S USB SILENT COPILOT KEY",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO GENIUS KB-117S USB SILENT COPILOT KEY. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13972,20 +11433,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0636",
-    "sku": "MP-PER-073",
     "name": "TECLADO NETMAK NM-K586U USB",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO NETMAK NM-K586U USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -13994,20 +11451,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 63,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMy6nVQ8m2Sos6Ndj2g6dM8s7sd7axef8N8vvBUbHTdiMBZUaKrcagKpdr6JTcSDHnEFMilgPDc9EqfDNfRWZODXFxH8MyVvcpSUo3GZhQ1iNCFiFRs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0637",
-    "sku": "MP-PER-074",
     "name": "TEC + MOUSE MULTILASER TC240ESP USB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TEC + MOUSE MULTILASER TC240ESP USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14016,20 +11469,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0638",
-    "sku": "MP-PER-075",
     "name": "TEC + MOUSE NETMAK NM-KB258 USB NEGRO",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TEC + MOUSE NETMAK NM-KB258 USB NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14038,20 +11487,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0639",
-    "sku": "MP-PER-076",
     "name": "TEC+MOUSE NETMAK NM-TM34 MINIMALISTA LED",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TEC+MOUSE NETMAK NM-TM34 MINIMALISTA LED. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14060,20 +11505,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMDcOY_0etmd-Jyq-EBh5BIfc5LCVlgE2RK7mNyC_X1Kd688honYfOR3V0skF-ncCcSFgBmc7tDLv7yxRJ2lHOCcLHFyNofu1PmNxsHZPZAIOPzKcU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0640",
-    "sku": "MP-PER-077",
     "name": "TEC + MOUSE GENIUS KM-8216S COMBO WIRELESS",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TEC + MOUSE GENIUS KM-8216S COMBO WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14082,20 +11523,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPJj0vYxXt1x9rvXmyRkB6XjTg-QAgr73vep-z8VAN66KeZootI759uDwCJfAUY5chpgoSrU4wIjfIfEg_ZamuCwAWfSpD8XkCnEe3ckpoeuXDbD1E=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0641",
-    "sku": "MP-PER-078",
     "name": "TECLADO+MOUSE KOLKE WIRELESS KEK-195",
-    "brand": "Kolke",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE KOLKE WIRELESS KEK-195. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14104,20 +11541,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQU-YykGPHNME6VmoxYbf1FdRwTiGgKuI2HPjlJN7EBjwAklJij4O1OR4h1EUeAqGf3W1UsSG3oj_NN8QkfRnxPkTXio63737sFOXnSTIg6FtKCdI=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0642",
-    "sku": "MP-PER-079",
     "name": "TECLADO+MOUSE SOLARMAX KBC2500B WIRELESS/NEGRO",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE SOLARMAX KBC2500B WIRELESS/NEGRO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14126,20 +11559,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0643",
-    "sku": "MP-PER-080",
     "name": "TECLADO+MOUSE REDRAGON BS-8343 BLACK WIRELESS",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE REDRAGON BS-8343 BLACK WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14148,20 +11577,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0644",
-    "sku": "MP-PER-081",
     "name": "TECLADO+MOUSE NETMAK NM-KB850 NEGRO INALAMBRICO",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE NETMAK NM-KB850 NEGRO INALAMBRICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14170,20 +11595,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNgVsE2LYg9x6dezRgsCawIlFcFkWSyh6bemp37jmNu36Q3H9gdKJMulNS7pXEMjXBgVYhmTczPxdGciTIaTrU52YTiKvP-pTLzvxvyHucTRlIjGt8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0645",
-    "sku": "MP-PER-082",
     "name": "TECLADO+MOUSE NETMAK NM-KB850- P ROSA INALAMBRICO",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE NETMAK NM-KB850- P ROSA INALAMBRICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14192,20 +11613,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 13,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNgVsE2LYg9x6dezRgsCawIlFcFkWSyh6bemp37jmNu36Q3H9gdKJMulNS7pXEMjXBgVYhmTczPxdGciTIaTrU52YTiKvP-pTLzvxvyHucTRlIjGt8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0646",
-    "sku": "MP-PER-083",
     "name": "TECLADO LOGITECH MK295 TEC+MOUSE WIRELESS SILE ESP",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO LOGITECH MK295 TEC+MOUSE WIRELESS SILE ESP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14214,20 +11631,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0647",
-    "sku": "MP-PER-084",
     "name": "TECLADO+MOUSE LOGITECH MK235 WIRELESS",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE LOGITECH MK235 WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14236,20 +11649,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0648",
-    "sku": "MP-PER-085",
     "name": "TECLADO+MOUSE LOGITECH MK250 WIRELESS/BLUETOOTH",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE LOGITECH MK250 WIRELESS/BLUETOOTH. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14258,20 +11667,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 8,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0649",
-    "sku": "MP-PER-086",
     "name": "TECLADO LOGITECH K380 ROSA BT PEBBLE 2 ESPAÑOL",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO LOGITECH K380 ROSA BT PEBBLE 2 ESPAÑOL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14280,20 +11685,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0650",
-    "sku": "MP-PER-087",
     "name": "TECLADO X-TRIKE ME KB-507 RAINBOW GAMER RGB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO X-TRIKE ME KB-507 RAINBOW GAMER RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14302,20 +11703,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPTs9wTf4RfxAEFUtEb0TCj8zoUO8eIHbcZ3cjthD1vqI40U2EIarJl--ucgM1Yal7OiOoIkveiI6272H0VIfq7ovGxW0ecYmYtf2MIj0X7172R-KM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0651",
-    "sku": "MP-PER-088",
     "name": "TECLADO X-TRIKE ME KB-508 RAINBOW GAMER RGB",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO X-TRIKE ME KB-508 RAINBOW GAMER RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14324,20 +11721,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOo5Ml_D-YZtVuwF5HIMumMTS28pdvtWA7V_-sFkQpYvT22R5bQQeGoa4UKiN5H2fAd2jHQrgrqtaZAwEnirIJuHoXwmQ39MoEJ3_0xD-DP5ny5VLE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0652",
-    "sku": "MP-PER-089",
     "name": "TECLADO+MOUSE REDRAGON S-143 BLACK GAMER 60%",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "TECLADO+MOUSE REDRAGON S-143 BLACK GAMER 60%. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14346,20 +11739,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0653",
-    "sku": "MP-PER-090",
     "name": "RADIO PORTATIL VINTAGE CON MANIJA AM/FM/BT",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "RADIO PORTATIL VINTAGE CON MANIJA AM/FM/BT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14368,20 +11757,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0654",
-    "sku": "MP-PER-091",
     "name": "RADIO PORTATIL JOC TG-99 (FM/AM-2AA PILA)",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "RADIO PORTATIL JOC TG-99 (FM/AM-2AA PILA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14390,20 +11775,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN9RMAPN-EYR9d9MO0RtoLYFckXzzjFI05rTHr2-wo2j5nopSLrTGVKUo9Mt3uZZhxdhL0R6AzJrhm8J2P9R4s_4P6jwcRYidJXIGu-OhQNHIWzW-4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0655",
-    "sku": "MP-PER-092",
     "name": "RADIO PORTATIL JOC TG-Q22 RECARGABLE (FM/AM)",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "RADIO PORTATIL JOC TG-Q22 RECARGABLE (FM/AM). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14412,20 +11793,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOD1vLJ5PvADv32piPxx-Pj86HMdgOL32KOJrcedV0hGXAiEFDuJvNrET-8YPHKy2Zwfk-WbRCYeauUo7FJIoCoH6SFUdzF9qqwWrkkE1QaYCKVDXM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0656",
-    "sku": "MP-PER-093",
     "name": "RADIO PORTATIL JOC TG-099BT (RECARGABLE, BT, FM/AM, SD, USB, LINTERNA)",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "RADIO PORTATIL JOC TG-099BT (RECARGABLE, BT, FM/AM, SD, USB, LINTERNA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14434,20 +11811,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNTwj8Vk8h0we6yCQc_CzjiiLpTLUH7lzF2Z35kWm1bF4N8atwFTJwGy8kVDBfjuHhnpmg5E_xQep2aRn0mqJ_-BazYYMoWaoWIj9MI5RYqR6F0mLU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0657",
-    "sku": "MP-PER-094",
     "name": "RADIO PORTATIL JOC H20BT (RECARGABLE, 6 BANDAS FM/AM, SD, USB, BT, LINTERNA)",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "RADIO PORTATIL JOC H20BT (RECARGABLE, 6 BANDAS FM/AM, SD, USB, BT, LINTERNA). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14456,20 +11829,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNIvhaw7Xr8hwuOTniSQnmH6up6jBcLxt7RcnwKBtE-tNNSHHB54GaLs-L4Z2MkGQxdPMh8g4ol7Kqi4ZJppqYJn0Fuj1EKllsnuN1Gr2m3sybPkJ8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0658",
-    "sku": "MP-PER-095",
     "name": "RADIO PORTATIL AM/FM KOLKE ANALOGA KPR-796",
-    "brand": "Kolke",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "RADIO PORTATIL AM/FM KOLKE ANALOGA KPR-796. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14478,20 +11847,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO8Sly1X-M5WHOsNZf9Q-j-bQUwHX9Hcm_YmXXJK9sL63KLzRHp8kWRInzqnqjTtBWxEDBMUUP_wn3bOFoZwsTBmB8fEK60AQrr2bi8Tu3NDhQ0Avc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0659",
-    "sku": "MP-PER-096",
     "name": "PUNTERO LASER GENIUS MEDIA POINTER 100",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PUNTERO LASER GENIUS MEDIA POINTER 100. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14500,20 +11865,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0660",
-    "sku": "MP-PER-097",
     "name": "PARLANTE PORTATIL XAEA 3\" MODX-101 GROOVE (BT, FM, LUCES, 10 MTS ALCANCE)",
-    "brand": "Xaea",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL XAEA 3\" MODX-101 GROOVE (BT, FM, LUCES, 10 MTS ALCANCE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14522,20 +11883,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0661",
-    "sku": "MP-PER-098",
     "name": "PARLANTE PORTATIL XAEA 3\" MODX-106 BLADE (BT, FM, LUCES, 10 MTS ALCANCE)",
-    "brand": "Xaea",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL XAEA 3\" MODX-106 BLADE (BT, FM, LUCES, 10 MTS ALCANCE). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Xaea",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14544,20 +11901,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0662",
-    "sku": "MP-PER-099",
     "name": "PARLANTE PORTATIL NETMAK NM FLOW",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL NETMAK NM FLOW. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14566,20 +11919,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0663",
-    "sku": "MP-PER-100",
     "name": "PARLANTE PORTATIL NETMAK NM-HOLY MINI KARAOKE 2 MIC",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL NETMAK NM-HOLY MINI KARAOKE 2 MIC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14588,20 +11937,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0664",
-    "sku": "MP-PER-101",
     "name": "PARLANTE NETMAK NM-MUV BT5.3/FM/USB/RGB (ROSA/AZUL/GRIS/ROJO)",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE NETMAK NM-MUV BT5.3/FM/USB/RGB (ROSA/AZUL/GRIS/ROJO). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14610,20 +11955,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 21,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOBrUPKQTfJCgOzAwSCEt6j6kRsyL8YdtCkT23AlQYSmN---j-LkKnA5xbkUDtd125h5ts7LTbPo8r-73HjAWeI4_JgckBysruPHoxqR4ohh79F39Y=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0665",
-    "sku": "MP-PER-102",
     "name": "PARLANTE GENERICO (SIMIL JBL GO4)",
-    "brand": "Jbl",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE GENERICO (SIMIL JBL GO4). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Jbl",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14632,20 +11973,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0666",
-    "sku": "MP-PER-103",
     "name": "PARLANTE PORTATIL KOLKE BT KPM-695 4\" KBOOM",
-    "brand": "Kolke",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL KOLKE BT KPM-695 4\" KBOOM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14654,20 +11991,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0667",
-    "sku": "MP-PER-104",
     "name": "PARLANTE PORTATIL KOLKE BT KPB-421 BLUES 8\"",
-    "brand": "Kolke",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL KOLKE BT KPB-421 BLUES 8\". Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Kolke",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14676,20 +12009,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO68Dw97gMP-BGrgBLpWaNygfZvsWsGuWxGdtGb9sC3brHPq5RSXM2SOdZngMXxVtLVMXI8POKAYNnCzVOjKagQoaU6YMdXyIbGvSTnpbGr1LU6DCDl=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0668",
-    "sku": "MP-PER-105",
     "name": "PARLANTE NETMAK NM-YANKEE RGB 2X8\" CON MIC Y BT 5.3",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE NETMAK NM-YANKEE RGB 2X8\" CON MIC Y BT 5.3. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14698,20 +12027,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 16,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN_rzHQIthRS-8zfo6Q2MoPO82aoWFOBdqWIR8OVkDKeohCas4ADEDGYBeg4fcwyt8OFSY0VAI38oAkBUUq_e2d5-V1YHCKSmuZtZZ09KYJaxxHKyeE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0669",
-    "sku": "MP-PER-106",
     "name": "PARLANTE GENIUS SP-HF180 USB",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE GENIUS SP-HF180 USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14720,20 +12045,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNi6-uWSq8dW3uk7Cvm6IAHXd1TfBc7jeEwZnQcjkRHICczIHwkk5MYVa1lUdwoHOSsVmOQn1GmYJWv7T2T_vGA8L5phemhs1HRboK67ZCKbX-zLpN-=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0670",
-    "sku": "MP-PER-107",
     "name": "PARLANTE NETMAK NM-BORA MADERA",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE NETMAK NM-BORA MADERA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14742,20 +12063,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPjZptfVkCuvG3yJrGqU6S3tH1v8daEwngSmvpUfv-soVTtrYQ3LaketiGFxaxOufD_hyNXVMFFPGmHR84O_rRuqVr2GO91X73IYJH6_SX6GqdvSzA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0671",
-    "sku": "MP-PER-108",
     "name": "PARLANTE PC 2.0 CON LED E1078",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PC 2.0 CON LED E1078. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14764,20 +12081,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOC4rvYiVLLzDQiA-h_XD6me5dsNDyofK2kEKheQSEHQLvyKion2t_HiSZI20xFUKJfWY7jDeAzArXqZuhYBUiESg2kQUn7geeDgbJnWlHJ18y-ldw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0672",
-    "sku": "MP-PER-109",
     "name": "PARLANTE PC GENERICO 2.0 ECONOMICO",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PC GENERICO 2.0 ECONOMICO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14786,20 +12099,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0673",
-    "sku": "MP-PER-110",
     "name": "PARLANTE PC SUBWOOFER CON LUZ 2.1 YST-1306",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PC SUBWOOFER CON LUZ 2.1 YST-1306. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14808,20 +12117,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMu4Z-3siAXpzXJFeJzBW-N7R1Yazz63V0ABXf-J5dmcH6POpO-ckJ6wz_XgXrmW6Kg7fYZHf4yM46R3XtVWVgrDxhzjTHC_bqqBy1l3mbNftkXPTE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0674",
-    "sku": "MP-PER-111",
     "name": "PARLANTE PC 2.0 K2036/2035/2014 (SIMIL GENIUS)",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PC 2.0 K2036/2035/2014 (SIMIL GENIUS). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14830,20 +12135,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNkLDWGkDIJlXiM-UAw2j3-LGt-mqVdgHExxKO4IsZ6FF19UK5JQPW44e7DE-Q_jTkNcLM8X1WRooi0rV6GOW-CJaa8Okaj4lerFM_ISSoAbs-qpLOS=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0675",
-    "sku": "MP-PER-112",
     "name": "PARLANTE PC NETMAK NM-N10 PLUG3.5 USB RGB",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PC NETMAK NM-N10 PLUG3.5 USB RGB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14852,20 +12153,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 14,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFz3XVtAM42nTeq2tzVYcqd-OeW1hBe9fIBvnqKEcblHAJ3qGLTbWWhVAV3ALBmHDSa59FLP8pIuHrk9GGuStsPdwpJoQJDcXfMK5GFV_jGcIkLPX1=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0676",
-    "sku": "MP-PER-113",
     "name": "BARRA DE SONIDO REDRAGON GS570 DARKNETS SOUNDBAR",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "BARRA DE SONIDO REDRAGON GS570 DARKNETS SOUNDBAR. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14874,20 +12171,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNw-XOmJN5-pXecnPUPpHhXbXUl64oMSxG3-k7UxYi7bMWLaiUaYLvOqWww8qZ6pa75VaVfJSWlne6FADfyAra9AVc9sLRsxPasyEqkK1A0acjB3JvZ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0677",
-    "sku": "MP-PER-114",
     "name": "WEBCAM GENIUS FACECAM 1000X 720P/MIC/3X/HD",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "WEBCAM GENIUS FACECAM 1000X 720P/MIC/3X/HD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14896,20 +12189,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0678",
-    "sku": "MP-PER-115",
     "name": "WEBCAM NETMAK NM-WEB05 USB CON MIC/2MP/FHD",
-    "brand": "Netmak",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "WEBCAM NETMAK NM-WEB05 USB CON MIC/2MP/FHD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14918,20 +12207,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0679",
-    "sku": "MP-PER-116",
     "name": "WEBCAM LOGITECH C270 HD/3MP/MIC",
-    "brand": "Logitech",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "WEBCAM LOGITECH C270 HD/3MP/MIC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Logitech",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14940,20 +12225,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0680",
-    "sku": "MP-PER-117",
     "name": "WEBCAM REDRAGON FOBOS GW600-1 USB BLACK HD",
-    "brand": "Redragon",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "WEBCAM REDRAGON FOBOS GW600-1 USB BLACK HD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Redragon",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14962,20 +12243,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0681",
-    "sku": "MP-PER-118",
     "name": "PARLANTE PORTATIL SOUND CORE SELECT GO 4 (20 HRS/IP67)",
-    "brand": "Genérico",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "PARLANTE PORTATIL SOUND CORE SELECT GO 4 (20 HRS/IP67). Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -14984,20 +12261,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0682",
-    "sku": "MP-PER-119",
     "name": "VOLANTE GENIUS SPEEDMASTER USB VIBRATION GX",
-    "brand": "Genius",
     "category": "PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
     "description": "VOLANTE GENIUS SPEEDMASTER USB VIBRATION GX. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: PERIFERICOS: (MOUSE, TECLADOS, PARLANTES, ETC)",
-      "Marca: Genius",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15006,20 +12279,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPmwHqT4nesLykNt9jdU1sdli55fGC4-UPx54oiOx83elGpvJlQw228yIxiF0jKy9sqVpEQMSX5jq3OrtvOl8D9SQkXZvIkdERgH3xsjACy32zRrCyg=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0683",
-    "sku": "MP-HDW-001",
     "name": "LECTOR NETMAK NM-LC207 1D/2D/QR/USB BLACK",
-    "brand": "Netmak",
     "category": "HARDWARE",
     "description": "LECTOR NETMAK NM-LC207 1D/2D/QR/USB BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Netmak",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15028,20 +12297,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNlZvCtSipDjGO3GKSr2KT8oeFHiWvBSHNzMuyZzwiOjdPgxRf3pjNi0_msVGUoXkdJtZXQ3UTkyckx36sZjhwAheyI9ue_HxIYKdBHhmIEre6QYQs=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0684",
-    "sku": "MP-HDW-002",
     "name": "ALCOHOL ISOPROPILICO 500CC LETOS ALTA PUEREZA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "ALCOHOL ISOPROPILICO 500CC LETOS ALTA PUEREZA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15050,20 +12315,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPzhSmhSJXSUuNStADWIBnIyvxJkicTheD0vcX0O7nSSms2pn9X1i7dJK5lyPBdxoDyCwXDfTb6cpchvMTvaMkrEQxnbOnH7r2Pu2eien18HA_Q_EU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0685",
-    "sku": "MP-HDW-003",
     "name": "AEROSOL AIRE COMPRIMIDO GTC ADG-001 AIR DUSTER 400",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "AEROSOL AIRE COMPRIMIDO GTC ADG-001 AIR DUSTER 400. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15072,20 +12333,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMRyHsN-DMFqHeQcUm_itOoalHepf33j935R_CBDXFJMW9ZoYcIZLeZFMdIL89XM4n2lT7DOgXwqbLRMIyb482KRAC-j1B3iVRUrIc8gTT20e5eGoY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0686",
-    "sku": "MP-HDW-004",
     "name": "KIT LIMPIEZA GTC ADG-002 PARA PANTALLAS",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "KIT LIMPIEZA GTC ADG-002 PARA PANTALLAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15094,20 +12351,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 16,
     "minWholesaleQty": 1,
-    "badge": "DESTACADO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxgf8YbVxJrd8fmD6GLlE9hfHuEgeC0oWiWf46rSJdFfhUftf4CzsRxr3VkstXqY109rSzCUmnNV0BJnm6JTX1WchdT3Z1A7Uj_mckDfZ56lX4f0I=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0687",
-    "sku": "MP-HDW-005",
     "name": "ESTABILIZADOR FORZA FVR-902A 900VA/450W",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "ESTABILIZADOR FORZA FVR-902A 900VA/450W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15116,20 +12369,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 10,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP38LdATbSghdklvWlEYkjOn7FjV6K-YSa7pNAvAD5nN6LtiR3r3bq3TQ17d0drLxZRJhJeAx8xHzenevt6PV37qsZ97PKk4TLHGAXDMt_LvMJffKw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0688",
-    "sku": "MP-HDW-006",
     "name": "ESTABILIZADOR FORZA FVR-1202USB 1200VA/600W",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "ESTABILIZADOR FORZA FVR-1202USB 1200VA/600W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15138,20 +12387,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOYyeZmi0Z9cPxTX8R0g2mAAWqBNLSzGKigMVyinsRgNSlzE761dyspKKAYII32_-uuLzRHpl8Eu551a4MBYltfyq6XAEk3lzmos7u04Tny7R5n3BE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0689",
-    "sku": "MP-HDW-007",
     "name": "ESTABILIZADOR FORZA FVR-2202AUSB 2200VA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "ESTABILIZADOR FORZA FVR-2202AUSB 2200VA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15160,20 +12405,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOO70ZyuNhn5pnH64kdP15psso0tRo8RAwSGaT-zpzfe96krn2KVyJ-nDIr_Iq8FNlW9y8Sm822-6mfreFx8wSZkSLHqmh2a-8XCCXP-3RdIyeh_4M=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0690",
-    "sku": "MP-HDW-008",
     "name": "PROTECTOR DE TENSIÓN FORZA FVP-1202B-N",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "PROTECTOR DE TENSIÓN FORZA FVP-1202B-N. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15182,20 +12423,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN3RVoR-0Om8SQkM3iUNo1gl0r83oa78hM4m0YxnO0faz8EtYnWaolCmrOYC0bfBzkXebsMGnG5u_GDN5lO5QhcwXYGy_Dsia3wEgz15LCnR5drQyY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0691",
-    "sku": "MP-HDW-009",
     "name": "PROTECTOR DE TENSION FORZA FSP-602USB-A 2200W/1250",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "PROTECTOR DE TENSION FORZA FSP-602USB-A 2200W/1250. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15204,20 +12441,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0692",
-    "sku": "MP-HDW-010",
     "name": "WATER COOLER SOLARMAX WC-B240 BLACK 240MM/ARGB/",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "WATER COOLER SOLARMAX WC-B240 BLACK 240MM/ARGB/. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15226,20 +12459,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNpXmMbpuu7pWd60YOHXWBcwS5O0m3GmLacBtwMrKx1Pv11FbXbJYOj0BXla-5erOJqOQTLVypQRm0ZC0OWf-W88Bucsd9RBbQvbKGQt1-FkCzdIdA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0693",
-    "sku": "MP-HDW-011",
     "name": "FUENTE UNIVERSAL 12V 3A TYME",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE UNIVERSAL 12V 3A TYME. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15248,20 +12477,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 30,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0694",
-    "sku": "MP-HDW-012",
     "name": "FUENTE DE ALIMETANCION 12V 2A PIN 3.5 X1.35MM PARA NOTEBOOK GOBIERNO",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE DE ALIMETANCION 12V 2A PIN 3.5 X1.35MM PARA NOTEBOOK GOBIERNO. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15270,20 +12495,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 31,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMksSmubBy5RjC8im5Q38I2aF7FXzwhKGp3jU2BlYoVZpeBUMrDdXjIKB3t4G0CxzpoNHDo2qXg63rJ-QrxL5fSp9KMHu_ro9bnwvq8PTKRXDY6d6A=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0695",
-    "sku": "MP-HDW-013",
     "name": "FUENTE ATX SOLARMAX 600W SLIM KC-EAA-600",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE ATX SOLARMAX 600W SLIM KC-EAA-600. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15292,20 +12513,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 15,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0696",
-    "sku": "MP-HDW-014",
     "name": "FUENTE ATX SOLARMAX 500W KC-CFA500",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE ATX SOLARMAX 500W KC-CFA500. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15314,20 +12531,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPwjLYz5WsHe6IzusYp9JdjjcEdv6P19IJzwA-usAiJgA0gLtRM7A_3XqPak-P06JsSUiuQDJeKwHvyKT65TYovJ0nXzPngGvD-aV8S6TFkfEaLM8E=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0697",
-    "sku": "MP-HDW-015",
     "name": "FUENTE ATX SOLARMAX 600W KC-CFA600",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE ATX SOLARMAX 600W KC-CFA600. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15336,20 +12549,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZTgD4j_Uyz_VhStMm4n9ibFwBBrG81IsVuTav8Da7QmNbntVN8r5o9olBBaB7sKjq1h6fa4StB7CyRkMzVe7aEO1q-kg1ePmnycaAm07au8dTgOtG=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0698",
-    "sku": "MP-HDW-016",
     "name": "FUENTE ATX LNZ ZX750-GZ SERIES 750W/120MM RED FAN",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE ATX LNZ ZX750-GZ SERIES 750W/120MM RED FAN. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15358,20 +12567,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0699",
-    "sku": "MP-HDW-017",
     "name": "FUENTE ATX GIGABYTE GP-P550SS ICE 550W 80PLUS SILV",
-    "brand": "Gigabyte",
     "category": "HARDWARE",
     "description": "FUENTE ATX GIGABYTE GP-P550SS ICE 550W 80PLUS SILV. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Gigabyte",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15380,20 +12585,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0700",
-    "sku": "MP-HDW-018",
     "name": "FUENTE ATX SOLARMAX 650W 80 BRONZE KC-CFA650-80PB",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE ATX SOLARMAX 650W 80 BRONZE KC-CFA650-80PB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15402,20 +12603,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0701",
-    "sku": "MP-HDW-019",
     "name": "FUENTE ATX SOLARMAX 750W 80 BRONZE KC-CFA750-80PB",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "FUENTE ATX SOLARMAX 750W 80 BRONZE KC-CFA750-80PB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15424,20 +12621,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0702",
-    "sku": "MP-HDW-020",
     "name": "SSD 120 GB MEMOX MMSS-120G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 120 GB MEMOX MMSS-120G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15446,20 +12639,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMrdPc7Bj4_mmgthlDuZMxUE_3NNuXCbleheaa-Yw-OrmJ8fKo4QrYjc4_k-aRIv_NbylV7ZVyzYLCiaDWEwszJ9_NEztgy9r_jhNkRMzYVGX7EjYw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0703",
-    "sku": "MP-HDW-021",
     "name": "SSD 240 GB PUSKILL PSK-M2SSD6G-240/SATA3",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 240 GB PUSKILL PSK-M2SSD6G-240/SATA3. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15468,20 +12657,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 11,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0704",
-    "sku": "MP-HDW-022",
     "name": "SSD 240 GB HIKSEMI WAVE SATA6 HS-SSD-WAVE(S)-240G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 240 GB HIKSEMI WAVE SATA6 HS-SSD-WAVE(S)-240G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15490,20 +12675,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0705",
-    "sku": "MP-HDW-023",
     "name": "SSD 480 GB KINGSTON A400 SATA3 2.5",
-    "brand": "Kingston",
     "category": "HARDWARE",
     "description": "SSD 480 GB KINGSTON A400 SATA3 2.5. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15512,20 +12693,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNGCzF7Y9SDncdqPPkBFiZ3bnK4baLw8xzOj6N3j4EkiHfydQ_tfbClnQEd-xUxuIzh5c2FZA6nX5URDBolgUcFa9a6G60jOpXIzvTKyDLNbSQjXA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0706",
-    "sku": "MP-HDW-024",
     "name": "SSD 480 GB PUSKILL 2.5\" SATA 3 PSK-19SSD6G-480G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 480 GB PUSKILL 2.5\" SATA 3 PSK-19SSD6G-480G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15534,20 +12711,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 7,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0707",
-    "sku": "MP-HDW-025",
     "name": "SSD 480 GB HIKSEMI WAVE SATA6 HS-SSD-WAVE(S)-480G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 480 GB HIKSEMI WAVE SATA6 HS-SSD-WAVE(S)-480G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15556,20 +12729,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0708",
-    "sku": "MP-HDW-026",
     "name": "SSD 960 GB PUSKILL 2.5\" SATA 3 PSK-19SSD6G-960G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 960 GB PUSKILL 2.5\" SATA 3 PSK-19SSD6G-960G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15578,20 +12747,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0709",
-    "sku": "MP-HDW-027",
     "name": "SSD 960 GB HIKSEMI WAVE SATA6 HS-SSD-WAVE(S)-960G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 960 GB HIKSEMI WAVE SATA6 HS-SSD-WAVE(S)-960G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15600,20 +12765,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0710",
-    "sku": "MP-HDW-028",
     "name": "SSD 128 GB HIKSEMI WAVE M.2 NVME HS-SSD-WAVE(P)-12",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 128 GB HIKSEMI WAVE M.2 NVME HS-SSD-WAVE(P)-12. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15622,20 +12783,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMrdPc7Bj4_mmgthlDuZMxUE_3NNuXCbleheaa-Yw-OrmJ8fKo4QrYjc4_k-aRIv_NbylV7ZVyzYLCiaDWEwszJ9_NEztgy9r_jhNkRMzYVGX7EjYw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0711",
-    "sku": "MP-HDW-029",
     "name": "SSD 256 GB PUSKILL PSK-M2SSDP34-256G/M.2/NVME",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 256 GB PUSKILL PSK-M2SSDP34-256G/M.2/NVME. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15644,20 +12801,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0712",
-    "sku": "MP-HDW-030",
     "name": "SSD 512 GB PUSKILL PSK-M2SSDP34-512G/M.2/NVME",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 512 GB PUSKILL PSK-M2SSDP34-512G/M.2/NVME. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15666,20 +12819,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 9,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0713",
-    "sku": "MP-HDW-031",
     "name": "SSD 1 TB LEXAR NM610 PRO M.2 NVME 3300MB",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 1 TB LEXAR NM610 PRO M.2 NVME 3300MB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15688,20 +12837,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0714",
-    "sku": "MP-HDW-032",
     "name": "SSD 1 TB HIKSEMI WAVE M.2 HS-SSD-WAVE(N)1024G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SSD 1 TB HIKSEMI WAVE M.2 HS-SSD-WAVE(N)1024G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15710,20 +12855,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0715",
-    "sku": "MP-HDW-033",
     "name": "HD 1 TB EXTERNO USB 3.2 ADATA AHV300 RED SLIM",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "HD 1 TB EXTERNO USB 3.2 ADATA AHV300 RED SLIM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15732,20 +12873,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0716",
-    "sku": "MP-HDW-034",
     "name": "HD 2 TB EXTERNO USB 3.0 ADATA AHV300 BLACK SLIM",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "HD 2 TB EXTERNO USB 3.0 ADATA AHV300 BLACK SLIM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15754,20 +12891,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0717",
-    "sku": "MP-HDW-035",
     "name": "SODIMM DDR3 MICRON 4GB 1600MHZ",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SODIMM DDR3 MICRON 4GB 1600MHZ. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15776,20 +12909,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP-QYoVuTdb6_EtD6HYg4XVV8VAzgaP7p2wNgL7X1kKFWKv36KAY1mgw3CAsIeyj309nDOmUbhX2GzdfUwnKIh8HDXuuyZPXld3HONV9-zpzVh_M5k=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0718",
-    "sku": "MP-HDW-036",
     "name": "SODIMM DDR3 HIKSEMI HIKER 8GB 1600 MHZ HSC308516Z1",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SODIMM DDR3 HIKSEMI HIKER 8GB 1600 MHZ HSC308516Z1. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15798,20 +12927,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0719",
-    "sku": "MP-HDW-037",
     "name": "SODIMM DDR4 KINGSTON 8GB PC4 3200 KVR32S22S8/8WP",
-    "brand": "Kingston",
     "category": "HARDWARE",
     "description": "SODIMM DDR4 KINGSTON 8GB PC4 3200 KVR32S22S8/8WP. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15820,20 +12945,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0720",
-    "sku": "MP-HDW-038",
     "name": "SODIMM DDR4 PUSKILL 16GB 3200MHZ PSK-D4D22M320BL-16",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "SODIMM DDR4 PUSKILL 16GB 3200MHZ PSK-D4D22M320BL-16. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15842,20 +12963,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0721",
-    "sku": "MP-HDW-039",
     "name": "DDR3 MICRON 4GB 1600MHZ",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "DDR3 MICRON 4GB 1600MHZ. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15864,20 +12981,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0722",
-    "sku": "MP-HDW-040",
     "name": "DDR3 KIMOTA 8GB 1600MHZ DIMM DL3D8G16-KIM",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "DDR3 KIMOTA 8GB 1600MHZ DIMM DL3D8G16-KIM. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15886,20 +12999,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPjELwrCVakGKcUKElyS8mRf6j998xwvLuZ7EQ9NTut-dau3ST8gTywpezhbWp_yRe3owlHFRMJEOp_i2i0C5y8VRh6NI98JAgfnf17_WIq_PhJees=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0723",
-    "sku": "MP-HDW-041",
     "name": "DDR4 KINGSTON 8GB PC4 3200 KVR32N22S8",
-    "brand": "Kingston",
     "category": "HARDWARE",
     "description": "DDR4 KINGSTON 8GB PC4 3200 KVR32N22S8. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Kingston",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15908,20 +13017,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMM7h8T5UmllGIbqVzUfGaMypF5-1mSU7Sot1-mXT4Tcyg0AP7W4Y8I-l0KAkCi1wrXLfvEiXS7cbn1jPG900uVzIRbz_nHgt0C6cLqeRmNKNd9YbE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0724",
-    "sku": "MP-HDW-042",
     "name": "DDR4 PUSKILL 8GB 3200 MHZ PSK-D4S22M3200B-8G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "DDR4 PUSKILL 8GB 3200 MHZ PSK-D4S22M3200B-8G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15930,20 +13035,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0725",
-    "sku": "MP-HDW-043",
     "name": "DDR4 AMERICAN TELEKINESIS 16GB 32000MHZ",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "DDR4 AMERICAN TELEKINESIS 16GB 32000MHZ. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15952,20 +13053,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0726",
-    "sku": "MP-HDW-044",
     "name": "DDR4 PUSKILL 16GB 3200 MHZ PSK-D4S22M3200B-16G",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "DDR4 PUSKILL 16GB 3200 MHZ PSK-D4S22M3200B-16G. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15974,20 +13071,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0727",
-    "sku": "MP-HDW-045",
     "name": "MINI PC PERFORMANCE PF56014 R5-3500U/16/480GB",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MINI PC PERFORMANCE PF56014 R5-3500U/16/480GB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -15996,20 +13089,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 3,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN5lNbB-JuUXZFcV3c-WRXm8f2ElxnuE2muibvGpzOSpkFHH5fLGCqvEAYfd3h1C5SyKgzlE6NMw6JxzWWK8XqdQB7itUYgzHYa20Gz-TD_g5m18g=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0728",
-    "sku": "MP-HDW-046",
     "name": "MINI PC SOLARMAX RYZEN 3-3200U/8GB/240GB M.2 SATA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MINI PC SOLARMAX RYZEN 3-3200U/8GB/240GB M.2 SATA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16018,20 +13107,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMK29pT0F65-HDaxOzN6M5XIGh35Z5Qroz932A50syK0qFFSbDsH4sWJBJgrUOaWLEVohSS4SGSuc-u1huxa0pgYnUNyncmff-gJbLiG5jpRBDuRQo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0729",
-    "sku": "MP-HDW-047",
     "name": "MINI PC SOLARMAX RYZEN 3-3200U/16GB/480GB M.2 SATA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MINI PC SOLARMAX RYZEN 3-3200U/16GB/480GB M.2 SATA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16040,20 +13125,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPycckdr-l2C-UdwDmmvAkESOqLSbxwAXc-Y2_0wp0A0i6bL2-zfQ41WXEUUgVDLKtorTGH_03ahOlSjT-HNeoyJmSKFT74QsH2vi0178Eynp1LjyM=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0730",
-    "sku": "MP-HDW-048",
     "name": "MINI PC SOLARMAX RYZEN 5-3550U/16GB/512GB M.2 NVME",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MINI PC SOLARMAX RYZEN 5-3550U/16GB/512GB M.2 NVME. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16062,20 +13143,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNOwj33RZAaR99XO-0NoHDtK5PC_voArb5c5oTzdKLl9dxbaEZmFO83g84e9_kqrEDb0nsZb85GeT1nOD5ba5YNz9gYGW-rIfnLlrIUBHuV75WIyOA=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0731",
-    "sku": "MP-HDW-049",
     "name": "PC ARMADA ATHLON 3000 + MB GIGABYTE + 8GB + SSD 240 + GAB SLIM + WINDOWS",
-    "brand": "Gigabyte",
     "category": "HARDWARE",
     "description": "PC ARMADA ATHLON 3000 + MB GIGABYTE + 8GB + SSD 240 + GAB SLIM + WINDOWS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Gigabyte",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16084,20 +13161,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNpuR7Sbmjg4IFbMIIPza4-BQxTjZk5s86LahlKXXuBob_tFKfXM8ahlnJk_1ZcR2u3bjbA2P_G34jNkN0Geb8iBPTCHY2l1JsBQFV4gKREPBYcdyw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0732",
-    "sku": "MP-HDW-050",
     "name": "COMBO ATHLON 3000G + MB GIGABYTE A520 + DDR4 8GB",
-    "brand": "Gigabyte",
     "category": "HARDWARE",
     "description": "COMBO ATHLON 3000G + MB GIGABYTE A520 + DDR4 8GB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Gigabyte",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16106,20 +13179,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 6,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN6v64mREnL-SDJnYYc5tO3BZk_r0lSGN0wHDqejCxutJ-Q0s7GRFpkjiUumjhXp9sGANIpTEPnmiwqsvx5YmLz4cTaMJ3AobUN-Fc89MGuOGZfV8w=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0733",
-    "sku": "MP-HDW-051",
     "name": "COMBO RYZEN 3-3200G OEM + MB GIGABYTE/MSI + DDR4 8GB",
-    "brand": "Gigabyte",
     "category": "HARDWARE",
     "description": "COMBO RYZEN 3-3200G OEM + MB GIGABYTE/MSI + DDR4 8GB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Gigabyte",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16128,20 +13197,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPU-fNx8-TNAqSWTcFKHHeH2bqotKLqDaUPpcC3VlgMGlDVWykrHT_N78icF0srnUANrALMOiNOBYUURLoqjPJL_pwon6h24TBgXLBrId2pDSjCBtk=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0734",
-    "sku": "MP-HDW-052",
     "name": "COMBO RYZEN 5-3400G + MB GIGA A520M-A PRO+ DDR4 8GB 3200",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "COMBO RYZEN 5-3400G + MB GIGA A520M-A PRO+ DDR4 8GB 3200. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16150,20 +13215,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO2fZ-5Fz_AZpv_vSK5TZc6Jy2AfRAFbACVTjx56kBTs8n9NVCyWuAB7CL7WwCXcB4PwRAx8KHXIkjFfTcw4RtyUZ3f8c5bYhndsNCpP6jO6Aqptr4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0735",
-    "sku": "MP-HDW-053",
     "name": "COMBO RYZEN 5 -5600GT + MB GIGABYTE A520MK + DDR4 8GB",
-    "brand": "Gigabyte",
     "category": "HARDWARE",
     "description": "COMBO RYZEN 5 -5600GT + MB GIGABYTE A520MK + DDR4 8GB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Gigabyte",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16172,20 +13233,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNorEUEfpUraLSWU8_xZICo0zigYKinp0pfvkEJ5Ac4dsBkYSzb9DZoTbzhznxxqI0XK1LnCXOQaHPQntzz_elg2R87G3Zzs-5yxvZVTW1D9e0o_08=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0736",
-    "sku": "MP-HDW-054",
     "name": "COMBO GAMER RYZEN 7-5700G + MB GIGABYTE A520M-A PRO SOC M4",
-    "brand": "Gigabyte",
     "category": "HARDWARE",
     "description": "COMBO GAMER RYZEN 7-5700G + MB GIGABYTE A520M-A PRO SOC M4. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Gigabyte",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16194,20 +13251,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMHqIe4IFCTON-7kyYFjOuSTtgFIGohmiMb3R2co1IM31g9ZqnCTMnBqMO9e8TrAiJxCEl5Qm30oT5zuWCirQ9DJf3v3Fg5XAR5EFTjgf6_ArlX2WQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0737",
-    "sku": "MP-HDW-055",
     "name": "GRASA SILICONA JERINGA DELTA PARTICULAS DE METAL",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "GRASA SILICONA JERINGA DELTA PARTICULAS DE METAL. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16216,20 +13269,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 65,
     "minWholesaleQty": 1,
-    "badge": "MÁS VENDIDO",
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNtcJWMuhOHyJSXR3r55sZ0abFo4-TIA8uoaYi1Y405XJYiVNg4XTUc75L3MVGmkOGa6D1MfHv1hp-NNKd8-q6dtpxpXKllJhMMEDMVrOSMhJjkn1U=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0738",
-    "sku": "MP-HDW-056",
     "name": "GABINETE SENTEY COYOTE ARGB BLACK/3 FAN ARGB/4SLOT",
-    "brand": "Sentey",
     "category": "HARDWARE",
     "description": "GABINETE SENTEY COYOTE ARGB BLACK/3 FAN ARGB/4SLOT. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Sentey",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16238,20 +13287,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNVsY5-TJZp5jm-51-DzlWU7Q4t0xdr7kTAwk79bR-j3mluRw9YFDlFTy2CbXfnM10k3eNt_nR-_2zPsKv7xQwEXsuPO7oMfSGPp9ELtNXo4dhdTII=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0739",
-    "sku": "MP-HDW-057",
     "name": "GABINETE SENTEY M12 BLACK ARGB M12BLK-SF",
-    "brand": "Sentey",
     "category": "HARDWARE",
     "description": "GABINETE SENTEY M12 BLACK ARGB M12BLK-SF. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Sentey",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16260,20 +13305,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNrX7knFGm5Hh736mlyJYH6Ub1hpVyFw8F4wNlJD9gRARCIpsRMfprSDj6eKPZAC0nI_5zFeA3eL8Vj6haJLp2ZfWezIWjAKO5P0LNmtadxW9nThN4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0740",
-    "sku": "MP-HDW-058",
     "name": "GABINETE LNZ M10 FRGB BLACK M10-SF-FRGB S/FUENTE",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "GABINETE LNZ M10 FRGB BLACK M10-SF-FRGB S/FUENTE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16282,20 +13323,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMz5D9Ln0UvPBR5YWGFkXFdXx6Dak00eifqljV7mSNqBIHUseP-_SrW_DrLi8e8qKaCX5UwcMjhARFD0fearV4PatObXOZOcob4QBge55yBnUfDTws=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0741",
-    "sku": "MP-HDW-059",
     "name": "GABINETE SYX EQS11 BK 1FAN ARGB/ATX/GAMER",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "GABINETE SYX EQS11 BK 1FAN ARGB/ATX/GAMER. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16304,20 +13341,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMofOCEu8l09eZ90sf6zZd6RTjo7C_MIZ9rh3O7w75CKXzei_LxpZJloQgjSvK_qDMvYwBofN9BLNRLQgUOcxbHySuxTjSpkdgqHmUE4EUleR2UW0I=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0742",
-    "sku": "MP-HDW-060",
     "name": "GABINETE SOLARMAX KIT SLIM CIS101 600W",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "GABINETE SOLARMAX KIT SLIM CIS101 600W. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16326,20 +13359,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 5,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNcmJuThEZ5R5uLMg2Un2PajGCY5j1HakVz0iJ9AWA_i-fgec3mp_ZUmLzPGsO9SbYttEHacgFd38s6vFjWJSNU1TZeir62CSVmuEGKMUxvdpSD0Y8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0743",
-    "sku": "MP-HDW-061",
     "name": "GABINETE SOLARMAX KIT CM-8806 FUENTE 600W T/P",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "GABINETE SOLARMAX KIT CM-8806 FUENTE 600W T/P. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16348,20 +13377,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0744",
-    "sku": "MP-HDW-062",
     "name": "GABINETE JALATEC JT-K708 KIT FUENTE JT500/T/P/M",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "GABINETE JALATEC JT-K708 KIT FUENTE JT500/T/P/M. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16370,20 +13395,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNz00jdmFo9oQyq-YQn1LEpNxyG6bFmdzDwxe7tgQi1Usx6a5HJArjzReUQ0wehcJzIOjI2vqkLQnOp-nQcfXxUD47whR3ggGAUCPUCJWYW2Hfe9L4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0745",
-    "sku": "MP-HDW-063",
     "name": "IMPRESORA HP LASER 107W WIRELESS",
-    "brand": "Hp",
     "category": "HARDWARE",
     "description": "IMPRESORA HP LASER 107W WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16392,20 +13413,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOFqu_ic6X23tHBoREQgF7CglJqGHV1LjyiyT-YPziz9xntlZqof6gjert6g8CbrPHvor9fRpjeENZov0VFhDQ0MXO_jg-wb2li4mzH3Jyy_r2-Ta8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0746",
-    "sku": "MP-HDW-064",
     "name": "IMPRESORA PANTUM LASER P2509W GRIS WIFI",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "IMPRESORA PANTUM LASER P2509W GRIS WIFI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16414,20 +13431,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0747",
-    "sku": "MP-HDW-065",
     "name": "IMPRESORA BROTHER LASER HL-1212W WIFI",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "IMPRESORA BROTHER LASER HL-1212W WIFI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16436,20 +13449,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNbjfFkzxIy21iUE0-WSjX2UYcrOB3amNbXRrihe950m74wqorvOGTqQR4NbED4LyD9ZxlO62OnkE-rMArN18_exqpgIVxnPufTc0Qib495TtS6uKw=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0748",
-    "sku": "MP-HDW-066",
     "name": "IMPRESORA BROTHER LASER HL-1200",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "IMPRESORA BROTHER LASER HL-1200. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16458,20 +13467,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczOEiZ-K5IIgprswmPYTUkY5BK8aFmO0iCkfy5np8wKH55FrbSfyHW_OjHMX0mVW4sgUu0Q0no4P3Pvv2rjP8mxakhxsMjal2q7Z76yv9ew3moSSSGo=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0749",
-    "sku": "MP-HDW-067",
     "name": "IMPRESORA EPSON MF L3252 SIST CONTINUO WI FI",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "IMPRESORA EPSON MF L3252 SIST CONTINUO WI FI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16480,20 +13485,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNnJQDFOhw22dEwqLgY0kWCqQxFltYHohzZnQYBDjNEX9YI3YM6iCbTCJKMppnkr1KgoRmr9nsvS6kOF4TKfCG0LFB7wsMdsPOxg-G85Z50-5NmXTQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0750",
-    "sku": "MP-HDW-068",
     "name": "IMPRESORA EPSON MULTIFUNCION L3310 SIST.CONT USB",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "IMPRESORA EPSON MULTIFUNCION L3310 SIST.CONT USB. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16502,20 +13503,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNftBkGZVM6V9COrvq3CajQM1wI2y9Pz9Qfq7RrFbWP0s3Oz_zc2DGg70SFu9xmrccaxB5As5Dx3nMIIwrN14qgMNxTDrIRgozwytT-rHGCQgDJbPdL=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0751",
-    "sku": "MP-HDW-069",
     "name": "IMPRESORA EPSON MULTIFUNCION L3350 SIST.CONT WIFI",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "IMPRESORA EPSON MULTIFUNCION L3350 SIST.CONT WIFI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16524,20 +13521,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNftBkGZVM6V9COrvq3CajQM1wI2y9Pz9Qfq7RrFbWP0s3Oz_zc2DGg70SFu9xmrccaxB5As5Dx3nMIIwrN14qgMNxTDrIRgozwytT-rHGCQgDJbPdL=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0752",
-    "sku": "MP-HDW-070",
     "name": "IMPRESORA HP MULTIFUNCION SMART TANK 580 WIRELESS",
-    "brand": "Hp",
     "category": "HARDWARE",
     "description": "IMPRESORA HP MULTIFUNCION SMART TANK 580 WIRELESS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16546,20 +13539,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczM9ycGSesQx_-C4jvjQFptHTPyQ3o3Z__-0RrOh4ZuEitgHQNZQ4HEHdvh8_JxssMWL1Fn0pi29esgkfRqzrZ2v_yJa79LeVN_R00DtfQJ1JwzJYP0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0753",
-    "sku": "MP-HDW-071",
     "name": "IMPRESORA HP MULTIFUNCION SMART TANK 520",
-    "brand": "Hp",
     "category": "HARDWARE",
     "description": "IMPRESORA HP MULTIFUNCION SMART TANK 520. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Hp",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16568,20 +13557,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPFdfmr354fLtVM-170X6nHvMbRkui_ZZ8YRcVURCd_LQ9ep6LNcZKnJVEciqK9RnJoD-rlMRCo4Gt0_UQ_dJtuY3zLGPDed6NCZxdaXTA6708Q03c=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0754",
-    "sku": "MP-HDW-072",
     "name": "MONITOR LED PERFORMANCE 19\" HDMI VGA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED PERFORMANCE 19\" HDMI VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16590,20 +13575,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPx1nXgsUSvymHV1xXCkroD5T47ANoWYMtGtxxV2ttH8Jx65UTWL7KaI1i-R2BIFd1WV1b1PYpyiuA9K-AFiRZBzpeBYo16KG5MIzOSm53p-PWI6XE=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0755",
-    "sku": "MP-HDW-073",
     "name": "MONITOR LED SOLARMAX SX19F2 18.5\" HD/HDMI/VGA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED SOLARMAX SX19F2 18.5\" HD/HDMI/VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16612,20 +13593,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 4,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMkj-VCc45Msa-22cJEOXC7QnyAPXuyRXbFXxDnGoOtnpyvz1Fh3FuoPARbnZzFzk0kslajGSHvFYq5ubfI6BcN49dIpssVsNbyPPDstvPL-OJggcQ=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0756",
-    "sku": "MP-HDW-074",
     "name": "MONITOR LED GLOBAL 21,5\" MONI-OFFICE-21,5IFHD HDMI",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED GLOBAL 21,5\" MONI-OFFICE-21,5IFHD HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16634,20 +13611,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMQjQFewzLFqkbE9WZFdeQ6iJFZV1FEFdGotw82F048fM9LkmBgLG6tIHyR1C5lsy_ULIZKlb_3pMBOdZj6g4bRAk0jj-YNMoCtUcW3TyYsfkF64_s=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0757",
-    "sku": "MP-HDW-075",
     "name": "MONITOR LED SOLARMAX SX22F2 21.5\" FHD/HDMI/VGA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED SOLARMAX SX22F2 21.5\" FHD/HDMI/VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16656,20 +13629,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://ntalnljwhogbeaorhnlr.supabase.co/storage/v1/object/public/product-images/mp-logo-placeholder.png",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0758",
-    "sku": "MP-HDW-076",
     "name": "MONITOR LED SOLARMAX SX24F2 23.6\" FHD/HDMI/VGA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED SOLARMAX SX24F2 23.6\" FHD/HDMI/VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16678,20 +13647,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP9SFsZ3hWeSKxKYZeWks0exv-JPWJz9GXAVgjRBf32zLbG5Jd1d17BB9zuGGnpf4NxFDfwTjKSsXEOEOyy3q3HJCIXigECU363zrMMfC9aeC2S1Z4=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0759",
-    "sku": "MP-HDW-077",
     "name": "MONITOR LED SOLARMAX SX27F2 27\" FHD/HDMI/VGA",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED SOLARMAX SX27F2 27\" FHD/HDMI/VGA. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16700,20 +13665,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMaN3o47-0107RnmfpEF5Lq1s9XP5PXcsI52iBWFcfrH1W3NLzBaJJ5NAaIdVizVzqvy5a8yzIdHP3e6SacoAOzE0DKoXzt7iAWPxQLk1uzdGFRry0=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0760",
-    "sku": "MP-HDW-078",
     "name": "MONITOR LED GLOBAL 27\" MONI-OFFICE-27IFHD HDMI",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED GLOBAL 27\" MONI-OFFICE-27IFHD HDMI. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16722,20 +13683,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczP2HQmQmzwkEBZtfflkUV-aXAGdHrxfYm0KMP7CWyNzVw70L-J0cWCAqe-b_HZ1NuCKAbHdtOyKkuIpCSIRxSvW_dgBr0h0ZwLI0kWkvCWYhpu3CY8=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0761",
-    "sku": "MP-HDW-079",
     "name": "MONITOR LED PHILIPS 27\" CURVO 271E1SCA/55 BLACK",
-    "brand": "Philips",
     "category": "HARDWARE",
     "description": "MONITOR LED PHILIPS 27\" CURVO 271E1SCA/55 BLACK. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Philips",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16744,20 +13701,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMWGRLVqvbXfHNnHXeYdJCPmeFNn6ZcL__1wfqKkU4fsfjVYOBU0IEFDaVViOgN-I0uP26GsBp-KXLYRVCQwkbumeX4W89eTfdDwXTPGyww4temmcc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0762",
-    "sku": "MP-HDW-080",
     "name": "MONITOR LED SOLARMAX SX49CW7B 49\"HDMI/DP/CURV/DQHD",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "MONITOR LED SOLARMAX SX49CW7B 49\"HDMI/DP/CURV/DQHD. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16766,20 +13719,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPk3UI2y-OlVTJsCwxZlrm9ypeZLrs2B0aDJD2cfuBCgCRskVGANrqGwV0L5kfLGV1zLFTs-2mu9keu8FTMbGNTPgVnhbTluGm0-yEUIskuJiSGmoc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0763",
-    "sku": "MP-HDW-081",
     "name": "PLACA DE VIDEO MSI GEFORCE GT 1030 OC 4GB/DDR4/LOWP/HDMI/PCIE",
-    "brand": "Msi",
     "category": "HARDWARE",
     "description": "PLACA DE VIDEO MSI GEFORCE GT 1030 OC 4GB/DDR4/LOWP/HDMI/PCIE. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Msi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16788,20 +13737,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 2,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczMb8s0nfafqsJCGiMf1A4O-C_XD4B6IRMGxj4Gp0kDgT9oCjMoP24q37mzmTqSJLxX4ZR8pginUpo7LTMSIvhkObB1_6M-p2vouQDCMD4gCv9J06Ds=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0764",
-    "sku": "MP-HDW-082",
     "name": "PLACA DE VIDEO MSI GEOFORCE RTX 5050 VENTUS 2X 8GB DDR6/OC",
-    "brand": "Msi",
     "category": "HARDWARE",
     "description": "PLACA DE VIDEO MSI GEOFORCE RTX 5050 VENTUS 2X 8GB DDR6/OC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Msi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16810,20 +13755,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczN1hpwoHd3M6pJsRImiZmEwdWfyvRzYw9jPRTAHVf98PWZciTxkotlkYfgDKbzL1Ep4WGQHIxZN9DchK2Sb2uZT7etZOEjibd9_ShNK02_vv-HnrbU=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0765",
-    "sku": "MP-HDW-083",
     "name": "PLACA DE VIDEO MSI GEOFORCE RTX 3050 VENTUS 2X 6GB DDR6 OC",
-    "brand": "Msi",
     "category": "HARDWARE",
     "description": "PLACA DE VIDEO MSI GEOFORCE RTX 3050 VENTUS 2X 6GB DDR6 OC. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Msi",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16832,20 +13773,16 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPoSeixZez6yV9nKWNRZ8Z-YUSDkeD13h3_kPQUIzX7kSLurNjbbeUmo4gPYLg2cYPEBU66t8UnXCUSEY-6v_rxiGLLm5P5-bcxyxoWdN5w2oKoHaY=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0766",
-    "sku": "MP-HDW-084",
     "name": "UPS FORZA NT-1002A 1000VA 4 SALIDAS",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "UPS FORZA NT-1002A 1000VA 4 SALIDAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16854,20 +13791,16 @@ export const PRODUCTS: Product[] = [
     "inStock": true,
     "stockQuantity": 1,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNgPraJFLIEqROuFz0zbSD0R2fnY3rRVlN3by82G5_euMljvA-ROkJNaJc3c2eQsPrOpOoacKo8Xpm2N8bLivi2vpQ27F398aZjxB_lekgDdLXBBGc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   },
   {
     "id": "mp_prod_0767",
-    "sku": "MP-HDW-085",
     "name": "UPS FORZA NT-752A 750VA 4 SALIDAS",
-    "brand": "Genérico",
     "category": "HARDWARE",
     "description": "UPS FORZA NT-752A 750VA 4 SALIDAS. Distribución oficial mayorista en Rosario, Santa Fe. Garantía oficial MP Distribuciones.",
     "specs": [
       "Rubro: HARDWARE",
-      "Marca: Genérico",
       "Disponibilidad Inmediata para Gremios y Revendedores",
       "Garantía oficial directa MP Distribuciones"
     ],
@@ -16876,7 +13809,6 @@ export const PRODUCTS: Product[] = [
     "inStock": false,
     "stockQuantity": 0,
     "minWholesaleQty": 1,
-    "badge": null,
     "imageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNgPraJFLIEqROuFz0zbSD0R2fnY3rRVlN3by82G5_euMljvA-ROkJNaJc3c2eQsPrOpOoacKo8Xpm2N8bLivi2vpQ27F398aZjxB_lekgDdLXBBGc=s800",
     "createdAt": "2026-11-03T20:00:00.000Z"
   }

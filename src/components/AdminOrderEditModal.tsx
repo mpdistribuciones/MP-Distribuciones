@@ -30,7 +30,6 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
   order,
   products,
   exchangeRate,
-  formatPrice,
   onSave,
   isSaving = false,
 }) => {
@@ -68,8 +67,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
       .filter(
         (p) =>
           p.name.toLowerCase().includes(q) ||
-          p.sku.toLowerCase().includes(q) ||
-          (p.brand && p.brand.toLowerCase().includes(q))
+          p.category.toLowerCase().includes(q)
       )
       .slice(0, 10);
   }, [catalogQuery, products]);
@@ -92,10 +90,10 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
 
   const handleAddProduct = (prod: Product) => {
     setItems((prev) => {
-      const existing = prev.find((it) => it.product.id === prod.id || it.product.sku === prod.sku);
+      const existing = prev.find((it) => it.product.id === prod.id || it.product.name === prod.name);
       if (existing) {
         return prev.map((it) =>
-          it.product.id === prod.id || it.product.sku === prod.sku
+          it.product.id === prod.id || it.product.name === prod.name
             ? { ...it, quantity: it.quantity + 1 }
             : it
         );
@@ -192,8 +190,9 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
                     ) : (
                       searchResults.map((prod) => {
                         const inOrder = items.find(
-                          (it) => it.product.id === prod.id || it.product.sku === prod.sku
+                          (it) => it.product.id === prod.id || it.product.name === prod.name
                         );
+                        const unitArs = prod.priceARS || Math.round(prod.priceUSD * exchangeRate);
                         return (
                           <div
                             key={prod.id}
@@ -208,20 +207,20 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
                                 />
                               ) : (
                                 <div className="w-8 h-8 rounded bg-slate-100 border border-slate-200 flex items-center justify-center text-[10px] text-slate-400 font-mono shrink-0">
-                                  {prod.sku.substring(0, 3)}
+                                  {prod.name.substring(0, 3).toUpperCase()}
                                 </div>
                               )}
                               <div className="truncate">
                                 <div className="font-bold text-slate-900 truncate">{prod.name}</div>
                                 <div className="text-[11px] text-slate-500 font-mono">
-                                  SKU: {prod.sku} • Stock: {prod.stockQuantity} un.
+                                  Stock: {prod.stockQuantity} un.
                                 </div>
                               </div>
                             </div>
 
                             <div className="flex items-center gap-3 shrink-0">
                               <span className="font-bold text-slate-800">
-                                {formatPrice(prod.priceUSD)}
+                                $ {unitArs.toLocaleString('es-AR')}
                               </span>
                               <button
                                 type="button"
@@ -269,14 +268,14 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
                         />
                       ) : (
                         <div className="w-10 h-10 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 font-bold text-[10px] shrink-0">
-                          {it.product.sku.substring(0, 3)}
+                          {it.product.name.substring(0, 3).toUpperCase()}
                         </div>
                       )}
 
                       <div className="min-w-0">
                         <div className="font-bold text-slate-900 truncate">{it.product.name}</div>
                         <div className="text-[11px] text-slate-500 font-mono">
-                          SKU: {it.product.sku} • {formatPrice(it.product.priceUSD)} c/u
+                          $ {Math.round(it.product.priceARS || it.product.priceUSD * exchangeRate).toLocaleString('es-AR')} c/u
                         </div>
                       </div>
                     </div>
@@ -314,7 +313,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
 
                       <div className="text-right min-w-[90px]">
                         <div className="font-bold text-slate-900 text-sm">
-                          {formatPrice(it.product.priceUSD * it.quantity)}
+                          $ {Math.round((it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity).toLocaleString('es-AR')}
                         </div>
                       </div>
 

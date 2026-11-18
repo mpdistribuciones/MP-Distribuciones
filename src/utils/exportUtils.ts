@@ -1,5 +1,6 @@
 import * as XLSX from 'xlsx';
 import { Product } from '../types';
+import { getProductPriceARS } from '../lib/supabase';
 
 /**
  * Neutralizes formula injection vulnerabilities (CSV/Excel injection)
@@ -21,7 +22,7 @@ const sanitizeForExport = (val: unknown): string => {
 };
 
 /**
- * Export wholesale price list in either XLSX or CSV format
+ * Export wholesale price list in either XLSX or CSV format (100% en Pesos $ ARS para el cliente)
  */
 export const exportPriceList = (
   products: Product[],
@@ -29,20 +30,13 @@ export const exportPriceList = (
   format: 'xlsx' | 'csv'
 ) => {
   const rows = products.map((p) => {
-    const priceARS =
-      p.priceCurrency === 'ARS' && p.priceARS
-        ? p.priceARS
-        : Math.round(p.priceUSD * exchangeRate);
+    const priceARS = getProductPriceARS(p, exchangeRate);
 
     return {
-      'Código SKU': sanitizeForExport(p.sku),
       'Producto': sanitizeForExport(p.name),
-      'Marca': sanitizeForExport(p.brand),
       'Rubro': sanitizeForExport(p.category),
       'Subcategoría': sanitizeForExport(p.subcategory || ''),
-      'Precio USD': Number(p.priceUSD.toFixed(2)),
-      'Precio ARS': priceARS,
-      'Moneda Base': sanitizeForExport(p.priceCurrency || 'USD'),
+      'Precio Mayorista ($ ARS)': priceARS,
       'Stock Mayorista': p.stockQuantity,
       'Estado': p.inStock ? 'En Stock' : 'Agotado',
     };
@@ -54,14 +48,10 @@ export const exportPriceList = (
   if (format === 'xlsx') {
     const ws = XLSX.utils.json_to_sheet(rows);
     ws['!cols'] = [
-      { wch: 14 }, // SKU
-      { wch: 45 }, // Producto
-      { wch: 16 }, // Marca
+      { wch: 48 }, // Producto
       { wch: 34 }, // Rubro
       { wch: 22 }, // Subcategoría
-      { wch: 14 }, // Precio USD
-      { wch: 22 }, // Precio ARS
-      { wch: 14 }, // Moneda Base
+      { wch: 24 }, // Precio ARS
       { wch: 18 }, // Stock
       { wch: 14 }, // Estado
     ];
@@ -84,7 +74,7 @@ export const exportPriceList = (
 };
 
 /**
- * Export inventory / stock catalog in either XLSX or CSV format
+ * Export inventory / stock catalog in either XLSX or CSV format (Solo Admin)
  */
 export const exportStockCatalog = (
   products: Product[],
@@ -92,31 +82,34 @@ export const exportStockCatalog = (
   format: 'xlsx' | 'csv'
 ) => {
   const rows = products.map((p) => {
-    const priceARS =
-      p.priceCurrency === 'ARS' && p.priceARS
-        ? p.priceARS
-        : Math.round(p.priceUSD * exchangeRate);
-
+    const priceARS = getProductPriceARS(p, exchangeRate);
     const margin = p.profitMargin != null ? p.profitMargin : 15;
-    const costUSD = p.costUSD != null ? p.costUSD : (p.priceUSD > 0 ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2)) : 0);
-    const costARS = p.costARS != null ? p.costARS : (p.priceARS ? Math.round(p.priceARS / (1 + margin / 100)) : Math.round(costUSD * exchangeRate));
+    const costUSD =
+      p.costUSD != null
+        ? p.costUSD
+        : p.priceUSD > 0
+        ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2))
+        : 0;
+    const costARS =
+      p.costARS != null
+        ? p.costARS
+        : p.priceARS
+        ? Math.round(p.priceARS / (1 + margin / 100))
+        : Math.round(costUSD * exchangeRate);
 
     return {
       id: sanitizeForExport(p.id),
-      sku: sanitizeForExport(p.sku),
       name: sanitizeForExport(p.name),
-      brand: sanitizeForExport(p.brand),
       category: sanitizeForExport(p.category),
       subcategory: sanitizeForExport(p.subcategory || ''),
+      costCurrency: sanitizeForExport(p.priceCurrency || 'USD'),
+      dollarRateKey: sanitizeForExport(p.dollarRateKey || 'dolar1'),
       costUSD,
       costARS,
       profitMargin: margin,
-      priceUSD: p.priceUSD,
-      priceARS: priceARS,
-      priceCurrency: sanitizeForExport(p.priceCurrency || 'USD'),
+      priceARS,
       stockQuantity: p.stockQuantity,
       inStock: p.inStock ? 'true' : 'false',
-      badge: sanitizeForExport(p.badge || ''),
       imageUrl: sanitizeForExport(p.imageUrl),
       description: sanitizeForExport(p.description || ''),
     };
@@ -129,17 +122,17 @@ export const exportStockCatalog = (
     const ws = XLSX.utils.json_to_sheet(rows);
     ws['!cols'] = [
       { wch: 18 }, // id
-      { wch: 14 }, // sku
-      { wch: 45 }, // name
-      { wch: 16 }, // brand
+      { wch: 48 }, // name
       { wch: 34 }, // category
       { wch: 22 }, // subcategory
-      { wch: 12 }, // priceUSD
-      { wch: 12 }, // priceARS
-      { wch: 14 }, // priceCurrency
+      { wch: 14 }, // costCurrency
+      { wch: 14 }, // dollarRateKey
+      { wch: 12 }, // costUSD
+      { wch: 14 }, // costARS
+      { wch: 14 }, // profitMargin
+      { wch: 16 }, // priceARS
       { wch: 14 }, // stockQuantity
       { wch: 10 }, // inStock
-      { wch: 14 }, // badge
       { wch: 35 }, // imageUrl
       { wch: 50 }, // description
     ];

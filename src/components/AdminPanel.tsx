@@ -52,6 +52,7 @@ export const AdminPanel: React.FC = () => {
     replaceProducts,
     resetProductsToDefault,
     exchangeRate,
+    dollarRates,
     openExchangeRateModal,
     setIsAdminView,
     logoutAdmin,
@@ -77,13 +78,13 @@ export const AdminPanel: React.FC = () => {
   // Search & Filter state for the table
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('ALL');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'in_stock' | 'out_of_stock' | 'outlet' | 'currency_ars' | 'currency_usd'>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'in_stock' | 'out_of_stock' | 'currency_ars' | 'currency_usd'>('all');
 
   // Pagination & Sorting state
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number | 'all'>(50);
   const [sortBy, setSortBy] = useState<
-    'default' | 'name_asc' | 'name_desc' | 'price_asc' | 'price_desc' | 'stock_asc' | 'stock_desc' | 'sku_asc'
+    'default' | 'name_asc' | 'name_desc' | 'price_asc' | 'price_desc' | 'stock_asc' | 'stock_desc'
   >('default');
   const tableTopRef = useRef<HTMLDivElement>(null);
 
@@ -94,7 +95,7 @@ export const AdminPanel: React.FC = () => {
   const [isStockEntryModalOpen, setIsStockEntryModalOpen] = useState(false);
   const [isAdjustmentModalOpen, setIsAdjustmentModalOpen] = useState(false);
   const [adjustmentPercentage, setAdjustmentPercentage] = useState<number>(5);
-  const [priceDisplayMode, setPriceDisplayMode] = useState<'AUTO' | 'ARS' | 'USD'>('AUTO');
+  const priceDisplayMode: 'ARS' = 'ARS';
   const [isSupabaseModalOpen, setIsSupabaseModalOpen] = useState(false);
 
   // File upload ref for CSV / XLSX import
@@ -121,8 +122,10 @@ export const AdminPanel: React.FC = () => {
   const totalProducts = products.length;
   const inStockCount = products.filter((p) => p.stockQuantity > 0).length;
   const outOfStockCount = totalProducts - inStockCount;
-  const totalInventoryUSD = products.reduce((acc, p) => acc + p.priceUSD * p.stockQuantity, 0);
-  const totalInventoryARS = totalInventoryUSD * exchangeRate;
+  const totalInventoryARS = products.reduce(
+    (acc, p) => acc + (p.priceARS || Math.round(p.priceUSD * exchangeRate)) * p.stockQuantity,
+    0
+  );
 
   // Filtered and sorted products list (evaluated over full catalog)
   const filteredProducts = useMemo(() => {
@@ -134,7 +137,6 @@ export const AdminPanel: React.FC = () => {
       // Status & Currency filter
       if (statusFilter === 'in_stock' && p.stockQuantity <= 0) return false;
       if (statusFilter === 'out_of_stock' && p.stockQuantity > 0) return false;
-      if (statusFilter === 'outlet' && p.badge !== 'OFERTA' && p.badge !== 'MÁS VENDIDO') return false;
       if (statusFilter === 'currency_ars' && p.priceCurrency !== 'ARS') return false;
       if (statusFilter === 'currency_usd' && p.priceCurrency === 'ARS') return false;
 
@@ -143,9 +145,8 @@ export const AdminPanel: React.FC = () => {
         const q = searchTerm.toLowerCase().trim();
         return (
           p.name.toLowerCase().includes(q) ||
-          p.sku.toLowerCase().includes(q) ||
-          p.brand.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q)
+          p.category.toLowerCase().includes(q) ||
+          Boolean(p.subcategory && p.subcategory.toLowerCase().includes(q))
         );
       }
       return true;
@@ -161,10 +162,18 @@ export const AdminPanel: React.FC = () => {
           sorted.sort((a, b) => b.name.localeCompare(a.name, 'es', { sensitivity: 'base' }));
           break;
         case 'price_asc':
-          sorted.sort((a, b) => a.priceUSD - b.priceUSD);
+          sorted.sort(
+            (a, b) =>
+              (a.priceARS || a.priceUSD * exchangeRate) -
+              (b.priceARS || b.priceUSD * exchangeRate)
+          );
           break;
         case 'price_desc':
-          sorted.sort((a, b) => b.priceUSD - a.priceUSD);
+          sorted.sort(
+            (a, b) =>
+              (b.priceARS || b.priceUSD * exchangeRate) -
+              (a.priceARS || a.priceUSD * exchangeRate)
+          );
           break;
         case 'stock_asc':
           sorted.sort((a, b) => a.stockQuantity - b.stockQuantity);
@@ -172,15 +181,12 @@ export const AdminPanel: React.FC = () => {
         case 'stock_desc':
           sorted.sort((a, b) => b.stockQuantity - a.stockQuantity);
           break;
-        case 'sku_asc':
-          sorted.sort((a, b) => a.sku.localeCompare(b.sku, 'es', { numeric: true }));
-          break;
       }
       return sorted;
     }
 
     return list;
-  }, [products, categoryFilter, statusFilter, searchTerm, sortBy]);
+  }, [products, categoryFilter, statusFilter, searchTerm, sortBy, exchangeRate]);
 
   // Pagination calculations
   const totalItems = filteredProducts.length;
@@ -269,22 +275,21 @@ export const AdminPanel: React.FC = () => {
           return rowKeys.find((k) => candidates.includes(k.trim().toLowerCase()));
         };
 
-        const skuKey = findKey(['sku', 'código sku', 'codigo sku', 'código', 'codigo', 'id']);
+        const idKey = findKey(['id', 'sku', 'código sku', 'codigo sku', 'código', 'codigo']);
         const nameKey = findKey(['name', 'nombre', 'producto', 'artículo', 'articulo', 'nombre del producto']);
 
-        if (!skuKey || !nameKey) {
-          showToast('El archivo debe contener al menos las columnas "sku" y "name" (o Producto).', 'error');
+        if (!nameKey) {
+          showToast('El archivo debe contener la columna "name" o "Producto".', 'error');
           return;
         }
 
-        const brandKey = findKey(['brand', 'marca']);
         const categoryKey = findKey(['category', 'rubro', 'categoría', 'categoria']);
         const subcategoryKey = findKey(['subcategory', 'subrubro', 'subcategoría', 'subcategoria']);
         const priceUsdKey = findKey(['priceusd', 'precio usd', 'precio u$s', 'usd']);
-        const priceArsKey = findKey(['pricears', 'precio ars', 'precio pesos', 'ars']);
-        const priceCurrencyKey = findKey(['pricecurrency', 'moneda', 'moneda base']);
+        const priceArsKey = findKey(['pricears', 'precio ars', 'precio pesos', 'ars', 'precio mayorista ($ ars)']);
+        const priceCurrencyKey = findKey(['pricecurrency', 'costcurrency', 'moneda', 'moneda base']);
+        const dollarRateKeyCol = findKey(['dollarratekey', 'dolar', 'dólar']);
         const stockKey = findKey(['stockquantity', 'stock', 'cantidad', 'stock mayorista', 'stock disponible']);
-        const badgeKey = findKey(['badge', 'etiqueta']);
         const imageKey = findKey(['imageurl', 'imagen', 'foto', 'url foto']);
         const descKey = findKey(['description', 'descripción', 'descripcion']);
 
@@ -297,14 +302,23 @@ export const AdminPanel: React.FC = () => {
         let createdCount = 0;
 
         for (const row of rawRows) {
-          const rowSku = String(row[skuKey] || '').trim();
+          const rowId = idKey ? String(row[idKey] || '').trim() : '';
           const rowName = String(row[nameKey] || '').trim();
-          if (!rowSku || !rowName) continue;
+          if (!rowName) continue;
 
           // Parse currency & prices
           const rawCurrency = priceCurrencyKey ? String(row[priceCurrencyKey] || '').toUpperCase() : '';
           const rowPriceCurrency: 'USD' | 'ARS' =
             rawCurrency.includes('ARS') || rawCurrency.includes('PESO') ? 'ARS' : 'USD';
+
+          const rawDollarKey = dollarRateKeyCol ? String(row[dollarRateKeyCol] || '').trim().toLowerCase() : 'dolar1';
+          const rowDollarKey =
+            rawDollarKey === 'dolar2' || rawDollarKey === '2'
+              ? 'dolar2'
+              : rawDollarKey === 'dolar3' || rawDollarKey === '3'
+              ? 'dolar3'
+              : 'dolar1';
+          const rateForRow = dollarRates[rowDollarKey]?.rate || exchangeRate;
 
           let rowPriceUSD = 10;
           let rowPriceARS: number | undefined = undefined;
@@ -324,37 +338,38 @@ export const AdminPanel: React.FC = () => {
           }
 
           if (rowPriceCurrency === 'ARS' && rowPriceARS) {
-            rowPriceUSD = Number((rowPriceARS / exchangeRate).toFixed(2));
+            rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
           } else if (!rowPriceARS && rowPriceUSD) {
-            rowPriceARS = Math.round(rowPriceUSD * exchangeRate);
+            rowPriceARS = Math.round(rowPriceUSD * rateForRow);
           }
 
           const rawStock = stockKey ? String(row[stockKey]) : '0';
           const rowStock = Math.max(0, parseInt(rawStock, 10) || 0);
 
-          const existingIndex = updated.findIndex((p) => p.sku.toLowerCase() === rowSku.toLowerCase());
+          const existingIndex = updated.findIndex(
+            (p) =>
+              (rowId && p.id.toLowerCase() === rowId.toLowerCase()) ||
+              p.name.trim().toLowerCase() === rowName.toLowerCase()
+          );
           if (existingIndex !== -1) {
-            // Update existing
             updated[existingIndex] = {
               ...updated[existingIndex],
               name: rowName,
               priceUSD: rowPriceUSD,
               costUSD: rowPriceUSD > 0 ? Number((rowPriceUSD / 1.15).toFixed(2)) : 0,
               priceARS: rowPriceARS,
-              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * exchangeRate),
+              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * rateForRow),
               profitMargin: 15,
               priceCurrency: rowPriceCurrency,
+              dollarRateKey: rowDollarKey,
               stockQuantity: rowStock,
               inStock: rowStock > 0,
             };
             updatedCount++;
           } else {
-            // Create new
             const newProd: Product = {
-              id: 'prod_imp_' + Date.now() + Math.random().toString(36).substring(2, 5),
-              sku: rowSku,
+              id: rowId || 'prod_imp_' + Date.now() + Math.random().toString(36).substring(2, 5),
               name: rowName,
-              brand: (brandKey && String(row[brandKey])) || 'Genérico',
               category: ((categoryKey && String(row[categoryKey])) as Category) || 'ACCESORIOS, ADAPTADORES Y CABLES',
               subcategory: (subcategoryKey && String(row[subcategoryKey])) || '',
               description: (descKey && String(row[descKey])) || rowName,
@@ -362,12 +377,12 @@ export const AdminPanel: React.FC = () => {
               priceUSD: rowPriceUSD,
               costUSD: rowPriceUSD > 0 ? Number((rowPriceUSD / 1.15).toFixed(2)) : 0,
               priceARS: rowPriceARS,
-              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * exchangeRate),
+              costARS: rowPriceARS ? Math.round(rowPriceARS / 1.15) : Math.round((rowPriceUSD / 1.15) * rateForRow),
               profitMargin: 15,
               priceCurrency: rowPriceCurrency,
+              dollarRateKey: rowDollarKey,
               stockQuantity: rowStock,
               inStock: rowStock > 0,
-              badge: (badgeKey && (row[badgeKey] as any)) || undefined,
               imageUrl:
                 (imageKey && String(row[imageKey])) ||
                 DEFAULT_PRODUCT_IMAGE,
@@ -650,10 +665,10 @@ export const AdminPanel: React.FC = () => {
             <div>
               <p className="text-xs font-semibold text-slate-500">Valor de Inventario</p>
               <h4 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">
-                u$s {Math.round(totalInventoryUSD).toLocaleString('es-AR')}
+                $ {Math.round(totalInventoryARS).toLocaleString('es-AR')}
               </h4>
               <p className="text-[10px] text-slate-500 font-mono">
-                ≈ $ {Math.round(totalInventoryARS).toLocaleString('es-AR')} ARS
+                Valuado en Pesos Argentinos ($ ARS)
               </p>
             </div>
             <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
@@ -661,20 +676,34 @@ export const AdminPanel: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 4: Exchange Rate Reference */}
-          <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
-            <div>
-              <p className="text-xs font-semibold text-slate-500">Dólar de Referencia</p>
-              <h4 className="text-2xl font-black text-blue-700 mt-0.5">${exchangeRate.toLocaleString('es-AR')} ARS</h4>
+          {/* Card 4: 3 Dollar Rates Reference */}
+          <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-between gap-2">
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-slate-500">3 Cotizaciones de Dólar (Admin)</p>
+              <div className="grid grid-cols-3 gap-1.5 mt-1">
+                {(['dolar1', 'dolar2', 'dolar3'] as const).map((k) => (
+                  <div
+                    key={k}
+                    className="px-2 py-1 rounded-lg bg-blue-50/80 border border-blue-100 text-left"
+                  >
+                    <div className="text-[9px] font-bold text-slate-500 truncate">
+                      {dollarRates[k].label}
+                    </div>
+                    <div className="text-xs font-mono font-black text-blue-700">
+                      ${dollarRates[k].rate.toLocaleString('es-AR')}
+                    </div>
+                  </div>
+                ))}
+              </div>
               <button
                 onClick={openExchangeRateModal}
-                className="text-[11px] text-blue-600 hover:text-blue-800 font-bold underline cursor-pointer"
+                className="mt-1.5 text-[11px] text-blue-600 hover:text-blue-800 font-bold underline cursor-pointer"
               >
-                Ajustar cotización global
+                Configurar los 3 dólares
               </button>
             </div>
-            <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-              <TrendingUp className="w-6 h-6" />
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <TrendingUp className="w-5 h-5" />
             </div>
           </div>
         </div>
@@ -819,7 +848,7 @@ export const AdminPanel: React.FC = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Buscar por código SKU, producto o marca..."
+                placeholder="Buscar por nombre del producto o rubro..."
                 className="w-full pl-10 pr-9 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 placeholder-slate-400 outline-none"
               />
               {searchTerm && (
@@ -957,7 +986,6 @@ export const AdminPanel: React.FC = () => {
                   <option value="price_desc">Precio: Mayor a Menor</option>
                   <option value="stock_asc">Stock: Menor a Mayor</option>
                   <option value="stock_desc">Stock: Mayor a Menor</option>
-                  <option value="sku_asc">Código SKU</option>
                 </select>
               </div>
 
@@ -991,54 +1019,11 @@ export const AdminPanel: React.FC = () => {
             <thead>
               <tr className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase font-black text-[10px] tracking-wider">
                 <th className="p-3 text-center w-14">Foto</th>
-                <th className="p-3 w-32">SKU / Marca</th>
                 <th className="p-3">Nombre del Producto & Rubro</th>
                 <th className="p-3 w-36 text-center">Stock Actual</th>
-                <th className="p-3 w-36 text-right">Costo</th>
-                <th className="p-3 w-28 text-center">% Ganancia</th>
-                <th className="p-3 w-56 text-right">
-                  <div className="flex items-center justify-end gap-1.5">
-                    <span>Precio</span>
-                    <div className="inline-flex rounded-lg bg-slate-200 p-0.5 text-[9px] font-bold">
-                      <button
-                        type="button"
-                        onClick={() => setPriceDisplayMode('AUTO')}
-                        className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
-                          priceDisplayMode === 'AUTO'
-                            ? 'bg-blue-600 text-white font-black shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                        title="Ver cada producto en su moneda guardada (Pesos o Dólares)"
-                      >
-                        Auto
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setPriceDisplayMode('ARS')}
-                        className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
-                          priceDisplayMode === 'ARS'
-                            ? 'bg-emerald-600 text-white font-black shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                        title="Ver todos en Pesos Argentinos"
-                      >
-                        ARS ($)
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setPriceDisplayMode('USD')}
-                        className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
-                          priceDisplayMode === 'USD'
-                            ? 'bg-blue-600 text-white font-black shadow-xs'
-                            : 'text-slate-600 hover:text-slate-900'
-                        }`}
-                        title="Ver todos en Dólares USD"
-                      >
-                        USD (u$s)
-                      </button>
-                    </div>
-                  </div>
-                </th>
+                <th className="p-3 w-44 text-right">Costo & Dólar</th>
+                <th className="p-3 w-28 text-center">% Puntual</th>
+                <th className="p-3 w-44 text-right">Precio Cliente ($ ARS)</th>
                 <th className="p-3 w-28 text-center">Estado</th>
                 <th className="p-3 text-center w-24">Acciones</th>
               </tr>
@@ -1050,6 +1035,7 @@ export const AdminPanel: React.FC = () => {
                     key={p.id}
                     product={p}
                     exchangeRate={exchangeRate}
+                    dollarRates={dollarRates}
                     priceDisplayMode={priceDisplayMode}
                     onUpdateStock={updateStock}
                     onUpdateFinancials={updateProductFinancials}
@@ -1060,7 +1046,7 @@ export const AdminPanel: React.FC = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={9} className="p-8 text-center text-slate-500">
+                  <td colSpan={8} className="p-8 text-center text-slate-500">
                     No se encontraron productos coincidentes con los filtros seleccionados.
                   </td>
                 </tr>

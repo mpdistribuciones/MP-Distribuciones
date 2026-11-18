@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export const HeroBanner: React.FC = () => {
-  const { user, openAuthModal, currency } = useApp();
+  const { user, openAuthModal } = useApp();
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-mp-dark via-mp-card to-mp-bg border-b border-mp-cardBorder/60 py-8 md:py-12 px-4">
@@ -127,7 +127,7 @@ export const HeroBanner: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-between py-1 border-b border-white/5">
                   <span className="text-slate-400">Moneda en pantalla:</span>
-                  <span className="font-bold text-white">{currency === 'ARS' ? 'Pesos ($ ARS)' : 'Dólares (u$s USD)'}</span>
+                  <span className="font-bold text-white">Pesos Argentinos ($ ARS)</span>
                 </div>
                 <div className="flex items-center justify-between py-1 border-b border-white/5">
                   <span className="text-slate-400">Dirección de retiro:</span>

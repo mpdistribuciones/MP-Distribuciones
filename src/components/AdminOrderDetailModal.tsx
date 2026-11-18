@@ -47,7 +47,7 @@ export const getConfirmationWaLink = (order: Order, _exchangeRate?: number): str
   const customerName = order.buyerName || order.userBusinessName || 'Cliente';
 
   const itemsSummary = order.items
-    .map((it) => `• ${it.quantity}x ${it.product.name} (SKU: ${it.product.sku})`)
+    .map((it) => `• ${it.quantity}x ${it.product.name}`)
     .join('\n');
 
   const message =
@@ -69,7 +69,6 @@ export const AdminOrderDetailModal: React.FC<AdminOrderDetailModalProps> = ({
   onCancel,
   onEdit,
   isProcessing = false,
-  formatPrice,
   exchangeRate,
 }) => {
   if (!isOpen || !order) return null;
@@ -92,7 +91,7 @@ export const AdminOrderDetailModal: React.FC<AdminOrderDetailModalProps> = ({
   // Calculate live stock status for items
   const itemStockAnalysis = order.items.map((it) => {
     const liveProd = products.find(
-      (p) => p.id === it.product.id || p.sku === it.product.sku
+      (p) => p.id === it.product.id || p.name === it.product.name
     );
     const available = liveProd?.stockQuantity ?? 0;
     const hasEnough = available >= it.quantity;
@@ -291,16 +290,17 @@ export const AdminOrderDetailModal: React.FC<AdminOrderDetailModalProps> = ({
                       />
                     ) : (
                       <div className="w-12 h-12 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 font-bold text-[11px] shrink-0">
-                        {it.product.sku.substring(0, 4)}
+                        {it.product.name.substring(0, 3).toUpperCase()}
                       </div>
                     )}
 
                     <div>
                       <div className="font-bold text-slate-900 text-sm">{it.product.name}</div>
-                      <div className="text-slate-400 font-mono text-[11px] mt-0.5">
-                        SKU: <strong className="text-slate-600">{it.product.sku}</strong>
-                        {it.product.brand && ` • Marca: ${it.product.brand}`}
-                      </div>
+                      {it.product.category && (
+                        <div className="text-slate-400 text-[11px] mt-0.5">
+                          Rubro: <strong className="text-slate-600">{it.product.category}</strong>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -326,10 +326,12 @@ export const AdminOrderDetailModal: React.FC<AdminOrderDetailModalProps> = ({
 
                     <div>
                       <div className="font-bold text-slate-900 text-sm">
-                        {it.quantity} un. × {formatPrice(it.product.priceUSD)}
+                        {it.quantity} un. × ${' '}
+                        {Math.round(it.product.priceARS || it.product.priceUSD * exchangeRate).toLocaleString('es-AR')}
                       </div>
                       <div className="text-[11px] text-slate-500 font-medium">
-                        Subtotal: {formatPrice(it.product.priceUSD * it.quantity)}
+                        Subtotal: ${' '}
+                        {Math.round((it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity).toLocaleString('es-AR')}
                       </div>
                     </div>
                   </div>

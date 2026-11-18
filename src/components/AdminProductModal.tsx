@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Product, Category } from '../types';
+import { Product, Category, DollarRateKey } from '../types';
 import { useApp } from '../context/AppContext';
 import { isSupabaseConfigured, uploadProductImage } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
@@ -12,7 +12,6 @@ import {
   Tag,
   DollarSign,
   Boxes,
-  Barcode,
   Camera,
   Trash2,
   Loader2,
@@ -31,11 +30,9 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   productToEdit,
   initialValues,
 }) => {
-  const { addProduct, updateProduct, exchangeRate, categories, addCategory } = useApp();
+  const { addProduct, updateProduct, dollarRates, categories, addCategory } = useApp();
 
-  const [sku, setSku] = useState('');
   const [name, setName] = useState('');
-  const [brand, setBrand] = useState('');
   const [category, setCategory] = useState<Category>('NOTEBOOKS');
   const [isCreatingCategory, setIsCreatingCategory] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState('');
@@ -43,124 +40,161 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [description, setDescription] = useState('');
   const [specsText, setSpecsText] = useState('');
   const [priceCurrency, setPriceCurrency] = useState<'USD' | 'ARS'>('USD');
-  const [priceInput, setPriceInput] = useState<number>(0);
+  const [dollarRateKey, setDollarRateKey] = useState<DollarRateKey>('dolar1');
   const [costInput, setCostInput] = useState<number>(0);
   const [profitMarginInput, setProfitMarginInput] = useState<number>(15);
+  const [priceArsInput, setPriceArsInput] = useState<number>(0);
   const [stockQuantity, setStockQuantity] = useState<number>(0);
   const [minWholesaleQty, setMinWholesaleQty] = useState<number>(1);
-  const [badge, setBadge] = useState<'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO' | ''>('');
   const [imageUrl, setImageUrl] = useState('');
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const imageFileInputRef = useRef<HTMLInputElement>(null);
 
+  const getRateByKey = (key: DollarRateKey) =>
+    dollarRates[key]?.rate || dollarRates.dolar1.rate || 1350;
+
+  const activeRate = getRateByKey(dollarRateKey);
+
   useEffect(() => {
     if (productToEdit) {
-      setSku(productToEdit.sku);
       setName(productToEdit.name);
-      setBrand(productToEdit.brand);
       setCategory(productToEdit.category);
       setSubcategory(productToEdit.subcategory || '');
       setDescription(productToEdit.description);
       setSpecsText(productToEdit.specs ? productToEdit.specs.join('\n') : '');
       setStockQuantity(productToEdit.stockQuantity);
       setMinWholesaleQty(productToEdit.minWholesaleQty || 1);
-      setBadge(productToEdit.badge || '');
       setImageUrl(productToEdit.imageUrl);
 
       const margin = productToEdit.profitMargin != null ? productToEdit.profitMargin : 15;
       setProfitMarginInput(margin);
 
+      const dKey: DollarRateKey =
+        productToEdit.dollarRateKey === 'dolar2' || productToEdit.dollarRateKey === 'dolar3'
+          ? productToEdit.dollarRateKey
+          : 'dolar1';
+      setDollarRateKey(dKey);
+      const rate = getRateByKey(dKey);
+
       if (productToEdit.priceCurrency === 'ARS') {
         setPriceCurrency('ARS');
-        const priceARS = productToEdit.priceARS || Math.round(productToEdit.priceUSD * exchangeRate);
-        const costARS = productToEdit.costARS != null
-          ? productToEdit.costARS
-          : (productToEdit.costUSD != null
-              ? Math.round(productToEdit.costUSD * exchangeRate)
-              : Math.round(priceARS / (1 + margin / 100)));
-        setPriceInput(priceARS);
+        const priceARS =
+          productToEdit.priceARS || Math.round(productToEdit.priceUSD * rate);
+        const costARS =
+          productToEdit.costARS != null
+            ? productToEdit.costARS
+            : productToEdit.costUSD != null
+            ? Math.round(productToEdit.costUSD * rate)
+            : Math.round(priceARS / (1 + margin / 100));
         setCostInput(costARS);
+        setPriceArsInput(priceARS);
       } else {
         setPriceCurrency('USD');
         const priceUSD = productToEdit.priceUSD;
-        const costUSD = productToEdit.costUSD != null
-          ? productToEdit.costUSD
-          : (priceUSD > 0 ? Number((priceUSD / (1 + margin / 100)).toFixed(2)) : 0);
-        setPriceInput(priceUSD);
+        const costUSD =
+          productToEdit.costUSD != null
+            ? productToEdit.costUSD
+            : priceUSD > 0
+            ? Number((priceUSD / (1 + margin / 100)).toFixed(2))
+            : 0;
+        const priceARS =
+          productToEdit.priceARS || Math.round(costUSD * rate * (1 + margin / 100));
         setCostInput(costUSD);
+        setPriceArsInput(priceARS);
       }
     } else {
-      // Defaults for new product (support prefilled values from quick stock entry search)
-      const randomCode = Math.floor(1000 + Math.random() * 9000);
-      const prefillQuery = (initialValues?.name || initialValues?.sku || '').trim();
-      const isSkuPattern = prefillQuery && /^[A-Z0-9\-_]{3,15}$/i.test(prefillQuery);
-
-      setSku(initialValues?.sku || (isSkuPattern ? prefillQuery.toUpperCase() : `MP-${randomCode}`));
-      setName(initialValues?.name && !isSkuPattern ? prefillQuery : (initialValues?.name || ''));
-      setBrand(initialValues?.brand || '');
+      const prefillName = (initialValues?.name || '').trim();
+      setName(prefillName);
       setCategory((initialValues?.category as Category) || 'ACCESORIOS, ADAPTADORES Y CABLES');
       setSubcategory(initialValues?.subcategory || '');
       setDescription(initialValues?.description || '');
       setSpecsText('');
+
       const defaultCurrency = initialValues?.priceCurrency || 'USD';
       setPriceCurrency(defaultCurrency);
-      setProfitMarginInput(initialValues?.profitMargin ?? 15);
+      const defaultKey: DollarRateKey = initialValues?.dollarRateKey || 'dolar1';
+      setDollarRateKey(defaultKey);
+      const rate = getRateByKey(defaultKey);
+      const defaultMargin = initialValues?.profitMargin ?? 15;
+      setProfitMarginInput(defaultMargin);
 
       if (defaultCurrency === 'USD') {
-        const defaultCost = initialValues?.costUSD != null
-          ? initialValues.costUSD
-          : (initialValues?.costARS != null ? Number((initialValues.costARS / exchangeRate).toFixed(2)) : 0);
-        setCostInput(defaultCost);
-        const defaultPrice = initialValues?.priceUSD != null
-          ? initialValues.priceUSD
-          : (initialValues?.priceARS != null
-              ? Number((initialValues.priceARS / exchangeRate).toFixed(2))
-              : (defaultCost > 0 ? Number((defaultCost * 1.15).toFixed(2)) : 0));
-        setPriceInput(defaultPrice);
+        const defaultCostUSD =
+          initialValues?.costUSD != null
+            ? initialValues.costUSD
+            : initialValues?.costARS != null
+            ? Number((initialValues.costARS / rate).toFixed(2))
+            : 0;
+        setCostInput(defaultCostUSD);
+        const defaultPriceARS =
+          initialValues?.priceARS != null
+            ? initialValues.priceARS
+            : defaultCostUSD > 0
+            ? Math.round(defaultCostUSD * rate * (1 + defaultMargin / 100))
+            : 0;
+        setPriceArsInput(defaultPriceARS);
       } else {
-        const defaultCost = initialValues?.costARS != null
-          ? initialValues.costARS
-          : (initialValues?.costUSD != null ? Math.round(initialValues.costUSD * exchangeRate) : 0);
-        setCostInput(defaultCost);
-        const defaultPrice = initialValues?.priceARS != null
-          ? initialValues.priceARS
-          : (initialValues?.priceUSD != null
-              ? Math.round(initialValues.priceUSD * exchangeRate)
-              : (defaultCost > 0 ? Math.round(defaultCost * 1.15) : 0));
-        setPriceInput(defaultPrice);
+        const defaultCostARS =
+          initialValues?.costARS != null
+            ? initialValues.costARS
+            : initialValues?.costUSD != null
+            ? Math.round(initialValues.costUSD * rate)
+            : 0;
+        setCostInput(defaultCostARS);
+        const defaultPriceARS =
+          initialValues?.priceARS != null
+            ? initialValues.priceARS
+            : defaultCostARS > 0
+            ? Math.round(defaultCostARS * (1 + defaultMargin / 100))
+            : 0;
+        setPriceArsInput(defaultPriceARS);
       }
       setStockQuantity(initialValues?.stockQuantity ?? 0);
       setMinWholesaleQty(initialValues?.minWholesaleQty || 1);
-      setBadge(initialValues?.badge || '');
       setImageUrl(initialValues?.imageUrl || '');
     }
-  }, [productToEdit, initialValues, isOpen, exchangeRate]);
+  }, [productToEdit, initialValues, isOpen, dollarRates]);
 
-  // Manejo de Costo, Margen y Precio sin bucles de estado
+  // Manejo de Costo, Dólar Asignado, Porcentaje Puntual y Precio Final en Pesos
   const handleCostChange = (newCost: number) => {
     const safeCost = Math.max(0, newCost);
     setCostInput(safeCost);
     const factor = 1 + profitMarginInput / 100;
-    const calculatedPrice = priceCurrency === 'USD'
-      ? Number((safeCost * factor).toFixed(2))
-      : Math.round(safeCost * factor);
-    setPriceInput(calculatedPrice);
+    const calculatedArs =
+      priceCurrency === 'USD'
+        ? Math.round(safeCost * activeRate * factor)
+        : Math.round(safeCost * factor);
+    setPriceArsInput(calculatedArs);
   };
 
   const handleProfitMarginChange = (newMargin: number) => {
     setProfitMarginInput(newMargin);
     const factor = 1 + newMargin / 100;
-    const calculatedPrice = priceCurrency === 'USD'
-      ? Number((costInput * factor).toFixed(2))
-      : Math.round(costInput * factor);
-    setPriceInput(calculatedPrice);
+    const calculatedArs =
+      priceCurrency === 'USD'
+        ? Math.round(costInput * activeRate * factor)
+        : Math.round(costInput * factor);
+    setPriceArsInput(calculatedArs);
   };
 
-  const handlePriceChange = (newPrice: number) => {
-    const safePrice = Math.max(0, newPrice);
-    setPriceInput(safePrice);
-    if (costInput > 0) {
-      const calculatedMargin = Number((((safePrice - costInput) / costInput) * 100).toFixed(2));
+  const handleDollarRateSelect = (newKey: DollarRateKey) => {
+    setDollarRateKey(newKey);
+    const rate = getRateByKey(newKey);
+    if (priceCurrency === 'USD') {
+      const factor = 1 + profitMarginInput / 100;
+      setPriceArsInput(Math.round(costInput * rate * factor));
+    }
+  };
+
+  const handlePriceArsChange = (newPriceArs: number) => {
+    const safePriceArs = Math.max(0, Math.round(newPriceArs));
+    setPriceArsInput(safePriceArs);
+    const baseCostArs =
+      priceCurrency === 'USD' ? costInput * activeRate : costInput;
+    if (baseCostArs > 0) {
+      const calculatedMargin = Number(
+        (((safePriceArs - baseCostArs) / baseCostArs) * 100).toFixed(2)
+      );
       setProfitMarginInput(calculatedMargin);
     } else {
       setProfitMarginInput(0);
@@ -181,15 +215,15 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     if (newCurrency === priceCurrency) return;
     setPriceCurrency(newCurrency);
     if (newCurrency === 'USD') {
-      const newPriceUSD = Number((priceInput / exchangeRate).toFixed(2));
-      const newCostUSD = Number((costInput / exchangeRate).toFixed(2));
-      setPriceInput(newPriceUSD);
+      const newCostUSD = Number((costInput / activeRate).toFixed(2));
       setCostInput(newCostUSD);
+      const factor = 1 + profitMarginInput / 100;
+      setPriceArsInput(Math.round(newCostUSD * activeRate * factor));
     } else {
-      const newPriceARS = Math.round(priceInput * exchangeRate);
-      const newCostARS = Math.round(costInput * exchangeRate);
-      setPriceInput(newPriceARS);
+      const newCostARS = Math.round(costInput * activeRate);
       setCostInput(newCostARS);
+      const factor = 1 + profitMarginInput / 100;
+      setPriceArsInput(Math.round(newCostARS * factor));
     }
   };
 
@@ -201,7 +235,6 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     reader.onload = (uploadEvent) => {
       const img = new Image();
       img.onload = () => {
-        // Resize and optimize image to max 800px width/height to save quota
         const canvas = document.createElement('canvas');
         const maxDim = 800;
         let width = img.width;
@@ -220,12 +253,11 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
         const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
         setImageUrl(dataUrl);
 
-        // Si Supabase Storage está configurado, subir en segundo plano para URL pública
         if (isSupabaseConfigured()) {
           canvas.toBlob(async (blob) => {
             if (blob) {
               setIsUploadingImage(true);
-              const fileNamePrefix = sku.trim() || name.trim() || 'foto_producto';
+              const fileNamePrefix = name.trim() || 'foto_producto';
               const publicUrl = await uploadProductImage(blob, fileNamePrefix);
               setIsUploadingImage(false);
               if (publicUrl) {
@@ -245,9 +277,9 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const numericPrice = Number(priceInput) || 0;
-    if (!name.trim() || !sku.trim() || numericPrice <= 0) {
-      alert('Por favor complete el nombre, SKU y un precio válido.');
+    const numericPriceArs = Math.round(Number(priceArsInput) || 0);
+    if (!name.trim() || numericPriceArs <= 0) {
+      alert('Por favor complete el nombre del producto y un precio válido en pesos.');
       return;
     }
 
@@ -257,28 +289,30 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       .filter((s) => s.length > 0);
 
     const numericCost = Number(costInput) || 0;
+    const factor = 1 + (Number(profitMarginInput) || 0) / 100;
 
     let finalPriceUSD = 0;
-    let finalPriceARS: number | undefined = undefined;
+    let finalPriceARS = numericPriceArs;
     let finalCostUSD = 0;
-    let finalCostARS: number | undefined = undefined;
+    let finalCostARS = 0;
 
     if (priceCurrency === 'USD') {
-      finalPriceUSD = Math.max(0.01, Number(numericPrice.toFixed(2)));
-      finalPriceARS = Math.round(finalPriceUSD * exchangeRate);
       finalCostUSD = Math.max(0, Number(numericCost.toFixed(2)));
-      finalCostARS = Math.round(finalCostUSD * exchangeRate);
+      finalCostARS = Math.round(finalCostUSD * activeRate);
+      finalPriceUSD = Math.max(
+        0.01,
+        Number((finalCostUSD > 0 ? finalCostUSD * factor : finalPriceARS / activeRate).toFixed(2))
+      );
+      finalPriceARS = Math.max(1, numericPriceArs);
     } else {
-      finalPriceARS = Math.max(1, Math.round(numericPrice));
-      finalPriceUSD = Number((finalPriceARS / exchangeRate).toFixed(2));
       finalCostARS = Math.max(0, Math.round(numericCost));
-      finalCostUSD = Number((finalCostARS / exchangeRate).toFixed(2));
+      finalCostUSD = Number((finalCostARS / activeRate).toFixed(2));
+      finalPriceARS = Math.max(1, numericPriceArs);
+      finalPriceUSD = Number((finalPriceARS / activeRate).toFixed(2));
     }
 
-    const productPayload = {
-      sku: sku.trim(),
+    const productPayload: Omit<Product, 'id'> = {
       name: name.trim(),
-      brand: brand.trim() || 'Genérico',
       category,
       subcategory: subcategory.trim() || undefined,
       description: description.trim() || name.trim(),
@@ -289,10 +323,10 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       costARS: finalCostARS,
       profitMargin: Number(profitMarginInput),
       priceCurrency,
+      dollarRateKey,
       inStock: stockQuantity > 0,
       stockQuantity: Number(stockQuantity),
       minWholesaleQty: Number(minWholesaleQty) || 1,
-      badge: badge ? (badge as any) : undefined,
       imageUrl: imageUrl.trim() || DEFAULT_PRODUCT_IMAGE,
     };
 
@@ -305,6 +339,10 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     onClose();
   };
 
+  const costArsEquivalent =
+    priceCurrency === 'USD' ? Math.round(costInput * activeRate) : Math.round(costInput);
+  const profitArs = Math.round(priceArsInput - costArsEquivalent);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
       <div
@@ -313,7 +351,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -353,51 +391,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             />
           </div>
 
-          {/* Row 2: SKU, Brand, Badge */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="space-y-1">
-              <label className="font-bold text-slate-700 flex items-center gap-1.5">
-                <Barcode className="w-3.5 h-3.5 text-blue-600" />
-                <span>Código SKU *</span>
-              </label>
-              <input
-                type="text"
-                required
-                value={sku}
-                onChange={(e) => setSku(e.target.value)}
-                placeholder="CON-REP-JG0548"
-                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs font-mono font-bold text-slate-800 outline-none uppercase"
-              />
-            </div>
-
-            <div className="space-y-1">
-              <label className="font-bold text-slate-700">Marca</label>
-              <input
-                type="text"
-                value={brand}
-                onChange={(e) => setBrand(e.target.value)}
-                placeholder="Sony, Lenovo, XAEA, Genérico..."
-                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 outline-none"
-              />
-            </div>
-
-            <div className="space-y-1">
-              <label className="font-bold text-slate-700">Etiqueta Especial</label>
-              <select
-                value={badge}
-                onChange={(e) => setBadge(e.target.value as any)}
-                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 outline-none font-semibold"
-              >
-                <option value="">Ninguna</option>
-                <option value="OFERTA">🔥 OFERTA (Sección Outlet)</option>
-                <option value="MÁS VENDIDO">⭐ MÁS VENDIDO</option>
-                <option value="DESTACADO">💎 DESTACADO</option>
-                <option value="NUEVO">✨ NUEVO INGRESO</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Row 3: Category and Subcategory */}
+          {/* Row 2: Category and Subcategory */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1">
               <div className="flex items-center justify-between">
@@ -418,73 +412,69 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
               </div>
 
               {isCreatingCategory ? (
-                <div className="p-2.5 rounded-lg bg-blue-50 border border-blue-200 space-y-2 animate-fadeIn shadow-2xs">
-                  <div className="flex items-center justify-between text-[11px] font-bold text-blue-950">
-                    <span>Escribí el nombre del nuevo rubro:</span>
-                    <button
-                      type="button"
-                      onClick={() => {
+                <div className="flex items-center gap-1.5">
+                  <input
+                    type="text"
+                    value={newCategoryName}
+                    onChange={(e) => setNewCategoryName(e.target.value)}
+                    placeholder="Nombre del nuevo rubro..."
+                    autoFocus
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        handleCreateCategory();
+                      } else if (e.key === 'Escape') {
                         setIsCreatingCategory(false);
                         setNewCategoryName('');
-                      }}
-                      className="text-slate-400 hover:text-slate-600 p-0.5 rounded cursor-pointer"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                  <div className="flex gap-1.5">
-                    <input
-                      type="text"
-                      value={newCategoryName}
-                      onChange={(e) => setNewCategoryName(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          e.preventDefault();
-                          handleCreateCategory();
-                        } else if (e.key === 'Escape') {
-                          setIsCreatingCategory(false);
-                        }
-                      }}
-                      placeholder="Ej: HERRAMIENTAS, ILUMINACIÓN, IMPRESIÓN 3D..."
-                      className="flex-1 px-2.5 py-1.5 rounded-md bg-white border border-blue-300 text-xs font-bold text-slate-800 outline-none uppercase placeholder:normal-case focus:border-blue-600"
-                      autoFocus
-                    />
-                    <button
-                      type="button"
-                      onClick={() => handleCreateCategory()}
-                      disabled={!newCategoryName.trim()}
-                      className="px-3 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-xs transition-colors cursor-pointer shrink-0 shadow-xs"
-                    >
-                      Confirmar
-                    </button>
-                  </div>
+                      }
+                    }}
+                    className="flex-1 px-3 py-2 rounded-lg bg-white border-2 border-blue-500 text-xs text-slate-900 font-bold outline-none uppercase"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleCreateCategory()}
+                    className="px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs cursor-pointer shrink-0"
+                  >
+                    Crear
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCreatingCategory(false);
+                      setNewCategoryName('');
+                    }}
+                    className="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer shrink-0"
+                    title="Cancelar"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
               ) : (
                 <select
                   value={category}
                   onChange={(e) => {
-                    if (e.target.value === '__NEW__') {
+                    if (e.target.value === '__CREATE_NEW__') {
                       setIsCreatingCategory(true);
                     } else {
                       setCategory(e.target.value as Category);
                     }
                   }}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 outline-none font-medium cursor-pointer"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-600 focus:bg-white text-xs text-slate-800 outline-none font-semibold"
                 >
-                  <option value="__NEW__" className="font-bold text-blue-600 bg-blue-50">
-                    ➕ + Crear Nuevo Rubro...
-                  </option>
-                  {categories.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.shortName} ({c.name})
+                  {categories.map((cat) => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
                     </option>
                   ))}
+                  <option value="__CREATE_NEW__" className="font-bold text-blue-600 bg-blue-50">
+                    ➕ + Crear Nuevo Rubro...
+                  </option>
                 </select>
               )}
             </div>
 
             <div className="space-y-1">
-              <label className="font-bold text-slate-700">Subcategoría / Tipo</label>
+              <label className="font-bold text-slate-700">Subcategoría / Familia (Opcional)</label>
               <input
                 type="text"
                 value={subcategory}
@@ -495,40 +485,84 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             </div>
           </div>
 
-          {/* Row 4: Pricing, Cost & Profit Margin Structure */}
-          <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 space-y-3">
-            <div className="flex items-center justify-between pb-2 border-b border-blue-200/60">
+          {/* Row 3: Pricing, Cost Currency (USD/ARS), 3-Dollar Selector & Punctual Percentage */}
+          <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 space-y-3.5">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-blue-200/60">
               <div className="flex items-center gap-1.5 text-blue-950 font-bold text-xs">
                 <DollarSign className="w-4 h-4 text-blue-600" />
-                <span>Estructura de Rentabilidad (Costos y Márgenes)</span>
+                <span>Estructura de Costo, Dólar Asignado y Porcentaje Puntual</span>
               </div>
 
-              {/* Selector de moneda USD / ARS */}
-              <div className="flex items-center rounded-lg bg-blue-100 p-0.5 text-[10px] font-bold">
-                <button
-                  type="button"
-                  onClick={() => handleCurrencyToggle('USD')}
-                  className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
-                    priceCurrency === 'USD'
-                      ? 'bg-blue-600 text-white shadow-xs font-black'
-                      : 'text-blue-700 hover:text-blue-900'
-                  }`}
-                >
-                  USD (u$s)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleCurrencyToggle('ARS')}
-                  className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
-                    priceCurrency === 'ARS'
-                      ? 'bg-blue-600 text-white shadow-xs font-black'
-                      : 'text-blue-700 hover:text-blue-900'
-                  }`}
-                >
-                  ARS ($)
-                </button>
+              {/* Selector de moneda en que se carga el costo */}
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-bold text-slate-600">Cargar costo en:</span>
+                <div className="flex items-center rounded-lg bg-blue-100 p-0.5 text-[10px] font-bold">
+                  <button
+                    type="button"
+                    onClick={() => handleCurrencyToggle('USD')}
+                    className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                      priceCurrency === 'USD'
+                        ? 'bg-blue-600 text-white shadow-xs font-black'
+                        : 'text-blue-700 hover:text-blue-900'
+                    }`}
+                  >
+                    Dólares (u$s)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleCurrencyToggle('ARS')}
+                    className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                      priceCurrency === 'ARS'
+                        ? 'bg-emerald-600 text-white shadow-xs font-black'
+                        : 'text-blue-700 hover:text-blue-900'
+                    }`}
+                  >
+                    Pesos ($ ARS)
+                  </button>
+                </div>
               </div>
             </div>
+
+            {/* Selector de cuál de los 3 Dólares aplicar (cuando el costo se carga en USD) */}
+            {priceCurrency === 'USD' ? (
+              <div className="space-y-1.5">
+                <label className="text-[11px] font-bold text-slate-700 flex items-center justify-between">
+                  <span>Cotización de Dólar Asignada a este Artículo (Privado Admin):</span>
+                  <span className="text-[10px] text-blue-700 font-semibold">
+                    El cliente solo verá el precio final en Pesos ($ ARS)
+                  </span>
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {(['dolar1', 'dolar2', 'dolar3'] as DollarRateKey[]).map((key) => {
+                    const cfg = dollarRates[key];
+                    const isSelected = dollarRateKey === key;
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => handleDollarRateSelect(key)}
+                        className={`p-2 rounded-xl border text-left transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-blue-600 text-white border-blue-700 shadow-sm ring-2 ring-blue-400/30'
+                            : 'bg-white hover:bg-blue-50 text-slate-700 border-slate-200'
+                        }`}
+                      >
+                        <div className="text-[10px] font-bold uppercase opacity-90 truncate">
+                          {cfg.label}
+                        </div>
+                        <div className="text-sm font-mono font-black">
+                          $ {cfg.rate.toLocaleString('es-AR')}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <div className="px-3 py-2 rounded-lg bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-800 font-semibold">
+                ✓ Costo cargado directamente en Pesos Argentinos ($ ARS). No varía cuando cambian las cotizaciones de dólar.
+              </div>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {/* 1. Costo */}
@@ -553,16 +587,16 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 </div>
                 <p className="text-[10px] text-slate-500 font-mono">
                   {priceCurrency === 'USD'
-                    ? `≈ $ ${Math.round(costInput * exchangeRate).toLocaleString('es-AR')} ARS`
-                    : `≈ u$s ${(costInput / exchangeRate).toFixed(2)} USD`}
+                    ? `Costo en pesos: $ ${costArsEquivalent.toLocaleString('es-AR')} ARS`
+                    : `Costo directo en pesos ($ ARS)`}
                 </p>
               </div>
 
-              {/* 2. Margen de Ganancia % */}
+              {/* 2. Porcentaje Puntual % */}
               <div className="space-y-1">
                 <label className="text-[11px] font-bold text-emerald-800 flex items-center justify-between">
-                  <span>Margen Ganancia %</span>
-                  <span className="text-[10px] text-emerald-600 font-bold">Rentabilidad</span>
+                  <span>Porcentaje Puntual % *</span>
+                  <span className="text-[10px] text-emerald-600 font-bold">Margen</span>
                 </label>
                 <div className="relative">
                   <input
@@ -578,41 +612,40 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                   </span>
                 </div>
                 <p className="text-[10px] text-emerald-700 font-medium">
-                  Ganancia: {priceCurrency === 'USD' ? `u$s ${(priceInput - costInput).toFixed(2)}` : `$ ${Math.round(priceInput - costInput).toLocaleString('es-AR')}`} /un.
+                  Ganancia: $ {profitArs.toLocaleString('es-AR')} ARS /un.
                 </p>
               </div>
 
-              {/* 3. Precio de Venta Mayorista */}
+              {/* 3. Precio de Venta Final en Pesos ($ ARS) */}
               <div className="space-y-1">
                 <label className="text-[11px] font-bold text-blue-900 flex items-center justify-between">
-                  <span>Precio de Venta ({priceCurrency}) *</span>
-                  <span className="text-[10px] text-blue-600 font-bold">Público B2B</span>
+                  <span>Precio Cliente ($ ARS) *</span>
+                  <span className="text-[10px] text-blue-600 font-bold">Visible en Web</span>
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 font-mono font-bold text-blue-600">
-                    {priceCurrency === 'USD' ? 'u$s' : '$'}
+                    $
                   </span>
                   <input
                     type="number"
-                    step={priceCurrency === 'USD' ? '0.01' : '1'}
-                    min="0"
+                    step="1"
+                    min="1"
                     required
-                    value={priceInput}
-                    onChange={(e) => handlePriceChange(parseFloat(e.target.value) || 0)}
-                    className="w-full pl-9 pr-3 py-2 rounded-lg bg-white border-2 border-blue-400 focus:border-blue-600 text-sm font-mono font-black text-blue-950 outline-none shadow-xs"
+                    value={priceArsInput}
+                    onChange={(e) => handlePriceArsChange(parseFloat(e.target.value) || 0)}
+                    className="w-full pl-8 pr-3 py-2 rounded-lg bg-white border-2 border-blue-400 focus:border-blue-600 text-sm font-mono font-black text-blue-950 outline-none shadow-xs"
                   />
                 </div>
                 <p className="text-[10px] text-slate-500 font-mono">
                   {priceCurrency === 'USD'
-                    ? `≈ $ ${Math.round(priceInput * exchangeRate).toLocaleString('es-AR')} ARS`
-                    : `≈ u$s ${(priceInput / exchangeRate).toFixed(2)} USD`}
-                  <span className="text-slate-400"> (T.C. ${exchangeRate})</span>
+                    ? `Ref. Admin: u$s ${(priceArsInput / activeRate).toFixed(2)} (${dollarRates[dollarRateKey].label}: $${activeRate})`
+                    : 'Precio final fijo en Pesos ($ ARS)'}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Row 5: Stock & Mínimo */}
+          {/* Row 4: Stock & Mínimo */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
             <div className="space-y-1">
               <label className="font-bold text-xs text-slate-700 flex items-center gap-1">
@@ -673,7 +706,6 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 className="flex-1 px-3 py-2 rounded-lg bg-white border border-slate-300 focus:border-blue-600 text-xs text-slate-800 outline-none font-mono"
               />
 
-              {/* Upload or Camera Button */}
               <button
                 type="button"
                 onClick={() => imageFileInputRef.current?.click()}
@@ -693,7 +725,6 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
               />
             </div>
 
-            {/* Live Preview */}
             {imageUrl && (
               <div className="flex items-center gap-3 pt-1">
                 <div className="w-16 h-16 rounded-xl border border-slate-300 bg-white p-1.5 shrink-0 flex items-center justify-center overflow-hidden shadow-xs relative">
@@ -763,13 +794,13 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition-colors"
+              className="flex-1 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition-colors cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5"
+              className="flex-1 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <Save className="w-4 h-4" />
               <span>{productToEdit ? 'Guardar Cambios' : 'Publicar Producto en Catálogo'}</span>

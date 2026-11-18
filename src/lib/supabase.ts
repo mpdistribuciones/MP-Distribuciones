@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { Product, Order, User, UserStatus } from '../types';
+import { Product, Order, User, UserStatus, DollarRateKey } from '../types';
 import { DEFAULT_PRODUCT_IMAGE } from './constants';
 
 export { DEFAULT_PRODUCT_IMAGE };
@@ -74,6 +74,18 @@ export const clearSupabaseConfig = () => {
 };
 
 // ==========================================
+// Helper: Precio final en Pesos ($ ARS) para el cliente
+// ==========================================
+export const getProductPriceARS = (p: Partial<Product> | null | undefined, fallbackRate = 1350): number => {
+  if (!p) return 0;
+  if (typeof p.priceARS === 'number' && p.priceARS > 0) {
+    return Math.round(p.priceARS);
+  }
+  const usd = typeof p.priceUSD === 'number' && p.priceUSD > 0 ? p.priceUSD : 0;
+  return Math.round(usd * fallbackRate);
+};
+
+// ==========================================
 // Mappers: Product <-> Supabase DB Row
 // ==========================================
 export const productToDb = (p: Product) => {
@@ -82,9 +94,7 @@ export const productToDb = (p: Product) => {
 
   return {
     id: p.id,
-    sku: p.sku,
     name: p.name,
-    brand: p.brand || 'Genérico',
     category: p.category,
     subcategory: p.subcategory || null,
     description: p.description || '',
@@ -95,11 +105,32 @@ export const productToDb = (p: Product) => {
     in_stock: Boolean(p.inStock),
     stock_quantity: Math.max(0, Number(p.stockQuantity) || 0),
     min_wholesale_qty: Number(p.minWholesaleQty) || 1,
-    badge: p.badge || null,
     image_url: p.imageUrl || DEFAULT_PRODUCT_IMAGE,
     created_at: p.createdAt || new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
+};
+
+export const upsertProductsToDb = async (
+  client: SupabaseClient,
+  rows: Record<string, any> | Record<string, any>[]
+) => {
+  const payload = Array.isArray(rows) ? rows : [rows];
+  const res = await client.from('products').upsert(payload, { onConflict: 'id' });
+  if (
+    res.error &&
+    res.error.message &&
+    (res.error.message.includes('"sku"') || res.error.message.includes('"brand"'))
+  ) {
+    // Fallback automático si aún no se ejecutó el DROP COLUMN sku/brand en Supabase
+    const legacyPayload = payload.map((r) => ({
+      ...r,
+      sku: r.id,
+      brand: 'Genérico',
+    }));
+    return client.from('products').upsert(legacyPayload, { onConflict: 'id' });
+  }
+  return res;
 };
 
 export const productCostToDb = (p: Product) => {
@@ -124,11 +155,34 @@ export const productCostToDb = (p: Product) => {
     cost_usd: costUSD,
     cost_ars: costARS,
     profit_margin: margin,
+    dollar_rate_key: p.dollarRateKey || 'dolar1',
+    cost_currency: p.priceCurrency || 'USD',
     updated_at: new Date().toISOString(),
   };
 };
 
-export const dbToProduct = (row: any, costRow?: any): Product => {
+export const upsertProductCostsToDb = async (
+  client: SupabaseClient,
+  costRows: Record<string, any> | Record<string, any>[]
+) => {
+  const payload = Array.isArray(costRows) ? costRows : [costRows];
+  const res = await client.from('product_costs').upsert(payload);
+  if (
+    res.error &&
+    res.error.message &&
+    (res.error.message.includes('dollar_rate_key') || res.error.message.includes('cost_currency'))
+  ) {
+    const basicPayload = payload.map(({ dollar_rate_key, cost_currency, ...rest }) => rest);
+    return client.from('product_costs').upsert(basicPayload);
+  }
+  return res;
+};
+
+export const dbToProduct = (
+  row: any,
+  costRow?: any,
+  assignedMeta?: { dollarRateKey?: DollarRateKey; costCurrency?: 'USD' | 'ARS' }
+): Product => {
   const priceUSD = Number(row.price_usd) || 0;
   const priceARS = Number(row.price_ars) || undefined;
   const profitMargin =
@@ -150,11 +204,19 @@ export const dbToProduct = (row: any, costRow?: any): Product => {
       ? Number(row.cost_ars)
       : undefined;
 
+  const rawDollarKey = costRow?.dollar_rate_key || assignedMeta?.dollarRateKey || row.dollar_rate_key;
+  const dollarRateKey: DollarRateKey | undefined =
+    rawDollarKey === 'dolar2' || rawDollarKey === 'dolar3' || rawDollarKey === 'dolar1'
+      ? rawDollarKey
+      : costRow || assignedMeta
+      ? 'dolar1'
+      : undefined;
+
+  const rawCurrency = costRow?.cost_currency || assignedMeta?.costCurrency || row.price_currency;
+
   return {
     id: String(row.id),
-    sku: String(row.sku),
     name: String(row.name),
-    brand: String(row.brand || 'Genérico'),
     category: row.category,
     subcategory: row.subcategory || undefined,
     description: row.description || '',
@@ -164,11 +226,11 @@ export const dbToProduct = (row: any, costRow?: any): Product => {
     priceARS,
     costARS,
     profitMargin,
-    priceCurrency: row.price_currency === 'USD' ? 'USD' : 'ARS',
+    dollarRateKey,
+    priceCurrency: rawCurrency === 'ARS' ? 'ARS' : 'USD',
     inStock: Boolean(row.in_stock),
     stockQuantity: Number(row.stock_quantity) || 0,
     minWholesaleQty: Number(row.min_wholesale_qty) || 1,
-    badge: row.badge || undefined,
     imageUrl:
       row.image_url && !row.image_url.includes('unsplash.com')
         ? row.image_url

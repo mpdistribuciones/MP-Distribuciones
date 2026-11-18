@@ -119,10 +119,8 @@ export const AdminOrdersView: React.FC = () => {
         const matchesName = (o.buyerName || o.userBusinessName || '').toLowerCase().includes(q);
         const matchesCuit = (o.cuit || '').toLowerCase().includes(q);
         const matchesPhone = (o.phone || '').toLowerCase().includes(q);
-        const matchesItems = o.items.some(
-          (it) =>
-            it.product.name.toLowerCase().includes(q) ||
-            it.product.sku.toLowerCase().includes(q)
+        const matchesItems = o.items.some((it) =>
+          it.product.name.toLowerCase().includes(q)
         );
 
         return matchesNumber || matchesName || matchesCuit || matchesPhone || matchesItems;

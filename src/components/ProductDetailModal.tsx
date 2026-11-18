@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { getProductPriceARS } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
@@ -32,20 +33,9 @@ export const ProductDetailModal: React.FC = () => {
   const product = selectedProduct;
   const inCart = getItemQuantity(product.id);
 
-  // Price formatting strictly based on owner's chosen product currency
-  const isUSD = product.priceCurrency === 'USD';
-  const unitPriceARS =
-    product.priceCurrency === 'ARS' && product.priceARS
-      ? product.priceARS
-      : Math.round(product.priceUSD * exchangeRate);
-
-  const mainPriceFormatted = isUSD
-    ? `u$s ${product.priceUSD.toFixed(2)} USD`
-    : `$ ${unitPriceARS.toLocaleString('es-AR')}`;
-
-  const secondaryPriceText = isUSD
-    ? `(aprox. $ ${(product.priceUSD * exchangeRate).toLocaleString('es-AR')} ARS)`
-    : `(aprox. u$s ${(unitPriceARS / exchangeRate).toFixed(2)} USD)`;
+  // El cliente siempre ve el precio en Pesos ($ ARS)
+  const unitPriceARS = getProductPriceARS(product, exchangeRate);
+  const mainPriceFormatted = `$ ${unitPriceARS.toLocaleString('es-AR')} ARS`;
 
   const handleIncrement = () => setQuantity((q) => q + 1);
   const handleDecrement = () => setQuantity((q) => Math.max(1, q - 1));
@@ -81,13 +71,6 @@ export const ProductDetailModal: React.FC = () => {
                   e.currentTarget.src = DEFAULT_PRODUCT_IMAGE;
                 }}
               />
-              {product.badge && (
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-md text-xs font-black tracking-wider uppercase bg-blue-600 text-white shadow-md">
-                    {product.badge}
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* Quick Guarantees */}
@@ -106,24 +89,22 @@ export const ProductDetailModal: React.FC = () => {
           {/* Details & Specs */}
           <div className="space-y-4 flex flex-col justify-between">
             <div>
-              {/* Category & SKU */}
+              {/* Category */}
               <div className="flex items-center justify-between text-xs text-slate-500">
                 <span className="font-bold text-blue-600 uppercase tracking-wider">
                   {product.category}
                 </span>
-                <span className="font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200 text-slate-600">
-                  SKU: {product.sku}
-                </span>
+                {product.subcategory && (
+                  <span className="text-xs text-slate-500 font-medium">
+                    {product.subcategory}
+                  </span>
+                )}
               </div>
 
-              {/* Title & Brand */}
+              {/* Title */}
               <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-2 leading-tight">
                 {product.name.toUpperCase()}
               </h2>
-              <p className="text-xs text-slate-500 mt-1">
-                Marca: <strong className="text-slate-800">{product.brand}</strong>
-                {product.subcategory && ` • ${product.subcategory}`}
-              </p>
 
               {/* Stock Status */}
               <div className="mt-3">
@@ -181,16 +162,13 @@ export const ProductDetailModal: React.FC = () => {
                   <div className="flex items-baseline justify-between p-3 rounded-2xl bg-blue-50/60 border border-blue-200">
                     <div>
                       <span className="text-xs text-blue-700 font-bold uppercase tracking-wider">
-                        Precio Mayorista
+                        Precio Mayorista (Pesos)
                       </span>
                       <div className="text-2xl sm:text-3xl font-black text-slate-900">
                         {mainPriceFormatted}
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs font-mono text-slate-600 font-semibold">
-                        {secondaryPriceText}
-                      </span>
                       <p className="text-[10px] text-slate-400">IVA discrim. s/Factura A</p>
                     </div>
                   </div>

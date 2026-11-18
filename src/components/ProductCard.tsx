@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { useApp } from '../context/AppContext';
+import { getProductPriceARS } from '../lib/supabase';
 import { Plus, Minus, Eye, CheckCircle2, Lock } from 'lucide-react';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 
@@ -33,16 +34,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     }
   };
 
-  // Price formatting strictly based on owner's chosen product currency
-  const isUSD = product.priceCurrency === 'USD';
-  const unitPriceARS =
-    product.priceCurrency === 'ARS' && product.priceARS
-      ? product.priceARS
-      : Math.round(product.priceUSD * exchangeRate);
-
-  const formattedPrice = isUSD
-    ? `u$s ${product.priceUSD.toFixed(2)} USD`
-    : `$ ${unitPriceARS.toLocaleString('es-AR')}`;
+  // El cliente siempre ve el precio en Pesos ($ ARS)
+  const unitPriceARS = getProductPriceARS(product, exchangeRate);
+  const formattedPrice = `$ ${unitPriceARS.toLocaleString('es-AR')}`;
 
   const isSelectedInCart = cartQuantity > 0;
 
@@ -80,21 +74,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         >
           <Eye className="w-3.5 h-3.5" />
         </button>
-
-        {/* Promotional / Special Badges */}
-        {product.badge && (
-          <span
-            className={`absolute top-2 left-2 px-1.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider ${
-              product.badge === 'OFERTA'
-                ? 'bg-red-500 text-white'
-                : product.badge === 'MÁS VENDIDO'
-                ? 'bg-amber-500 text-slate-950 font-bold'
-                : 'bg-blue-600 text-white'
-            }`}
-          >
-            {product.badge}
-          </span>
-        )}
       </div>
 
       {/* Product Details */}
@@ -125,9 +104,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                   Agotado
                 </span>
               )}
-              <span className="text-[10px] text-slate-400 font-mono">
-                SKU: {product.sku}
-              </span>
             </div>
 
             {/* Large Bold Price */}
@@ -141,9 +117,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               <span className="flex items-center gap-1 font-medium">
                 <Lock className="w-3 h-3 text-slate-400" />
                 <span>Stock: 🔒 Solo clientes</span>
-              </span>
-              <span className="text-[10px] text-slate-400 font-mono">
-                SKU: {product.sku}
               </span>
             </div>
             <div className="text-xs font-bold text-blue-700 bg-blue-50/80 px-2 py-1 rounded-md border border-blue-200/60 flex items-center gap-1.5">

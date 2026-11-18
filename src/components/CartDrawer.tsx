@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { getProductPriceARS } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
@@ -19,10 +20,8 @@ export const CartDrawer: React.FC = () => {
     updateCartQuantity,
     removeFromCart,
     clearCart,
-    cartTotalUSD,
     cartTotalARS,
-    currency,
-    formatPrice,
+    exchangeRate,
     openCheckoutModal,
     user,
     openAuthModal,
@@ -30,15 +29,7 @@ export const CartDrawer: React.FC = () => {
 
   if (!isCartDrawerOpen) return null;
 
-  const currentTotalFormatted =
-    currency === 'USD'
-      ? `u$s ${cartTotalUSD.toFixed(2).replace('.', ',')}`
-      : `$ ${Math.round(cartTotalARS).toLocaleString('es-AR')}`;
-
-  const secondaryTotalFormatted =
-    currency === 'USD'
-      ? `($ ${Math.round(cartTotalARS).toLocaleString('es-AR')} ARS)`
-      : `(u$s ${cartTotalUSD.toFixed(2).replace('.', ',')} USD)`;
+  const currentTotalFormatted = `$ ${Math.round(cartTotalARS).toLocaleString('es-AR')}`;
 
   const handleCheckoutClick = () => {
     if (!user) {
@@ -109,7 +100,8 @@ export const CartDrawer: React.FC = () => {
               </div>
             ) : (
               cart.map((item) => {
-                const itemTotalUSD = item.product.priceUSD * item.quantity;
+                const unitPriceARS = getProductPriceARS(item.product, exchangeRate);
+                const itemTotalARS = unitPriceARS * item.quantity;
                 return (
                   <div key={item.product.id} className="pt-3 first:pt-0 flex gap-3 items-center">
                     <img
@@ -134,9 +126,6 @@ export const CartDrawer: React.FC = () => {
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <span className="text-[10px] text-slate-400 font-mono">
-                          SKU: {item.product.sku}
-                        </span>
                       </div>
 
                       <div className="flex items-center justify-between mt-1.5">
@@ -173,10 +162,10 @@ export const CartDrawer: React.FC = () => {
                         {/* Line subtotal */}
                         <div className="text-right">
                           <span className="text-xs font-black text-slate-900">
-                            {formatPrice(itemTotalUSD)}
+                            $ {itemTotalARS.toLocaleString('es-AR')}
                           </span>
                           <p className="text-[10px] text-slate-400">
-                            {formatPrice(item.product.priceUSD)} c/u
+                            $ {unitPriceARS.toLocaleString('es-AR')} c/u
                           </p>
                         </div>
                       </div>
@@ -200,10 +189,7 @@ export const CartDrawer: React.FC = () => {
                   <span className="text-sm font-black text-slate-900">TOTAL ESTIMADO:</span>
                   <div className="text-right">
                     <span className="text-lg font-black text-blue-700">
-                      {currentTotalFormatted}
-                    </span>
-                    <span className="block text-[10px] text-slate-500 font-mono">
-                      {secondaryTotalFormatted}
+                      {currentTotalFormatted} ARS
                     </span>
                   </div>
                 </div>

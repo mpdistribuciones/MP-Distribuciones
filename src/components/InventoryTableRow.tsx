@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Product } from '../types';
+import { Product, DollarRateKey, DollarRatesMap } from '../types';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import { Check, Edit, Trash2, Loader2, CheckCircle2 } from 'lucide-react';
 
 interface InventoryTableRowProps {
   product: Product;
   exchangeRate: number;
+  dollarRates: DollarRatesMap;
   priceDisplayMode: 'AUTO' | 'ARS' | 'USD';
   onUpdateStock: (id: string, newStock: number) => void;
   onUpdateFinancials: (
@@ -17,6 +18,7 @@ interface InventoryTableRowProps {
       costARS: number;
       profitMargin: number;
       priceCurrency?: 'USD' | 'ARS';
+      dollarRateKey?: DollarRateKey;
     }
   ) => Promise<void>;
   onEdit: (product: Product) => void;
@@ -27,6 +29,7 @@ interface InventoryTableRowProps {
 export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
   product,
   exchangeRate,
+  dollarRates,
   priceDisplayMode,
   onUpdateStock,
   onUpdateFinancials,
@@ -34,18 +37,20 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
   onDelete,
   showToast,
 }) => {
-  const isArs =
-    priceDisplayMode === 'ARS'
-      ? true
-      : priceDisplayMode === 'USD'
-      ? false
-      : product.priceCurrency === 'ARS';
+  const currentCurrency: 'USD' | 'ARS' = product.priceCurrency === 'ARS' ? 'ARS' : 'USD';
+  const currentDollarKey: DollarRateKey =
+    product.dollarRateKey === 'dolar2' || product.dollarRateKey === 'dolar3'
+      ? product.dollarRateKey
+      : 'dolar1';
 
-  const currentCurrency = product.priceCurrency || 'USD';
+  const productRate =
+    dollarRates[currentDollarKey]?.rate || dollarRates.dolar1?.rate || exchangeRate || 1350;
+
+  const isCostArs = currentCurrency === 'ARS';
 
   const defaultMargin = product.profitMargin != null ? product.profitMargin : 15;
   const defaultPriceUSD = product.priceUSD;
-  const defaultPriceARS = product.priceARS || Math.round(product.priceUSD * exchangeRate);
+  const defaultPriceARS = product.priceARS || Math.round(product.priceUSD * productRate);
   const defaultCostUSD =
     product.costUSD != null
       ? product.costUSD
@@ -57,23 +62,24 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
       ? product.costARS
       : product.priceARS
       ? Math.round(product.priceARS / (1 + defaultMargin / 100))
-      : Math.round(defaultCostUSD * exchangeRate);
+      : Math.round(defaultCostUSD * productRate);
 
-  const [costInput, setCostInput] = useState<number>(isArs ? defaultCostARS : defaultCostUSD);
+  const [costInput, setCostInput] = useState<number>(
+    isCostArs ? defaultCostARS : defaultCostUSD
+  );
   const [marginInput, setMarginInput] = useState<number>(defaultMargin);
-  const [priceInput, setPriceInput] = useState<number>(isArs ? defaultPriceARS : defaultPriceUSD);
+  const [priceArsInput, setPriceArsInput] = useState<number>(defaultPriceARS);
 
   const [isSaving, setIsSaving] = useState(false);
   const [justSaved, setJustSaved] = useState(false);
   const isDirtyRef = useRef(false);
   const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Sincronizar estado local si el producto o la moneda cambian desde afuera y no se está editando
   useEffect(() => {
     if (!isDirtyRef.current) {
-      setCostInput(isArs ? defaultCostARS : defaultCostUSD);
+      setCostInput(isCostArs ? defaultCostARS : defaultCostUSD);
       setMarginInput(defaultMargin);
-      setPriceInput(isArs ? defaultPriceARS : defaultPriceUSD);
+      setPriceArsInput(defaultPriceARS);
     }
   }, [
     product.priceUSD,
@@ -82,43 +88,44 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     product.costARS,
     product.profitMargin,
     product.priceCurrency,
+    product.dollarRateKey,
     priceDisplayMode,
-    exchangeRate,
-    isArs,
+    productRate,
+    isCostArs,
     defaultCostARS,
     defaultCostUSD,
     defaultMargin,
     defaultPriceARS,
-    defaultPriceUSD,
   ]);
 
-  // Persistir en Supabase
   const saveFinancials = async (
     overrideCost = costInput,
     overrideMargin = marginInput,
-    overridePrice = priceInput
+    overridePriceArs = priceArsInput,
+    overrideCurrency: 'USD' | 'ARS' = currentCurrency,
+    overrideDollarKey: DollarRateKey = currentDollarKey
   ) => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-    if (!isDirtyRef.current) return;
     isDirtyRef.current = false;
+
+    const rate =
+      dollarRates[overrideDollarKey]?.rate || dollarRates.dolar1?.rate || exchangeRate || 1350;
 
     setIsSaving(true);
     try {
       let finalPriceUSD = 0;
-      let finalPriceARS = 0;
+      let finalPriceARS = Math.max(1, Math.round(overridePriceArs));
       let finalCostUSD = 0;
       let finalCostARS = 0;
 
-      if (isArs) {
-        finalPriceARS = Math.max(1, Math.round(overridePrice));
-        finalPriceUSD = Number((finalPriceARS / exchangeRate).toFixed(2));
+      if (overrideCurrency === 'ARS') {
         finalCostARS = Math.max(0, Math.round(overrideCost));
-        finalCostUSD = Number((finalCostARS / exchangeRate).toFixed(2));
+        finalCostUSD = Number((finalCostARS / rate).toFixed(2));
+        finalPriceUSD = Number((finalPriceARS / rate).toFixed(2));
       } else {
-        finalPriceUSD = Math.max(0.01, Number(overridePrice.toFixed(2)));
-        finalPriceARS = Math.round(finalPriceUSD * exchangeRate);
         finalCostUSD = Math.max(0, Number(overrideCost.toFixed(2)));
-        finalCostARS = Math.round(finalCostUSD * exchangeRate);
+        finalCostARS = Math.round(finalCostUSD * rate);
+        finalPriceUSD = Math.max(0.01, Number((finalPriceARS / rate).toFixed(2)));
       }
 
       await onUpdateFinancials(product.id, {
@@ -127,62 +134,61 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
         costUSD: finalCostUSD,
         costARS: finalCostARS,
         profitMargin: Number(overrideMargin.toFixed(2)),
-        priceCurrency: product.priceCurrency,
+        priceCurrency: overrideCurrency,
+        dollarRateKey: overrideDollarKey,
       });
 
       setJustSaved(true);
       setTimeout(() => setJustSaved(false), 1600);
     } catch (err: any) {
       console.error('[InventoryTableRow] Error al guardar cambios:', err);
-      showToast(`Error al guardar cambios de ${product.sku}`, 'error');
+      showToast(`Error al guardar cambios de "${product.name.slice(0, 24)}"`, 'error');
     } finally {
       setIsSaving(false);
     }
   };
 
-  const scheduleDebouncedSave = (newCost: number, newMargin: number, newPrice: number) => {
+  const scheduleDebouncedSave = (newCost: number, newMargin: number, newPriceArs: number) => {
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
     debounceTimerRef.current = setTimeout(() => {
-      saveFinancials(newCost, newMargin, newPrice);
+      saveFinancials(newCost, newMargin, newPriceArs);
     }, 800);
   };
 
-  // 1. Modificación de Costo:
-  // Precio = Costo * (1 + Margen / 100)
   const handleCostChange = (val: number) => {
     const newCost = Math.max(0, val);
     setCostInput(newCost);
     isDirtyRef.current = true;
     const factor = 1 + marginInput / 100;
-    const newPrice = isArs ? Math.round(newCost * factor) : Number((newCost * factor).toFixed(2));
-    setPriceInput(newPrice);
-    scheduleDebouncedSave(newCost, marginInput, newPrice);
+    const newPriceArs = isCostArs
+      ? Math.round(newCost * factor)
+      : Math.round(newCost * productRate * factor);
+    setPriceArsInput(newPriceArs);
+    scheduleDebouncedSave(newCost, marginInput, newPriceArs);
   };
 
-  // 2. Modificación de Margen %:
-  // Precio = Costo * (1 + Margen / 100)
   const handleMarginChange = (val: number) => {
     setMarginInput(val);
     isDirtyRef.current = true;
     const factor = 1 + val / 100;
-    const newPrice = isArs ? Math.round(costInput * factor) : Number((costInput * factor).toFixed(2));
-    setPriceInput(newPrice);
-    scheduleDebouncedSave(costInput, val, newPrice);
+    const newPriceArs = isCostArs
+      ? Math.round(costInput * factor)
+      : Math.round(costInput * productRate * factor);
+    setPriceArsInput(newPriceArs);
+    scheduleDebouncedSave(costInput, val, newPriceArs);
   };
 
-  // 3. Modificación de Precio de Venta:
-  // Costo QUEDA FIJO y se recalcula el Margen:
-  // Margen % = ((Precio - Costo) / Costo) * 100
-  const handlePriceChange = (val: number) => {
-    const newPrice = Math.max(0.01, val);
-    setPriceInput(newPrice);
+  const handlePriceArsChange = (val: number) => {
+    const newPriceArs = Math.max(1, Math.round(val));
+    setPriceArsInput(newPriceArs);
     isDirtyRef.current = true;
+    const baseCostArs = isCostArs ? costInput : costInput * productRate;
     let newMargin = 0;
-    if (costInput > 0) {
-      newMargin = Number((((newPrice - costInput) / costInput) * 100).toFixed(2));
+    if (baseCostArs > 0) {
+      newMargin = Number((((newPriceArs - baseCostArs) / baseCostArs) * 100).toFixed(2));
     }
     setMarginInput(newMargin);
-    scheduleDebouncedSave(costInput, newMargin, newPrice);
+    scheduleDebouncedSave(costInput, newMargin, newPriceArs);
   };
 
   const handleBlur = () => {
@@ -199,22 +205,32 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
   };
 
   const handleToggleBaseCurrency = async (newCurr: 'USD' | 'ARS') => {
-    if (newCurr === product.priceCurrency) return;
-    setIsSaving(true);
-    try {
-      await onUpdateFinancials(product.id, {
-        priceUSD: defaultPriceUSD,
-        priceARS: defaultPriceARS,
-        costUSD: defaultCostUSD,
-        costARS: defaultCostARS,
-        profitMargin: marginInput,
-        priceCurrency: newCurr,
-      });
-      setJustSaved(true);
-      setTimeout(() => setJustSaved(false), 1600);
-    } finally {
-      setIsSaving(false);
+    if (newCurr === currentCurrency) return;
+    const factor = 1 + marginInput / 100;
+    if (newCurr === 'ARS') {
+      const nextCostArs = Math.round(costInput * productRate);
+      const nextPriceArs = Math.round(nextCostArs * factor);
+      setCostInput(nextCostArs);
+      setPriceArsInput(nextPriceArs);
+      await saveFinancials(nextCostArs, marginInput, nextPriceArs, 'ARS', currentDollarKey);
+    } else {
+      const nextCostUsd = Number((costInput / productRate).toFixed(2));
+      const nextPriceArs = Math.round(nextCostUsd * productRate * factor);
+      setCostInput(nextCostUsd);
+      setPriceArsInput(nextPriceArs);
+      await saveFinancials(nextCostUsd, marginInput, nextPriceArs, 'USD', currentDollarKey);
     }
+  };
+
+  const handleChangeDollarKey = async (newKey: DollarRateKey) => {
+    if (newKey === currentDollarKey) return;
+    const nextRate = dollarRates[newKey]?.rate || productRate;
+    const factor = 1 + marginInput / 100;
+    const nextPriceArs = isCostArs
+      ? priceArsInput
+      : Math.round(costInput * nextRate * factor);
+    setPriceArsInput(nextPriceArs);
+    await saveFinancials(costInput, marginInput, nextPriceArs, currentCurrency, newKey);
   };
 
   const isPositiveMargin = marginInput > 0;
@@ -237,24 +253,16 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
         </div>
       </td>
 
-      {/* SKU & Brand */}
-      <td className="p-3">
-        <span className="font-mono font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded text-[11px] border border-slate-200">
-          {product.sku}
-        </span>
-        <p className="text-[11px] text-slate-500 font-semibold mt-1">{product.brand}</p>
-      </td>
-
       {/* Name & Category */}
       <td className="p-3">
-        <p className="font-bold text-slate-900 line-clamp-1 leading-snug">{product.name}</p>
+        <p className="font-bold text-slate-900 line-clamp-2 leading-snug">{product.name}</p>
         <div className="flex items-center gap-2 mt-1">
           <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
             {product.category}
           </span>
-          {product.badge && (
-            <span className="text-[9px] font-black uppercase text-red-700 bg-red-100 px-1.5 py-0.2 rounded">
-              {product.badge}
+          {product.subcategory && (
+            <span className="text-[10px] text-slate-500 font-medium">
+              • {product.subcategory}
             </span>
           )}
         </div>
@@ -299,16 +307,47 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
         </div>
       </td>
 
-      {/* Costo (Editable Inline) */}
+      {/* Costo + Moneda Base + Selector de Dólar (1/2/3) */}
       <td className="p-3 text-right">
-        <div className="space-y-0.5 inline-block text-right">
+        <div className="space-y-1 inline-block text-right">
+          {/* Selector de moneda de costo */}
+          <div className="flex items-center justify-end gap-1">
+            <span className="text-[9px] text-slate-400 font-semibold">Costo en:</span>
+            <div className="inline-flex rounded-md bg-slate-100 border border-slate-200 p-0.5 text-[9px] font-bold">
+              <button
+                type="button"
+                onClick={() => handleToggleBaseCurrency('USD')}
+                className={`px-1.5 py-0.2 rounded transition-all cursor-pointer ${
+                  currentCurrency === 'USD'
+                    ? 'bg-blue-600 text-white font-black shadow-xs'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+                title="Cargar costo en Dólares (USD)"
+              >
+                u$s USD
+              </button>
+              <button
+                type="button"
+                onClick={() => handleToggleBaseCurrency('ARS')}
+                className={`px-1.5 py-0.2 rounded transition-all cursor-pointer ${
+                  currentCurrency === 'ARS'
+                    ? 'bg-emerald-600 text-white font-black shadow-xs'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+                title="Cargar costo directamente en Pesos ($ ARS)"
+              >
+                $ ARS
+              </button>
+            </div>
+          </div>
+
           <div className="flex items-center justify-end gap-1">
             <span className="font-mono text-slate-500 text-xs font-bold">
-              {isArs ? '$' : 'u$s'}
+              {isCostArs ? '$' : 'u$s'}
             </span>
             <input
               type="number"
-              step={isArs ? '10' : '0.01'}
+              step={isCostArs ? '10' : '0.01'}
               min="0"
               value={costInput}
               onChange={(e) => handleCostChange(parseFloat(e.target.value) || 0)}
@@ -318,15 +357,32 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
               title="Costo base de compra (Enter para guardar)"
             />
           </div>
-          <p className="text-[10px] text-slate-400 font-mono pr-0.5">
-            {isArs
-              ? `≈ u$s ${(costInput / exchangeRate).toFixed(2)} USD`
-              : `≈ $ ${Math.round(costInput * exchangeRate).toLocaleString('es-AR')} ARS`}
-          </p>
+
+          {/* Selector de cuál de los 3 dólares usa este producto */}
+          {!isCostArs ? (
+            <div className="flex items-center justify-end gap-1">
+              <select
+                value={currentDollarKey}
+                onChange={(e) => handleChangeDollarKey(e.target.value as DollarRateKey)}
+                className="px-1.5 py-0.5 rounded bg-blue-50 border border-blue-200 text-[10px] font-bold text-blue-800 outline-none cursor-pointer"
+                title="Cotización de dólar asignada a este artículo"
+              >
+                {(['dolar1', 'dolar2', 'dolar3'] as DollarRateKey[]).map((k) => (
+                  <option key={k} value={k}>
+                    {dollarRates[k].label} (${dollarRates[k].rate})
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : (
+            <p className="text-[10px] text-emerald-700 font-semibold pr-0.5">
+              Costo fijo en Pesos
+            </p>
+          )}
         </div>
       </td>
 
-      {/* % Margen Ganancia (Editable Inline) */}
+      {/* % Porcentaje Puntual (Editable Inline) */}
       <td className="p-3 text-center">
         <div className="inline-flex flex-col items-center">
           <div className="relative inline-flex items-center">
@@ -344,18 +400,17 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
                   ? 'bg-slate-50 border-slate-300 text-slate-700 focus:border-slate-500 focus:bg-white'
                   : 'bg-red-50/80 border-red-300 text-red-700 focus:border-red-600 focus:bg-white'
               }`}
-              title="Porcentaje de ganancia sobre costo (Enter para guardar)"
+              title="Porcentaje puntual sobre el costo (Enter para guardar)"
             />
             <span className="text-[10px] font-bold text-slate-400 ml-0.5">%</span>
           </div>
-          <span className="text-[9px] text-slate-400 mt-0.5 font-medium">rentab.</span>
+          <span className="text-[9px] text-slate-400 mt-0.5 font-medium">porcentaje</span>
         </div>
       </td>
 
-      {/* Precio de Venta (Editable Inline & Selector de Moneda Base) */}
+      {/* Precio de Venta al Cliente en Pesos ($ ARS) */}
       <td className="p-3 text-right">
         <div className="space-y-1">
-          {/* Base currency selector for this product */}
           <div className="flex items-center justify-end gap-1">
             {isSaving ? (
               <span className="inline-flex items-center gap-1 text-[10px] font-bold text-blue-600 animate-pulse mr-1">
@@ -368,66 +423,28 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
                 <span>Guardado</span>
               </span>
             ) : null}
-
-            <span className="text-[10px] text-slate-400 font-semibold">Base:</span>
-            <div className="inline-flex rounded-md bg-slate-100 border border-slate-200 p-0.5 text-[9px] font-bold">
-              <button
-                type="button"
-                onClick={() => handleToggleBaseCurrency('ARS')}
-                className={`px-1.5 py-0.2 rounded transition-all cursor-pointer ${
-                  currentCurrency === 'ARS'
-                    ? 'bg-emerald-600 text-white font-black shadow-xs'
-                    : 'text-slate-500 hover:text-slate-800'
-                }`}
-                title="Fijar moneda de este producto en Pesos ($)"
-              >
-                $ ARS
-              </button>
-              <button
-                type="button"
-                onClick={() => handleToggleBaseCurrency('USD')}
-                className={`px-1.5 py-0.2 rounded transition-all cursor-pointer ${
-                  currentCurrency === 'USD'
-                    ? 'bg-blue-600 text-white font-black shadow-xs'
-                    : 'text-slate-500 hover:text-slate-800'
-                }`}
-                title="Fijar moneda de este producto en Dólares (USD)"
-              >
-                u$s USD
-              </button>
-            </div>
+            <span className="text-[10px] font-bold text-emerald-700">Precio Cliente ($ ARS)</span>
           </div>
 
-          {/* Editable price input */}
           <div className="flex items-center justify-end gap-1">
-            <span
-              className={`font-mono text-xs font-bold ${
-                isArs ? 'text-emerald-700' : 'text-blue-700'
-              }`}
-            >
-              {isArs ? '$' : 'u$s'}
-            </span>
+            <span className="font-mono text-xs font-bold text-emerald-700">$</span>
             <input
               type="number"
-              step={isArs ? '10' : '0.01'}
-              min="0.01"
-              value={priceInput}
-              onChange={(e) => handlePriceChange(parseFloat(e.target.value) || 0.01)}
+              step="10"
+              min="1"
+              value={priceArsInput}
+              onChange={(e) => handlePriceArsChange(parseFloat(e.target.value) || 1)}
               onBlur={handleBlur}
               onKeyDown={handleKeyDown}
-              className={`w-24 px-2 py-1 text-right font-mono font-black text-xs text-slate-900 rounded-lg border outline-none transition-all shadow-2xs ${
-                isArs
-                  ? 'bg-emerald-50/50 border-emerald-300 focus:border-emerald-600 focus:bg-white'
-                  : 'bg-blue-50/50 border-blue-300 focus:border-blue-600 focus:bg-white'
-              }`}
-              title="Precio de venta mayorista (Enter para guardar)"
+              className="w-28 px-2 py-1 text-right font-mono font-black text-xs text-slate-900 rounded-lg border bg-emerald-50/50 border-emerald-300 focus:border-emerald-600 focus:bg-white outline-none transition-all shadow-2xs"
+              title="Precio final en Pesos ($ ARS) visible para el cliente"
             />
           </div>
-          <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-            {isArs
-              ? `≈ u$s ${(priceInput / exchangeRate).toFixed(2)} USD`
-              : `≈ $ ${Math.round(priceInput * exchangeRate).toLocaleString('es-AR')} ARS`}
-          </p>
+          {!isCostArs && (
+            <p className="text-[10px] text-slate-400 font-mono mt-0.5">
+              Ref: u$s {(priceArsInput / productRate).toFixed(2)} ({dollarRates[currentDollarKey].label})
+            </p>
+          )}
         </div>
       </td>
 
@@ -459,13 +476,13 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
           <button
             onClick={() => onEdit(product)}
             className="p-1.5 rounded-lg text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
-            title="Editar producto completo en modal"
+            title="Editar ficha completa"
           >
             <Edit className="w-4 h-4" />
           </button>
           <button
             onClick={() => onDelete(product.id)}
-            className="p-1.5 rounded-lg text-slate-500 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
             title="Eliminar producto"
           >
             <Trash2 className="w-4 h-4" />
@@ -475,5 +492,3 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     </tr>
   );
 });
-
-InventoryTableRow.displayName = 'InventoryTableRow';

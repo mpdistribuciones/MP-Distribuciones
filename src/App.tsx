@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useApp } from './context/AppContext';
+import { getProductPriceARS } from './lib/supabase';
 import { Header } from './components/Header';
 import { CategoryNav } from './components/CategoryNav';
 import { SidebarFilters } from './components/SidebarFilters';
@@ -21,13 +22,13 @@ import {
   PackageSearch,
   ChevronRight,
   RefreshCw,
-  Flame,
   Lock,
 } from 'lucide-react';
 
 export const AppContent: React.FC = () => {
   const {
     products,
+    exchangeRate,
     isCatalogLoading,
     isAdminView,
     isAdminLoggedIn,
@@ -52,11 +53,6 @@ export const AppContent: React.FC = () => {
   const filteredProducts = useMemo(() => {
     let list = [...products];
 
-    // Filter by outlet
-    if (isOutletOnly) {
-      list = list.filter((p) => p.badge === 'OFERTA' || p.badge === 'MÁS VENDIDO');
-    }
-
     // Filter by category
     if (selectedCategory !== 'ALL') {
       list = list.filter((p) => p.category === selectedCategory);
@@ -73,8 +69,6 @@ export const AppContent: React.FC = () => {
       list = list.filter(
         (p) =>
           p.name.toLowerCase().includes(q) ||
-          p.brand.toLowerCase().includes(q) ||
-          p.sku.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
           (p.subcategory && p.subcategory.toLowerCase().includes(q)) ||
           p.description.toLowerCase().includes(q) ||
@@ -82,13 +76,19 @@ export const AppContent: React.FC = () => {
       );
     }
 
-    // Sort by price, alphabet, or date (no stock sorting)
+    // Sort by price in ARS, alphabet, or date
     switch (sortBy) {
       case 'price_asc':
-        list.sort((a, b) => a.priceUSD - b.priceUSD);
+        list.sort(
+          (a, b) =>
+            getProductPriceARS(a, exchangeRate) - getProductPriceARS(b, exchangeRate)
+        );
         break;
       case 'price_desc':
-        list.sort((a, b) => b.priceUSD - a.priceUSD);
+        list.sort(
+          (a, b) =>
+            getProductPriceARS(b, exchangeRate) - getProductPriceARS(a, exchangeRate)
+        );
         break;
       case 'name_asc':
         list.sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }));
@@ -112,8 +112,6 @@ export const AppContent: React.FC = () => {
         break;
       case 'featured':
       default:
-        // Priority to items with badges
-        list.sort((a, b) => (b.badge ? 1 : 0) - (a.badge ? 1 : 0));
         break;
     }
 
@@ -126,7 +124,7 @@ export const AppContent: React.FC = () => {
     });
 
     return list;
-  }, [products, selectedCategory, stockFilter, searchQuery, sortBy, isOutletOnly]);
+  }, [products, selectedCategory, stockFilter, searchQuery, sortBy, exchangeRate]);
 
   const selectedCategoryMeta = categories.find((c) => c.id === selectedCategory);
 
@@ -201,18 +199,10 @@ export const AppContent: React.FC = () => {
                 <span className="text-slate-400">Catálogo</span>
                 <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                 <span className="font-bold text-blue-700">
-                  {isOutletOnly
-                    ? 'OUTLET Y LIQUIDACIÓN'
-                    : selectedCategory === 'ALL'
+                  {selectedCategory === 'ALL'
                     ? 'Todos los Rubros'
                     : selectedCategoryMeta?.name}
                 </span>
-                {isOutletOnly && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-bold text-[10px]">
-                    <Flame className="w-3 h-3 text-red-600" />
-                    <span>Precios Especiales</span>
-                  </span>
-                )}
                 {stockFilter === 'in_stock' && (
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">
                     <span>En Stock</span>
@@ -276,12 +266,12 @@ export const AppContent: React.FC = () => {
                     <thead>
                       <tr className="bg-slate-100 text-slate-600 border-b border-slate-200 uppercase font-black text-[10px] tracking-wider">
                         <th className="p-3 text-center">Foto</th>
-                        <th className="p-3">Código / Marca</th>
+                        <th className="p-3">Rubro</th>
                         <th className="p-3">Descripción del Producto</th>
                         <th className="p-3 text-center">Stock</th>
-                        <th className="p-3 text-right">Precio Unitario</th>
+                        <th className="p-3 text-right">Precio Unitario ($ ARS)</th>
                         <th className="p-3 text-center">Cantidad a Pedir</th>
-                        <th className="p-3 text-right hidden sm:table-cell">Subtotal</th>
+                        <th className="p-3 text-right hidden sm:table-cell">Subtotal ($ ARS)</th>
                         <th className="p-3 text-center">Ficha</th>
                       </tr>
                     </thead>

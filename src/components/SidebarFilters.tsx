@@ -3,7 +3,6 @@ import { useApp } from '../context/AppContext';
 import {
   Layers,
   CheckCircle2,
-  Flame,
   RotateCcw,
   Sparkles,
   Laptop,
@@ -86,11 +85,6 @@ export const SidebarFilters: React.FC<SidebarFiltersProps> = ({
     return products.filter((p) => p.inStock).length;
   }, [products]);
 
-  // Count outlet products
-  const outletCount = React.useMemo(() => {
-    return products.filter((p) => p.badge === 'OFERTA' || p.badge === 'MÁS VENDIDO').length;
-  }, [products]);
-
   const hasActiveFilters =
     selectedCategory !== 'ALL' ||
     stockFilter !== 'all' ||
@@ -130,38 +124,6 @@ export const SidebarFilters: React.FC<SidebarFiltersProps> = ({
             <span>Limpiar</span>
           </button>
         )}
-      </div>
-
-      {/* Sección Especial: Outlet / Liquidación */}
-      <div className="space-y-1.5">
-        <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1">
-          Promociones
-        </span>
-        <button
-          onClick={() => {
-            setIsOutletOnly(!isOutletOnly);
-            if (onCloseMobile) onCloseMobile();
-          }}
-          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-            isOutletOnly
-              ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white border-red-600 shadow-sm shadow-red-200'
-              : 'bg-white hover:bg-red-50 text-slate-700 hover:text-red-700 border-slate-200 hover:border-red-200'
-          }`}
-        >
-          <div className="flex items-center gap-2">
-            <Flame className={`w-4 h-4 ${isOutletOnly ? 'text-amber-200' : 'text-red-600'}`} />
-            <span>OUTLET / LIQUIDACIÓN</span>
-          </div>
-          <span
-            className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
-              isOutletOnly
-                ? 'bg-white/20 text-white'
-                : 'bg-red-100 text-red-700'
-            }`}
-          >
-            {outletCount}
-          </span>
-        </button>
       </div>
 
       {/* Disponibilidad / Stock Filter */}

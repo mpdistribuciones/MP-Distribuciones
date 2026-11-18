@@ -1,10 +1,26 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, useRef } from 'react';
-import { Currency, Product, CartItem, User, UserStatus, SortByOption, ViewMode, Order, OrderStatus } from '../types';
+import {
+  Currency,
+  Product,
+  CartItem,
+  User,
+  UserStatus,
+  SortByOption,
+  ViewMode,
+  Order,
+  OrderStatus,
+  DollarRateKey,
+  DollarRatesMap,
+} from '../types';
 import { CATEGORIES, CategoryInfo } from '../data/categories';
 import {
   getSupabaseClient,
   isSupabaseConfigured,
   productToDb,
+  productCostToDb,
+  upsertProductsToDb,
+  upsertProductCostsToDb,
+  getProductPriceARS,
   dbToProduct,
   orderToDb,
   dbToOrder,
@@ -21,11 +37,14 @@ interface Toast {
 }
 
 interface AppContextType {
-  // Currency & Exchange Rate
+  // Currency & Exchange Rate (3 Admin Dollar Rates)
   currency: Currency;
   setCurrency: (c: Currency) => void;
   exchangeRate: number;
   setExchangeRate: (rate: number) => void;
+  dollarRates: DollarRatesMap;
+  updateDollarRates: (newRates: DollarRatesMap) => Promise<boolean>;
+  getDollarRateForProduct: (product?: Partial<Product> | null) => number;
   formatPrice: (priceUSD: number, customCurrency?: Currency) => string;
   fetchBnaRate: () => Promise<number | null>;
   isFetchingBnaRate: boolean;
@@ -47,6 +66,7 @@ interface AppContextType {
       costARS: number;
       profitMargin: number;
       priceCurrency?: 'USD' | 'ARS';
+      dollarRateKey?: DollarRateKey;
     }
   ) => Promise<void>;
   applyPercentagePriceAdjustment: (percentage: number) => Promise<boolean>;
@@ -207,20 +227,59 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }, 4000);
   };
 
-  // Currency State
-  const [currency, setCurrencyState] = useState<Currency>(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY_CURRENCY);
-    return saved === 'USD' ? 'USD' : 'ARS';
-  });
+  // Currency State (Siempre ARS para el cliente)
+  const [currency, setCurrencyState] = useState<Currency>('ARS');
 
   const [exchangeRate, setExchangeRateState] = useState<number>(() => {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY_EXCHANGE);
     return saved ? Number(saved) : 1350;
   });
 
-  const setCurrency = (c: Currency) => {
-    setCurrencyState(c);
-    localStorage.setItem(LOCAL_STORAGE_KEY_CURRENCY, c);
+  const [dollarRates, setDollarRatesState] = useState<DollarRatesMap>(() => {
+    const baseRate = Number(localStorage.getItem(LOCAL_STORAGE_KEY_EXCHANGE)) || 1350;
+    try {
+      const saved = localStorage.getItem('mp_distribuciones_dollar_rates_v1');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed?.dolar1?.rate && parsed?.dolar2?.rate && parsed?.dolar3?.rate) {
+          return {
+            dolar1: {
+              key: 'dolar1',
+              label: String(parsed.dolar1.label || 'Dólar 1'),
+              rate: Math.max(1, Number(parsed.dolar1.rate) || baseRate),
+            },
+            dolar2: {
+              key: 'dolar2',
+              label: String(parsed.dolar2.label || 'Dólar 2'),
+              rate: Math.max(1, Number(parsed.dolar2.rate) || 1400),
+            },
+            dolar3: {
+              key: 'dolar3',
+              label: String(parsed.dolar3.label || 'Dólar 3'),
+              rate: Math.max(1, Number(parsed.dolar3.rate) || 1450),
+            },
+          };
+        }
+      }
+    } catch {}
+    return {
+      dolar1: { key: 'dolar1', label: 'Dólar 1', rate: baseRate },
+      dolar2: { key: 'dolar2', label: 'Dólar 2', rate: 1400 },
+      dolar3: { key: 'dolar3', label: 'Dólar 3', rate: 1450 },
+    };
+  });
+
+  const getDollarRateForProduct = (product?: Partial<Product> | null): number => {
+    const key: DollarRateKey =
+      product?.dollarRateKey === 'dolar2' || product?.dollarRateKey === 'dolar3'
+        ? product.dollarRateKey
+        : 'dolar1';
+    return dollarRates[key]?.rate || dollarRates.dolar1.rate || exchangeRate || 1350;
+  };
+
+  const setCurrency = (_c: Currency) => {
+    setCurrencyState('ARS');
+    localStorage.setItem(LOCAL_STORAGE_KEY_CURRENCY, 'ARS');
   };
 
   const setExchangeRate = (rate: number) => {
@@ -229,7 +288,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     localStorage.setItem(LOCAL_STORAGE_KEY_EXCHANGE, safeRate.toString());
   };
 
-  // Banco Nación Official Dollar Auto-Sync
+  // Banco Nación Official Dollar Auto-Sync (solo consulta de referencia para el Admin)
   const [isFetchingBnaRate, setIsFetchingBnaRate] = useState<boolean>(false);
   const [lastBnaSyncDate, setLastBnaSyncDate] = useState<string | undefined>();
 
@@ -241,24 +300,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const data = await res.json();
         const venta = data.venta;
         if (typeof venta === 'number' && venta > 0) {
-          setExchangeRateState(venta);
-          localStorage.setItem(LOCAL_STORAGE_KEY_EXCHANGE, venta.toString());
           setLastBnaSyncDate(data.fechaActualizacion || new Date().toISOString());
           return venta;
         }
       }
       return null;
     } catch (err) {
-      console.warn('[BNA Auto-Sync] Error al obtener cotización del Banco Nación, se mantiene cotización actual.', err);
+      console.warn('[BNA Auto-Sync] Error al obtener cotización del Banco Nación.', err);
       return null;
     } finally {
       setIsFetchingBnaRate(false);
     }
   };
-
-  useEffect(() => {
-    fetchBnaRate();
-  }, []);
 
   // Products State & Persistence
   // La fuente de verdad es Supabase. localStorage solo actúa como caché para mostrar el catálogo al instante.
@@ -300,7 +353,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   useEffect(() => {
     try {
-      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+      const sanitized = products.map(({ costUSD, costARS, profitMargin, dollarRateKey, ...rest }) => rest);
+      localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(sanitized));
     } catch (e) {
       console.warn('Could not save products to localStorage:', e);
     }
@@ -317,6 +371,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           const newQty = Math.min(item.quantity, liveProduct.stockQuantity);
           if (
             liveProduct.priceUSD !== item.product.priceUSD ||
+            liveProduct.priceARS !== item.product.priceARS ||
             liveProduct.stockQuantity !== item.product.stockQuantity ||
             liveProduct.inStock !== item.product.inStock ||
             newQty !== item.quantity
@@ -468,11 +523,125 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Sesión de Administrador cerrada.', 'info');
   };
 
+  const persistProductAssignmentsBackup = async (list: Product[]) => {
+    const client = getSupabaseClient();
+    if (!client) return;
+    try {
+      const map: Record<string, { dollarRateKey: DollarRateKey; costCurrency: 'USD' | 'ARS' }> = {};
+      for (const p of list) {
+        if (p.dollarRateKey || p.priceCurrency) {
+          map[p.id] = {
+            dollarRateKey: p.dollarRateKey || 'dolar1',
+            costCurrency: p.priceCurrency === 'ARS' ? 'ARS' : 'USD',
+          };
+        }
+      }
+      localStorage.setItem('mp_distribuciones_product_dollar_assignments_v1', JSON.stringify(map));
+      await client.from('app_settings').upsert({
+        key: 'product_dollar_assignments',
+        value: JSON.stringify(map),
+        updated_at: new Date().toISOString(),
+      });
+    } catch {}
+  };
+
+  const updateDollarRates = async (newRates: DollarRatesMap): Promise<boolean> => {
+    const sanitized: DollarRatesMap = {
+      dolar1: {
+        key: 'dolar1',
+        label: (newRates.dolar1?.label || 'Dólar 1').trim() || 'Dólar 1',
+        rate: Math.max(1, Number(newRates.dolar1?.rate) || 1350),
+      },
+      dolar2: {
+        key: 'dolar2',
+        label: (newRates.dolar2?.label || 'Dólar 2').trim() || 'Dólar 2',
+        rate: Math.max(1, Number(newRates.dolar2?.rate) || 1400),
+      },
+      dolar3: {
+        key: 'dolar3',
+        label: (newRates.dolar3?.label || 'Dólar 3').trim() || 'Dólar 3',
+        rate: Math.max(1, Number(newRates.dolar3?.rate) || 1450),
+      },
+    };
+
+    setDollarRatesState(sanitized);
+    setExchangeRateState(sanitized.dolar1.rate);
+    try {
+      localStorage.setItem('mp_distribuciones_dollar_rates_v1', JSON.stringify(sanitized));
+      localStorage.setItem(LOCAL_STORAGE_KEY_EXCHANGE, String(sanitized.dolar1.rate));
+    } catch {}
+
+    // Recalcular automáticamente el precio final en Pesos ($ ARS) de cada artículo que cotiza en USD
+    const updatedList = products.map((p) => {
+      if (p.priceCurrency === 'ARS') return p;
+      const rateKey: DollarRateKey =
+        p.dollarRateKey === 'dolar2' || p.dollarRateKey === 'dolar3' ? p.dollarRateKey : 'dolar1';
+      const rate = sanitized[rateKey].rate;
+      const margin = p.profitMargin != null ? p.profitMargin : 15;
+      const costUSD =
+        p.costUSD != null
+          ? p.costUSD
+          : p.priceUSD > 0
+          ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2))
+          : 0;
+      const priceUSD =
+        costUSD > 0 ? Number((costUSD * (1 + margin / 100)).toFixed(2)) : p.priceUSD;
+      const costARS = Math.round(costUSD * rate);
+      const priceARS = Math.round(priceUSD * rate);
+
+      return {
+        ...p,
+        priceUSD,
+        costUSD,
+        costARS,
+        priceARS,
+        dollarRateKey: rateKey,
+      };
+    });
+
+    setProducts(updatedList);
+
+    const client = getSupabaseClient();
+    if (client) {
+      try {
+        await client.from('app_settings').upsert([
+          {
+            key: 'dollar_rates',
+            value: JSON.stringify(sanitized),
+            updated_at: new Date().toISOString(),
+          },
+          {
+            key: 'exchange_rate',
+            value: String(sanitized.dolar1.rate),
+            updated_at: new Date().toISOString(),
+          },
+        ]);
+
+        const usdProducts = updatedList.filter((p) => p.priceCurrency !== 'ARS');
+        const dbRows = usdProducts.map(productToDb);
+        for (let i = 0; i < dbRows.length; i += 100) {
+          const batch = dbRows.slice(i, i + 100);
+          const { error } = await upsertProductsToDb(client, batch);
+          if (error) {
+            console.error('[Supabase Update Dollar Rates Products Error]:', error);
+            showToast(`Cotizaciones guardadas, pero falló actualizar precios en Supabase: ${error.message}`, 'warning');
+            return false;
+          }
+        }
+      } catch (err: any) {
+        console.error('[Network Error on Update Dollar Rates]:', err);
+      }
+    }
+
+    return true;
+  };
+
   const addProduct = async (newProductData: Omit<Product, 'id'>): Promise<boolean> => {
     const id = 'prod_' + Date.now() + Math.random().toString(36).substring(2, 6);
     const newProduct: Product = {
       ...newProductData,
       id,
+      dollarRateKey: newProductData.dollarRateKey || 'dolar1',
       createdAt: newProductData.createdAt || new Date().toISOString(),
     };
 
@@ -480,9 +649,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const client = getSupabaseClient();
     if (client) {
       try {
-        const { error: prodErr } = await client
-          .from('products')
-          .insert([productToDb(newProduct)]);
+        const { error: prodErr } = await upsertProductsToDb(client, [productToDb(newProduct)]);
 
         if (prodErr) {
           console.error('[Supabase Add Product Error]:', prodErr);
@@ -491,21 +658,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           return false;
         }
 
-        if (newProduct.costUSD != null || newProduct.profitMargin != null) {
-          const { error: costErr } = await client
-            .from('product_costs')
-            .upsert({
-              product_id: id,
-              cost_usd: newProduct.costUSD || 0,
-              cost_ars: newProduct.costARS || 0,
-              profit_margin: newProduct.profitMargin ?? 15,
-              updated_at: new Date().toISOString(),
-            });
+        const { error: costErr } = await upsertProductCostsToDb(client, [productCostToDb(newProduct)]);
 
-          if (costErr) {
-            console.error('[Supabase Add Product Costs Error]:', costErr);
-            showToast(`Producto creado, pero falló el registro de costos: ${costErr.message}`, 'warning');
-          }
+        if (costErr) {
+          console.error('[Supabase Add Product Costs Error]:', costErr);
+          showToast(`Producto creado, pero falló el registro de costos: ${costErr.message}`, 'warning');
         }
       } catch (err: any) {
         console.error('[Network Error on Add Product]:', err);
@@ -515,7 +672,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
     }
 
-    setProducts((prev) => [newProduct, ...prev]);
+    const nextList = [newProduct, ...products];
+    setProducts(nextList);
+    persistProductAssignmentsBackup(nextList);
     showToast(`Artículo "${newProduct.name.slice(0, 28)}..." creado exitosamente.`, 'success');
     return true;
   };
@@ -532,9 +691,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const client = getSupabaseClient();
     if (client) {
       try {
-        const { error: prodErr } = await client
-          .from('products')
-          .upsert(productToDb(targetUpdated));
+        const { error: prodErr } = await upsertProductsToDb(client, [productToDb(targetUpdated)]);
 
         if (prodErr) {
           console.error('[Supabase Update Product Error]:', prodErr);
@@ -543,21 +700,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           return false;
         }
 
-        if (targetUpdated.costUSD != null || targetUpdated.profitMargin != null) {
-          const { error: costErr } = await client
-            .from('product_costs')
-            .upsert({
-              product_id: id,
-              cost_usd: targetUpdated.costUSD || 0,
-              cost_ars: targetUpdated.costARS || 0,
-              profit_margin: targetUpdated.profitMargin ?? 15,
-              updated_at: new Date().toISOString(),
-            });
+        const { error: costErr } = await upsertProductCostsToDb(client, [productCostToDb(targetUpdated)]);
 
-          if (costErr) {
-            console.error('[Supabase Update Product Costs Error]:', costErr);
-            showToast(`Producto actualizado, pero falló el guardado de costos: ${costErr.message}`, 'warning');
-          }
+        if (costErr) {
+          console.error('[Supabase Update Product Costs Error]:', costErr);
+          showToast(`Producto actualizado, pero falló el guardado de costos: ${costErr.message}`, 'warning');
         }
       } catch (err: any) {
         console.error('[Network Error on Update Product]:', err);
@@ -567,14 +714,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
     }
 
-    setProducts((prev) =>
-      prev.map((p) => {
-        if (p.id === id) {
-          return targetUpdated || p;
-        }
-        return p;
-      })
-    );
+    const nextList = products.map((p) => (p.id === id ? targetUpdated : p));
+    setProducts(nextList);
+    persistProductAssignmentsBackup(nextList);
     showToast('Producto actualizado en catálogo.', 'success');
     return true;
   };
@@ -658,6 +800,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return false;
     }
 
+    const prodRate = getDollarRateForProduct(existing);
     let safeUSD = 0;
     let safeARS = 0;
     let actualCurrency: 'USD' | 'ARS' = priceCurrency;
@@ -668,16 +811,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       : (existing.priceUSD > 0 ? Number((existing.priceUSD / 1.15).toFixed(2)) : 0);
     const costARS = existing.costARS != null
       ? existing.costARS
-      : (existing.priceARS ? Math.round(existing.priceARS / 1.15) : Math.round(costUSD * exchangeRate));
+      : (existing.priceARS ? Math.round(existing.priceARS / 1.15) : Math.round(costUSD * prodRate));
 
     if (priceCurrency === 'ARS') {
       safeARS = Math.round(safePrice);
-      safeUSD = Number((safeARS / exchangeRate).toFixed(2));
+      safeUSD = Number((safeARS / prodRate).toFixed(2));
       actualCurrency = 'ARS';
       newMargin = costARS > 0 ? Number((((safeARS - costARS) / costARS) * 100).toFixed(2)) : 0;
     } else {
       safeUSD = Number(safePrice.toFixed(2));
-      safeARS = Math.round(safeUSD * exchangeRate);
+      safeARS = Math.round(safeUSD * prodRate);
       actualCurrency = 'USD';
       newMargin = costUSD > 0 ? Number((((safeUSD - costUSD) / costUSD) * 100).toFixed(2)) : 0;
     }
@@ -702,15 +845,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           return false;
         }
 
-        const { error: cErr } = await client
-          .from('product_costs')
-          .upsert({
-            product_id: id,
-            cost_usd: costUSD,
-            cost_ars: costARS,
-            profit_margin: newMargin,
-            updated_at: new Date().toISOString(),
-          });
+        const { error: cErr } = await upsertProductCostsToDb(client, {
+          product_id: id,
+          cost_usd: costUSD,
+          cost_ars: costARS,
+          profit_margin: newMargin,
+          dollar_rate_key: existing.dollarRateKey || 'dolar1',
+          cost_currency: actualCurrency,
+          updated_at: new Date().toISOString(),
+        });
 
         if (cErr) {
           console.error('[Supabase Update Cost Error]:', cErr);
@@ -750,22 +893,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       costARS: number;
       profitMargin: number;
       priceCurrency?: 'USD' | 'ARS';
+      dollarRateKey?: DollarRateKey;
     }
   ) => {
-    setProducts((prev) =>
-      prev.map((p) => {
-        if (p.id !== id) return p;
-        return {
-          ...p,
-          priceUSD: financials.priceUSD,
-          priceARS: financials.priceARS,
-          costUSD: financials.costUSD,
-          costARS: financials.costARS,
-          profitMargin: financials.profitMargin,
-          priceCurrency: financials.priceCurrency || p.priceCurrency,
-        };
-      })
-    );
+    const nextList = products.map((p) => {
+      if (p.id !== id) return p;
+      return {
+        ...p,
+        priceUSD: financials.priceUSD,
+        priceARS: financials.priceARS,
+        costUSD: financials.costUSD,
+        costARS: financials.costARS,
+        profitMargin: financials.profitMargin,
+        priceCurrency: financials.priceCurrency || p.priceCurrency,
+        dollarRateKey: financials.dollarRateKey || p.dollarRateKey || 'dolar1',
+      };
+    });
+    setProducts(nextList);
+    persistProductAssignmentsBackup(nextList);
 
     const client = getSupabaseClient();
     if (client) {
@@ -787,15 +932,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         throw prodError;
       }
 
-      const { error: costError } = await client
-        .from('product_costs')
-        .upsert({
-          product_id: id,
-          cost_usd: financials.costUSD,
-          cost_ars: financials.costARS,
-          profit_margin: financials.profitMargin,
-          updated_at: new Date().toISOString(),
-        });
+      const existing = products.find((p) => p.id === id);
+      const { error: costError } = await upsertProductCostsToDb(client, {
+        product_id: id,
+        cost_usd: financials.costUSD,
+        cost_ars: financials.costARS,
+        profit_margin: financials.profitMargin,
+        dollar_rate_key: financials.dollarRateKey || existing?.dollarRateKey || 'dolar1',
+        cost_currency: financials.priceCurrency || existing?.priceCurrency || 'USD',
+        updated_at: new Date().toISOString(),
+      });
 
       if (costError) {
         console.error('[Supabase Update Product Costs Error]:', costError);
@@ -807,10 +953,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const applyPercentagePriceAdjustment = async (percentage: number): Promise<boolean> => {
     const factor = 1 + percentage / 100;
     const updatedList = products.map((p) => {
+      const prodRate = getDollarRateForProduct(p);
       const newUSD = Number((p.priceUSD * factor).toFixed(2));
       const newARS = p.priceARS
         ? Math.round(p.priceARS * factor)
-        : Math.round(newUSD * exchangeRate);
+        : Math.round(newUSD * prodRate);
       return {
         ...p,
         priceUSD: newUSD,
@@ -824,7 +971,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const dbRows = updatedList.map(productToDb);
         for (let i = 0; i < dbRows.length; i += 100) {
           const batch = dbRows.slice(i, i + 100);
-          const { error } = await client.from('products').upsert(batch);
+          const { error } = await upsertProductsToDb(client, batch);
           if (error) {
             console.error('[Supabase Mass Price Adjustment Error]:', error);
             showToast(`Error al aplicar ajuste masivo en Supabase: ${error.message}`, 'error');
@@ -855,7 +1002,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const dbRows = updatedList.map(productToDb);
         for (let i = 0; i < dbRows.length; i += 100) {
           const batch = dbRows.slice(i, i + 100);
-          const { error } = await client.from('products').upsert(batch);
+          const { error } = await upsertProductsToDb(client, batch);
           if (error) {
             console.error('[Supabase Bulk Upsert Error]:', error);
             showToast(`Error al actualizar lote masivo en Supabase: ${error.message}`, 'error');
@@ -865,18 +1012,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         }
 
         const costRows = updatedList
-          .filter((p) => p.costUSD != null || p.profitMargin != null)
-          .map((p) => ({
-            product_id: p.id,
-            cost_usd: p.costUSD || 0,
-            cost_ars: p.costARS || 0,
-            profit_margin: p.profitMargin ?? 15,
-            updated_at: new Date().toISOString(),
-          }));
+          .filter((p) => p.costUSD != null || p.profitMargin != null || p.dollarRateKey != null)
+          .map(productCostToDb);
 
         for (let i = 0; i < costRows.length; i += 100) {
           const batch = costRows.slice(i, i + 100);
-          const { error: costErr } = await client.from('product_costs').upsert(batch);
+          const { error: costErr } = await upsertProductCostsToDb(client, batch);
           if (costErr) console.error('[Supabase Bulk Cost Upsert Error]:', costErr);
         }
       } catch (err: any) {
@@ -888,6 +1029,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
 
     setProducts(updatedList);
+    persistProductAssignmentsBackup(updatedList);
     showToast(`Catálogo actualizado masivamente (${updatedList.length} productos).`, 'success');
     return true;
   };
@@ -900,7 +1042,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const dbRows = newList.map(productToDb);
         for (let i = 0; i < dbRows.length; i += 100) {
           const batch = dbRows.slice(i, i + 100);
-          const { error: insErr } = await client.from('products').upsert(batch);
+          const { error: insErr } = await upsertProductsToDb(client, batch);
           if (insErr) {
             console.error('[Supabase Batch Upsert Error on Replace]:', insErr);
             showToast(`Error al subir productos (lote ${Math.floor(i / 100) + 1}): ${insErr.message}`, 'error');
@@ -911,18 +1053,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
         // 2. Guardar costos en lotes de 100
         const costRows = newList
-          .filter((p) => p.costUSD != null || p.profitMargin != null)
-          .map((p) => ({
-            product_id: p.id,
-            cost_usd: p.costUSD || 0,
-            cost_ars: p.costARS || 0,
-            profit_margin: p.profitMargin ?? 15,
-            updated_at: new Date().toISOString(),
-          }));
+          .filter((p) => p.costUSD != null || p.profitMargin != null || p.dollarRateKey != null)
+          .map(productCostToDb);
 
         for (let i = 0; i < costRows.length; i += 100) {
           const batch = costRows.slice(i, i + 100);
-          const { error: costErr } = await client.from('product_costs').upsert(batch);
+          const { error: costErr } = await upsertProductCostsToDb(client, batch);
           if (costErr) {
             console.error('[Supabase Batch Costs Error on Replace]:', costErr);
           }
@@ -965,9 +1101,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     // 4. Actualizar estado local y localStorage sanitizado (sin costos privados)
     setProducts(newList);
+    persistProductAssignmentsBackup(newList);
     try {
       const sanitized = newList.map((p) => {
-        const { costUSD, costARS, profitMargin, ...rest } = p;
+        const { costUSD, costARS, profitMargin, dollarRateKey, ...rest } = p;
         return rest;
       });
       localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(sanitized));
@@ -1730,21 +1867,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     (sum, item) => sum + item.product.priceUSD * item.quantity,
     0
   );
-  const cartTotalARS = cartTotalUSD * exchangeRate;
+  const cartTotalARS = cart.reduce(
+    (sum, item) => sum + getProductPriceARS(item.product, exchangeRate) * item.quantity,
+    0
+  );
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Formatting utility
-  const formatPrice = (priceUSD: number, customCurrency?: Currency): string => {
-    const curr = customCurrency || currency;
-    if (curr === 'USD') {
-      return `u$s ${priceUSD.toLocaleString('es-AR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}`;
-    } else {
-      const ars = Math.round(priceUSD * exchangeRate);
-      return `$ ${ars.toLocaleString('es-AR')}`;
-    }
+  // Formatting utility (El cliente siempre ve los precios en Pesos $ ARS)
+  const formatPrice = (priceUSD: number, _customCurrency?: Currency): string => {
+    const ars = Math.round(priceUSD * exchangeRate);
+    return `$ ${ars.toLocaleString('es-AR')}`;
   };
 
   // Order History State & Persistence
@@ -1893,7 +2025,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     if (!options?.allowNegativeStock && !options?.adjustedItems) {
       const shortages: { item: CartItem; available: number; requested: number }[] = [];
       for (const item of itemsToProcess) {
-        const prod = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
+        const prod = products.find((p) => p.id === item.product.id || p.name === item.product.name);
         const available = prod?.stockQuantity ?? 0;
         if (available < item.quantity) {
           shortages.push({
@@ -1919,7 +2051,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     if (options?.adjustedItems) {
       finalTotalUSD = itemsToProcess.reduce((acc, it) => acc + it.product.priceUSD * it.quantity, 0);
       finalTotalARS = itemsToProcess.reduce(
-        (acc, it) => acc + (it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity,
+        (acc, it) => acc + getProductPriceARS(it.product, exchangeRate) * it.quantity,
         0
       );
     }
@@ -1930,7 +2062,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     try {
       for (const item of itemsToProcess) {
-        const prod = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
+        const prod = products.find((p) => p.id === item.product.id || p.name === item.product.name);
         if (prod) {
           const currentStock = prod.stockQuantity ?? 0;
           const newStock = options?.allowNegativeStock
@@ -1949,7 +2081,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
               .eq('id', prod.id);
 
             if (stockError) {
-              throw new Error(`Error al descontar stock (${prod.sku}): ${stockError.message}`);
+              throw new Error(`Error al descontar stock (${prod.name}): ${stockError.message}`);
             }
           }
         }
@@ -2159,7 +2291,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const repeatOrder = (order: Order) => {
     let count = 0;
     order.items.forEach((item) => {
-      const liveProduct = products.find((p) => p.id === item.product.id || p.sku === item.product.sku);
+      const liveProduct = products.find((p) => p.id === item.product.id || p.name === item.product.name);
       if (liveProduct && liveProduct.inStock) {
         setItemQuantity(liveProduct, item.quantity);
         count++;
@@ -2288,12 +2420,54 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (!data || data.length < PAGE_SIZE) break;
       }
 
-      // Consulta complementaria a product_costs si el usuario tiene rol admin
+      // Consulta complementaria a product_costs y app_settings si el usuario tiene rol admin
       const sessionUser = (await client.auth.getSession()).data.session?.user;
       const hasAdminRole = isAdminUser(sessionUser);
 
       const costMap = new Map<string, any>();
+      let assignedMetaMap: Record<string, { dollarRateKey?: DollarRateKey; costCurrency?: 'USD' | 'ARS' }> = {};
       if (hasAdminRole) {
+        try {
+          const savedMap = localStorage.getItem('mp_distribuciones_product_dollar_assignments_v1');
+          if (savedMap) assignedMetaMap = JSON.parse(savedMap);
+        } catch {}
+
+        try {
+          const { data: settingsRows } = await client
+            .from('app_settings')
+            .select('*')
+            .in('key', ['dollar_rates', 'product_dollar_assignments']);
+
+          if (settingsRows) {
+            for (const s of settingsRows) {
+              if (s.key === 'dollar_rates' && s.value) {
+                try {
+                  const parsedRates = JSON.parse(s.value);
+                  if (parsedRates?.dolar1?.rate && parsedRates?.dolar2?.rate && parsedRates?.dolar3?.rate) {
+                    setDollarRatesState(parsedRates);
+                    setExchangeRateState(Number(parsedRates.dolar1.rate) || 1350);
+                    localStorage.setItem('mp_distribuciones_dollar_rates_v1', JSON.stringify(parsedRates));
+                    localStorage.setItem(LOCAL_STORAGE_KEY_EXCHANGE, String(parsedRates.dolar1.rate));
+                  }
+                } catch {}
+              } else if (s.key === 'product_dollar_assignments' && s.value) {
+                try {
+                  const parsedAssign = JSON.parse(s.value);
+                  if (parsedAssign && typeof parsedAssign === 'object') {
+                    assignedMetaMap = { ...assignedMetaMap, ...parsedAssign };
+                    localStorage.setItem(
+                      'mp_distribuciones_product_dollar_assignments_v1',
+                      JSON.stringify(assignedMetaMap)
+                    );
+                  }
+                } catch {}
+              }
+            }
+          }
+        } catch (sErr) {
+          console.warn('[Supabase Sync Settings]:', sErr);
+        }
+
         try {
           const { data: costRows, error: costErr } = await client
             .from('product_costs')
@@ -2312,15 +2486,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         console.error('[Supabase Sync Products Error]:', prodErr);
       } else {
         if (dbProducts.length > 0) {
-          const mapped = dbProducts.map((p) => dbToProduct(p, costMap.get(p.id)));
+          const mapped = dbProducts.map((p) =>
+            dbToProduct(p, costMap.get(p.id), hasAdminRole ? assignedMetaMap[p.id] : undefined)
+          );
           setProducts(mapped);
           try {
-            // En localStorage NUNCA guardamos datos de costos ni márgenes
+            // En localStorage NUNCA guardamos datos de costos, márgenes ni qué dólar se aplicó
             const publicCached = mapped.map((p) => ({
               ...p,
               costUSD: undefined,
               costARS: undefined,
               profitMargin: undefined,
+              dollarRateKey: undefined,
             }));
             localStorage.setItem(LOCAL_STORAGE_KEY_PRODUCTS, JSON.stringify(publicCached));
           } catch (e) {
@@ -2462,22 +2639,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       const rows = listToUpload.map(productToDb);
       for (let i = 0; i < rows.length; i += 100) {
         const batch = rows.slice(i, i + 100);
-        const { error } = await client.from('products').upsert(batch, { onConflict: 'id' });
+        const { error } = await upsertProductsToDb(client, batch);
         if (error) throw error;
       }
 
       const costRows = listToUpload
-        .filter((p) => p.costUSD != null || p.profitMargin != null)
-        .map((p) => ({
-          product_id: p.id,
-          cost_usd: p.costUSD || 0,
-          cost_ars: p.costARS || 0,
-          profit_margin: p.profitMargin ?? 15,
-          updated_at: new Date().toISOString(),
-        }));
+        .filter((p) => p.costUSD != null || p.profitMargin != null || p.dollarRateKey != null)
+        .map(productCostToDb);
       for (let i = 0; i < costRows.length; i += 100) {
         const batch = costRows.slice(i, i + 100);
-        const { error: costErr } = await client.from('product_costs').upsert(batch);
+        const { error: costErr } = await upsertProductCostsToDb(client, batch);
         if (costErr) console.error('[Supabase Batch Upload Costs Error]:', costErr);
       }
 
@@ -2839,6 +3010,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setCurrency,
         exchangeRate,
         setExchangeRate,
+        dollarRates,
+        updateDollarRates,
+        getDollarRateForProduct,
         formatPrice,
         fetchBnaRate,
         isFetchingBnaRate,

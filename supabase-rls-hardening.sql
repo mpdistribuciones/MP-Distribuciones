@@ -73,17 +73,18 @@ BEGIN
   END IF;
 END $$;
 
--- 4. TABLA app_settings (Configuraciones generales / Tipo de cambio)
+-- 4. TABLA app_settings (Configuraciones privadas Admin / 3 Cotizaciones de Dólar)
 ALTER TABLE public.app_settings ENABLE ROW LEVEL SECURITY;
 
 DROP POLICY IF EXISTS "Permitir lectura y modificacion de settings" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_select_public" ON public.app_settings;
+DROP POLICY IF EXISTS "app_settings_select_admin" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_insert_admin" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_update_admin" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_delete_admin" ON public.app_settings;
 
-CREATE POLICY "app_settings_select_public" ON public.app_settings
-  FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY "app_settings_select_admin" ON public.app_settings
+  FOR SELECT TO authenticated USING (public.is_admin());
 
 CREATE POLICY "app_settings_insert_admin" ON public.app_settings
   FOR INSERT TO authenticated WITH CHECK (public.is_admin());

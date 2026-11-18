@@ -1,4 +1,14 @@
 export type Currency = 'ARS' | 'USD';
+export type DollarRateKey = 'dolar1' | 'dolar2' | 'dolar3';
+
+export interface DollarRateConfig {
+  key: DollarRateKey;
+  label: string;
+  rate: number;
+}
+
+export type DollarRatesMap = Record<DollarRateKey, DollarRateConfig>;
+
 export type ViewMode = 'grid' | 'list';
 export type SortByOption =
   | 'featured'
@@ -34,22 +44,20 @@ export type Category =
 
 export interface Product {
   id: string;
-  sku: string;
   name: string;
-  brand: string;
   category: Category;
   subcategory?: string;
   description: string;
   specs: string[];
-  priceUSD: number; // Wholesale price in USD (canonical or converted)
+  priceUSD: number; // Wholesale price in USD (internal admin reference)
   costUSD?: number; // Cost in USD (private admin field)
-  priceCurrency?: 'USD' | 'ARS'; // Currency in which the price was set
-  priceARS?: number; // Price in ARS if set in pesos
+  priceCurrency?: 'USD' | 'ARS'; // Currency in which the cost/price was set ('USD' or 'ARS')
+  dollarRateKey?: DollarRateKey; // Which of the 3 admin dollar rates applies (private admin field)
+  priceARS?: number; // Final wholesale selling price in Pesos ($ ARS) shown to customer
   costARS?: number; // Cost in ARS (private admin field)
-  profitMargin?: number; // Margin % over cost (e.g. 15 for 15%)
+  profitMargin?: number; // Punctual percentage % over cost (private admin field)
   inStock: boolean;
   stockQuantity: number;
-  badge?: 'NUEVO' | 'DESTACADO' | 'OFERTA' | 'MÁS VENDIDO' | null;
   imageUrl: string;
   minWholesaleQty?: number;
   createdAt?: string; // ISO date timestamp for sorting

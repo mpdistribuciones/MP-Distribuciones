@@ -7,9 +7,7 @@
 -- 1. TABLA DE PRODUCTOS (Catálogo público para visitantes y clientes B2B)
 CREATE TABLE IF NOT EXISTS public.products (
   id TEXT PRIMARY KEY,
-  sku TEXT NOT NULL UNIQUE,
   name TEXT NOT NULL,
-  brand TEXT NOT NULL DEFAULT 'Genérico',
   category TEXT NOT NULL,
   subcategory TEXT,
   description TEXT,
@@ -20,20 +18,31 @@ CREATE TABLE IF NOT EXISTS public.products (
   in_stock BOOLEAN NOT NULL DEFAULT true,
   stock_quantity INTEGER NOT NULL DEFAULT 0,
   min_wholesale_qty INTEGER NOT NULL DEFAULT 1,
-  badge TEXT, -- 'NUEVO', 'DESTACADO', 'OFERTA', 'MÁS VENDIDO'
   image_url TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 2. TABLA PRIVADA DE COSTOS Y MÁRGENES (Solo visible para Administradores)
+-- Eliminar columnas obsoletas si la tabla ya existía
+ALTER TABLE public.products
+  DROP COLUMN IF EXISTS sku,
+  DROP COLUMN IF EXISTS brand,
+  DROP COLUMN IF EXISTS badge;
+
+-- 2. TABLA PRIVADA DE COSTOS, MONEDA BASE, DÓLAR ASIGNADO Y MÁRGENES (Solo visible para Administradores)
 CREATE TABLE IF NOT EXISTS public.product_costs (
   product_id TEXT PRIMARY KEY REFERENCES public.products(id) ON DELETE CASCADE,
   cost_usd NUMERIC(10,2) DEFAULT 0,
   cost_ars NUMERIC(12,0) DEFAULT 0,
   profit_margin NUMERIC(5,2) DEFAULT 15,
+  dollar_rate_key TEXT DEFAULT 'dolar1',
+  cost_currency TEXT DEFAULT 'USD',
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+ALTER TABLE public.product_costs
+  ADD COLUMN IF NOT EXISTS dollar_rate_key TEXT DEFAULT 'dolar1',
+  ADD COLUMN IF NOT EXISTS cost_currency TEXT DEFAULT 'USD';
 
 -- 3. TABLA DE PEDIDOS (ÓRDENES MAYORISTAS)
 CREATE TABLE IF NOT EXISTS public.orders (
@@ -128,14 +137,15 @@ CREATE POLICY "product_costs_admin_update" ON public.product_costs
 CREATE POLICY "product_costs_admin_delete" ON public.product_costs
   FOR DELETE TO authenticated USING (public.is_admin());
 
--- Políticas de app_settings
+-- Políticas de app_settings (Privado para admin: contiene las 3 cotizaciones de dólar)
 DROP POLICY IF EXISTS "app_settings_select_public" ON public.app_settings;
+DROP POLICY IF EXISTS "app_settings_select_admin" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_insert_admin" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_update_admin" ON public.app_settings;
 DROP POLICY IF EXISTS "app_settings_delete_admin" ON public.app_settings;
 
-CREATE POLICY "app_settings_select_public" ON public.app_settings
-  FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY "app_settings_select_admin" ON public.app_settings
+  FOR SELECT TO authenticated USING (public.is_admin());
 CREATE POLICY "app_settings_insert_admin" ON public.app_settings
   FOR INSERT TO authenticated WITH CHECK (public.is_admin());
 CREATE POLICY "app_settings_update_admin" ON public.app_settings

@@ -26,7 +26,7 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
   onClose,
   onOpenCreateProduct,
 }) => {
-  const { products, updateStock, updateProduct, exchangeRate, showToast } = useApp();
+  const { products, updateStock, updateProduct, getDollarRateForProduct, showToast } = useApp();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -76,11 +76,12 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
       setMarginInput(margin);
 
       if (isArs) {
-        const pArs = selectedProduct.priceARS || Math.round(selectedProduct.priceUSD * exchangeRate);
+        const prodRate = getDollarRateForProduct(selectedProduct);
+        const pArs = selectedProduct.priceARS || Math.round(selectedProduct.priceUSD * prodRate);
         const cArs = selectedProduct.costARS != null
           ? selectedProduct.costARS
           : (selectedProduct.costUSD != null
-              ? Math.round(selectedProduct.costUSD * exchangeRate)
+              ? Math.round(selectedProduct.costUSD * prodRate)
               : Math.round(pArs / (1 + margin / 100)));
         setCostInput(cArs);
         setPriceInput(pArs);
@@ -99,7 +100,7 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
         quantityInputRef.current?.select();
       }, 100);
     }
-  }, [selectedProduct, exchangeRate]);
+  }, [selectedProduct]);
 
   // Search results
   const searchResults = useMemo(() => {
@@ -108,9 +109,7 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
     return products
       .filter(
         (p) =>
-          p.sku.toLowerCase().includes(q) ||
           p.name.toLowerCase().includes(q) ||
-          p.brand.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q)
       )
       .slice(0, 12);
@@ -167,21 +166,22 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
       if (isCostChanged) {
         // Update both stock and financial values
         const isArs = selectedProduct.priceCurrency === 'ARS';
+        const prodRate = getDollarRateForProduct(selectedProduct);
         let priceUSD = selectedProduct.priceUSD;
-        let priceARS = selectedProduct.priceARS || Math.round(priceUSD * exchangeRate);
+        let priceARS = selectedProduct.priceARS || Math.round(priceUSD * prodRate);
         let costUSD = selectedProduct.costUSD || 0;
         let costARS = selectedProduct.costARS || 0;
 
         if (isArs) {
           priceARS = Math.round(priceInput);
           costARS = Math.round(costInput);
-          priceUSD = Number((priceARS / exchangeRate).toFixed(2));
-          costUSD = Number((costARS / exchangeRate).toFixed(2));
+          priceUSD = Number((priceARS / prodRate).toFixed(2));
+          costUSD = Number((costARS / prodRate).toFixed(2));
         } else {
           priceUSD = Number(priceInput.toFixed(2));
           costUSD = Number(costInput.toFixed(2));
-          priceARS = Math.round(priceUSD * exchangeRate);
-          costARS = Math.round(costUSD * exchangeRate);
+          priceARS = Math.round(priceUSD * prodRate);
+          costARS = Math.round(costUSD * prodRate);
         }
 
         const success = await updateProduct(selectedProduct.id, {
@@ -325,15 +325,12 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
                             />
                             <div className="min-w-0">
                               <div className="flex items-center gap-1.5 flex-wrap">
-                                <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-mono text-[10px] font-bold border border-slate-200">
-                                  {product.sku}
-                                </span>
                                 <span className="text-xs font-bold text-slate-900 truncate group-hover:text-blue-700 transition-colors">
                                   {product.name}
                                 </span>
                               </div>
                               <p className="text-[11px] text-slate-500 truncate mt-0.5">
-                                {product.brand} • {product.category}
+                                {product.category}
                               </p>
                             </div>
                           </div>
@@ -414,11 +411,8 @@ export const StockEntryModal: React.FC<StockEntryModalProps> = ({
                   />
                   <div className="min-w-0 space-y-0.5">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="px-2 py-0.5 rounded bg-blue-700 text-white font-mono text-[10px] font-bold">
-                        {selectedProduct.sku}
-                      </span>
-                      <span className="text-xs text-slate-500 font-medium">
-                        {selectedProduct.brand} • {selectedProduct.category}
+                      <span className="text-xs text-blue-700 font-bold">
+                        {selectedProduct.category}
                       </span>
                     </div>
                     <h4 className="text-sm font-bold text-slate-900 truncate">
