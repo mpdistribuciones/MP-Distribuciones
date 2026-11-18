@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS public.products (
   subcategory TEXT,
   description TEXT,
   specs JSONB DEFAULT '[]'::jsonb,
-  price_usd NUMERIC(10,2) NOT NULL DEFAULT 0.00,
-  price_ars NUMERIC(12,0) NOT NULL DEFAULT 0,
+  price_usd NUMERIC(12,4) NOT NULL DEFAULT 0.00,
+  price_ars NUMERIC(14,2) NOT NULL DEFAULT 0,
   price_currency TEXT NOT NULL DEFAULT 'ARS', -- 'ARS' o 'USD'
   in_stock BOOLEAN NOT NULL DEFAULT true,
   stock_quantity INTEGER NOT NULL DEFAULT 0,
@@ -32,9 +32,9 @@ ALTER TABLE public.products
 -- 2. TABLA PRIVADA DE COSTOS, MONEDA BASE, DÓLAR ASIGNADO Y MÁRGENES (Solo visible para Administradores)
 CREATE TABLE IF NOT EXISTS public.product_costs (
   product_id TEXT PRIMARY KEY REFERENCES public.products(id) ON DELETE CASCADE,
-  cost_usd NUMERIC(10,2) DEFAULT 0,
-  cost_ars NUMERIC(12,0) DEFAULT 0,
-  profit_margin NUMERIC(5,2) DEFAULT 15,
+  cost_usd NUMERIC(12,4) DEFAULT 0,
+  cost_ars NUMERIC(14,2) DEFAULT 0,
+  profit_margin NUMERIC(8,4) DEFAULT 15,
   dollar_rate_key TEXT DEFAULT 'dolar1',
   cost_currency TEXT DEFAULT 'USD',
   updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS public.orders (
   shipping_address TEXT,
   notes TEXT,
   items JSONB NOT NULL DEFAULT '[]'::jsonb,
-  total_usd NUMERIC(10,2) NOT NULL DEFAULT 0.00,
-  total_ars NUMERIC(12,0) NOT NULL DEFAULT 0,
+  total_usd NUMERIC(12,4) NOT NULL DEFAULT 0.00,
+  total_ars NUMERIC(14,2) NOT NULL DEFAULT 0,
   delivery_method TEXT DEFAULT 'retiro',
   invoice_type TEXT DEFAULT 'B',
   status TEXT NOT NULL DEFAULT 'enviado',

@@ -5,7 +5,7 @@ import { AdminProductModal } from './AdminProductModal';
 import { StockEntryModal } from './StockEntryModal';
 import { SupabaseModal } from './SupabaseModal';
 import { InventoryTableRow } from './InventoryTableRow';
-import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
+import { DEFAULT_PRODUCT_IMAGE, cleanFloat, formatARS } from '../lib/supabase';
 import * as XLSX from 'xlsx';
 import { exportStockCatalog } from '../utils/exportUtils';
 import { AdminOrdersView } from './AdminOrdersView';
@@ -123,7 +123,7 @@ export const AdminPanel: React.FC = () => {
   const inStockCount = products.filter((p) => p.stockQuantity > 0).length;
   const outOfStockCount = totalProducts - inStockCount;
   const totalInventoryARS = products.reduce(
-    (acc, p) => acc + (p.priceARS || Math.round(p.priceUSD * exchangeRate)) * p.stockQuantity,
+    (acc, p) => acc + (p.priceARS || cleanFloat(p.priceUSD * exchangeRate)) * p.stockQuantity,
     0
   );
 
@@ -341,17 +341,17 @@ export const AdminPanel: React.FC = () => {
             let calcMargin = 0;
 
             if (isExplicitArs) {
-              rowPriceARS = Math.max(1, Math.round(saleVal));
-              rowCostARS = costVal > 0 ? Math.round(costVal) : 0;
-              rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
-              rowCostUSD = Number((rowCostARS / rateForRow).toFixed(2));
-              calcMargin = rowCostARS > 0 ? Number((((rowPriceARS - rowCostARS) / rowCostARS) * 100).toFixed(2)) : 0;
+              rowPriceARS = Math.max(0.01, cleanFloat(saleVal));
+              rowCostARS = costVal > 0 ? cleanFloat(costVal) : 0;
+              rowPriceUSD = cleanFloat(rowPriceARS / rateForRow);
+              rowCostUSD = cleanFloat(rowCostARS / rateForRow);
+              calcMargin = rowCostARS > 0 ? cleanFloat(((rowPriceARS - rowCostARS) / rowCostARS) * 100) : 0;
             } else {
-              rowPriceUSD = Math.max(0.01, Number(saleVal.toFixed(2)));
-              rowCostUSD = costVal > 0 ? Number(costVal.toFixed(2)) : rowPriceUSD;
-              calcMargin = rowCostUSD > 0 ? Number((((rowPriceUSD - rowCostUSD) / rowCostUSD) * 100).toFixed(2)) : 0;
-              rowCostARS = Math.round(rowCostUSD * rateForRow);
-              rowPriceARS = Math.max(1, Math.round(rowPriceUSD * rateForRow));
+              rowPriceUSD = Math.max(0.0001, cleanFloat(saleVal));
+              rowCostUSD = costVal > 0 ? cleanFloat(costVal) : rowPriceUSD;
+              calcMargin = rowCostUSD > 0 ? cleanFloat(((rowPriceUSD - rowCostUSD) / rowCostUSD) * 100) : 0;
+              rowCostARS = cleanFloat(rowCostUSD * rateForRow);
+              rowPriceARS = Math.max(0.01, cleanFloat(rowPriceUSD * rateForRow));
             }
 
             const existingIdx = updated.findIndex(
@@ -474,7 +474,7 @@ export const AdminPanel: React.FC = () => {
           let rowMargin: number | undefined = undefined;
 
           if (priceArsKey && row[priceArsKey] !== '') {
-            rowPriceARS = Math.round(parseExcelNumber(row[priceArsKey]));
+            rowPriceARS = cleanFloat(parseExcelNumber(row[priceArsKey]));
           }
 
           if (priceUsdKey && row[priceUsdKey] !== '') {
@@ -483,44 +483,44 @@ export const AdminPanel: React.FC = () => {
 
           if (costUsdKey && row[costUsdKey] !== '') {
             const parsedCostUsd = parseExcelNumber(row[costUsdKey]);
-            if (parsedCostUsd > 0) rowCostUSD = Number(parsedCostUsd.toFixed(2));
+            if (parsedCostUsd > 0) rowCostUSD = cleanFloat(parsedCostUsd);
           }
 
           if (costArsKey && row[costArsKey] !== '') {
             const parsedCostArs = parseExcelNumber(row[costArsKey]);
-            if (parsedCostArs > 0) rowCostARS = Math.round(parsedCostArs);
+            if (parsedCostArs > 0) rowCostARS = cleanFloat(parsedCostArs);
           }
 
           if (marginKey && row[marginKey] !== '') {
-            rowMargin = Number(parseExcelNumber(row[marginKey]).toFixed(2));
+            rowMargin = cleanFloat(parseExcelNumber(row[marginKey]));
           }
 
           if (rowPriceCurrency === 'ARS' && rowPriceARS) {
-            rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
+            rowPriceUSD = cleanFloat(rowPriceARS / rateForRow);
             if (rowCostARS == null && rowCostUSD != null) {
-              rowCostARS = Math.round(rowCostUSD * rateForRow);
+              rowCostARS = cleanFloat(rowCostUSD * rateForRow);
             }
             if (rowCostARS != null && rowCostUSD == null) {
-              rowCostUSD = Number((rowCostARS / rateForRow).toFixed(2));
+              rowCostUSD = cleanFloat(rowCostARS / rateForRow);
             }
             if (rowMargin == null && rowCostARS && rowCostARS > 0) {
-              rowMargin = Number((((rowPriceARS - rowCostARS) / rowCostARS) * 100).toFixed(2));
+              rowMargin = cleanFloat(((rowPriceARS - rowCostARS) / rowCostARS) * 100);
             }
           } else {
             if (!rowPriceARS && rowPriceUSD > 0) {
-              rowPriceARS = Math.round(rowPriceUSD * rateForRow);
+              rowPriceARS = cleanFloat(rowPriceUSD * rateForRow);
             }
             if (rowPriceUSD <= 0 && rowPriceARS) {
-              rowPriceUSD = Number((rowPriceARS / rateForRow).toFixed(2));
+              rowPriceUSD = cleanFloat(rowPriceARS / rateForRow);
             }
             if (rowCostUSD != null && rowCostARS == null) {
-              rowCostARS = Math.round(rowCostUSD * rateForRow);
+              rowCostARS = cleanFloat(rowCostUSD * rateForRow);
             }
             if (rowCostARS != null && rowCostUSD == null) {
-              rowCostUSD = Number((rowCostARS / rateForRow).toFixed(2));
+              rowCostUSD = cleanFloat(rowCostARS / rateForRow);
             }
             if (rowMargin == null && rowCostUSD && rowCostUSD > 0 && rowPriceUSD > 0) {
-              rowMargin = Number((((rowPriceUSD - rowCostUSD) / rowCostUSD) * 100).toFixed(2));
+              rowMargin = cleanFloat(((rowPriceUSD - rowCostUSD) / rowCostUSD) * 100);
             }
           }
 
@@ -847,7 +847,7 @@ export const AdminPanel: React.FC = () => {
             <div>
               <p className="text-xs font-semibold text-slate-500">Valor de Inventario</p>
               <h4 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">
-                $ {Math.round(totalInventoryARS).toLocaleString('es-AR')}
+                $ {formatARS(totalInventoryARS)}
               </h4>
               <p className="text-[10px] text-slate-500 font-mono">
                 Valuado en Pesos Argentinos ($ ARS)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { getProductPriceARS } from '../lib/supabase';
+import { getProductPriceARS, formatARS } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
@@ -33,9 +33,9 @@ export const ProductDetailModal: React.FC = () => {
   const product = selectedProduct;
   const inCart = getItemQuantity(product.id);
 
-  // El cliente siempre ve el precio en Pesos ($ ARS)
+  // El cliente siempre ve el precio en Pesos ($ ARS sin redondear)
   const unitPriceARS = getProductPriceARS(product, exchangeRate);
-  const mainPriceFormatted = `$ ${unitPriceARS.toLocaleString('es-AR')} ARS`;
+  const mainPriceFormatted = `$ ${formatARS(unitPriceARS)} ARS`;
 
   const handleIncrement = () => setQuantity((q) => q + 1);
   const handleDecrement = () => setQuantity((q) => Math.max(1, q - 1));

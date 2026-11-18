@@ -1,7 +1,7 @@
 import React from 'react';
 import { Product } from '../types';
 import { useApp } from '../context/AppContext';
-import { getProductPriceARS } from '../lib/supabase';
+import { getProductPriceARS, formatARS } from '../lib/supabase';
 import { Plus, Minus, Eye, Lock } from 'lucide-react';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 
@@ -34,10 +34,10 @@ export const ProductListRow: React.FC<ProductListRowProps> = ({ product }) => {
     }
   };
 
-  // El cliente siempre ve el precio en Pesos ($ ARS)
+  // El cliente siempre ve el precio en Pesos ($ ARS sin redondear)
   const unitPriceARS = getProductPriceARS(product, exchangeRate);
-  const formattedPrice = `$ ${unitPriceARS.toLocaleString('es-AR')}`;
-  const subtotalPrice = `$ ${(unitPriceARS * cartQuantity).toLocaleString('es-AR')}`;
+  const formattedPrice = `$ ${formatARS(unitPriceARS)}`;
+  const subtotalPrice = `$ ${formatARS(unitPriceARS * cartQuantity)}`;
 
   const isSelected = cartQuantity > 0;
 

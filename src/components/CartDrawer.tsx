@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { getProductPriceARS } from '../lib/supabase';
+import { getProductPriceARS, formatARS } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
@@ -29,7 +29,7 @@ export const CartDrawer: React.FC = () => {
 
   if (!isCartDrawerOpen) return null;
 
-  const currentTotalFormatted = `$ ${Math.round(cartTotalARS).toLocaleString('es-AR')}`;
+  const currentTotalFormatted = `$ ${formatARS(cartTotalARS)}`;
 
   const handleCheckoutClick = () => {
     if (!user) {
@@ -162,10 +162,10 @@ export const CartDrawer: React.FC = () => {
                         {/* Line subtotal */}
                         <div className="text-right">
                           <span className="text-xs font-black text-slate-900">
-                            $ {itemTotalARS.toLocaleString('es-AR')}
+                            $ {formatARS(itemTotalARS)}
                           </span>
                           <p className="text-[10px] text-slate-400">
-                            $ {unitPriceARS.toLocaleString('es-AR')} c/u
+                            $ {formatARS(unitPriceARS)} c/u
                           </p>
                         </div>
                       </div>

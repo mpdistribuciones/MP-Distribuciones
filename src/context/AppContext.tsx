@@ -21,6 +21,8 @@ import {
   upsertProductsToDb,
   upsertProductCostsToDb,
   getProductPriceARS,
+  cleanFloat,
+  formatARS,
   dbToProduct,
   orderToDb,
   dbToOrder,
@@ -329,11 +331,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             const priceUSD = typeof item.priceUSD === 'number' && item.priceUSD > 0
               ? item.priceUSD
               : item.priceARS
-              ? Number((item.priceARS / initialRate).toFixed(2))
+              ? cleanFloat(item.priceARS / initialRate)
               : 10;
             const priceARS = typeof item.priceARS === 'number' && item.priceARS > 0
-              ? item.priceARS
-              : Math.round(priceUSD * initialRate);
+              ? cleanFloat(item.priceARS)
+              : cleanFloat(priceUSD * initialRate);
 
             return {
               ...item,
@@ -580,14 +582,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
       if (p.costUSD != null && p.costUSD > 0 && p.profitMargin != null) {
         const factor = 1 + p.profitMargin / 100;
-        const exactPriceUSD = p.costUSD * factor;
-        const priceUSD = Number(exactPriceUSD.toFixed(2));
-        const costARS = Math.round(p.costUSD * rate);
-        const priceARS = Math.max(1, Math.round(exactPriceUSD * rate));
+        const exactPriceUSD = cleanFloat(p.costUSD * factor);
+        const costARS = cleanFloat(p.costUSD * rate);
+        const priceARS = cleanFloat(exactPriceUSD * rate);
 
         return {
           ...p,
-          priceUSD,
+          priceUSD: exactPriceUSD,
           costARS,
           priceARS,
           dollarRateKey: rateKey,
@@ -595,7 +596,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
 
       // Si no tiene costo cargado en USD, respetar priceUSD directo sin inventar margen
-      const priceARS = Math.max(1, Math.round(p.priceUSD * rate));
+      const priceARS = cleanFloat(p.priceUSD * rate);
       return {
         ...p,
         priceARS,
@@ -812,21 +813,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     const costUSD = existing.costUSD != null
       ? existing.costUSD
-      : (existing.priceUSD > 0 ? Number((existing.priceUSD / 1.15).toFixed(2)) : 0);
+      : (existing.priceUSD > 0 ? cleanFloat(existing.priceUSD / 1.15) : 0);
     const costARS = existing.costARS != null
       ? existing.costARS
-      : (existing.priceARS ? Math.round(existing.priceARS / 1.15) : Math.round(costUSD * prodRate));
+      : (existing.priceARS ? cleanFloat(existing.priceARS / 1.15) : cleanFloat(costUSD * prodRate));
 
     if (priceCurrency === 'ARS') {
-      safeARS = Math.round(safePrice);
-      safeUSD = Number((safeARS / prodRate).toFixed(2));
+      safeARS = cleanFloat(safePrice);
+      safeUSD = cleanFloat(safeARS / prodRate);
       actualCurrency = 'ARS';
-      newMargin = costARS > 0 ? Number((((safeARS - costARS) / costARS) * 100).toFixed(2)) : 0;
+      newMargin = costARS > 0 ? cleanFloat(((safeARS - costARS) / costARS) * 100) : 0;
     } else {
-      safeUSD = Number(safePrice.toFixed(2));
-      safeARS = Math.round(safeUSD * prodRate);
+      safeUSD = cleanFloat(safePrice);
+      safeARS = cleanFloat(safeUSD * prodRate);
       actualCurrency = 'USD';
-      newMargin = costUSD > 0 ? Number((((safeUSD - costUSD) / costUSD) * 100).toFixed(2)) : 0;
+      newMargin = costUSD > 0 ? cleanFloat(((safeUSD - costUSD) / costUSD) * 100) : 0;
     }
 
     const client = getSupabaseClient();
@@ -958,10 +959,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const factor = 1 + percentage / 100;
     const updatedList = products.map((p) => {
       const prodRate = getDollarRateForProduct(p);
-      const newUSD = Number((p.priceUSD * factor).toFixed(2));
+      const newUSD = cleanFloat(p.priceUSD * factor);
       const newARS = p.priceARS
-        ? Math.round(p.priceARS * factor)
-        : Math.round(newUSD * prodRate);
+        ? cleanFloat(p.priceARS * factor)
+        : cleanFloat(newUSD * prodRate);
       return {
         ...p,
         priceUSD: newUSD,
@@ -1877,10 +1878,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   );
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Formatting utility (El cliente siempre ve los precios en Pesos $ ARS)
+  // Formatting utility (El cliente siempre ve los precios en Pesos $ ARS sin redondeo)
   const formatPrice = (priceUSD: number, _customCurrency?: Currency): string => {
-    const ars = Math.round(priceUSD * exchangeRate);
-    return `$ ${ars.toLocaleString('es-AR')}`;
+    const ars = cleanFloat(priceUSD * exchangeRate);
+    return `$ ${formatARS(ars)}`;
   };
 
   // Order History State & Persistence
@@ -2097,8 +2098,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           .update({
             status: 'confirmado',
             items: itemsToProcess,
-            total_usd: Number(finalTotalUSD.toFixed(2)),
-            total_ars: Math.round(finalTotalARS),
+            total_usd: cleanFloat(finalTotalUSD),
+            total_ars: cleanFloat(finalTotalARS),
           })
           .eq('id', orderId);
 
@@ -2216,8 +2217,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           .from('orders')
           .update({
             items: updatedData.items,
-            total_usd: Number(updatedData.totalUSD.toFixed(2)),
-            total_ars: Math.round(updatedData.totalARS),
+            total_usd: cleanFloat(updatedData.totalUSD),
+            total_ars: cleanFloat(updatedData.totalARS),
             ...(updatedData.notes !== undefined ? { notes: updatedData.notes } : {}),
           })
           .eq('id', orderId);
@@ -2239,8 +2240,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           ? {
               ...o,
               items: updatedData.items,
-              totalUSD: Number(updatedData.totalUSD.toFixed(2)),
-              totalARS: Math.round(updatedData.totalARS),
+              totalUSD: cleanFloat(updatedData.totalUSD),
+              totalARS: cleanFloat(updatedData.totalARS),
               notes: updatedData.notes !== undefined ? updatedData.notes : o.notes,
             }
           : o

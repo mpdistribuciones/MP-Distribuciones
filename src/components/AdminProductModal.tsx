@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Product, Category, DollarRateKey } from '../types';
 import { useApp } from '../context/AppContext';
-import { isSupabaseConfigured, uploadProductImage } from '../lib/supabase';
+import { isSupabaseConfigured, uploadProductImage, cleanFloat, formatARS } from '../lib/supabase';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
 import {
   X,
@@ -79,13 +79,13 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
       if (productToEdit.priceCurrency === 'ARS') {
         setPriceCurrency('ARS');
         const priceARS =
-          productToEdit.priceARS || Math.round(productToEdit.priceUSD * rate);
+          productToEdit.priceARS || cleanFloat(productToEdit.priceUSD * rate);
         const costARS =
           productToEdit.costARS != null && productToEdit.costARS > 0
             ? productToEdit.costARS
             : productToEdit.costUSD != null && productToEdit.costUSD > 0
-            ? Math.round(productToEdit.costUSD * rate)
-            : Math.round(priceARS / (1 + margin / 100));
+            ? cleanFloat(productToEdit.costUSD * rate)
+            : cleanFloat(priceARS / (1 + margin / 100));
         setCostInput(costARS);
         setPriceArsInput(priceARS);
       } else {
@@ -95,10 +95,10 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
           productToEdit.costUSD != null && productToEdit.costUSD > 0
             ? productToEdit.costUSD
             : priceUSD > 0
-            ? Number((priceUSD / (1 + margin / 100)).toFixed(2))
+            ? cleanFloat(priceUSD / (1 + margin / 100))
             : 0;
         const priceARS =
-          productToEdit.priceARS || Math.round(costUSD * rate * (1 + margin / 100));
+          productToEdit.priceARS || cleanFloat(costUSD * rate * (1 + margin / 100));
         setCostInput(costUSD);
         setPriceArsInput(priceARS);
       }
@@ -123,14 +123,14 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
           initialValues?.costUSD != null
             ? initialValues.costUSD
             : initialValues?.costARS != null
-            ? Number((initialValues.costARS / rate).toFixed(2))
+            ? cleanFloat(initialValues.costARS / rate)
             : 0;
         setCostInput(defaultCostUSD);
         const defaultPriceARS =
           initialValues?.priceARS != null
             ? initialValues.priceARS
             : defaultCostUSD > 0
-            ? Math.round(defaultCostUSD * rate * (1 + defaultMargin / 100))
+            ? cleanFloat(defaultCostUSD * rate * (1 + defaultMargin / 100))
             : 0;
         setPriceArsInput(defaultPriceARS);
       } else {
@@ -138,14 +138,14 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
           initialValues?.costARS != null
             ? initialValues.costARS
             : initialValues?.costUSD != null
-            ? Math.round(initialValues.costUSD * rate)
+            ? cleanFloat(initialValues.costUSD * rate)
             : 0;
         setCostInput(defaultCostARS);
         const defaultPriceARS =
           initialValues?.priceARS != null
             ? initialValues.priceARS
             : defaultCostARS > 0
-            ? Math.round(defaultCostARS * (1 + defaultMargin / 100))
+            ? cleanFloat(defaultCostARS * (1 + defaultMargin / 100))
             : 0;
         setPriceArsInput(defaultPriceARS);
       }
@@ -155,15 +155,15 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     }
   }, [productToEdit, initialValues, isOpen, dollarRates]);
 
-  // Manejo de Costo, Dólar Asignado, Porcentaje Puntual y Precio Final en Pesos
+  // Manejo de Costo, Dólar Asignado, Porcentaje Puntual y Precio Final en Pesos (sin redondeo)
   const handleCostChange = (newCost: number) => {
     const safeCost = Math.max(0, newCost);
     setCostInput(safeCost);
     const factor = 1 + profitMarginInput / 100;
     const calculatedArs =
       priceCurrency === 'USD'
-        ? Math.round(safeCost * activeRate * factor)
-        : Math.round(safeCost * factor);
+        ? cleanFloat(safeCost * activeRate * factor)
+        : cleanFloat(safeCost * factor);
     setPriceArsInput(calculatedArs);
   };
 
@@ -172,8 +172,8 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     const factor = 1 + newMargin / 100;
     const calculatedArs =
       priceCurrency === 'USD'
-        ? Math.round(costInput * activeRate * factor)
-        : Math.round(costInput * factor);
+        ? cleanFloat(costInput * activeRate * factor)
+        : cleanFloat(costInput * factor);
     setPriceArsInput(calculatedArs);
   };
 
@@ -182,18 +182,18 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     const rate = getRateByKey(newKey);
     if (priceCurrency === 'USD') {
       const factor = 1 + profitMarginInput / 100;
-      setPriceArsInput(Math.round(costInput * rate * factor));
+      setPriceArsInput(cleanFloat(costInput * rate * factor));
     }
   };
 
   const handlePriceArsChange = (newPriceArs: number) => {
-    const safePriceArs = Math.max(0, Math.round(newPriceArs));
+    const safePriceArs = Math.max(0, cleanFloat(newPriceArs));
     setPriceArsInput(safePriceArs);
     const baseCostArs =
       priceCurrency === 'USD' ? costInput * activeRate : costInput;
     if (baseCostArs > 0) {
-      const calculatedMargin = Number(
-        (((safePriceArs - baseCostArs) / baseCostArs) * 100).toFixed(2)
+      const calculatedMargin = cleanFloat(
+        ((safePriceArs - baseCostArs) / baseCostArs) * 100
       );
       setProfitMarginInput(calculatedMargin);
     } else {
@@ -215,15 +215,15 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     if (newCurrency === priceCurrency) return;
     setPriceCurrency(newCurrency);
     if (newCurrency === 'USD') {
-      const newCostUSD = Number((costInput / activeRate).toFixed(4));
+      const newCostUSD = cleanFloat(costInput / activeRate);
       setCostInput(newCostUSD);
       const factor = 1 + profitMarginInput / 100;
-      setPriceArsInput(Math.round(newCostUSD * activeRate * factor));
+      setPriceArsInput(cleanFloat(newCostUSD * activeRate * factor));
     } else {
-      const newCostARS = Math.round(costInput * activeRate);
+      const newCostARS = cleanFloat(costInput * activeRate);
       setCostInput(newCostARS);
       const factor = 1 + profitMarginInput / 100;
-      setPriceArsInput(Math.round(newCostARS * factor));
+      setPriceArsInput(cleanFloat(newCostARS * factor));
     }
   };
 
@@ -277,7 +277,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const numericPriceArs = Math.round(Number(priceArsInput) || 0);
+    const numericPriceArs = cleanFloat(Number(priceArsInput) || 0);
     if (!name.trim() || numericPriceArs <= 0) {
       alert('Por favor complete el nombre del producto y un precio válido en pesos.');
       return;
@@ -297,18 +297,18 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     let finalCostARS = 0;
 
     if (priceCurrency === 'USD') {
-      finalCostUSD = Math.max(0, Number(numericCost.toFixed(2)));
-      finalCostARS = Math.round(finalCostUSD * activeRate);
+      finalCostUSD = Math.max(0, cleanFloat(numericCost));
+      finalCostARS = cleanFloat(finalCostUSD * activeRate);
       finalPriceUSD = Math.max(
-        0.01,
-        Number((finalCostUSD > 0 ? finalCostUSD * factor : finalPriceARS / activeRate).toFixed(2))
+        0.0001,
+        cleanFloat(finalCostUSD > 0 ? finalCostUSD * factor : finalPriceARS / activeRate)
       );
-      finalPriceARS = Math.max(1, numericPriceArs);
+      finalPriceARS = cleanFloat(numericPriceArs);
     } else {
-      finalCostARS = Math.max(0, Math.round(numericCost));
-      finalCostUSD = Number((finalCostARS / activeRate).toFixed(2));
-      finalPriceARS = Math.max(1, numericPriceArs);
-      finalPriceUSD = Number((finalPriceARS / activeRate).toFixed(2));
+      finalCostARS = Math.max(0, cleanFloat(numericCost));
+      finalCostUSD = cleanFloat(finalCostARS / activeRate);
+      finalPriceARS = cleanFloat(numericPriceArs);
+      finalPriceUSD = cleanFloat(finalPriceARS / activeRate);
     }
 
     const productPayload: Omit<Product, 'id'> = {
@@ -340,8 +340,8 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
   };
 
   const costArsEquivalent =
-    priceCurrency === 'USD' ? Math.round(costInput * activeRate) : Math.round(costInput);
-  const profitArs = Math.round(priceArsInput - costArsEquivalent);
+    priceCurrency === 'USD' ? cleanFloat(costInput * activeRate) : cleanFloat(costInput);
+  const profitArs = cleanFloat(priceArsInput - costArsEquivalent);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
@@ -577,7 +577,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                   </span>
                   <input
                     type="number"
-                    step={priceCurrency === 'USD' ? '0.01' : '1'}
+                    step="any"
                     min="0"
                     required
                     value={costInput}
@@ -587,7 +587,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 </div>
                 <p className="text-[10px] text-slate-500 font-mono">
                   {priceCurrency === 'USD'
-                    ? `Costo en pesos: $ ${costArsEquivalent.toLocaleString('es-AR')} ARS`
+                    ? `Costo en pesos: $ ${formatARS(costArsEquivalent)} ARS`
                     : `Costo directo en pesos ($ ARS)`}
                 </p>
               </div>
@@ -601,7 +601,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 <div className="relative">
                   <input
                     type="number"
-                    step="0.5"
+                    step="any"
                     required
                     value={profitMarginInput}
                     onChange={(e) => handleProfitMarginChange(parseFloat(e.target.value) || 0)}
@@ -612,7 +612,7 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                   </span>
                 </div>
                 <p className="text-[10px] text-emerald-700 font-medium">
-                  Ganancia: $ {profitArs.toLocaleString('es-AR')} ARS /un.
+                  Ganancia: $ {formatARS(profitArs)} ARS /un.
                 </p>
               </div>
 
@@ -628,8 +628,8 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                   </span>
                   <input
                     type="number"
-                    step="1"
-                    min="1"
+                    step="any"
+                    min="0.01"
                     required
                     value={priceArsInput}
                     onChange={(e) => handlePriceArsChange(parseFloat(e.target.value) || 0)}

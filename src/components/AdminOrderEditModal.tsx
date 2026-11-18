@@ -9,6 +9,7 @@ import {
   PackagePlus,
 } from 'lucide-react';
 import { Order, CartItem, Product } from '../types';
+import { cleanFloat, formatARS } from '../lib/supabase';
 
 interface AdminOrderEditModalProps {
   isOpen: boolean;
@@ -109,8 +110,8 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
     }
     await onSave(order.id, {
       items,
-      totalUSD: Number(totalUSD.toFixed(2)),
-      totalARS: Math.round(totalARS),
+      totalUSD: cleanFloat(totalUSD),
+      totalARS: cleanFloat(totalARS),
       notes,
     });
   };
@@ -192,7 +193,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
                         const inOrder = items.find(
                           (it) => it.product.id === prod.id || it.product.name === prod.name
                         );
-                        const unitArs = prod.priceARS || Math.round(prod.priceUSD * exchangeRate);
+                        const unitArs = prod.priceARS || cleanFloat(prod.priceUSD * exchangeRate);
                         return (
                           <div
                             key={prod.id}
@@ -220,7 +221,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
 
                             <div className="flex items-center gap-3 shrink-0">
                               <span className="font-bold text-slate-800">
-                                $ {unitArs.toLocaleString('es-AR')}
+                                $ {formatARS(unitArs)}
                               </span>
                               <button
                                 type="button"
@@ -275,7 +276,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
                       <div className="min-w-0">
                         <div className="font-bold text-slate-900 truncate">{it.product.name}</div>
                         <div className="text-[11px] text-slate-500 font-mono">
-                          $ {Math.round(it.product.priceARS || it.product.priceUSD * exchangeRate).toLocaleString('es-AR')} c/u
+                          $ {formatARS(it.product.priceARS || it.product.priceUSD * exchangeRate)} c/u
                         </div>
                       </div>
                     </div>
@@ -313,7 +314,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
 
                       <div className="text-right min-w-[90px]">
                         <div className="font-bold text-slate-900 text-sm">
-                          $ {Math.round((it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity).toLocaleString('es-AR')}
+                          $ {formatARS((it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity)}
                         </div>
                       </div>
 
@@ -356,7 +357,7 @@ export const AdminOrderEditModal: React.FC<AdminOrderEditModalProps> = ({
             </div>
             <div className="text-right">
               <div className="text-xl sm:text-2xl font-black text-slate-900">
-                $ {Math.round(totalARS).toLocaleString('es-AR')} ARS
+                $ {formatARS(totalARS)} ARS
               </div>
               <div className="text-xs font-extrabold text-blue-700">
                 u$s {totalUSD.toFixed(2).replace('.', ',')} USD

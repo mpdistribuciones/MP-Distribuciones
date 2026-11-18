@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
+import { formatARS } from '../lib/supabase';
 import { Order } from '../types';
 import {
   X,
@@ -200,7 +201,7 @@ export const OrderHistoryModal: React.FC = () => {
                               </span>
                             </div>
                             <span className="text-[11px] font-mono font-bold text-slate-600 shrink-0 ml-2">
-                              $ {((item.product.priceARS || Math.round(item.product.priceUSD * exchangeRate)) * item.quantity).toLocaleString('es-AR')}
+                              $ {formatARS((item.product.priceARS || item.product.priceUSD * exchangeRate) * item.quantity)}
                             </span>
                           </div>
                         ))}
@@ -224,7 +225,7 @@ export const OrderHistoryModal: React.FC = () => {
                           <span>{order.invoiceType}</span>
                         </div>
                         <div className="text-sm font-black text-slate-900">
-                          Total: $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')} ARS
+                          Total: $ {formatARS(order.totalARS || order.totalUSD * exchangeRate)} ARS
                         </div>
                       </div>
 

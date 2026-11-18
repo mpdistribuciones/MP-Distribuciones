@@ -74,15 +74,27 @@ export const clearSupabaseConfig = () => {
 };
 
 // ==========================================
-// Helper: Precio final en Pesos ($ ARS) para el cliente
+// Helper: Precio final en Pesos ($ ARS) para el cliente (sin redondeo)
 // ==========================================
+export const cleanFloat = (val: number): number => {
+  if (!Number.isFinite(val)) return 0;
+  return Number(val.toPrecision(12));
+};
+
+export const formatARS = (amount: number): string => {
+  return cleanFloat(amount).toLocaleString('es-AR', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 4,
+  });
+};
+
 export const getProductPriceARS = (p: Partial<Product> | null | undefined, fallbackRate = 1350): number => {
   if (!p) return 0;
   if (typeof p.priceARS === 'number' && p.priceARS > 0) {
-    return Math.round(p.priceARS);
+    return cleanFloat(p.priceARS);
   }
   const usd = typeof p.priceUSD === 'number' && p.priceUSD > 0 ? p.priceUSD : 0;
-  return Math.round(usd * fallbackRate);
+  return cleanFloat(usd * fallbackRate);
 };
 
 // ==========================================
@@ -90,7 +102,7 @@ export const getProductPriceARS = (p: Partial<Product> | null | undefined, fallb
 // ==========================================
 export const productToDb = (p: Product) => {
   const priceUSD = Number(p.priceUSD) || 0;
-  const priceARS = Math.round(Number(p.priceARS) || (priceUSD ? priceUSD * 1350 : 0));
+  const priceARS = cleanFloat(Number(p.priceARS) || (priceUSD ? priceUSD * 1350 : 0));
 
   return {
     id: p.id,
@@ -136,18 +148,18 @@ export const upsertProductsToDb = async (
 export const productCostToDb = (p: Product) => {
   const margin = p.profitMargin != null ? Number(p.profitMargin) : 15;
   const priceUSD = Number(p.priceUSD) || 0;
-  const priceARS = Number(p.priceARS) || Math.round(priceUSD * 1350);
+  const priceARS = Number(p.priceARS) || cleanFloat(priceUSD * 1350);
   const costUSD =
     p.costUSD != null
       ? Number(p.costUSD)
       : priceUSD > 0
-      ? Number((priceUSD / (1 + margin / 100)).toFixed(2))
+      ? cleanFloat(priceUSD / (1 + margin / 100))
       : 0;
   const costARS =
     p.costARS != null
       ? Number(p.costARS)
       : priceARS > 0
-      ? Math.round(priceARS / (1 + margin / 100))
+      ? cleanFloat(priceARS / (1 + margin / 100))
       : 0;
 
   return {
@@ -255,7 +267,7 @@ export const orderToDb = (o: Order) => {
     notes: o.notes || '',
     items: o.items || [],
     total_usd: Number(o.totalUSD) || 0,
-    total_ars: Math.round(Number(o.totalARS) || 0),
+    total_ars: cleanFloat(Number(o.totalARS) || 0),
     delivery_method: o.deliveryMethod || 'pickup',
     invoice_type: o.invoiceType || 'B',
     status: o.status || 'pendiente',

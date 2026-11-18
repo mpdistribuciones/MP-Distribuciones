@@ -12,6 +12,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { formatARS } from '../lib/supabase';
 import { Order, CartItem, OrderStatus } from '../types';
 import { AdminOrderDetailModal } from './AdminOrderDetailModal';
 import { AdminOrderEditModal } from './AdminOrderEditModal';
@@ -601,7 +602,7 @@ export const AdminOrdersView: React.FC = () => {
                         {/* Total */}
                         <td className="py-3 px-3 text-right whitespace-nowrap">
                           <div className="font-black text-slate-900">
-                            $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')}
+                            $ {formatARS(order.totalARS || order.totalUSD * exchangeRate)}
                           </div>
                           <div className="text-[10px] font-bold text-blue-600">
                             u$s {order.totalUSD.toFixed(2).replace('.', ',')} USD
@@ -751,7 +752,7 @@ export const AdminOrdersView: React.FC = () => {
 
                     <div className="text-right shrink-0">
                       <div className="font-black text-xs text-slate-900">
-                        $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')}
+                        $ {formatARS(order.totalARS || order.totalUSD * exchangeRate)}
                       </div>
                       <div className="text-[10px] font-bold text-blue-600">
                         u$s {order.totalUSD.toFixed(2)} USD

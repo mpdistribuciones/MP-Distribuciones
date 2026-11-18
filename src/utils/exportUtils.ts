@@ -1,6 +1,6 @@
 import * as XLSX from 'xlsx';
 import { Product } from '../types';
-import { getProductPriceARS } from '../lib/supabase';
+import { getProductPriceARS, cleanFloat } from '../lib/supabase';
 
 /**
  * Neutralizes formula injection vulnerabilities (CSV/Excel injection)
@@ -88,14 +88,14 @@ export const exportStockCatalog = (
       p.costUSD != null
         ? p.costUSD
         : p.priceUSD > 0
-        ? Number((p.priceUSD / (1 + margin / 100)).toFixed(2))
+        ? cleanFloat(p.priceUSD / (1 + margin / 100))
         : 0;
     const costARS =
       p.costARS != null
         ? p.costARS
         : p.priceARS
-        ? Math.round(p.priceARS / (1 + margin / 100))
-        : Math.round(costUSD * exchangeRate);
+        ? cleanFloat(p.priceARS / (1 + margin / 100))
+        : cleanFloat(costUSD * exchangeRate);
 
     return {
       id: sanitizeForExport(p.id),

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
-import { getProductPriceARS } from '../lib/supabase';
+import { getProductPriceARS, formatARS } from '../lib/supabase';
 import { InvoiceType, DeliveryMethod } from '../types';
 import confetti from 'canvas-confetti';
 import {
@@ -61,7 +61,7 @@ export const CheckoutModal: React.FC = () => {
 
   if (!isCheckoutModalOpen) return null;
 
-  const currentTotal = `$ ${Math.round(cartTotalARS).toLocaleString('es-AR')} ARS`;
+  const currentTotal = `$ ${formatARS(cartTotalARS)} ARS`;
 
   const handleDeliveryChange = (method: DeliveryMethod) => {
     setDeliveryMethod(method);
@@ -87,7 +87,7 @@ export const CheckoutModal: React.FC = () => {
     const itemsLines = cart
       .map((item) => {
         const unitArs = getProductPriceARS(item.product, exchangeRate);
-        const itemSubtotal = `$ ${(unitArs * item.quantity).toLocaleString('es-AR')}`;
+        const itemSubtotal = `$ ${formatARS(unitArs * item.quantity)}`;
         return `• ${item.quantity}x ${item.product.name} - ${itemSubtotal}`;
       })
       .join('\n');

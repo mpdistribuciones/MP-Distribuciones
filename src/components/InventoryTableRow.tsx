@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Product, DollarRateKey, DollarRatesMap } from '../types';
 import { DEFAULT_PRODUCT_IMAGE } from '../lib/constants';
+import { cleanFloat } from '../lib/supabase';
 import { Check, Edit, Trash2, Loader2, CheckCircle2 } from 'lucide-react';
 
 interface InventoryTableRowProps {
@@ -50,19 +51,19 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
 
   const defaultMargin = product.profitMargin != null ? product.profitMargin : 15;
   const defaultPriceUSD = product.priceUSD;
-  const defaultPriceARS = product.priceARS || Math.round(product.priceUSD * productRate);
+  const defaultPriceARS = product.priceARS || cleanFloat(product.priceUSD * productRate);
   const defaultCostUSD =
     product.costUSD != null && (product.costUSD > 0 || defaultPriceUSD === 0)
       ? product.costUSD
       : defaultPriceUSD > 0
-      ? Number((defaultPriceUSD / (1 + defaultMargin / 100)).toFixed(2))
+      ? cleanFloat(defaultPriceUSD / (1 + defaultMargin / 100))
       : 0;
   const defaultCostARS =
     product.costARS != null && (product.costARS > 0 || defaultPriceARS === 0)
       ? product.costARS
       : product.priceARS
-      ? Math.round(product.priceARS / (1 + defaultMargin / 100))
-      : Math.round(defaultCostUSD * productRate);
+      ? cleanFloat(product.priceARS / (1 + defaultMargin / 100))
+      : cleanFloat(defaultCostUSD * productRate);
 
   const [costInput, setCostInput] = useState<number>(
     isCostArs ? defaultCostARS : defaultCostUSD
@@ -114,18 +115,18 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     setIsSaving(true);
     try {
       let finalPriceUSD = 0;
-      let finalPriceARS = Math.max(1, Math.round(overridePriceArs));
+      let finalPriceARS = Math.max(0.01, cleanFloat(overridePriceArs));
       let finalCostUSD = 0;
       let finalCostARS = 0;
 
       if (overrideCurrency === 'ARS') {
-        finalCostARS = Math.max(0, Math.round(overrideCost));
-        finalCostUSD = Number((finalCostARS / rate).toFixed(2));
-        finalPriceUSD = Number((finalPriceARS / rate).toFixed(2));
+        finalCostARS = Math.max(0, cleanFloat(overrideCost));
+        finalCostUSD = cleanFloat(finalCostARS / rate);
+        finalPriceUSD = cleanFloat(finalPriceARS / rate);
       } else {
-        finalCostUSD = Math.max(0, Number(overrideCost.toFixed(2)));
-        finalCostARS = Math.round(finalCostUSD * rate);
-        finalPriceUSD = Math.max(0.01, Number((finalPriceARS / rate).toFixed(2)));
+        finalCostUSD = Math.max(0, cleanFloat(overrideCost));
+        finalCostARS = cleanFloat(finalCostUSD * rate);
+        finalPriceUSD = Math.max(0.0001, cleanFloat(finalPriceARS / rate));
       }
 
       await onUpdateFinancials(product.id, {
@@ -133,7 +134,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
         priceARS: finalPriceARS,
         costUSD: finalCostUSD,
         costARS: finalCostARS,
-        profitMargin: Number(overrideMargin.toFixed(2)),
+        profitMargin: cleanFloat(overrideMargin),
         priceCurrency: overrideCurrency,
         dollarRateKey: overrideDollarKey,
       });
@@ -161,8 +162,8 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     isDirtyRef.current = true;
     const factor = 1 + marginInput / 100;
     const newPriceArs = isCostArs
-      ? Math.round(newCost * factor)
-      : Math.round(newCost * productRate * factor);
+      ? cleanFloat(newCost * factor)
+      : cleanFloat(newCost * productRate * factor);
     setPriceArsInput(newPriceArs);
     scheduleDebouncedSave(newCost, marginInput, newPriceArs);
   };
@@ -172,20 +173,20 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     isDirtyRef.current = true;
     const factor = 1 + val / 100;
     const newPriceArs = isCostArs
-      ? Math.round(costInput * factor)
-      : Math.round(costInput * productRate * factor);
+      ? cleanFloat(costInput * factor)
+      : cleanFloat(costInput * productRate * factor);
     setPriceArsInput(newPriceArs);
     scheduleDebouncedSave(costInput, val, newPriceArs);
   };
 
   const handlePriceArsChange = (val: number) => {
-    const newPriceArs = Math.max(1, Math.round(val));
+    const newPriceArs = Math.max(0.01, cleanFloat(val));
     setPriceArsInput(newPriceArs);
     isDirtyRef.current = true;
     const baseCostArs = isCostArs ? costInput : costInput * productRate;
     let newMargin = 0;
     if (baseCostArs > 0) {
-      newMargin = Number((((newPriceArs - baseCostArs) / baseCostArs) * 100).toFixed(2));
+      newMargin = cleanFloat(((newPriceArs - baseCostArs) / baseCostArs) * 100);
     }
     setMarginInput(newMargin);
     scheduleDebouncedSave(costInput, newMargin, newPriceArs);
@@ -208,14 +209,14 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     if (newCurr === currentCurrency) return;
     const factor = 1 + marginInput / 100;
     if (newCurr === 'ARS') {
-      const nextCostArs = Math.round(costInput * productRate);
-      const nextPriceArs = Math.round(nextCostArs * factor);
+      const nextCostArs = cleanFloat(costInput * productRate);
+      const nextPriceArs = cleanFloat(nextCostArs * factor);
       setCostInput(nextCostArs);
       setPriceArsInput(nextPriceArs);
       await saveFinancials(nextCostArs, marginInput, nextPriceArs, 'ARS', currentDollarKey);
     } else {
-      const nextCostUsd = Number((costInput / productRate).toFixed(4));
-      const nextPriceArs = Math.round(nextCostUsd * productRate * factor);
+      const nextCostUsd = cleanFloat(costInput / productRate);
+      const nextPriceArs = cleanFloat(nextCostUsd * productRate * factor);
       setCostInput(nextCostUsd);
       setPriceArsInput(nextPriceArs);
       await saveFinancials(nextCostUsd, marginInput, nextPriceArs, 'USD', currentDollarKey);
@@ -228,7 +229,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
     const factor = 1 + marginInput / 100;
     const nextPriceArs = isCostArs
       ? priceArsInput
-      : Math.round(costInput * nextRate * factor);
+      : cleanFloat(costInput * nextRate * factor);
     setPriceArsInput(nextPriceArs);
     await saveFinancials(costInput, marginInput, nextPriceArs, currentCurrency, newKey);
   };
@@ -347,7 +348,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
             </span>
             <input
               type="number"
-              step={isCostArs ? '10' : '0.01'}
+              step="any"
               min="0"
               value={costInput}
               onChange={(e) => handleCostChange(parseFloat(e.target.value) || 0)}
@@ -388,7 +389,7 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
           <div className="relative inline-flex items-center">
             <input
               type="number"
-              step="0.5"
+              step="any"
               value={marginInput}
               onChange={(e) => handleMarginChange(parseFloat(e.target.value) || 0)}
               onBlur={handleBlur}
@@ -430,8 +431,8 @@ export const InventoryTableRow: React.FC<InventoryTableRowProps> = React.memo(({
             <span className="font-mono text-xs font-bold text-emerald-700">$</span>
             <input
               type="number"
-              step="10"
-              min="1"
+              step="any"
+              min="0.01"
               value={priceArsInput}
               onChange={(e) => handlePriceArsChange(parseFloat(e.target.value) || 1)}
               onBlur={handleBlur}

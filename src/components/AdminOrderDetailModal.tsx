@@ -17,6 +17,7 @@ import {
   FileText,
 } from 'lucide-react';
 import { Order, Product } from '../types';
+import { formatARS } from '../lib/supabase';
 
 interface AdminOrderDetailModalProps {
   isOpen: boolean;
@@ -327,11 +328,11 @@ export const AdminOrderDetailModal: React.FC<AdminOrderDetailModalProps> = ({
                     <div>
                       <div className="font-bold text-slate-900 text-sm">
                         {it.quantity} un. × ${' '}
-                        {Math.round(it.product.priceARS || it.product.priceUSD * exchangeRate).toLocaleString('es-AR')}
+                        {formatARS(it.product.priceARS || it.product.priceUSD * exchangeRate)}
                       </div>
                       <div className="text-[11px] text-slate-500 font-medium">
                         Subtotal: ${' '}
-                        {Math.round((it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity).toLocaleString('es-AR')}
+                        {formatARS((it.product.priceARS || it.product.priceUSD * exchangeRate) * it.quantity)}
                       </div>
                     </div>
                   </div>
@@ -352,7 +353,7 @@ export const AdminOrderDetailModal: React.FC<AdminOrderDetailModalProps> = ({
             </div>
             <div className="text-right">
               <div className="text-xl sm:text-2xl font-black text-slate-900">
-                $ {Math.round(order.totalARS || order.totalUSD * exchangeRate).toLocaleString('es-AR')} ARS
+                $ {formatARS(order.totalARS || order.totalUSD * exchangeRate)} ARS
               </div>
               <div className="text-xs font-extrabold text-blue-700">
                 u$s {order.totalUSD.toFixed(2).replace('.', ',')} USD
